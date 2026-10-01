@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎨 AI Banner Prompt Generator Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0e1a;--card:#131829;--card2:#1a2035;--border:#2a3050;
+--accent:#00d4ff;--accent2:#7c3aed;--accent3:#f59e0b;
+--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+--success:#10b981;--danger:#ef4444;
+--grad:linear-gradient(135deg,#00d4ff,#7c3aed);
+--grad2:linear-gradient(135deg,#7c3aed,#ec4899);
+--radius:12px;--shadow:0 4px 24px rgba(0,0,0,0.4)
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:15px}
+.header{text-align:center;padding:25px 15px 15px}
+.header h1{font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header p{color:var(--text2);font-size:0.9rem;margin-top:4px}
+.badge{display:inline-block;background:var(--grad2);color:#fff;padding:3px 14px;border-radius:20px;font-size:0.72rem;margin-top:8px;font-weight:600}
+.tabs{display:flex;gap:3px;background:var(--card);border-radius:var(--radius);padding:5px;margin:15px 0;overflow-x:auto;border:1px solid var(--border)}
+.tab-btn{flex:1;min-width:90px;padding:10px 4px;border:none;background:0;color:var(--text2);cursor:pointer;border-radius:8px;font-size:0.72rem;font-weight:600;transition:.3s;text-align:center}
+.tab-btn:hover{background:rgba(0,212,255,.1);color:var(--text)}
+.tab-btn.active{background:var(--grad);color:#fff;box-shadow:0 2px 12px rgba(0,212,255,.3)}
+.tab-btn .ti{display:block;font-size:1.1rem;margin-bottom:2px}
+.tab-content{display:none;animation:fadeIn .4s}
+.tab-content.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.card h3{color:var(--accent);font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.fi{display:flex;flex-direction:column;gap:5px}
+.fi label{font-size:0.82rem;color:var(--text2);font-weight:600}
+.fi .req{color:var(--danger)}
+select,input[type="text"],input[type="number"],textarea{
+background:var(--card2);border:1px solid var(--border);color:var(--text);
+padding:10px 12px;border-radius:8px;font-size:0.85rem;transition:.3s;font-family:inherit;width:100%}
+select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,.15)}
+textarea{resize:vertical;min-height:70px}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+select option{background:var(--card);color:var(--text)}
+.sr{display:flex;gap:8px;align-items:center}
+.sr input{width:75px;text-align:center}
+.sr span{color:var(--text3);font-weight:700}
+.sr select{width:85px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.ci{display:flex;align-items:center;gap:7px;padding:8px 10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:.3s;font-size:0.8rem}
+.ci:hover{border-color:var(--accent)}
+.ci input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
+.ci.on{border-color:var(--accent);background:rgba(0,212,255,.1)}
+.lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.lo{border:2px solid var(--border);border-radius:10px;padding:8px;cursor:pointer;transition:.3s;background:var(--card2);text-align:center}
+.lo:hover{border-color:var(--accent);transform:translateY(-2px)}
+.lo.sel{border-color:var(--accent);background:rgba(0,212,255,.1);box-shadow:0 0 14px rgba(0,212,255,.2)}
+.lp{height:70px;background:var(--bg);border-radius:5px;margin-bottom:5px;display:flex;overflow:hidden;gap:2px;padding:3px}
+.lo .ln{font-size:0.7rem;color:var(--text2);font-weight:600}
+.li{background:var(--accent);opacity:.3;border-radius:3px}
+.lt{background:var(--accent2);opacity:.3;border-radius:3px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.po{border:2px solid var(--border);border-radius:10px;padding:7px;cursor:pointer;transition:.3s;text-align:center}
+.po:hover{border-color:var(--accent)}
+.po.sel{border-color:var(--accent);box-shadow:0 0 10px rgba(0,212,255,.2)}
+.pc{display:flex;height:26px;border-radius:5px;overflow:hidden;margin-bottom:4px}
+.pc div{flex:1}
+.pn{font-size:0.68rem;color:var(--text2);font-weight:600}
+.pf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.pi{display:flex;align-items:center;gap:8px;padding:10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:.3s}
+.pi:hover{border-color:var(--accent)}
+.pi.sel{border-color:var(--accent);background:rgba(0,212,255,.08)}
+.pi .pk{font-size:1.2rem}
+.pi .pm{font-size:0.8rem;font-weight:600}
+.btn{padding:12px 24px;border:none;border-radius:8px;font-size:.92rem;font-weight:700;cursor:pointer;transition:.3s;display:inline-flex;align-items:center;gap:7px}
+.btn1{background:var(--grad);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.3)}
+.btn1:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,212,255,.4)}
+.btn2{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+.btn2:hover{border-color:var(--accent)}
+.btn3{background:var(--success);color:#fff}
+.btn4{background:var(--danger);color:#fff}
+.bs{padding:7px 13px;font-size:.78rem}
+.op{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.oh{background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(124,58,237,.15));padding:12px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+.oh h3{color:var(--accent);margin:0;font-size:.95rem}
+.ot{display:flex;gap:3px;padding:8px 14px;background:var(--card2);overflow-x:auto}
+.otb{padding:6px 12px;border:none;background:0;color:var(--text3);cursor:pointer;border-radius:5px;font-size:.75rem;font-weight:600;white-space:nowrap}
+.otb.act{background:var(--accent);color:#000}
+.ob{padding:16px}
+.pb{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:.82rem;line-height:1.8;color:var(--text);white-space:pre-wrap;word-break:break-word;max-height:350px;overflow-y:auto;position:relative}
+.cb{position:absolute;top:7px;right:7px;background:var(--accent);color:#000;border:none;padding:5px 11px;border-radius:5px;cursor:pointer;font-size:.7rem;font-weight:700;z-index:2}
+.cb:hover{background:#fff}
+.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin-top:10px}
+.vc{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px}
+.vc h4{color:var(--accent3);font-size:.85rem;margin-bottom:6px}
+.vc .pb{max-height:160px;font-size:.76rem}
+.hp{max-height:280px;overflow-y:auto}
+.hi{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;margin-bottom:7px;cursor:pointer;transition:.3s}
+.hi:hover{border-color:var(--accent)}
+.hf{flex:1}
+.hc{font-size:.8rem;color:var(--accent);font-weight:600}
+.hh{font-size:.72rem;color:var(--text3)}
+.hd{font-size:.68rem;color:var(--text3)}
+.hx{background:0;border:0;color:var(--danger);cursor:pointer;font-size:1rem;padding:3px 7px}
+.rl{list-style:none;padding:0}
+.rl li{padding:7px 11px;border-left:3px solid var(--accent);margin-bottom:5px;background:var(--card2);border-radius:0 6px 6px 0;font-size:.8rem;color:var(--text2)}
+.tr{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.tg{width:42px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;transition:.3s;flex-shrink:0}
+.tg.on{background:var(--accent)}
+.tg::after{content:'';position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.3s}
+.tg.on::after{left:22px}
+.tl{font-size:.82rem;color:var(--text2)}
+.gs{text-align:center;padding:18px 0}
+.toast{position:fixed;bottom:25px;right:25px;padding:12px 22px;border-radius:8px;font-weight:600;font-size:.85rem;transform:translateY(100px);opacity:0;transition:.4s;z-index:999;color:#fff}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{background:var(--success)}
+.toast.err{background:var(--danger)}
+.es{text-align:center;padding:25px;color:var(--text3)}
+.es .ei{font-size:2.2rem;margin-bottom:6px}
+.cnt{font-size:.7rem;color:var(--text3);text-align:right;margin-top:3px}
+@media(max-width:768px){
+.header h1{font-size:1.3rem}
+.tab-btn{min-width:65px;font-size:.62rem;padding:7px 2px}
+.tab-btn .ti{font-size:.9rem}
+.fg{grid-template-columns:1fr}
+.lg{grid-template-columns:repeat(2,1fr)}
+}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🎨 AI Banner Prompt Generator Pro</h1>
+<p>Flex Banner, Poster, Standee — कोणत्याही AI साठी Perfect Prompt</p>
+<span class="badge">⚡ v2.0 — All 8 AI Platforms</span>
+</div>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="sT(0)"><span class="ti">📋</span>मूलभूत</button>
+<button class="tab-btn" onclick="sT(1)"><span class="ti">📝</span>मजकूर</button>
+<button class="tab-btn" onclick="sT(2)"><span class="ti">🎨</span>डिझाइन</button>
+<button class="tab-btn" onclick="sT(3)"><span class="ti">📐</span>लेआउट</button>
+<button class="tab-btn" onclick="sT(4)"><span class="ti">✨</span>सजावट</button>
+<button class="tab-btn" onclick="sT(5)"><span class="ti">⚙️</span>सेटिंग्ज</button>
+<button class="tab-btn" onclick="sT(6)"><span class="ti">🚀</span>Output</button>
+</div>
+
+<!-- TAB 0: BASIC -->
+<div class="tab-content active" id="t0">
+<div class="card">
+<h3>📋 मूलभूत माहिती</h3>
+<div class="fg">
+<div class="fi"><label>🏷️ Category <span class="req">*</span></label>
+<select id="cat" onchange="onCat()">
+<option value="">-- निवडा --</option>
+<option value="political">🚩 राजकीय</option>
+<option value="wedding">💒 लग्न</option>
+<option value="sale">🏷️ सेल / ऑफर</option>
+<option value="education">📚 शिक्षण</option>
+<option value="restaurant">🍽️ रेस्टॉरंट</option>
+<option value="medical">🏥 वैद्यकीय</option>
+<option value="realestate">🏗️ रिअल इस्टेट</option>
+<option value="religious">🙏 धार्मिक</option>
+<option value="birthday">🎂 वाढदिवस</option>
+<option value="inauguration">🎀 उद्घाटन</option>
+<option value="condolence">🕊️ शोकसंदेश</option>
+<option value="corporate">🏢 कॉर्पोरेट</option>
+<option value="gym">💪 जिम / Fitness</option>
+<option value="salon">💇 सलून / Beauty</option>
+<option value="festival">🎊 सण / Festival</option>
+<option value="election">🗳️ निवडणूक</option>
+<option value="tourism">✈️ पर्यटन</option>
+<option value="music">🎵 संगीत Event</option>
+<option value="sports">⚽ खेळ / Sports</option>
+<option value="automobile">🚗 ऑटोमोबाईल</option>
+<option value="other">📌 इतर</option>
+</select></div>
+<div class="fi"><label>📄 Banner Type <span class="req">*</span></label>
+<select id="btype">
+<option value="">-- निवडा --</option>
+<option value="horizontal_flex">Horizontal Flex Banner</option>
+<option value="vertical_flex">Vertical Flex Banner</option>
+<option value="standee">Roll-up Standee</option>
+<option value="backdrop">Stage Backdrop</option>
+<option value="hanging">Hanging Banner</option>
+<option value="pole">Pole Banner</option>
+<option value="gate">Gate Banner</option>
+<option value="wall">Wall Banner</option>
+<option value="poster">Poster</option>
+<option value="social_media">Social Media Post</option>
+<option value="story">Social Media Story</option>
+<option value="vehicle">Vehicle Wrap</option>
+<option value="hoarding">Hoarding / Billboard</option>
+</select></div>
+<div class="fi"><label>📏 Size</label>
+<div class="sr">
+<input type="number" id="sw" value="6">
+<span>×</span>
+<input type="number" id="sh" value="3">
+<select id="su"><option value="feet">Feet</option><option value="inches">Inches</option><option value="cm">CM</option><option value="pixels">Pixels</option></select>
+</div></div>
+<div class="fi"><label>📐 Size Preset</label>
+<select id="sp" onchange="aSP()">
+<option value="">-- Custom --</option>
+<option value="8,4,feet">Flex 8×4 ft</option>
+<option value="6,3,feet">Flex 6×3 ft</option>
+<option value="10,5,feet">Flex 10×5 ft</option>
+<option value="3,6,feet">Standee 3×6 ft</option>
+<option value="20,8,feet">Backdrop 20×8 ft</option>
+<option value="1080,1080,pixels">Instagram Post</option>
+<option value="1200,628,pixels">Facebook Post</option>
+<option value="1080,1920,pixels">Story / Reel</option>
+<option value="21,29.7,cm">Poster A4</option>
+<option value="29.7,42,cm">Poster A3</option>
+</select></div>
+<div class="fi"><label>🌐 भाषा</label>
+<select id="lang">
+<option value="marathi">मराठी</option><option value="hindi">हिंदी</option>
+<option value="english">English</option><option value="mar_eng">Marathi+English</option>
+<option value="hin_eng">Hindi+English</option>
+</select></div>
+<div class="fi"><label>👥 Audience</label>
+<select id="aud">
+<option value="general">General</option><option value="youth">Youth</option>
+<option value="rural">Rural</option><option value="urban">Urban</option>
+<option value="women">Women</option><option value="kids">Kids</option>
+<option value="business">Business</option><option value="students">Students</option>
+</select></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 1: CONTENT -->
+<div class="tab-content" id="t1">
+<div class="card">
+<h3>📝 बॅनरवरील मजकूर</h3>
+<div class="fg">
+<div class="fi"><label>🔤 Heading <span class="req">*</span></label>
+<input type="text" id="head" placeholder="उदा. गणेशोत्सव 2025"></div>
+<div class="fi"><label>🔤 Sub-heading</label>
+<input type="text" id="sub" placeholder="उदा. श्री गणेश मंडळ"></div>
+</div>
+<div class="fg" style="margin-top:12px">
+<div class="fi"><label>📄 Body Text</label>
+<textarea id="body" rows="3" placeholder="अतिरिक्त माहिती..."></textarea></div>
+<div class="fi"><label>📞 Contact</label>
+<textarea id="contact" rows="3" placeholder="Phone, Address..."></textarea></div>
+</div>
+<div class="fg" style="margin-top:12px">
+<div class="fi"><label>🎯 CTA</label>
+<input type="text" id="cta" placeholder="आजच भेट द्या!"></div>
+<div class="fi"><label>🏢 Brand Name</label>
+<input type="text" id="brand" placeholder="संस्था / ब्रँड नाव"></div>
+</div>
+<div class="fg" style="margin-top:12px">
+<div class="fi"><label>📅 Date/Time</label>
+<input type="text" id="edate" placeholder="27 ऑगस्ट 2025"></div>
+<div class="fi"><label>📍 Venue</label>
+<input type="text" id="venue" placeholder="शिवाजी पार्क, दादर"></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 2: DESIGN -->
+<div class="tab-content" id="t2">
+<div class="card">
+<h3>🎨 डिझाइन शैली</h3>
+<div class="fg">
+<div class="fi"><label>🖌️ Style <span class="req">*</span></label>
+<select id="style">
+<option value="">-- निवडा --</option>
+<option value="minimalist">Minimalist</option>
+<option value="bold_loud">Bold & Loud</option>
+<option value="corporate">Corporate</option>
+<option value="festive">Festive</option>
+<option value="luxury">Luxury / Premium</option>
+<option value="retro">Retro / Vintage</option>
+<option value="modern_gradient">Modern Gradient</option>
+<option value="handdrawn">Hand-drawn</option>
+<option value="photographic">Photographic</option>
+<option value="flat">Flat Design</option>
+<option value="3d">3D Style</option>
+<option value="neon">Neon / Glow</option>
+<option value="watercolor">Watercolor</option>
+<option value="glassmorphism">Glassmorphism</option>
+<option value="traditional_indian">Traditional Indian</option>
+</select></div>
+<div class="fi"><label>🔤 Typography</label>
+<select id="typo">
+<option value="bold_sans">Bold Sans-serif</option>
+<option value="elegant_serif">Elegant Serif</option>
+<option value="script">Script</option>
+<option value="devanagari_calligraphy">Devanagari Calligraphy</option>
+<option value="display">Display / Impact</option>
+<option value="rounded">Rounded</option>
+</select></div>
+<div class="fi"><label>😊 Mood</label>
+<select id="mood">
+<option value="urgent">Urgent</option>
+<option value="celebratory">Celebratory</option>
+<option value="professional">Professional</option>
+<option value="divine">Divine</option>
+<option value="elegant">Elegant</option>
+<option value="energetic">Energetic</option>
+<option value="warm">Warm</option>
+<option value="fun">Fun</option>
+<option value="sober">Sober</option>
+<option value="inspiring">Inspiring</option>
+<option value="romantic">Romantic</option>
+<option value="patriotic">Patriotic</option>
+</select></div>
+<div class="fi"><label>🎭 Background</label>
+<select id="bg">
+<option value="solid">Solid Color</option>
+<option value="gradient">Gradient</option>
+<option value="image">Photo BG</option>
+<option value="pattern">Pattern</option>
+<option value="blur">Blurred</option>
+<option value="dark_overlay">Dark Overlay</option>
+<option value="abstract">Abstract</option>
+<option value="bokeh">Bokeh</option>
+</select></div>
+</div>
+</div>
+<div class="card">
+<h3>🎨 Color Palette</h3>
+<div class="pg" id="palG"></div>
+<div class="fi" style="margin-top:12px"><label>🎨 Custom Colors</label>
+<input type="text" id="ccol" placeholder="Red, Gold, White"></div>
+</div>
+</div>
+
+<!-- TAB 3: LAYOUT -->
+<div class="tab-content" id="t3">
+<div class="card">
+<h3>📐 Layout निवडा</h3>
+<div class="lg" id="layG"></div>
+<div class="fi" style="margin-top:12px"><label>📐 Layout Dropdown</label>
+<select id="layD" onchange="sLD(this.value)">
+<option value="">-- निवडा --</option>
+<option value="left_img_right_text">Left Image + Right Text</option>
+<option value="right_img_left_text">Right Image + Left Text</option>
+<option value="centered_overlay">Text on Image</option>
+<option value="header_content_footer">Header+Body+Footer</option>
+<option value="grid_images">Image Grid</option>
+<option value="diagonal_split">Diagonal Split</option>
+<option value="circular_center">Circle Center</option>
+<option value="full_bleed">Full Bleed</option>
+<option value="top_bottom">Top Img + Bottom Text</option>
+<option value="three_column">Three Column</option>
+</select></div>
+</div>
+<div class="card">
+<h3>🖼️ Image Settings</h3>
+<div class="fg">
+<div class="fi"><label>🖼️ Image Count</label>
+<select id="icount"><option value="0">0 (Text Only)</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="multiple">4+</option></select></div>
+<div class="fi"><label>📸 Image Type</label>
+<select id="itype"><option value="person">Person</option><option value="product">Product</option><option value="logo">Logo</option><option value="deity">Deity</option><option value="building">Building</option><option value="food">Food</option><option value="nature">Nature</option><option value="abstract">Abstract</option></select></div>
+<div class="fi"><label>📍 Position</label>
+<select id="ipos"><option value="left">Left</option><option value="right">Right</option><option value="center">Center</option><option value="background">Background</option><option value="top">Top</option></select></div>
+<div class="fi"><label>🎭 Image Style</label>
+<select id="istyle"><option value="cutout">Cutout</option><option value="full_frame">Full Frame</option><option value="circular">Circular</option><option value="bordered">Bordered</option><option value="faded">Faded</option><option value="shadow">Shadow</option></select></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 4: ELEMENTS & RULES -->
+<div class="tab-content" id="t4">
+<div class="card">
+<h3>✨ सजावटीचे घटक</h3>
+<div class="cg" id="elG"></div>
+</div>
+<div class="card">
+<h3>📏 Design Rules</h3>
+<div class="tr">
+<div class="tg on" id="tR" onclick="tw(this)"></div>
+<span class="tl">Rules समाविष्ट करा</span>
+</div>
+<ul class="rl">
+<li>📐 Heading: 25-35% area</li>
+<li>📞 Contact: bottom 15%</li>
+<li>🏷️ Logo: min 8-10%</li>
+<li>📏 Safe margin: 0.5 inch</li>
+<li>🔤 Max 2-3 fonts</li>
+<li>🎨 High contrast text-bg</li>
+<li>👁️ Readable from 10 ft</li>
+<li>⚖️ Hierarchy: Head>Sub>Body>Contact</li>
+<li>🚫 No overcrowding</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB 5: SETTINGS -->
+<div class="tab-content" id="t5">
+<div class="card">
+<h3>🤖 AI Platforms <span class="req">*</span></h3>
+<div class="pf" id="pfG"></div>
+</div>
+<div class="card">
+<h3>🔄 Additional Settings</h3>
+<div class="tr"><div class="tg" id="tV" onclick="tw(this)"></div><span class="tl">🔄 Variants (4 शैली)</span></div>
+<div class="tr"><div class="tg on" id="tP" onclick="tw(this)"></div><span class="tl">🖨️ Print-Ready Specs</span></div>
+<div class="tr"><div class="tg" id="tN" onclick="tw(this)"></div><span class="tl">🚫 Negative Prompt</span></div>
+<div class="tr"><div class="tg on" id="tA" onclick="tw(this)"></div><span class="tl">📐 Aspect Ratio</span></div>
+<div class="fg" style="margin-top:12px">
+<div class="fi"><label>📊 Quality</label>
+<select id="qual"><option value="standard">Standard</option><option value="high" selected>High</option><option value="ultra">Ultra HD</option></select></div>
+<div class="fi"><label>🎯 Prompt Length</label>
+<select id="plen"><option value="short">Short</option><option value="medium" selected>Medium</option><option value="long">Long</option></select></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 6: GENERATE & OUTPUT -->
+<div class="tab-content" id="t6">
+<div class="gs">
+<button class="btn btn1" onclick="GEN()" style="font-size:1.1rem;padding:16px 44px">🚀 GENERATE PROMPT</button>
+<p style="color:var(--text3);margin-top:8px;font-size:.8rem">सर्व tabs भरल्यानंतर click करा</p>
+</div>
+<div id="outA" style="display:none">
+<div class="op">
+<div class="oh">
+<h3>📄 Generated Prompts</h3>
+<div style="display:flex;gap:7px">
+<button class="btn bs btn2" onclick="CA()">📋 Copy All</button>
+<button class="btn bs btn3" onclick="SH()">💾 Save</button>
+</div>
+</div>
+<div class="ot" id="oTabs"></div>
+<div class="ob" id="oBody"></div>
+</div>
+<div id="varA" style="display:none;margin-top:14px">
+<div class="card"><h3>🔄 Variants</h3><div class="vg" id="varG"></div></div>
+</div>
+<div id="negA" style="display:none;margin-top:14px">
+<div class="card"><h3>🚫 Negative Prompt</h3>
+<div class="pb" id="negB"><button class="cb" onclick="CT('negT')">Copy</button><span id="negT"></span></div>
+</div>
+</div>
+</div>
+<div class="card" style="margin-top:16px">
+<h3>📚 History</h3>
+<div class="hp" id="hisP"><div class="es"><div class="ei">📭</div><p>Empty</p></div></div>
+</div>
+</div>
+
+</div><!-- /container -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== DATA =====
+var PAL=[
+{n:"Sale/Offer",c:["#FF0000","#FFD700","#FFF","#000"]},
+{n:"Corporate",c:["#1E3A5F","#4A90D9","#FFF","#F0F4F8"]},
+{n:"Festive Indian",c:["#FF6600","#FFD700","#FF0000","#006400"]},
+{n:"Luxury Gold",c:["#1A1A2E","#D4AF37","#FFF","#C0C0C0"]},
+{n:"Wedding Pastel",c:["#FFB6C1","#FFF0F5","#DDA0DD","#F5E6CC"]},
+{n:"National",c:["#FF9933","#FFF","#138808","#000080"]},
+{n:"Medical",c:["#00A86B","#FFF","#E8F5E9","#2196F3"]},
+{n:"Neon Dark",c:["#0D0D0D","#00FF88","#FF00FF","#00D4FF"]},
+{n:"Earth Tones",c:["#8B4513","#D2691E","#F5DEB3","#2F4F2F"]},
+{n:"Tech Blue",c:["#0A1628","#00D4FF","#7C3AED","#FFF"]},
+{n:"Royal Purple",c:["#2D1B69","#9B59B6","#F1C40F","#FFF"]},
+{n:"Monochrome",c:["#000","#333","#999","#FFF"]}
+];
+var LAY=[
+{id:"left_img_right_text",n:"Left Img+Right Text",h:'<div class="li" style="width:50%;height:100%"></div><div class="lt" style="width:50%;height:100%"></div>'},
+{id:"right_img_left_text",n:"Right Img+Left Text",h:'<div class="lt" style="width:50%;height:100%"></div><div class="li" style="width:50%;height:100%"></div>'},
+{id:"centered_overlay",n:"Text on Image",h:'<div style="position:relative;width:100%;height:100%"><div class="li" style="width:100%;height:100%"></div><div class="lt" style="position:absolute;top:25%;left:15%;width:70%;height:40%"></div></div>'},
+{id:"header_content_footer",n:"Header+Body+Footer",h:'<div style="width:100%;display:flex;flex-direction:column;gap:2px;height:100%"><div class="lt" style="height:25%"></div><div class="li" style="height:50%"></div><div class="lt" style="height:25%"></div></div>'},
+{id:"grid_images",n:"Image Grid",h:'<div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:2px;height:100%"><div class="li"></div><div class="li"></div><div class="li"></div><div class="lt"></div></div>'},
+{id:"diagonal_split",n:"Diagonal",h:'<div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,212,255,.3) 50%,rgba(124,58,237,.3) 50%);border-radius:3px"></div>'},
+{id:"circular_center",n:"Circle Center",h:'<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"><div class="li" style="width:40px;height:40px;border-radius:50%"></div></div>'},
+{id:"full_bleed",n:"Full Bleed",h:'<div class="li" style="width:100%;height:100%;opacity:.2"></div>'},
+{id:"top_bottom",n:"Top Img+Bot Text",h:'<div style="width:100%;display:flex;flex-direction:column;gap:2px;height:100%"><div class="li" style="height:60%"></div><div class="lt" style="height:40%"></div></div>'},
+{id:"three_column",n:"3 Columns",h:'<div class="li" style="width:33%;height:100%"></div><div class="lt" style="width:34%;height:100%"></div><div class="li" style="width:33%;height:100%"></div>'}
+];
+var ELS=[
+{id:"floral_border",l:"🌸 Floral Border"},{id:"rangoli",l:"🎨 Rangoli"},
+{id:"ribbon_badge",l:"🎀 Ribbon/Badge"},{id:"starburst",l:"💥 Starburst"},
+{id:"geometric",l:"🔷 Geometric"},{id:"gradient_overlay",l:"🌈 Gradient"},
+{id:"shadow_effects",l:"🌑 Shadows"},{id:"glitter",l:"✨ Glitter"},
+{id:"frame_border",l:"🖼️ Frame"},{id:"qr_code",l:"📱 QR Code"},
+{id:"social_icons",l:"📲 Social Icons"},{id:"diya",l:"🪔 Diya"},
+{id:"balloons",l:"🎈 Balloons"},{id:"confetti",l:"🎊 Confetti"},
+{id:"mandala",l:"☸️ Mandala"},{id:"wave_shapes",l:"🌊 Waves"},
+{id:"light_bokeh",l:"💡 Bokeh"},{id:"flag",l:"🚩 Flag"},
+{id:"laurel",l:"🏆 Laurel"}
+];
+var PFS=[
+{id:"chatgpt",n:"ChatGPT",i:"🤖"},{id:"midjourney",n:"Midjourney",i:"🎨"},
+{id:"dalle",n:"DALL·E 3",i:"🖼️"},{id:"firefly",n:"Firefly",i:"🔥"},
+{id:"canva",n:"Canva AI",i:"🎯"},{id:"stable",n:"Stable Diff",i:"⚡"},
+{id:"ideogram",n:"Ideogram",i:"💡"},{id:"copilot",n:"Copilot",i:"🪟"}
+];
+var CSG={
+political:{s:"bold_loud",m:"patriotic",p:"Festive Indian",e:["flag","starburst","laurel"]},
+wedding:{s:"luxury",m:"romantic",p:"Wedding Pastel",e:["floral_border","glitter","frame_border"]},
+sale:{s:"bold_loud",m:"urgent",p:"Sale/Offer",e:["starburst","ribbon_badge","confetti"]},
+education:{s:"modern_gradient",m:"inspiring",p:"Tech Blue",e:["geometric","qr_code"]},
+restaurant:{s:"photographic",m:"warm",p:"Earth Tones",e:["frame_border"]},
+medical:{s:"minimalist",m:"professional",p:"Medical",e:["geometric"]},
+realestate:{s:"luxury",m:"elegant",p:"Luxury Gold",e:["frame_border","laurel"]},
+religious:{s:"traditional_indian",m:"divine",p:"Festive Indian",e:["diya","mandala","floral_border","rangoli"]},
+birthday:{s:"handdrawn",m:"fun",p:"Neon Dark",e:["balloons","confetti","glitter"]},
+inauguration:{s:"corporate",m:"celebratory",p:"Corporate",e:["ribbon_badge","floral_border"]},
+condolence:{s:"minimalist",m:"sober",p:"Monochrome",e:["frame_border"]},
+corporate:{s:"corporate",m:"professional",p:"Corporate",e:["geometric","qr_code"]},
+festival:{s:"festive",m:"celebratory",p:"Festive Indian",e:["diya","rangoli","floral_border","mandala"]},
+election:{s:"bold_loud",m:"patriotic",p:"National",e:["flag","starburst"]},
+gym:{s:"bold_loud",m:"energetic",p:"Neon Dark",e:["geometric"]},
+salon:{s:"luxury",m:"elegant",p:"Wedding Pastel",e:["floral_border","glitter"]},
+music:{s:"neon",m:"energetic",p:"Neon Dark",e:["light_bokeh","glitter"]},
+sports:{s:"bold_loud",m:"energetic",p:"National",e:["starburst","geometric"]},
+tourism:{s:"photographic",m:"warm",p:"Earth Tones",e:["frame_border"]},
+automobile:{s:"modern_gradient",m:"energetic",p:"Tech Blue",e:["geometric","shadow_effects"]}
+};
+
+var sPal="",sLay="",sPlat=["chatgpt"],gPr={};
+
+// ===== INIT =====
+window.onload=function(){rPal();rLay();rEl();rPf();lH()};
+
+// ===== TAB SWITCH =====
+function sT(i){
+document.querySelectorAll('.tab-btn').forEach(function(b,j){b.classList.toggle('active',j===i)});
+document.querySelectorAll('.tab-content').forEach(function(c,j){c.classList.toggle('active',j===i)});
+}
+
+// ===== RENDER =====
+function rPal(){
+var g=document.getElementById('palG');
+var h='';
+for(var i=0;i<PAL.length;i++){
+h+='<div class="po" onclick="xPal('+i+',this)" data-n="'+PAL[i].n+'"><div class="pc">';
+for(var j=0;j<PAL[i].c.length;j++) h+='<div style="background:'+PAL[i].c[j]+'"></div>';
+h+='</div><div class="pn">'+PAL[i].n+'</div></div>';
+}
+g.innerHTML=h;
+}
+function rLay(){
+var g=document.getElementById('layG');
+var h='';
+for(var i=0;i<LAY.length;i++){
+h+='<div class="lo" onclick="xLay(\''+LAY[i].id+'\',this)"><div class="lp">'+LAY[i].h+'</div><div class="ln">'+LAY[i].n+'</div></div>';
+}
+g.innerHTML=h;
+}
+function rEl(){
+var g=document.getElementById('elG');
+var h='';
+for(var i=0;i<ELS.length;i++){
+h+='<label class="ci"><input type="checkbox" value="'+ELS[i].id+'" onchange="this.parentElement.classList.toggle(\'on\',this.checked)">'+ELS[i].l+'</label>';
+}
+g.innerHTML=h;
+}
+function rPf(){
+var g=document.getElementById('pfG');
+var h='';
+for(var i=0;i<PFS.length;i++){
+var sel=PFS[i].id==='chatgpt'?' sel':'';
+h+='<div class="pi'+sel+'" onclick="xPf(\''+PFS[i].id+'\',this)"><span class="pk">'+PFS[i].i+'</span><span class="pm">'+PFS[i].n+'</span></div>';
+}
+g.innerHTML=h;
+}
+
+// ===== SELECTORS =====
+function xPal(i,el){document.querySelectorAll('.po').forEach(function(e){e.classList.remove('sel')});el.classList.add('sel');sPal=PAL[i].n}
+function xLay(id,el){document.querySelectorAll('.lo').forEach(function(e){e.classList.remove('sel')});el.classList.add('sel');sLay=id;document.getElementById('layD').value=id}
+function sLD(v){sLay=v}
+function xPf(id,el){el.classList.toggle('sel');var idx=sPlat.indexOf(id);if(idx>-1)sPlat.splice(idx,1);else sPlat.push(id)}
+function tw(el){el.classList.toggle('on')}
+
+// ===== CATEGORY AUTO =====
+function onCat(){
+var c=document.getElementById('cat').value,s=CSG[c];
+if(!s)return;
+if(s.s)document.getElementById('style').value=s.s;
+if(s.m)document.getElementById('mood').value=s.m;
+if(s.p){
+document.querySelectorAll('.po').forEach(function(el){
+var match=el.getAttribute('data-n')===s.p;
+el.classList.toggle('sel',match);
+if(match)sPal=s.p;
+});
+}
+if(s.e){
+document.querySelectorAll('#elG input').forEach(function(cb){
+var chk=s.e.indexOf(cb.value)>-1;
+cb.checked=chk;
+cb.parentElement.classList.toggle('on',chk);
+});
+}
+}
+
+// ===== SIZE PRESET =====
+function aSP(){
+var v=document.getElementById('sp').value;
+if(!v)return;
+var p=v.split(',');
+document.getElementById('sw').value=p[0];
+document.getElementById('sh').value=p[1];
+document.getElementById('su').value=p[2];
+}
+function gcd(a,b){return b?gcd(b,a%b):a}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
+
+// ===== GATHER DATA =====
+function GD(){
+var v=function(id){return document.getElementById(id).value};
+var on=function(id){return document.getElementById(id).classList.contains('on')};
+var els=[];
+document.querySelectorAll('#elG input:checked').forEach(function(c){els.push(c.value)});
+return{
+cat:v('cat'),bt:v('btype'),sw:v('sw'),sh:v('sh'),su:v('su'),
+lang:v('lang'),aud:v('aud'),head:v('head'),sub:v('sub'),
+body:v('body'),contact:v('contact'),cta:v('cta'),brand:v('brand'),
+edate:v('edate'),venue:v('venue'),style:v('style'),typo:v('typo'),
+mood:v('mood'),bg:v('bg'),pal:sPal,ccol:v('ccol'),
+lay:sLay||v('layD'),ic:v('icount'),it:v('itype'),ip:v('ipos'),is:v('istyle'),
+els:els,rR:on('tR'),rV:on('tV'),rP:on('tP'),rN:on('tN'),rA:on('tA'),
+qual:v('qual'),plen:v('plen'),plats:sPlat
+};
+}
+
+// ===== BUILD BASE PROMPT =====
+function BB(d){
+var TM={horizontal_flex:"horizontal flex banner",vertical_flex:"vertical flex banner",standee:"roll-up standee",backdrop:"stage backdrop",hanging:"hanging banner",pole:"pole banner",gate:"gate banner",wall:"wall banner",poster:"poster",social_media:"social media post",story:"social media story",vehicle:"vehicle wrap",hoarding:"hoarding/billboard"};
+var SM={minimalist:"minimalist, clean, lots of white space",bold_loud:"bold, vibrant, high contrast, eye-catching",corporate:"corporate, professional, sleek",festive:"festive, colorful, decorative, traditional",luxury:"luxury, premium, gold accents, elegant",retro:"retro, vintage, classic look",modern_gradient:"modern gradient, contemporary",handdrawn:"hand-drawn, playful, sketchy",photographic:"photo-centric, cinematic",flat:"flat design, vector, simple","3d":"3D rendered, depth, realistic",neon:"neon glow, dark background, cyberpunk",watercolor:"watercolor, soft, artistic",glassmorphism:"glassmorphism, frosted glass",traditional_indian:"traditional Indian, ornate, cultural motifs"};
+var MM={urgent:"urgent, exciting, attention-grabbing",celebratory:"celebratory, joyful, festive",professional:"professional, trustworthy, clean",divine:"divine, spiritual, serene",elegant:"elegant, sophisticated, refined",energetic:"energetic, dynamic, powerful",warm:"warm, inviting, cozy",fun:"fun, playful, colorful",sober:"sober, respectful, minimal",inspiring:"inspiring, motivational, uplifting",romantic:"romantic, dreamy, soft",patriotic:"patriotic, proud, nationalistic"};
+var YM={bold_sans:"bold sans-serif headline",elegant_serif:"elegant serif font",script:"handwritten script",devanagari_calligraphy:"Devanagari calligraphy style",display:"large display/impact font",rounded:"rounded friendly font"};
+var BM={solid:"solid color background",gradient:"gradient background",image:"photograph background",pattern:"pattern/texture background",blur:"blurred photo background",dark_overlay:"dark overlay on photograph",abstract:"abstract geometric shapes",bokeh:"bokeh light effects"};
+
+var p="Design a "+(TM[d.bt]||d.bt)+" for "+d.cat+" purpose";
+if(d.brand)p+=' for "'+d.brand+'"';
+p+=".\n\n";
+p+="SIZE: "+d.sw+"×"+d.sh+" "+d.su;
+if(d.rA){
+var w=parseFloat(d.sw),h=parseFloat(d.sh);
+if(w&&h){var g2=gcd(Math.round(w*10),Math.round(h*10));p+=" (Aspect "+Math.round(w*10/g2)+":"+Math.round(h*10/g2)+")";}
+}
+p+="\n\n";
+p+="STYLE: "+(SM[d.style]||d.style)+"\n";
+p+="MOOD: "+(MM[d.mood]||d.mood)+"\n";
+p+="TYPOGRAPHY: "+(YM[d.typo]||d.typo)+"\n";
+p+="BACKGROUND: "+(BM[d.bg]||d.bg)+"\n";
+p+="COLORS: "+(d.ccol||d.pal||"auto based on category")+"\n\n";
+
+p+="CONTENT:\n";
+if(d.head)p+='- Heading: "'+d.head+'"\n';
+if(d.sub)p+='- Sub-heading: "'+d.sub+'"\n';
+if(d.body)p+='- Body: "'+d.body+'"\n';
+if(d.edate)p+='- Date/Time: "'+d.edate+'"\n';
+if(d.venue)p+='- Venue: "'+d.venue+'"\n';
+if(d.contact)p+='- Contact: "'+d.contact+'"\n';
+if(d.cta)p+='- CTA: "'+d.cta+'"\n';
+p+="- Language: "+d.lang+"\n";
+
+if(d.lay){
+var ln="";
+for(var i=0;i<LAY.length;i++){if(LAY[i].id===d.lay){ln=LAY[i].n;break;}}
+p+="\nLAYOUT: "+(ln||d.lay)+"\n";
+}
+if(parseInt(d.ic)>0){
+p+="IMAGES: "+d.ic+" "+d.it+" image(s), position: "+d.ip+", style: "+d.is+"\n";
+}
+if(d.els.length>0){
+var en=[];
+for(var i=0;i<d.els.length;i++){
+for(var j=0;j<ELS.length;j++){if(ELS[j].id===d.els[i]){en.push(ELS[j].l);break;}}
+}
+p+="DECORATIVE ELEMENTS: "+en.join(", ")+"\n";
+}
+if(d.aud!=='general')p+="TARGET AUDIENCE: "+d.aud+"\n";
+
+if(d.rP){
+p+="\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n";
+}
+if(d.rR){
+p+="\nDESIGN RULES:\n";
+p+="- Heading should be 25-35% of banner area\n";
+p+="- Contact info at bottom 15%\n";
+p+="- Logo minimum 8-10% size\n";
+p+="- Safe margin 0.5 inch from edges\n";
+p+="- Maximum 2-3 fonts\n";
+p+="- High contrast between text and background\n";
+p+="- Main message readable from 10 feet\n";
+p+="- Visual hierarchy: Heading > Sub > Body > Contact\n";
+p+="- Avoid overcrowding, maintain white space\n";
+}
+if(d.qual==='ultra')p+="\nQUALITY: Ultra HD, photorealistic, 8K resolution, extremely detailed\n";
+else if(d.qual==='high')p+="\nQUALITY: High quality, professional grade, detailed\n";
+
+return p;
+}
+
+// ===== PLATFORM FORMATTERS =====
+function FP(base,pl,d){
+var ar="16:9";
+if(d.rA&&d.sw&&d.sh){ar=Math.round(parseFloat(d.sw)*10)+":"+Math.round(parseFloat(d.sh)*10);}
+var col=d.ccol||d.pal||"vibrant colors";
+
+switch(pl){
+case"chatgpt":
+return base+"\n\nPlease generate a detailed visual description of this banner design that can be used as a reference for a graphic designer or as an image generation prompt. Be very specific about positioning, colors, and visual hierarchy.";
+
+case"midjourney":
+var m=(d.bt==='backdrop'?'wide ':'')+"banner design for "+d.cat+", "+(d.style||'professional')+" style";
+if(d.head)m+=', text "'+d.head+'"';
+m+=", "+(d.mood||'professional')+" mood, "+col;
+if(d.els.length)m+=", "+d.els.join(", ");
+m+=", professional graphic design, high quality --ar "+ar+" --v 6.1 --q 2";
+if(d.qual==='ultra')m+=" --style raw";
+return m;
+
+case"dalle":
+return "Create a professional "+d.bt+" design for "+d.cat+".\n\n"+base+"\n\nThe design should be visually striking, print-ready, and suitable for large format printing. All text clearly legible, layout balanced.";
+
+case"firefly":
+return d.bt+" design, "+d.style+" style, "+d.mood+" mood. "+d.cat+" theme. Colors: "+col+". "+(d.head?'Text: "'+d.head+'". ':"")+"Professional, high resolution, print quality. "+(d.els.length?"Include: "+d.els.join(", "):"");
+
+case"canva":
+return "Design a "+d.bt+" ("+d.sw+"×"+d.sh+" "+d.su+") for "+d.cat+".\nStyle: "+d.style+"\nColors: "+col+"\nHeading: \""+(d.head||"")+"\"\nMood: "+d.mood+"\n"+(d.cta?"CTA: \""+d.cta+"\"\n":"")+"Make it professional and eye-catching.";
+
+case"stable":
+var s="("+d.bt+" design:1.3), ("+d.style+":1.2), "+d.cat+", ("+d.mood+":1.1)";
+if(d.head)s+=', (text "'+d.head+'":1.2)';
+s+=", "+col+", professional, high quality";
+if(d.els.length)s+=", "+d.els.join(", ");
+s+=", (print ready:1.1), (high resolution:1.3)";
+return s;
+
+case"ideogram":
+return 'A professional '+d.bt+' design with the text "'+( d.head||"Banner")+'" prominently displayed. Style: '+d.style+'. Colors: '+col+'. Theme: '+d.cat+'. Text should be clear, bold, perfectly rendered. '+d.mood+' mood. High quality graphic design.';
+
+case"copilot":
+return "I need you to create a detailed image of a "+d.bt+" for "+d.cat+".\n\nHere are the specifications:\n"+base+"\n\nPlease make the design professional, visually appealing, and suitable for print. Text should be clearly visible and well-arranged.";
+
+default:return base;
+}
+}
+
+// ===== MAIN GENERATE =====
+function GEN(){
+var d=GD();
+if(!d.cat){toast('⚠️ Category निवडा!',1);return}
+if(!d.bt){toast('⚠️ Banner Type निवडा!',1);return}
+if(!d.head){toast('⚠️ Heading लिहा!',1);return}
+if(!d.plats.length){toast('⚠️ AI Platform निवडा!',1);return}
+
+var base=BB(d);
+gPr={};
+for(var i=0;i<d.plats.length;i++){
+gPr[d.plats[i]]=FP(base,d.plats[i],d);
+}
+rOut(d);
+if(d.rV)gVar(base);else document.getElementById('varA').style.display='none';
+if(d.rN)gNeg();else document.getElementById('negA').style.display='none';
+document.getElementById('outA').style.display='block';
+sT(6);
+toast('✅ Prompts Generated!',0);
+}
+
+// ===== RENDER OUTPUT =====
+function rOut(d){
+var tabs=document.getElementById('oTabs'),body=document.getElementById('oBody');
+var th='',bh='';
+for(var i=0;i<d.plats.length;i++){
+var p=d.plats[i],pf=null;
+for(var j=0;j<PFS.length;j++){if(PFS[j].id===p){pf=PFS[j];break;}}
+var act=i===0?' act':'';
+th+='<button class="otb'+act+'" onclick="sOT(\''+p+'\',this)">'+(pf?pf.i:'')+' '+(pf?pf.n:p)+'</button>';
+bh+='<div id="o_'+p+'" style="display:'+(i===0?'block':'none')+'"><div class="pb"><button class="cb" onclick="CT(\'o_'+p+'\')">📋 Copy</button>'+esc(gPr[p])+'</div></div>';
+}
+tabs.innerHTML=th;
+body.innerHTML=bh;
+}
+function sOT(p,btn){
+document.querySelectorAll('.otb').forEach(function(t){t.classList.remove('act')});
+btn.classList.add('act');
+document.querySelectorAll('[id^="o_"]').forEach(function(e){e.style.display='none'});
+var el=document.getElementById('o_'+p);
+if(el)el.style.display='block';
+}
+
+// ===== VARIANTS =====
+function gVar(base){
+var V=[
+{n:"A: Minimalist Clean",m:"Convert to minimalist: white background, single accent color, lots of white space, clean simple layout"},
+{n:"B: Bold & Colorful",m:"Convert to bold vibrant: bright contrasting colors, large text, energetic, starburst elements, high impact"},
+{n:"C: Dark Premium",m:"Convert to dark luxury: black/dark background, gold accents, elegant serif typography, premium feel"},
+{n:"D: Traditional Festive",m:"Convert to traditional Indian festive: warm saffron/red colors, decorative borders, cultural motifs, ornate elements"}
+];
+var h='';
+for(var i=0;i<V.length;i++){
+h+='<div class="vc"><h4>'+V[i].n+'</h4><div class="pb" id="v_'+i+'"><button class="cb" onclick="CT(\'v_'+i+'\')">Copy</button>'+esc(base+'\n\nVARIANT MODIFICATION: '+V[i].m)+'</div></div>';
+}
+document.getElementById('varG').innerHTML=h;
+document.getElementById('varA').style.display='block';
+}
+
+// ===== NEGATIVE PROMPT =====
+function gNeg(){
+var neg="blurry, low quality, distorted text, misspelled words, pixelated, watermark, signature, cropped, out of frame, ugly, deformed, noisy, overexposed, underexposed, cluttered layout, unreadable text, wrong proportions, stretched images, color banding, artifacts, duplicate elements, inconsistent lighting, amateur design, too many fonts, chaotic layout, low resolution, jpeg artifacts";
+document.getElementById('negT').textContent=neg;
+document.getElementById('negA').style.display='block';
+}
+
+// ===== COPY =====
+function CT(id){
+var el=document.getElementById(id);
+var text=el.innerText||el.textContent;
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(text).then(function(){toast('✅ Copied!',0)});
+}else{
+var ta=document.createElement('textarea');
+ta.value=text;
+document.body.appendChild(ta);
+ta.select();
+document.execCommand('copy');
+document.body.removeChild(ta);
+toast('✅ Copied!',0);
+}
+}
+function CA(){
+var all='';
+var keys=Object.keys(gPr);
+for(var i=0;i<keys.length;i++){
+var pf=null;
+for(var j=0;j<PFS.length;j++){if(PFS[j].id===keys[i]){pf=PFS[j];break;}}
+all+="===== "+(pf?pf.n:keys[i])+" =====\n\n"+gPr[keys[i]]+"\n\n\n";
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(all).then(function(){toast('✅ All Copied!',0)});
+}else{
+var ta=document.createElement('textarea');ta.value=all;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+toast('✅ All Copied!',0);
+}
+}
+
+// ===== HISTORY =====
+function SH(){
+var d=GD();
+var entry={
+id:Date.now(),
+cat:d.cat,
+head:d.head,
+bt:d.bt,
+date:new Date().toLocaleString('mr-IN'),
+pr:gPr
+};
+var hist=[];
+try{hist=JSON.parse(localStorage.getItem('bph')||'[]')}catch(e){}
+hist.unshift(entry);
+if(hist.length>20)hist=hist.slice(0,20);
+localStorage.setItem('bph',JSON.stringify(hist));
+lH();
+toast('💾 Saved!',0);
+}
+function lH(){
+var hist=[];
+try{hist=JSON.parse(localStorage.getItem('bph')||'[]')}catch(e){}
+var panel=document.getElementById('hisP');
+if(!hist.length){panel.innerHTML='<div class="es"><div class="ei">📭</div><p>Empty</p></div>';return;}
+var h='';
+for(var i=0;i<hist.length;i++){
+h+='<div class="hi"><div class="hf" onclick="lFH('+hist[i].id+')"><div class="hc">'+hist[i].cat+' — '+hist[i].bt+'</div><div class="hh">'+hist[i].head+'</div><div class="hd">'+hist[i].date+'</div></div><button class="hx" onclick="dH('+hist[i].id+')" title="Delete">🗑️</button></div>';
+}
+panel.innerHTML=h;
+}
+function lFH(id){
+var hist=[];
+try{hist=JSON.parse(localStorage.getItem('bph')||'[]')}catch(e){}
+var h=null;
+for(var i=0;i<hist.length;i++){if(hist[i].id===id){h=hist[i];break;}}
+if(!h)return;
+gPr=h.pr;
+var plats=Object.keys(h.pr);
+var tabs=document.getElementById('oTabs'),body=document.getElementById('oBody');
+var th='',bh='';
+for(var i=0;i<plats.length;i++){
+var p=plats[i],pf=null;
+for(var j=0;j<PFS.length;j++){if(PFS[j].id===p){pf=PFS[j];break;}}
+th+='<button class="otb'+(i===0?' act':'')+'" onclick="sOT(\''+p+'\',this)">'+(pf?pf.i:'')+' '+(pf?pf.n:p)+'</button>';
+bh+='<div id="o_'+p+'" style="display:'+(i===0?'block':'none')+'"><div class="pb"><button class="cb" onclick="CT(\'o_'+p+'\')">📋 Copy</button>'+esc(h.pr[p])+'</div></div>';
+}
+tabs.innerHTML=th;
+body.innerHTML=bh;
+document.getElementById('outA').style.display='block';
+sT(6);
+toast('📂 Loaded!',0);
+}
+function dH(id){
+var hist=[];
+try{hist=JSON.parse(localStorage.getItem('bph')||'[]')}catch(e){}
+var nh=[];
+for(var i=0;i<hist.length;i++){if(hist[i].id!==id)nh.push(hist[i]);}
+localStorage.setItem('bph',JSON.stringify(nh));
+lH();
+toast('🗑️ Deleted!',0);
+}
+
+// ===== TOAST =====
+function toast(msg,err){
+var t=document.getElementById('toast');
+t.textContent=msg;
+t.className='toast '+(err?'err':'ok')+' show';
+setTimeout(function(){t.classList.remove('show')},2500);
+}
+</script>
+</body>
+</html>
+

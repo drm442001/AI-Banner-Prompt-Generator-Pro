@@ -1,0 +1,31 @@
+# Phase 3 change surface
+
+`git diff --stat HEAD` plus `git status --short`, taken just before the phase commit — every
+file this phase touched, added or generated. Dev-only `node_modules` symlinks and the
+generated `phase3-results.json` inside the suite folder are git-ignored and absent:
+
+```
+ docs/v3.0-phase-3/03-ASSET-LAYER-REFERENCE.md |   2 +-
+ docs/v3.0-phase-3/PHASE-3-REPORT.md           |  34 ++--
+ docs/v3.0-phase-3/data/file-metrics.md        |  36 +++--
+ docs/v3.0-phase-3/data/git-diff-stat.txt      |  70 +++-----
+ docs/v3.0-phase-3/data/phase3-results.json    | 209 ++++++++++++------------
+ docs/v3.0-phase-3/data/phase3-run.txt         |  13 +-
+ docs/v3.0-phase-3/data/phase3-summary.md      | 196 ++++++++++++-----------
+ tools/phase3-assets/README.md                 |   2 +-
+ tools/phase3-assets/test.mjs                  | 219 +++++++++++++++-----------
+ 9 files changed, 421 insertions(+), 360 deletions(-)
+
+ M docs/v3.0-phase-3/03-ASSET-LAYER-REFERENCE.md
+ M docs/v3.0-phase-3/PHASE-3-REPORT.md
+ M docs/v3.0-phase-3/data/file-metrics.md
+ M docs/v3.0-phase-3/data/git-diff-stat.txt
+ M docs/v3.0-phase-3/data/phase3-results.json
+ M docs/v3.0-phase-3/data/phase3-run.txt
+ M docs/v3.0-phase-3/data/phase3-summary.md
+ M tools/phase3-assets/README.md
+ M tools/phase3-assets/test.mjs
+?? tools/phase1-shell/node_modules
+```
+
+The phase ships as one commit; its own stat is `git show --stat <phase-3 commit>`.

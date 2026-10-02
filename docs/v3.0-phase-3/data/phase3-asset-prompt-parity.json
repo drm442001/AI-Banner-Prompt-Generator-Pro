@@ -1,0 +1,212 @@
+{
+ "note": "Phase 3 asset-layer parity. No-image runs are byte-identical to the untouched v2.0 baseline; with images attached the only difference is the delimited attachment block. Fingerprints are length:djb2(base36).",
+ "generated": "2026-10-02",
+ "scenarios": [
+  {
+   "name": "sale-marathi",
+   "fields": {
+    "cat": "sale",
+    "btype": "horizontal_flex",
+    "sw": "8",
+    "sh": "4",
+    "su": "feet",
+    "lang": "marathi",
+    "aud": "youth",
+    "head": "मेगा सेल",
+    "sub": "५०% सूट",
+    "body": "संपूर्ण शहरातील सर्वोत्तम दर",
+    "contact": "9876543210",
+    "cta": "आजच भेट द्या",
+    "brand": "कृपा कपडे",
+    "style": "bold_loud",
+    "mood": "urgent",
+    "typo": "devanagari_calligraphy",
+    "bg": "gradient",
+    "qual": "ultra",
+    "ccol": "#FF0000",
+    "icount": "2",
+    "itype": "product"
+   },
+   "base": {
+    "chatgpt": "1331:ofmnf3",
+    "midjourney": "193:jbtt19",
+    "dalle": "1300:1rizz6u",
+    "firefly": "189:lbi3f4",
+    "canva": "170:7zjdke",
+    "stable": "202:14blqrc",
+    "ideogram": "223:y6lkqb",
+    "copilot": "1338:1u9hkql"
+   },
+   "mine": {
+    "chatgpt": "1331:ofmnf3",
+    "midjourney": "193:jbtt19",
+    "dalle": "1300:1rizz6u",
+    "firefly": "189:lbi3f4",
+    "canva": "170:7zjdke",
+    "stable": "202:14blqrc",
+    "ideogram": "223:y6lkqb",
+    "copilot": "1338:1u9hkql"
+   },
+   "out": "5061:yn23wd",
+   "variants": 0
+  },
+  {
+   "name": "wedding-mixed",
+   "fields": {
+    "cat": "wedding",
+    "btype": "vertical_flex",
+    "sp": "3,6,feet",
+    "lang": "mar_eng",
+    "head": "आमचे स्वागत आहे",
+    "sub": "Swayamvar Ceremony",
+    "contact": "+91 90000 00000",
+    "edate": "24 Feb 2026",
+    "venue": "Kalyani Mantarlust",
+    "style": "luxury",
+    "mood": "romantic",
+    "typo": "elegant_serif",
+    "bg": "image",
+    "plen": "short",
+    "icount": "multiple",
+    "itype": "person"
+   },
+   "base": {
+    "chatgpt": "1214:irx18m",
+    "midjourney": "200:8j40fe",
+    "dalle": "1184:1k6vnai",
+    "firefly": "206:1b2g2rp",
+    "canva": "164:53vlvp",
+    "stable": "219:1s7bp7x",
+    "ideogram": "237:c7ege4",
+    "copilot": "1222:aupugx"
+   },
+   "mine": {
+    "chatgpt": "1214:irx18m",
+    "midjourney": "200:8j40fe",
+    "dalle": "1184:1k6vnai",
+    "firefly": "206:1b2g2rp",
+    "canva": "164:53vlvp",
+    "stable": "219:1s7bp7x",
+    "ideogram": "237:c7ege4",
+    "copilot": "1222:aupugx"
+   },
+   "out": "4768:l9lpq1",
+   "variants": 0
+  },
+  {
+   "name": "corporate-english",
+   "fields": {
+    "cat": "corporate",
+    "btype": "hoarding",
+    "sw": "20",
+    "sh": "8",
+    "su": "feet",
+    "lang": "english",
+    "aud": "business",
+    "head": "ANNUAL TECH SUMMIT",
+    "sub": "Innovation Forward",
+    "body": "Three days of keynotes and workshops.",
+    "contact": "hello@summit.example",
+    "cta": "Register Now",
+    "brand": "Nimbus Labs",
+    "style": "corporate",
+    "mood": "professional",
+    "typo": "bold_sans",
+    "bg": "solid",
+    "qual": "high",
+    "icount": "1",
+    "itype": "building",
+    "ipos": "right",
+    "istyle": "full_frame"
+   },
+   "base": {
+    "chatgpt": "1334:1jkhsyh",
+    "midjourney": "190:1ja32am",
+    "dalle": "1301:fstfgu",
+    "firefly": "190:1goruzw",
+    "canva": "187:j7bpom",
+    "stable": "203:p9y704",
+    "ideogram": "239:423sc3",
+    "copilot": "1339:1c6xy91"
+   },
+   "mine": {
+    "chatgpt": "1334:1jkhsyh",
+    "midjourney": "190:1ja32am",
+    "dalle": "1301:fstfgu",
+    "firefly": "190:1goruzw",
+    "canva": "187:j7bpom",
+    "stable": "203:p9y704",
+    "ideogram": "239:423sc3",
+    "copilot": "1339:1c6xy91"
+   },
+   "out": "5098:5buq14",
+   "variants": 0
+  },
+  {
+   "name": "minimal-empty-extras",
+   "fields": {
+    "cat": "",
+    "btype": "standee",
+    "head": "Only a headline",
+    "style": "minimalist",
+    "mood": "sober",
+    "lang": "hindi"
+   },
+   "base": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "mine": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": "91:1pit3t",
+   "variants": 0
+  }
+ ],
+ "assetCases": {
+  "withAssets": {
+   "chatgpt": "2843:5sf17t",
+   "midjourney": "1706:9qjyo1",
+   "dalle": "2812:sghfwg",
+   "firefly": "1701:yvrpuy",
+   "canva": "1682:1vnqlhk",
+   "stable": "1714:hd23ki",
+   "ideogram": "1735:1ynhkwd",
+   "copilot": "2850:3y395j"
+  },
+  "baselineSameFields": {
+   "chatgpt": "1331:ofmnf3",
+   "midjourney": "193:jbtt19",
+   "dalle": "1300:1rizz6u",
+   "firefly": "189:lbi3f4",
+   "canva": "170:7zjdke",
+   "stable": "202:14blqrc",
+   "ideogram": "223:y6lkqb",
+   "copilot": "1338:1u9hkql"
+  },
+  "switchOff": {
+   "chatgpt": "1331:ofmnf3",
+   "midjourney": "193:jbtt19",
+   "dalle": "1300:1rizz6u",
+   "firefly": "189:lbi3f4",
+   "canva": "170:7zjdke",
+   "stable": "202:14blqrc",
+   "ideogram": "223:y6lkqb",
+   "copilot": "1338:1u9hkql"
+  },
+  "blockText": "--- USER ATTACHMENTS (3 images attached to this request) ---\nThe user is attaching these image files with this request. They are real files, not placeholders: use them as the visual material and do not redraw or replace anything inside them.\n\nATTACHMENT MAP\nImage 1 — Logo · LOCKED\nImage 2 — Main Person\nImage 3 — Food · “the plate from our counter”\n\nHOW TO USE EACH IMAGE\n- Image 1 (shop-logo.png): Use the attached logo exactly as provided. Do not redesign, replace or alter it. Treatment: No Crop — show the whole image. This image is locked by the user: keep it exactly as attached — no recolour, no re-draw, no substitute.\n- Image 2 (owner-photo.jpg): Use Image 2 as the main person. Keep the face, skin tone, hair and clothing of the person in the photo. Position: Right.\n- Image 3 (samosa.jpg): Use Image 3 as the dish being offered. Do not replace the food with a different dish.\n\nASSET INTEGRITY RULES\n- Preserve the logo shape, colours and lettering exactly.\n- Do not redesign, re-letter or “modernise” the logo.\n- Do not replace the user’s logo with a generic icon.\n- Do not invent or substitute a missing image; if an attachment is not there, say so instead.\n- Preserve the person’s face and identity exactly as provided.\n- Do not distort, slim, beautify or re-draw a face.\n- Preserve the important visual details: visible text, edges, colours, materials.\nThe image files themselves are not part of this text — attach them in the app you paste into, in the order above.\n--- END USER ATTACHMENTS ---"
+ }
+}

@@ -24,9 +24,9 @@ const SRC = f => { const p = path.join(HERE, 'src', f); if (!fs.existsSync(p)) {
 
 /* each layer file is optional; empty files add nothing (byte-stable while a phase is in progress) */
 const cat = (...parts) => parts.map(x => x.trim()).filter(Boolean).join('\n');
-const css = cat(SRC('mgs-shell.css'), SRC('mgs-phase2.css'));
+const css = cat(SRC('mgs-shell.css'), SRC('mgs-phase2.css'), SRC('mgs-phase3.css'));
 const html = cat(SRC('mgs-shell.html'));
-const js = cat(SRC('mgs-shell.js'), SRC('mgs-phase2.js'));
+const js = cat(SRC('mgs-shell.js'), SRC('mgs-phase2.js'), SRC('mgs-phase3.js'));
 
 /* One uniform rule, so insert/strip are exact inverses:
    a region is  START ... END + one newline,  inserted immediately before its anchor. */

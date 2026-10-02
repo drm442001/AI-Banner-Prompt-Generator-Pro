@@ -114,3 +114,34 @@ Phase 2 did **not** change anything in this document. It appended to it:
 * **`MODES[*].hint` strings updated** (the only two removed lines in the app file this phase): they
   promised “filtering in Phase 2”, and Phase 2 is what now delivers it.
 * Full contract for the new layer: `docs/v3.0-phase-2/02-BEGINNER-LAYER-REFERENCE.md`.
+
+## Addendum — what Phase 3 (user assets) added on top of this contract
+
+* **`state.assets` grew three booleans, no other key**: `includeMap` (default `true`),
+  `countSync` (default `true`), `mirrorSync` (default `false`) beside the five v2.0/Phase-1 keys
+  (`count, items, position, style, type`). `items[]` holds one record per attached image with the
+  ten documented metadata fields; v2.0's `state.assets.count/position/style` keep their meaning and
+  are only ever written through `setSel()` + `stateApi.set(path, …)` with provenance
+  `USER_VALUE / via:'asset-sync'`.
+* **`state.assets.items` is not a snapshot of pixels** — `MGS.assets.storage()` reports
+  `imageBytesStored: 0` and `binaryInPrompts: 0`. `MGSProject.snapshot()` is **unchanged** by this
+  phase: still 9 keys (`decorations, fields, layoutId, mode, paletteName, platforms, schema,
+  toggles, ts`), still no file bytes. The asset list persists through its own key
+  (`mgs.assets.v1`, metadata only) so a refresh restores roles/locks/notes/order, while previews
+  ride in `mgs.assets.previews.v1` in sessionStorage and die with the tab.
+* **`MGSUI` gains four members** (`mountAssets, renderAssets, attachmentMap, registerTab`) — the
+  25 existing ones keep their signatures, and `MGS.app.selfTest()` now reports `ids: 141,
+  dupIds: 0, listeners: 10` with `problems: []`.
+* **`MGSPrompt` and `MGSRules` grew, without changing what they already returned**: `assetBlock`,
+  `withAssetBlock`, `stripAssetBlock`, `augmentAssets` (prompt seams) and `assetRules`,
+  `assetIntegrityIds`, `roleCatalogue` (rules seam). `MGSRules.list()` is still v2.0's own 9 rules,
+  untouched and un-appended-to.
+* **New bus topics**: `assets:change` (emitted by Phase 3, consumed by Phase 3 only — the handler
+  re-renders the map/rules/status boxes and deliberately does not rebuild the tile list).
+  `generate:done` and `state:reset` gain one more subscriber; `generate:done` is never re-emitted,
+  so the output pipeline cannot loop.
+* **SelfTest/`file://` invariants hold**: still no `fetch`, no `XMLHttpRequest`, no
+  `navigator.sendBeacon` anywhere in the added code (the only I/O is `FileReader` + two storage
+  keys, both guarded), still 2 `<script>` blocks, still one `</style>`, still `install.mjs --check`
+  → `IN SYNC` and `--remove` → the golden baseline byte-for-byte.
+* Full contract for the new layer: `docs/v3.0-phase-3/03-ASSET-LAYER-REFERENCE.md`.

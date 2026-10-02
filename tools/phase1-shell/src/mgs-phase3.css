@@ -1,0 +1,61 @@
+/* ===== MGS v3.0 PHASE 3 — user asset manager, roles, integrity rules, attachment map =====
+   Additive only, and scoped like Phase 2: every selector is .mgs-* / [data-mgs-*].
+   No media queries, no fixed px widths, no absolute/fixed positioning (the 1px-collapsed file
+   input below is the only visually-hidden trick), no overflow-x scroller, rem type only. */
+.mgs-assets{margin:0}
+.mgs-drop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:11px 12px;border:1px dashed var(--border);
+  border-radius:10px;background:var(--card2);transition:.25s}
+.mgs-drop[data-over="1"]{border-color:var(--accent);background:rgba(0,212,255,.1)}
+.mgs-drop .grow{flex:1 1 auto;min-width:0}
+.mgs-file{width:1px;height:1px;min-height:0;padding:0;margin:-1px;border:0;opacity:0;overflow:hidden;font-size:0.7rem}
+.mgs-file:focus{width:auto;height:auto;opacity:1;padding:6px 9px;margin:0;border:1px solid var(--accent);
+  border-radius:8px;background:var(--card);color:var(--text)}
+.mgs-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.mgs-asset{flex:1 1 15rem;min-width:0;max-width:100%;display:flex;flex-direction:column;gap:6px;padding:10px;
+  border:1px solid var(--border);border-radius:10px;background:var(--card2);transition:.25s}
+.mgs-asset:hover{border-color:var(--accent)}
+.mgs-asset[data-locked="1"]{border-color:var(--accent2);background:rgba(123,97,255,.09)}
+.mgs-asset[data-needs-role="1"]{border-style:dashed}
+.mgs-asset[data-dragging="1"]{opacity:.55}
+.mgs-asset[data-preview="failed"] .mgs-thumb{background:var(--card)}
+.mgs-who{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.mgs-thumb{width:3.4rem;height:3.4rem;min-width:0;flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  border:1px solid var(--border);border-radius:8px;background:var(--card);overflow:hidden;font-size:1.1rem}
+.mgs-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mgs-idw{flex:1 1 8rem;min-width:0;display:flex;flex-direction:column;gap:1px}
+.mgs-an{font-size:0.78rem;font-weight:800;color:var(--text)}
+.mgs-fn{font-size:0.68rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-role{font-size:0.7rem;color:var(--text2);overflow-wrap:anywhere}
+.mgs-role b{color:var(--text)}
+.mgs-mini2{box-sizing:border-box;padding:5px 9px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--text2);
+  font-size:0.68rem;font-weight:700;font-family:inherit;cursor:pointer;transition:.25s}
+.mgs-mini2:hover{border-color:var(--accent);color:var(--text)}
+.mgs-acts{display:flex;flex-wrap:wrap;gap:5px}
+.mgs-ask{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0;padding:8px 9px;border:1px solid var(--border);
+  border-radius:9px;background:var(--card)}
+.mgs-ask .q{font-size:0.72rem;font-weight:800;color:var(--text)}
+.mgs-ask .mgs-chip{font-size:0.68rem;padding:4px 9px}
+.mgs-fields{display:flex;flex-wrap:wrap;gap:7px}
+.mgs-fields .fi2{flex:1 1 9rem;min-width:0;display:flex;flex-direction:column;gap:3px}
+.mgs-fields label{font-size:0.66rem;font-weight:700;color:var(--text3)}
+.mgs-fields select,.mgs-fields input[type=text]{width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid var(--border);border-radius:7px;
+  background:var(--card);color:var(--text);font-family:inherit;font-size:0.74rem}
+.mgs-desc{width:100%}
+.mgs-err{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.mgs-err li{flex:1 1 14rem;min-width:0;padding:7px 10px;border:1px solid var(--danger,#ff5c7a);border-radius:9px;
+  background:rgba(255,92,122,.08);color:var(--text);font-size:0.72rem;overflow-wrap:anywhere}
+.mgs-ok{margin:8px 0 0;font-size:0.7rem;color:var(--success);overflow-wrap:anywhere}
+.mgs-mapbox{margin:8px 0 0;padding:9px 11px;border:1px solid var(--border);border-radius:9px;background:var(--card);
+  color:var(--text2);font-family:inherit;font-size:0.72rem;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.mgs-rules{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0;padding:0;list-style:none}
+.mgs-rules li{flex:1 1 12rem;min-width:0;padding:5px 9px;border:1px solid var(--border);border-radius:999px;
+  font-size:0.66rem;color:var(--text2);background:var(--card2);overflow-wrap:anywhere}
+.mgs-rules li[data-on="1"]{border-color:var(--accent2);color:var(--text)}
+.mgs-h4{margin:12px 0 2px;font-size:0.78rem;font-weight:800;color:var(--text2)}
+.mgs-empty{margin:8px 0 0;font-size:0.72rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-list>.mgs-empty{flex:1 1 100%;padding:9px 11px;border:1px dashed var(--border);border-radius:10px}
+.mgs-lockon{border-color:var(--accent2);color:var(--text)}
+/* Beginner view = add, name it, lock it, remove it. Everything technical is one click away
+   (“More options” in the shell bar) or always open in Pro mode; nothing here is disabled. */
+.mgs-pro-only{display:block}
+html[data-mgs-mode="beginner"]:not([data-mgs-adv-open="1"]) .mgs-pro-only{display:none}

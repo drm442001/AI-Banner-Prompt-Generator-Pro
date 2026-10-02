@@ -1,0 +1,1909 @@
+{
+ "guarantees": [
+  {
+   "id": "P3 001",
+   "pass": true,
+   "detail": "still 2 script blocks in the file (1 v2.0 + 1 shell carrying phases 1-3) → 2"
+  },
+  {
+   "id": "P3 002",
+   "pass": true,
+   "detail": "still exactly one style block"
+  },
+  {
+   "id": "P3 003",
+   "pass": true,
+   "detail": "no 4th marker region was invented: the asset layer folded into the same three regions, so the strip/restore proof still works"
+  },
+  {
+   "id": "P3 004",
+   "pass": true,
+   "detail": "removing the three regions from the installed file reproduces the untouched v2.0 baseline byte-for-byte → 45264 vs 45264 chars"
+  },
+  {
+   "id": "P3 005",
+   "pass": true,
+   "detail": "the Phase-3 source exists and is real, not a stub → js 73305 chars, css 4948"
+  },
+  {
+   "id": "P3 006",
+   "pass": true,
+   "detail": "the installed file actually contains the Phase-3 layer"
+  },
+  {
+   "id": "P3 007",
+   "pass": true,
+   "detail": "the asset layer contains no URL at all — nothing can be fetched or posted anywhere → 0 matches"
+  },
+  {
+   "id": "P3 008",
+   "pass": true,
+   "detail": "no network API appears in the layer (privacy req. 14 is structural, not a promise) → [\"ws\"]"
+  },
+  {
+   "id": "P3 009",
+   "pass": true,
+   "detail": "zero HTML-string writes, no eval, no Function in the asset layer"
+  },
+  {
+   "id": "P3 010",
+   "pass": true,
+   "detail": "the layer never creates a script/style/iframe/form node"
+  },
+  {
+   "id": "P3 011",
+   "pass": true,
+   "detail": "the layer never reads the file bytes into a prompt path — only FileReader.readAsDataURL for a local thumbnail"
+  },
+  {
+   "id": "P3 012",
+   "pass": true,
+   "detail": "no canvas re-encoding: the user’s file is never rewritten, only read"
+  },
+  {
+   "id": "P3 013",
+   "pass": true,
+   "detail": "no raw markup literals in the layer (all nodes are createElement, so v2.0’s tag counts cannot move)"
+  },
+  {
+   "id": "P3 014",
+   "pass": true,
+   "detail": "storage writes happen in exactly two guarded helpers, and they are only ever called with the layer’s own two keys → setItem:k setItem:k | ASSETS_KEY,PREVIEWS_KEY"
+  },
+  {
+   "id": "P3 015",
+   "pass": true,
+   "detail": "two own keys: metadata in localStorage, small previews in sessionStorage"
+  },
+  {
+   "id": "P3 016",
+   "pass": true,
+   "detail": "no inline styles anywhere (every pixel is class-driven, so v2.0’s own look is never overridden)"
+  },
+  {
+   "id": "P3 017",
+   "pass": true,
+   "detail": "no hidden attribute and no fiddling with v2.0’s disabled state"
+  },
+  {
+   "id": "P3 018",
+   "pass": true,
+   "detail": "the layer is ES5 like the shell it lives in (same file, same engine assumptions)"
+  },
+  {
+   "id": "P3 019",
+   "pass": true,
+   "detail": "the Phase-3 CSS adds no media query, no out-of-flow position, no !important, no viewport hack, no scroll container, no new grid template and no fixed px width"
+  },
+  {
+   "id": "P3 020",
+   "pass": true,
+   "detail": "every Phase-3 selector is .mgs-* scoped → 45 selectors, 0 that could reach v2.0 markup"
+  },
+  {
+   "id": "P3 021",
+   "pass": true,
+   "detail": "every new flex container wraps or is a column (no sideways rail) → 12 flex rules"
+  },
+  {
+   "id": "P3 022",
+   "pass": true,
+   "detail": "long filenames wrap and flex children may shrink → 7/7"
+  },
+  {
+   "id": "P3 023",
+   "pass": true,
+   "detail": "type is rem-only, so the v2.0 font-size control still governs the new UI"
+  },
+  {
+   "id": "P3 024",
+   "pass": true,
+   "detail": "the whole document still carries exactly the 3 shell-era breakpoints + v2.0’s own (no new responsive contract) → 4"
+  },
+  {
+   "id": "P3 025",
+   "pass": true,
+   "detail": "install.mjs --check: the installed regions still equal src (phase1+phase2+phase3) → IN SYNC — app shell block == tools/phase1-shell/src"
+  },
+  {
+   "id": "P3 027",
+   "pass": true,
+   "detail": "the new padded/full-width controls are border-box (padding can never push them out of the row)"
+  },
+  {
+   "id": "P3 028",
+   "pass": true,
+   "detail": "no raw storage write bypasses the guarded helpers (all writes go through writeStore/writeSess with the two own keys)"
+  },
+  {
+   "id": "P3 029",
+   "pass": true,
+   "detail": "the layer writes no new window global of its own (v2.0’s own caches are the exception, and only through MGS.assets) → 2 assignment(s, all to gPr)"
+  },
+  {
+   "id": "P3 030",
+   "pass": true,
+   "detail": "boot with the asset layer installed: zero uncaught exceptions → []"
+  },
+  {
+   "id": "P3 031",
+   "pass": true,
+   "detail": "zero console errors/warnings at boot → []"
+  },
+  {
+   "id": "P3 032",
+   "pass": true,
+   "detail": "nothing recorded inside the shell or the layer → []"
+  },
+  {
+   "id": "P3 033",
+   "pass": true,
+   "detail": "the image card exists"
+  },
+  {
+   "id": "P3 034",
+   "pass": true,
+   "detail": "it sits at the top of the existing Layout/Image tab (tab 3), before v2.0’s own cards"
+  },
+  {
+   "id": "P3 035",
+   "pass": true,
+   "detail": "it uses v2.0’s own .card shell (same visual language, no new chrome)"
+  },
+  {
+   "id": "P3 036",
+   "pass": true,
+   "detail": "tab 3 now holds the new card + the 2 original v2.0 cards, and the originals are intact"
+  },
+  {
+   "id": "P3 037",
+   "pass": true,
+   "detail": "drop zone, ＋ Add Image button and a real file input (one picker, no fake control)"
+  },
+  {
+   "id": "P3 038",
+   "pass": true,
+   "detail": "the picker accepts multiple images only → accept=image/*"
+  },
+  {
+   "id": "P3 039",
+   "pass": true,
+   "detail": "the collapsed input is still named for screen readers → Choose one or more image files from this device"
+  },
+  {
+   "id": "P3 040",
+   "pass": true,
+   "detail": "one shared replacement picker exists (Replace works without cloning an input per tile)"
+  },
+  {
+   "id": "P3 041",
+   "pass": true,
+   "detail": "nothing in the card is aria-hidden, so no focusable control is orphaned"
+  },
+  {
+   "id": "P3 042",
+   "pass": true,
+   "detail": "an honest empty state, not a fake thumbnail rail → No images yet. A banner works fine without them — add only w"
+  },
+  {
+   "id": "P3 043",
+   "pass": true,
+   "detail": "the status line explains the privacy stance when empty → No images in this tab yet. Nothing here is uploaded, and nothing is ne"
+  },
+  {
+   "id": "P3 044",
+   "pass": true,
+   "detail": "the attachment-map box previews its own emptiness"
+  },
+  {
+   "id": "P3 045",
+   "pass": true,
+   "detail": "the integrity-rule list starts honest (“they appear as soon as an image has a role or a lock”)"
+  },
+  {
+   "id": "P3 046",
+   "pass": true,
+   "detail": "no error is invented at boot"
+  },
+  {
+   "id": "P3 047",
+   "pass": true,
+   "detail": "the three choices are real pressed/unpressed buttons (exactly one of them is the master switch)"
+  },
+  {
+   "id": "P3 048",
+   "pass": true,
+   "detail": "defaults as agreed: map on, count in step on, type/position/style copying off"
+  },
+  {
+   "id": "P3 049",
+   "pass": true,
+   "detail": "the card says out loud that the one switch silences the whole layer"
+  },
+  {
+   "id": "P3 050",
+   "pass": true,
+   "detail": "mountAssets() twice is a no-op — one card, no duplicate listeners"
+  },
+  {
+   "id": "P3 051",
+   "pass": true,
+   "detail": "selfTest green with the asset card mounted → []"
+  },
+  {
+   "id": "P3 052",
+   "pass": true,
+   "detail": "state ↔ v2.0 DOM still in sync at boot (no mirror ran with an empty list) → []"
+  },
+  {
+   "id": "P3 053",
+   "pass": true,
+   "detail": "no duplicate id after mounting the asset card → 141 ids"
+  },
+  {
+   "id": "P3 054",
+   "pass": true,
+   "detail": "the list starts genuinely empty"
+  },
+  {
+   "id": "P3 055",
+   "pass": true,
+   "detail": "no listener leak: bus subscribers after phase 3 = 13"
+  },
+  {
+   "id": "P3 056",
+   "pass": true,
+   "detail": "the shell still owns exactly its 10 bindings (the asset layer wired its own, outside the shell table)"
+  },
+  {
+   "id": "P3 057",
+   "pass": true,
+   "detail": "nothing cached and nothing written at boot → {\"bytes\":0,\"kept\":0,\"skipped\":0,\"budget\":1900000,\"written\":false}"
+  },
+  {
+   "id": "P3 058",
+   "pass": true,
+   "detail": "v2.0’s Image Settings still show their own defaults (the layer never writes on an empty list)"
+  },
+  {
+   "id": "P3 059",
+   "pass": true,
+   "detail": "14 named roles + Custom Role → main_person,supporting_person,logo,product,product_detail,background,building,food,vehicle,event,decorative,reference,texture,other,custom"
+  },
+  {
+   "id": "P3 060",
+   "pass": true,
+   "detail": "every role the brief names exists, spelled exactly as asked"
+  },
+  {
+   "id": "P3 061",
+   "pass": true,
+   "detail": "each role has an emoji + a human label (the beginner chips reuse them)"
+  },
+  {
+   "id": "P3 062",
+   "pass": true,
+   "detail": "Custom Role is a real choice and does not arrive locked"
+  },
+  {
+   "id": "P3 063",
+   "pass": true,
+   "detail": "11 treatments, plus one explicit “no preference” (never forced) → No preference — leave it to the AI / Preserve Original / Full Frame / Cutout (background removed) / Circular / Rounded Corners / Bordered / Shadow / F"
+  },
+  {
+   "id": "P3 064",
+   "pass": true,
+   "detail": "the treatment list matches the 11 requested treatments"
+  },
+  {
+   "id": "P3 065",
+   "pass": true,
+   "detail": "11 positions + “no preference” → Left / Right / Center / Background / Top / Bottom / Upper Left / Upper Right / Lower Left / Lower Right / Custom Position"
+  },
+  {
+   "id": "P3 066",
+   "pass": true,
+   "detail": "the position list matches the 11 requested positions"
+  },
+  {
+   "id": "P3 067",
+   "pass": true,
+   "detail": "only 6 treatments and 5 positions have a v2.0 select option (the rest stay asset-only rather than being smuggled into v2.0 controls) → Full Frame,Cutout (background removed),Circular,Bordered,Shadow,Faded"
+  },
+  {
+   "id": "P3 068",
+   "pass": true,
+   "detail": "every mirrored value is a real v2.0 option (the layer can never write a value the original form does not know)"
+  },
+  {
+   "id": "P3 069",
+   "pass": true,
+   "detail": "the four v2.0 image selects carry exactly their baseline option counts (nothing was added or renamed) → icount=5/5 itype=8/8 ipos=5/5 istyle=6/6"
+  },
+  {
+   "id": "P3 070",
+   "pass": true,
+   "detail": "the 9 asset-integrity rules exist and each lists the roles it applies to → preserve_face_identity,no_face_distortion,preserve_logo,no_logo_redesign,preserve_product_proportions,no_product_replacement,no_logo_replacement,no_invented_image,preserve_visual_details"
+  },
+  {
+   "id": "P3 071",
+   "pass": true,
+   "detail": "all eight requested protections + “do not invent a missing image” are present"
+  },
+  {
+   "id": "P3 072",
+   "pass": true,
+   "detail": "the metadata surface is exactly the 10 human fields, in order"
+  },
+  {
+   "id": "P3 073",
+   "pass": true,
+   "detail": "eight emoji chips, every one mapping to a real role → 👤My Photo 🏷️My Logo 📦My Product 🖼️My Background 🏢My Building 🍔My Food 📷Reference ➕Something Else"
+  },
+  {
+   "id": "P3 074",
+   "pass": true,
+   "detail": "the chip wording is exactly as specified"
+  },
+  {
+   "id": "P3 075",
+   "pass": true,
+   "detail": "MGS.assets exposes all 44 documented members → none missing | plus move/patch: 45 keys total"
+  },
+  {
+   "id": "P3 076",
+   "pass": true,
+   "detail": "MGSPrompt grew the four asset seams and kept its own two"
+  },
+  {
+   "id": "P3 077",
+   "pass": true,
+   "detail": "MGSRules keeps its Phase-1 surface and gains the asset seam"
+  },
+  {
+   "id": "P3 078",
+   "pass": true,
+   "detail": "MGSUI exposes the mount/render pair for the asset card"
+  },
+  {
+   "id": "P3 079",
+   "pass": true,
+   "detail": "the original Phase-1 asset functions are still reachable (grown, never replaced-and-dropped)"
+  },
+  {
+   "id": "P3 080",
+   "pass": true,
+   "detail": "sane local limits → {\"files\":12,\"bytesPerFile\":8388608,\"totalBytes\":25165824,\"previewBudget\":1900000}"
+  },
+  {
+   "id": "P3 081",
+   "pass": true,
+   "detail": "the layer states its own storage contract: metadata in local, previews in session, no bytes anywhere → {\"key\":\"mgs.assets.v1\",\"schema\":1,\"previewKey\":\"mgs.assets.previews.v1\",\"previewsIn\":\"sessionStorage\",\"imageBytesStored\":0,\"binaryInPrompts\":0}"
+  },
+  {
+   "id": "P3 082",
+   "pass": true,
+   "detail": "Phase-2’s beginner layer is fully intact next to the new card → 18 cards / 8 steps"
+  },
+  {
+   "id": "P3 083",
+   "pass": true,
+   "detail": "one image attached through the real picker path"
+  },
+  {
+   "id": "P3 084",
+   "pass": true,
+   "detail": "the record itself carries metadata only — no dataUrl, no blob, no byte array → id,n,filename,role,customRole,treatment,position,description,locked,sourceType,size,mime,preview,addedAt,width,height,error"
+  },
+  {
+   "id": "P3 085",
+   "pass": true,
+   "detail": "a freshly added image has a number and a name but no invented meaning → {\"assetId\":\"a1-826269-shop-logo_\",\"assetNumber\":1,\"filename\":\"shop-logo.png\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\":\"\",\"treatment\":\"\",\"treatmentKey\":\"\",\"locked\":false,\"descriptio"
+  },
+  {
+   "id": "P3 086",
+   "pass": true,
+   "detail": "where it came from is recorded → file-picker"
+  },
+  {
+   "id": "P3 087",
+   "pass": true,
+   "detail": "the tile shows the asset number and the filename"
+  },
+  {
+   "id": "P3 088",
+   "pass": true,
+   "detail": "a thumbnail preview is rendered from the local data URL"
+  },
+  {
+   "id": "P3 089",
+   "pass": true,
+   "detail": "exactly one post-upload question with eight one-tap answers (beginner req. 11)"
+  },
+  {
+   "id": "P3 090",
+   "pass": true,
+   "detail": "the question is bilingual, not jargon → What is this image? · या चित्रात काय आहे?"
+  },
+  {
+   "id": "P3 091",
+   "pass": true,
+   "detail": "the tile states its own needs via data attributes (style hooks, not text hacks)"
+  },
+  {
+   "id": "P3 092",
+   "pass": true,
+   "detail": "no role is silently assumed"
+  },
+  {
+   "id": "P3 093",
+   "pass": true,
+   "detail": "the status line counts images and repeats the privacy fact → 1 image in this tab · 0 with a role · 1 KB · nothing uploaded anywhere"
+  },
+  {
+   "id": "P3 094",
+   "pass": true,
+   "detail": "count-sync wrote the value the user’s own select already had (1) — no visible change"
+  },
+  {
+   "id": "P3 095",
+   "pass": true,
+   "detail": "the map line admits it has no meaning yet → Image 1 — not described yet"
+  },
+  {
+   "id": "P3 096",
+   "pass": true,
+   "detail": "the preview lives in memory + sessionStorage only → {\"ok\":true,\"kind\":\"data-url\",\"chars\":46,\"where\":\"session-only\"}"
+  },
+  {
+   "id": "P3 097",
+   "pass": true,
+   "detail": "stats agree with the DOM → {\"count\":1,\"bytes\":16,\"locked\":0,\"withRole\":0,\"previews\":1,\"failedPreviews\":0,\"needsRole\":1,\"includeMap\":true,\"countSync\":true,\"mirrorSync\":false,\"notes\":0,\"sav"
+  },
+  {
+   "id": "P3 098",
+   "pass": true,
+   "detail": "the pro surface (role/treatment/position) exists per tile, in its own wrapper"
+  },
+  {
+   "id": "P3 099",
+   "pass": true,
+   "detail": "the role select offers all 15 roles plus an explicit “no preference” row (nothing forced, nothing filtered) → 16 options"
+  },
+  {
+   "id": "P3 100",
+   "pass": true,
+   "detail": "a multi-select of five images lands as five assets (no silent truncation below the limit)"
+  },
+  {
+   "id": "P3 101",
+   "pass": true,
+   "detail": "asset numbers are contiguous from 1 → 1,2,3,4,5"
+  },
+  {
+   "id": "P3 102",
+   "pass": true,
+   "detail": "five tiles rendered, in list order"
+  },
+  {
+   "id": "P3 103",
+   "pass": true,
+   "detail": "the attachment map numbers match the tiles"
+  },
+  {
+   "id": "P3 104",
+   "pass": true,
+   "detail": "five images → v2.0 Image Count moves to its own top value “multiple” (only values that exist in the select are ever written) → multiple"
+  },
+  {
+   "id": "P3 105",
+   "pass": true,
+   "detail": "“← Earlier” reorders and renumbers → 1,2,3,4,5"
+  },
+  {
+   "id": "P3 106",
+   "pass": true,
+   "detail": "moveTo(id, 4) puts it last (the AI reads it as Image 5)"
+  },
+  {
+   "id": "P3 107",
+   "pass": true,
+   "detail": "moving past the start is a friendly sentence, not a crash → “a-photo.jpg” is already the first image — that is the one the AI read"
+  },
+  {
+   "id": "P3 108",
+   "pass": true,
+   "detail": "dragging tile 1 onto tile 3 moved it to that slot (reorder-where-practical, no library) → b-logo.png,d-shop.jpg,a-photo.jpg,e-food.jpg,c-product.jpg"
+  },
+  {
+   "id": "P3 109",
+   "pass": true,
+   "detail": "dragend clears every dragging marker (no stuck half-state)"
+  },
+  {
+   "id": "P3 110",
+   "pass": true,
+   "detail": "removing a middle image renumbers the rest (no gaps in the map)"
+  },
+  {
+   "id": "P3 111",
+   "pass": true,
+   "detail": "four images still map to “multiple”, because v2.0 has no 4 → multiple"
+  },
+  {
+   "id": "P3 112",
+   "pass": true,
+   "detail": "“Remove all images” empties the list in this tab"
+  },
+  {
+   "id": "P3 113",
+   "pass": true,
+   "detail": "and hands Image Count back: it returns to the value the user had before the layer touched it → 1"
+  },
+  {
+   "id": "P3 114",
+   "pass": true,
+   "detail": "the empty state is restored, not left showing a stale rail"
+  },
+  {
+   "id": "P3 115",
+   "pass": true,
+   "detail": "a drop of 16 files stops at the 12-image ceiling instead of hanging the page → 12"
+  },
+  {
+   "id": "P3 116",
+   "pass": true,
+   "detail": "and says why in plain words → This list holds 12 images, which is already more than any banner needs. Remove o"
+  },
+  {
+   "id": "P3 117",
+   "pass": true,
+   "detail": "adding past the ceiling is refused, never half-applied"
+  },
+  {
+   "id": "P3 118",
+   "pass": true,
+   "detail": "“＋ Add Image” opens the browser’s own picker (one click, no custom file UI to get wrong)"
+  },
+  {
+   "id": "P3 119",
+   "pass": true,
+   "detail": "dragover highlights the drop zone (the user sees where to let go)"
+  },
+  {
+   "id": "P3 120",
+   "pass": true,
+   "detail": "dragleave clears the highlight"
+  },
+  {
+   "id": "P3 121",
+   "pass": true,
+   "detail": "dropping a file adds it, recorded as drag-drop → {\"assetId\":\"a1-829328-dragged-fo\",\"assetNumber\":1,\"filename\":\"dragged-food.jpg\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\""
+  },
+  {
+   "id": "P3 122",
+   "pass": true,
+   "detail": "an empty drop (a dragged text selection, say) is explained, not thrown"
+  },
+  {
+   "id": "P3 123",
+   "pass": true,
+   "detail": "and it changed nothing"
+  },
+  {
+   "id": "P3 124",
+   "pass": true,
+   "detail": "a mixed multi-file batch keeps the valid ones and refuses the rest by name → {\"ok\":true,\"added\":[{\"id\":\"a2-829520-good-1_png\",\"n\":2,\"filename\":\"good-1.png\"},{\"id\":\"a3-829523-good-2_jpg\",\"n\":3,\"filename\":\"good-2.jpg\"}],\"refused\":[{\"filename\":\"invoice.pdf\",\"r"
+  },
+  {
+   "id": "P3 125",
+   "pass": true,
+   "detail": "pressing a tile button (🔓 Lock here) does not fall through to the file picker"
+  },
+  {
+   "id": "P3 126",
+   "pass": true,
+   "detail": "and it did its own job instead (that tile is now locked, list still 3)"
+  },
+  {
+   "id": "P3 127",
+   "pass": true,
+   "detail": "role changes are announced to screen readers → [\"This image is now a Food.\"]"
+  },
+  {
+   "id": "P3 128",
+   "pass": true,
+   "detail": "cancelling the native picker leaves everything alone"
+  },
+  {
+   "id": "P3 129",
+   "pass": true,
+   "detail": "add(null)/add([]) answer with a reason instead of throwing"
+  },
+  {
+   "id": "P3 130",
+   "pass": true,
+   "detail": "every id-taking method answers honestly about a missing asset"
+  },
+  {
+   "id": "P3 131",
+   "pass": true,
+   "detail": "replace on a removed tile is refused (the “remove after selection” case)"
+  },
+  {
+   "id": "P3 132",
+   "pass": true,
+   "detail": "“My Photo” ⇒ Main Person, and a photo is NOT locked against the user’s will"
+  },
+  {
+   "id": "P3 133",
+   "pass": true,
+   "detail": "“My Logo” ⇒ Logo with the lock pre-ticked (the thing people fear most)"
+  },
+  {
+   "id": "P3 134",
+   "pass": true,
+   "detail": "“My Product” ⇒ Product, locked"
+  },
+  {
+   "id": "P3 135",
+   "pass": true,
+   "detail": "a locked tile is marked for styling and for the test suite"
+  },
+  {
+   "id": "P3 136",
+   "pass": true,
+   "detail": "once named, the question goes away (one question per image, never nagging)"
+  },
+  {
+   "id": "P3 137",
+   "pass": true,
+   "detail": "the lock button reads as a state, not an action mystery → 🔒 Locked — keep it exactly"
+  },
+  {
+   "id": "P3 138",
+   "pass": true,
+   "detail": "the auto-lock is untickable (never forced on the user)"
+  },
+  {
+   "id": "P3 139",
+   "pass": true,
+   "detail": "and re-lockable from the API"
+  },
+  {
+   "id": "P3 140",
+   "pass": true,
+   "detail": "two locked assets are reported to the prompt layer → [\"a2-830310-logo_png\",\"a3-830311-shoes_jpg\"]"
+  },
+  {
+   "id": "P3 141",
+   "pass": true,
+   "detail": "the fourth image arrives with its own question (a per-asset question, not a global one)"
+  },
+  {
+   "id": "P3 142",
+   "pass": true,
+   "detail": "“Something Else” chooses Custom Role (a real escape hatch, not a dead end) → {\"assetId\":\"a1-830309-me_jpg\",\"assetNumber\":1,\"filename\":\"me.jpg\",\"role\":\"Main Person\",\"roleKey\":\"main_person\",\"roleNote"
+  },
+  {
+   "id": "P3 143",
+   "pass": true,
+   "detail": "a “name it yourself” field appeared for the custom role"
+  },
+  {
+   "id": "P3 144",
+   "pass": true,
+   "detail": "the user’s own words become the role label verbatim"
+  },
+  {
+   "id": "P3 145",
+   "pass": true,
+   "detail": "the map shows the custom wording (as Image 4), not the word “custom” → Image 1 — Main Person"
+  },
+  {
+   "id": "P3 146",
+   "pass": true,
+   "detail": "while the user is still typing, the tile is NOT rebuilt under the caret (the map box already updated, the tile waits for blur) → Role: Something else"
+  },
+  {
+   "id": "P3 147",
+   "pass": true,
+   "detail": "leaving the field syncs the tile text with what was typed (no lost keystrokes, no stale label)"
+  },
+  {
+   "id": "P3 148",
+   "pass": true,
+   "detail": "no snake_case identifier ever leaks into the beginner-facing text"
+  },
+  {
+   "id": "P3 149",
+   "pass": true,
+   "detail": "an unknown role is refused, not stored"
+  },
+  {
+   "id": "P3 150",
+   "pass": true,
+   "detail": "treatment and position are catalogue-guarded too"
+  },
+  {
+   "id": "P3 151",
+   "pass": true,
+   "detail": "any of the 15 roles is assignable through the API"
+  },
+  {
+   "id": "P3 152",
+   "pass": true,
+   "detail": "long notes are truncated to a sane length instead of bloating the prompt"
+  },
+  {
+   "id": "P3 153",
+   "pass": true,
+   "detail": "the pro select and the beginner chip drive one state (no second model)"
+  },
+  {
+   "id": "P3 154",
+   "pass": true,
+   "detail": "clearing the role is allowed — “leave it to the AI” is a real answer"
+  },
+  {
+   "id": "P3 155",
+   "pass": true,
+   "detail": "both selects start on “no preference” (a treatment is never forced)"
+  },
+  {
+   "id": "P3 156",
+   "pass": true,
+   "detail": "the human treatment label is stored for the map → Circular"
+  },
+  {
+   "id": "P3 157",
+   "pass": true,
+   "detail": "a position with no v2.0 option still exists in the asset record → Upper Right"
+  },
+  {
+   "id": "P3 158",
+   "pass": true,
+   "detail": "and both reach the AI as words"
+  },
+  {
+   "id": "P3 159",
+   "pass": true,
+   "detail": "a treatment with a v2.0 twin does NOT silently rewrite v2.0’s own select while “copy style” is off → cutout"
+  },
+  {
+   "id": "P3 160",
+   "pass": true,
+   "detail": "the optional note is stored per asset"
+  },
+  {
+   "id": "P3 161",
+   "pass": true,
+   "detail": "and quoted into its map line → ge 2 — not described yet · “white version, keep the tagline”"
+  },
+  {
+   "id": "P3 162",
+   "pass": true,
+   "detail": "one optional note box per tile, capped at 160 chars"
+  },
+  {
+   "id": "P3 163",
+   "pass": true,
+   "detail": "with the copy switch off, v2.0’s type/position are untouched by a Logo + Product pair"
+  },
+  {
+   "id": "P3 164",
+   "pass": true,
+   "detail": "switching the copy on follows the first described image, using only real v2.0 options → person/left"
+  },
+  {
+   "id": "P3 165",
+   "pass": true,
+   "detail": "and can be switched back off (the user keeps control)"
+  },
+  {
+   "id": "P3 166",
+   "pass": true,
+   "detail": "technical metadata (size, mime, source, preview) exists but only inside the pro wrapper"
+  },
+  {
+   "id": "P3 167",
+   "pass": true,
+   "detail": "strip the pro rows and no technical noise is left in the list"
+  },
+  {
+   "id": "P3 168",
+   "pass": true,
+   "detail": "a non-image is refused with the list of what works → “notes.txt” is not a picture this app can use. Add a PNG, JPG, WEBP, GIF, BMP or SVG file."
+  },
+  {
+   "id": "P3 169",
+   "pass": true,
+   "detail": "a zero-byte file is called empty, not “invalid”"
+  },
+  {
+   "id": "P3 170",
+   "pass": true,
+   "detail": "the common iPhone failure gets its own instructions, not a generic error"
+  },
+  {
+   "id": "P3 171",
+   "pass": true,
+   "detail": "an exotic image mime is refused before any reading starts"
+  },
+  {
+   "id": "P3 172",
+   "pass": true,
+   "detail": "an oversized file is refused with its own size in human units → “big.png” is 30 MB, above the 8 MB limit for one image. Nothing leaves"
+  },
+  {
+   "id": "P3 173",
+   "pass": true,
+   "detail": "validate() survives being handed nothing"
+  },
+  {
+   "id": "P3 174",
+   "pass": true,
+   "detail": "the picker path refuses the same file the validator refused (one rule, two doors)"
+  },
+  {
+   "id": "P3 175",
+   "pass": true,
+   "detail": "three 7 MB images are accepted → 22020096"
+  },
+  {
+   "id": "P3 176",
+   "pass": true,
+   "detail": "the 4th image would pass the total budget, and the message says what to do → Adding “fourth.jpg” would pass 24 MB of images in this tab. Remove one image fir"
+  },
+  {
+   "id": "P3 177",
+   "pass": true,
+   "detail": "a refused add leaves the list exactly as it was"
+  },
+  {
+   "id": "P3 178",
+   "pass": true,
+   "detail": "the same file twice is caught (name + size) and not silently doubled"
+  },
+  {
+   "id": "P3 179",
+   "pass": true,
+   "detail": "…and the message names the copy that is already there"
+  },
+  {
+   "id": "P3 180",
+   "pass": true,
+   "detail": "an “Add it anyway” escape hatch is offered (a duplicate is a warning, not a wall)"
+  },
+  {
+   "id": "P3 181",
+   "pass": true,
+   "detail": "after the explicit yes, the same file is added as Image 2"
+  },
+  {
+   "id": "P3 182",
+   "pass": true,
+   "detail": "the pending queue is drained (no ghost duplicates waiting)"
+  },
+  {
+   "id": "P3 183",
+   "pass": true,
+   "detail": "same filename, different size = different file (no false positive)"
+  },
+  {
+   "id": "P3 184",
+   "pass": true,
+   "detail": "a file the browser cannot decode is still a usable asset: the *preview* failed, the asset did not"
+  },
+  {
+   "id": "P3 185",
+   "pass": true,
+   "detail": "the tile says the preview failed in words the user can act on"
+  },
+  {
+   "id": "P3 186",
+   "pass": true,
+   "detail": "…and the attachment map still lists it (a missing thumbnail must not delete an instruction)"
+  },
+  {
+   "id": "P3 187",
+   "pass": true,
+   "detail": "removing an image invalidates its id everywhere (no orphan patches, no stale tiles)"
+  },
+  {
+   "id": "P3 188",
+   "pass": true,
+   "detail": "and the DOM follows immediately"
+  },
+  {
+   "id": "P3 189",
+   "pass": true,
+   "detail": "a bad replacement is refused and the original keeps its role"
+  },
+  {
+   "id": "P3 190",
+   "pass": true,
+   "detail": "a good replacement swaps the file and keeps the meaning (asset id + number too)"
+  },
+  {
+   "id": "P3 191",
+   "pass": true,
+   "detail": "the metadata says the file was swapped in → replaced"
+  },
+  {
+   "id": "P3 192",
+   "pass": true,
+   "detail": "at most three messages are shown at once, each one a sentence (no error wall)"
+  },
+  {
+   "id": "P3 193",
+   "pass": true,
+   "detail": "with fetch/XHR sabotaged, attaching + generating still works → 0 network attempts"
+  },
+  {
+   "id": "P3 194",
+   "pass": true,
+   "detail": "non-Latin filenames survive intact and appear in the map → Image 2 — Background · LOCKED"
+  },
+  {
+   "id": "P3 195",
+   "pass": true,
+   "detail": "14 files at once through the picker stops at the 12-image ceiling (no crash, no silent truncation) → 12"
+  },
+  {
+   "id": "P3 196",
+   "pass": true,
+   "detail": "and the reason is said out loud in the card, in plain words → This list holds 12 images, which is already more than any banner needs. Remove one, then a"
+  },
+  {
+   "id": "P3 197",
+   "pass": true,
+   "detail": "the first twelve are kept in the order they arrived"
+  },
+  {
+   "id": "P3 198",
+   "pass": true,
+   "detail": "the DOM holds exactly the twelve tiles — no orphan rows"
+  },
+  {
+   "id": "P3 199",
+   "pass": true,
+   "detail": "the ceiling is enforced in the state layer too, not only in the file loop"
+  },
+  {
+   "id": "P3 200",
+   "pass": true,
+   "detail": "the reason code for a full list is “too-many” (kept distinct from “too-many-bytes”, which is about size)"
+  },
+  {
+   "id": "P3 201",
+   "pass": true,
+   "detail": "a camera/WhatsApp-style JPEG (the common phone case) is accepted by its real mime type"
+  },
+  {
+   "id": "P3 202",
+   "pass": true,
+   "detail": "the tile shows the name the phone gave it, unchanged"
+  },
+  {
+   "id": "P3 203",
+   "pass": true,
+   "detail": "Android/Safari sometimes report no mime type — the extension carries it (still a picture, no scary error)"
+  },
+  {
+   "id": "P3 204",
+   "pass": true,
+   "detail": "and it is stored with an honest empty mime, not a guessed one"
+  },
+  {
+   "id": "P3 205",
+   "pass": true,
+   "detail": "a name with no type and no extension is refused with the list of usable formats"
+  },
+  {
+   "id": "P3 206",
+   "pass": true,
+   "detail": "long, mixed-script filenames are fine (they are only ever shown, never parsed)"
+  },
+  {
+   "id": "P3 207",
+   "pass": true,
+   "detail": "…and they appear in the attachment map verbatim, spaces and all"
+  },
+  {
+   "id": "P3 208",
+   "pass": true,
+   "detail": "the input itself is what a mobile browser needs (accept=image/* opens the camera/gallery, multiple works on desktop)"
+  },
+  {
+   "id": "P3 209",
+   "pass": true,
+   "detail": "a tall story-sized export is within the limits (no dimension gate: the layer never claims to know what a banner needs)"
+  },
+  {
+   "id": "P3 210",
+   "pass": true,
+   "detail": "no pixel dimensions are demanded of, or shown to, a beginner"
+  },
+  {
+   "id": "P3 211",
+   "pass": true,
+   "detail": "the standard fixture (logo + person + food, one locked, one positioned, one noted) is attached"
+  },
+  {
+   "id": "P3 212",
+   "pass": true,
+   "detail": "no image data in any of the 8 prompts (no data URL, no base64 marker) → offenders: none"
+  },
+  {
+   "id": "P3 213",
+   "pass": true,
+   "detail": "no long base64-shaped run anywhere in the prompts either → none"
+  },
+  {
+   "id": "P3 214",
+   "pass": true,
+   "detail": "the prompts stay prompt-sized with 3 images attached → 2843/1706/2812/1701/1682/1714/1735/2850"
+  },
+  {
+   "id": "P3 215",
+   "pass": true,
+   "detail": "localStorage holds metadata only (names, roles, locks, notes) — never a thumbnail"
+  },
+  {
+   "id": "P3 216",
+   "pass": true,
+   "detail": "the v2.0 draft autosave that the asset layer triggers carries no image data either"
+  },
+  {
+   "id": "P3 217",
+   "pass": true,
+   "detail": "the storage key set is still only the app’s own → mgs.assets.v1"
+  },
+  {
+   "id": "P3 218",
+   "pass": true,
+   "detail": "previews are in sessionStorage (die with the tab) → mgs.assets.previews.v1"
+  },
+  {
+   "id": "P3 219",
+   "pass": true,
+   "detail": "the project save path was not widened: it still snapshots the same v2.0 fields (plus the shell state it already had)"
+  },
+  {
+   "id": "P3 220",
+   "pass": true,
+   "detail": "exactly 3 small previews are cached, and they are counted → {\"bytes\":140,\"kept\":3,\"skipped\":0,\"budget\":1900000,\"written\":true}"
+  },
+  {
+   "id": "P3 221",
+   "pass": true,
+   "detail": "the whole preview cache stays under its budget (281 < 1900000 chars)"
+  },
+  {
+   "id": "P3 222",
+   "pass": true,
+   "detail": "map line format is “Image N — Role”, with LOCKED and the user’s note appended when they exist → Image 1 — Logo · LOCKED | Image 2 — Main Person | Image 3 — Food · “the plate from our counter”"
+  },
+  {
+   "id": "P3 223",
+   "pass": true,
+   "detail": "the three lines read exactly like the requested Attachment Map → Image 1 — Logo · LOCKED | Image 2 — Main Person | Image 3 — Food · “the plate from our counter”"
+  },
+  {
+   "id": "P3 224",
+   "pass": true,
+   "detail": "the block announces what it is and how many images"
+  },
+  {
+   "id": "P3 225",
+   "pass": true,
+   "detail": "and closes itself (the seam is delimited, so a later adapter can strip it)"
+  },
+  {
+   "id": "P3 226",
+   "pass": true,
+   "detail": "the three sections a platform needs are present"
+  },
+  {
+   "id": "P3 227",
+   "pass": true,
+   "detail": "no integrity rule is stated twice in one prompt (role-scoped rules and the always-on rule are merged) → 0 duplicates"
+  },
+  {
+   "id": "P3 228",
+   "pass": true,
+   "detail": "the logo wording is the sentence from the brief, verbatim"
+  },
+  {
+   "id": "P3 229",
+   "pass": true,
+   "detail": "the person line carries the identity instruction even though that image is not locked"
+  },
+  {
+   "id": "P3 230",
+   "pass": true,
+   "detail": "the food image gets its role sentence → - Image 3 (samosa.jpg): Use Image 3 as the dish being offered. Do not replace the food wit"
+  },
+  {
+   "id": "P3 231",
+   "pass": true,
+   "detail": "the user’s note travels to the AI → "
+  },
+  {
+   "id": "P3 232",
+   "pass": true,
+   "detail": "the “do not invent a missing image” rule is always in the block once an image is attached"
+  },
+  {
+   "id": "P3 233",
+   "pass": true,
+   "detail": "the role-derived integrity rules are emitted as sentences"
+  },
+  {
+   "id": "P3 234",
+   "pass": true,
+   "detail": "the block tells the platform to expect the files separately (this phase maps attachments, it does not upload them)"
+  },
+  {
+   "id": "P3 235",
+   "pass": true,
+   "detail": "the rules seam hands the future rules engine structured records → 8 rules"
+  },
+  {
+   "id": "P3 236",
+   "pass": true,
+   "detail": "a locked logo really does produce its own rule"
+  },
+  {
+   "id": "P3 237",
+   "pass": true,
+   "detail": "MGSRules’ own catalogue is untouched by the seam → 9 design rules still"
+  },
+  {
+   "id": "P3 238",
+   "pass": true,
+   "detail": "the existing design-rules check returns the identical warnings with an asset attached (prepared, not wired in)"
+  },
+  {
+   "id": "P3 239",
+   "pass": true,
+   "detail": "with v2.0’s design-rule switch off, my asset block still appears on its own — the two are independent"
+  },
+  {
+   "id": "P3 240",
+   "pass": true,
+   "detail": "and both blocks coexist when it is on"
+  },
+  {
+   "id": "P3 241",
+   "pass": true,
+   "detail": "with no images attached, all 4 v2.0 scenarios × 8 platforms are byte-identical to the untouched baseline → sale-marathi=same wedding-mixed=same corporate-english=same minimal-empty-extras=same"
+  },
+  {
+   "id": "P3 242",
+   "pass": true,
+   "detail": "the Output panel text, the 0 variant cards and the negative prompt are identical too → 5061:yn23wd 4768:l9lpq1 5098:5buq14 91:1pit3t"
+  },
+  {
+   "id": "P3 243",
+   "pass": true,
+   "detail": "the same 8 platforms were produced by the same 8 checkboxes in both files → canva,chatgpt,copilot,dalle,firefly,ideogram,midjourney,stable"
+  },
+  {
+   "id": "P3 244",
+   "pass": true,
+   "detail": "no attachment block ever appears in a no-image run → 0 occurrences across 32 prompts"
+  },
+  {
+   "id": "P3 245",
+   "pass": true,
+   "detail": "with 3 images attached the block IS in the prompt (and only then) → 1512 extra chars"
+  },
+  {
+   "id": "P3 246",
+   "pass": true,
+   "detail": "the ONE difference is the block: stripping it returns the exact baseline prompt on all 8 platforms"
+  },
+  {
+   "id": "P3 247",
+   "pass": true,
+   "detail": "the visible pane grew by exactly the block → 5061 → 16965 chars"
+  },
+  {
+   "id": "P3 248",
+   "pass": true,
+   "detail": "Midjourney’s parameter tail is still the last thing in its prompt → \"USER ATTACHMENTS ---\\n --ar 80:40 --v 6.1 --q 2 --style raw\""
+  },
+  {
+   "id": "P3 249",
+   "pass": true,
+   "detail": "and the attachment block sits before that tail, never after it"
+  },
+  {
+   "id": "P3 250",
+   "pass": true,
+   "detail": "prose platforms get the block after one blank line (readable, pasteable)"
+  },
+  {
+   "id": "P3 251",
+   "pass": true,
+   "detail": "variant cards (0) and the negative prompt are deliberately NOT augmented (documented limitation)"
+  },
+  {
+   "id": "P3 252",
+   "pass": true,
+   "detail": "the output tab strip still has exactly one tab per selected platform after the re-render → 8"
+  },
+  {
+   "id": "P3 253",
+   "pass": true,
+   "detail": "the visible pane shows the block, so what you see is what gets copied"
+  },
+  {
+   "id": "P3 254",
+   "pass": true,
+   "detail": "v2.0’s own output tab switching still works after the layer re-rendered the panes"
+  },
+  {
+   "id": "P3 255",
+   "pass": true,
+   "detail": "three more generations still produce exactly one attachment block (no stacking)"
+  },
+  {
+   "id": "P3 256",
+   "pass": true,
+   "detail": "the shell’s output mirror picked up the same text (one source of truth)"
+  },
+  {
+   "id": "P3 257",
+   "pass": true,
+   "detail": "saving to history works and stores no image bytes (the block is text) → 1 rows"
+  },
+  {
+   "id": "P3 258",
+   "pass": true,
+   "detail": "history captures the prompt exactly as shown, block included (v2.0’s own snapshot behaviour, documented)"
+  },
+  {
+   "id": "P3 259",
+   "pass": true,
+   "detail": "loading that history row puts the same block back on screen"
+  },
+  {
+   "id": "P3 260",
+   "pass": true,
+   "detail": "the master switch off ⇒ 3 images attached and the prompts are STILL byte-identical to the no-image run (one switch, total silence)"
+  },
+  {
+   "id": "P3 261",
+   "pass": true,
+   "detail": "with the switch off the layer also stopped mirroring Image Count, and returned it to the value the user had → 2"
+  },
+  {
+   "id": "P3 262",
+   "pass": true,
+   "detail": "the difference is exactly the block plus its blank line, nothing else → 2843 vs 1331"
+  },
+  {
+   "id": "P3 263",
+   "pass": true,
+   "detail": "with count-sync ON the layer never fights a hand-edit: setting Image Count by hand sticks (no listener on v2.0’s select) → 2"
+  },
+  {
+   "id": "P3 264",
+   "pass": true,
+   "detail": "but adding a 4th image does bring the count in step again → multiple"
+  },
+  {
+   "id": "P3 265",
+   "pass": true,
+   "detail": "and removing it brings it back → 3"
+  },
+  {
+   "id": "P3 266",
+   "pass": true,
+   "detail": "three images ⇒ the mirror wrote “3” (an existing v2.0 value, never a new option); a later hand-edit of the same field is still honoured → after the form fill: 2"
+  },
+  {
+   "id": "P3 267",
+   "pass": true,
+   "detail": "with 3 images attached, MGSPrompt.stripAssetBlock() returns the untouched v2.0 prompt byte-for-byte on all 8 platforms — the block is the ONLY difference → offenders: none"
+  },
+  {
+   "id": "P3 268",
+   "pass": true,
+   "detail": "and after the round trip Midjourney still ends in its own parameter tail"
+  },
+  {
+   "id": "P3 269",
+   "pass": true,
+   "detail": "the frozen Phase-3 parity artifact agrees with this run"
+  },
+  {
+   "id": "P3 270",
+   "pass": true,
+   "detail": "7 v2.0 tabs, first one active, untouched"
+  },
+  {
+   "id": "P3 271",
+   "pass": true,
+   "detail": "v2.0’s own sT() still switches tabs (class-driven, exactly as before)"
+  },
+  {
+   "id": "P3 272",
+   "pass": true,
+   "detail": "palette and layout grids still render → 12/10"
+  },
+  {
+   "id": "P3 273",
+   "pass": true,
+   "detail": "clicking a palette still selects it (xPal intact) → sPal=Festive Indian"
+  },
+  {
+   "id": "P3 274",
+   "pass": true,
+   "detail": "all 8 platform tiles are still rendered by v2.0’s own rPf()"
+  },
+  {
+   "id": "P3 275",
+   "pass": true,
+   "detail": "clicking a platform tile still selects it (xPf intact) → chatgpt,midjourney"
+  },
+  {
+   "id": "P3 276",
+   "pass": true,
+   "detail": "v2.0’s onCat cascade still fires from the dropdown (its own behaviour, B5 included)"
+  },
+  {
+   "id": "P3 277",
+   "pass": true,
+   "detail": "decoration toggles still mirror into state"
+  },
+  {
+   "id": "P3 278",
+   "pass": true,
+   "detail": "the Beginner/Pro switch still works with the asset card mounted"
+  },
+  {
+   "id": "P3 279",
+   "pass": true,
+   "detail": "in Pro the pro rows of each tile are in the document (nothing is deleted, only revealed)"
+  },
+  {
+   "id": "P3 280",
+   "pass": true,
+   "detail": "and back to Beginner"
+  },
+  {
+   "id": "P3 281",
+   "pass": true,
+   "detail": "the shell’s mode control and Phase-2’s “More options” toggle are intact"
+  },
+  {
+   "id": "P3 282",
+   "pass": true,
+   "detail": "opening the advanced groups still works (the asset card’s pro rows follow the same switch)"
+  },
+  {
+   "id": "P3 283",
+   "pass": true,
+   "detail": "the Phase-2 Smart Start card is still there, 18 options deep"
+  },
+  {
+   "id": "P3 284",
+   "pass": true,
+   "detail": "GD() still hands v2.0 exactly its 35 keys"
+  },
+  {
+   "id": "P3 285",
+   "pass": true,
+   "detail": "the v2.0 field table was not extended for assets (28 + 5)"
+  },
+  {
+   "id": "P3 286",
+   "pass": true,
+   "detail": "MGS.assets.settings() still reads the same four v2.0 controls the form shows"
+  },
+  {
+   "id": "P3 287",
+   "pass": true,
+   "detail": "the Phase-1 register() contract still holds on top of the new layer"
+  },
+  {
+   "id": "P3 288",
+   "pass": true,
+   "detail": "project save still works with an asset container present → {\"ok\":true}"
+  },
+  {
+   "id": "P3 289",
+   "pass": true,
+   "detail": "and the project snapshot contains no image bytes"
+  },
+  {
+   "id": "P3 290",
+   "pass": true,
+   "detail": "v2.0-style reset empties the in-memory list without throwing"
+  },
+  {
+   "id": "P3 291",
+   "pass": true,
+   "detail": "the card and the now-empty list survive a raw MGSState.reset(); selfTest reports only the pre-existing shell note (ui.tabs is part of what reset() restores — unchanged since Phase 1) → [\"tab registry mismatch: 0 vs 7\"]"
+  },
+  {
+   "id": "P3 292",
+   "pass": true,
+   "detail": "the asset list was persisted under its own key"
+  },
+  {
+   "id": "P3 293",
+   "pass": true,
+   "detail": "roles, locks and notes survive into the store → [[1,\"logo\",true],[2,\"main_person\",false],[3,\"building\",false]]"
+  },
+  {
+   "id": "P3 294",
+   "pass": true,
+   "detail": "and nothing that smells like image data is in it"
+  },
+  {
+   "id": "P3 295",
+   "pass": true,
+   "detail": "a fresh load in the same tab restores all three assets (the refresh test)"
+  },
+  {
+   "id": "P3 296",
+   "pass": true,
+   "detail": "tiles are rebuilt from the stored metadata, in order"
+  },
+  {
+   "id": "P3 297",
+   "pass": true,
+   "detail": "roles come back exactly as left → Logo/Main Person/Building"
+  },
+  {
+   "id": "P3 298",
+   "pass": true,
+   "detail": "locks and notes come back too"
+  },
+  {
+   "id": "P3 299",
+   "pass": true,
+   "detail": "the restore report says what happened → {\"kept\":3,\"asked\":3,\"skipped\":0}"
+  },
+  {
+   "id": "P3 300",
+   "pass": true,
+   "detail": "small previews were restored from sessionStorage as well"
+  },
+  {
+   "id": "P3 301",
+   "pass": true,
+   "detail": "preview state is tracked per asset → available,available,available"
+  },
+  {
+   "id": "P3 302",
+   "pass": true,
+   "detail": "without the session cache (tab closed) the settings live on and the tile asks for the file back politely"
+  },
+  {
+   "id": "P3 303",
+   "pass": true,
+   "detail": "no broken <img> is rendered from a stale pointer"
+  },
+  {
+   "id": "P3 304",
+   "pass": true,
+   "detail": "corrupt stored JSON cannot break the page (UI still mounts, list simply empty)"
+  },
+  {
+   "id": "P3 305",
+   "pass": true,
+   "detail": "records without an id, and non-objects, are skipped — valid ones load"
+  },
+  {
+   "id": "P3 306",
+   "pass": true,
+   "detail": "a hand-inflated store is clamped to the 12-image ceiling instead of rendering 40 tiles"
+  },
+  {
+   "id": "P3 307",
+   "pass": true,
+   "detail": "with localStorage throwing (private mode/file://) the layer keeps working in memory and reports the state → unavailable"
+  },
+  {
+   "id": "P3 309",
+   "pass": true,
+   "detail": "a quota failure becomes a recorded state, not an exception → failed"
+  },
+  {
+   "id": "P3 311",
+   "pass": true,
+   "detail": "over-budget previews are skipped rather than blowing the storage quota → {\"bytes\":1520728,\"kept\":2,\"skipped\":1,\"budget\":1900000,\"written\":true}"
+  },
+  {
+   "id": "P3 312",
+   "pass": true,
+   "detail": "and the tile that lost its thumbnail says so"
+  },
+  {
+   "id": "P3 313",
+   "pass": true,
+   "detail": "nothing threw through the whole persistence battery → []"
+  },
+  {
+   "id": "P3 314",
+   "pass": true,
+   "detail": "state.assets still has no “library” key (Phase-1 REG 027 stays true) → count,countSync,includeMap,items,mirrorSync,position,style,type"
+  },
+  {
+   "id": "P3 315",
+   "pass": true,
+   "detail": "the asset container grew by exactly three booleans on top of the Phase-1 five, nothing else → count,countSync,includeMap,items,mirrorSync,position,style,type"
+  },
+  {
+   "id": "P3 316",
+   "pass": true,
+   "detail": "items stays the single array every consumer reads (no parallel list in a closure)"
+  },
+  {
+   "id": "P3 317",
+   "pass": true,
+   "detail": "the layers still add exactly the 12 documented MGS* namespaces (Phase 3 added none) → 12"
+  },
+  {
+   "id": "P3 318",
+   "pass": true,
+   "detail": "no new global for the asset manager: it lives on MGS.assets"
+  },
+  {
+   "id": "P3 319",
+   "pass": true,
+   "detail": "a second boot adds no subscribers, no ids and no bindings → 13/141/10"
+  },
+  {
+   "id": "P3 320",
+   "pass": true,
+   "detail": "still exactly one card and one picker after a re-boot"
+  },
+  {
+   "id": "P3 321",
+   "pass": true,
+   "detail": "the idempotency sentinel is on <html>"
+  },
+  {
+   "id": "P3 322",
+   "pass": true,
+   "detail": "the layer declares nothing at column 0, so re-evaluating the file cannot clobber v2.0 → 0 offenders"
+  },
+  {
+   "id": "P3 323",
+   "pass": true,
+   "detail": "REG 155’s Phase-1 guarantee still holds with Phase 3 mounted"
+  },
+  {
+   "id": "P3 324",
+   "pass": true,
+   "detail": "clear() keeps its Phase-1 meaning (empties the list, returns ok)"
+  },
+  {
+   "id": "P3 325",
+   "pass": true,
+   "detail": "the shell’s navigation/tab registries are untouched by the new card"
+  },
+  {
+   "id": "P3 326",
+   "pass": true,
+   "detail": "Phase 2’s state containers survive the new layer (nothing re-created them away)"
+  },
+  {
+   "id": "P3 327",
+   "pass": true,
+   "detail": "after a reset the prompts stop mentioning images at once (no ghost assets)"
+  },
+  {
+   "id": "P3 328",
+   "pass": true,
+   "detail": "every control in a tile is a type=button (nothing can submit or hijack Enter) → 15 buttons"
+  },
+  {
+   "id": "P3 329",
+   "pass": true,
+   "detail": "every one of them has an accessible name"
+  },
+  {
+   "id": "P3 330",
+   "pass": true,
+   "detail": "lock/replace/remove/reorder names all mention the image number and the filename (a screen reader never hears “button, button, button”)"
+  },
+  {
+   "id": "P3 331",
+   "pass": true,
+   "detail": "every select is labelled through a real <label> + aria-labelledby pair"
+  },
+  {
+   "id": "P3 332",
+   "pass": true,
+   "detail": "text inputs are labelled and length-capped"
+  },
+  {
+   "id": "P3 333",
+   "pass": true,
+   "detail": "validation messages arrive in a polite live region"
+  },
+  {
+   "id": "P3 334",
+   "pass": true,
+   "detail": "no focusable control sits inside an aria-hidden subtree"
+  },
+  {
+   "id": "P3 335",
+   "pass": true,
+   "detail": "the layer never uses the hidden attribute (so v2.0’s CSS-driven layout cannot be tricked by it)"
+  },
+  {
+   "id": "P3 336",
+   "pass": true,
+   "detail": "zero inline styles in the rendered card (print and mobile behave like v2.0’s own markup)"
+  },
+  {
+   "id": "P3 337",
+   "pass": true,
+   "detail": "each tile is labelled by its own visible “Image N” heading"
+  },
+  {
+   "id": "P3 338",
+   "pass": true,
+   "detail": "Beginner collapses the technical rows through ONE CSS rule tied to the shell’s existing mode/advanced attributes — no JS visibility juggling, nothing removed in Pro"
+  },
+  {
+   "id": "P3 339",
+   "pass": true,
+   "detail": "tiles are wrapping flex items capped at 100% width (no horizontal overflow on a phone) → .mgs-asset{flex:1 1 15rem;min-width:0;max-width:100%;display:flex;flex-direction:column;ga"
+  },
+  {
+   "id": "P3 340",
+   "pass": true,
+   "detail": "the raw file inputs are collapsed to 1px but expand on focus (keyboard users can see what they are on)"
+  },
+  {
+   "id": "P3 341",
+   "pass": true,
+   "detail": "both inputs are in the tab order of the card, not hidden behind aria-hidden or a negative tabindex"
+  },
+  {
+   "id": "P3 342",
+   "pass": true,
+   "detail": "no control was pushed out of the tab order"
+  },
+  {
+   "id": "P3 343",
+   "pass": true,
+   "detail": "described tiles show no leftover question row (3 of 3 have roles)"
+  },
+  {
+   "id": "P3 344",
+   "pass": true,
+   "detail": "a locked image is visibly marked in its tile, not only in data attributes"
+  },
+  {
+   "id": "P3 345",
+   "pass": true,
+   "detail": "the map box wraps (a long filename can never widen the page)"
+  },
+  {
+   "id": "P3 346",
+   "pass": true,
+   "detail": "the card headline and the drop hint carry Marathi alongside English (like the rest of v2.0)"
+  },
+  {
+   "id": "P3 347",
+   "pass": true,
+   "detail": "no placeholder copy anywhere in the card"
+  },
+  {
+   "id": "P3 348",
+   "pass": true,
+   "detail": "no leaked programming words in user-facing text"
+  },
+  {
+   "id": "P3 349",
+   "pass": true,
+   "detail": "the visible messages never read like a stack trace"
+  },
+  {
+   "id": "P3 350",
+   "pass": true,
+   "detail": "the privacy promise is stated in the card, in words, not in a policy link"
+  },
+  {
+   "id": "P3 351",
+   "pass": true,
+   "detail": "the beginner-facing prose is jargon-free (technical rows excluded)"
+  },
+  {
+   "id": "P3 352",
+   "pass": true,
+   "detail": "the copy never pressures the user into adding images"
+  },
+  {
+   "id": "P3 353",
+   "pass": true,
+   "detail": "the mirrors are described as reversible (control stays with the user)"
+  },
+  {
+   "id": "P3 354",
+   "pass": true,
+   "detail": "the attachment block is plain prose, not a JSON platform payload — the full adapter stays out of scope"
+  },
+  {
+   "id": "P3 355",
+   "pass": true,
+   "detail": "no platform-adapter code was introduced (req. 10: map only)"
+  },
+  {
+   "id": "P3 356",
+   "pass": true,
+   "detail": "across all 43 boots in this suite: nothing was logged to console.error/warn, and no error mentioning the asset layer escaped → "
+  },
+  {
+   "id": "P3 357",
+   "pass": true,
+   "detail": "the suite really did exercise every area in its own window (43 boots, so no check shares state with another area)"
+  }
+ ],
+ "deferred": [
+  {
+   "id": "DFR 001",
+   "reproduces": true,
+   "detail": "5 images ⇒ v2.0 Image Count shows “multiple”, and v2.0 still drops its IMAGES section for that value (B1) — Phase 3 mirrors the form faithfully instead of repairing it"
+  },
+  {
+   "id": "DFR 002",
+   "reproduces": true,
+   "detail": "#plen is still inert (D1) — the asset layer neither fixes nor depends on it"
+  },
+  {
+   "id": "DFR 003",
+   "reproduces": true,
+   "detail": "choosing a category by hand still overwrites style/mood (v2.0 onCat, B5) — unchanged by Phase 3"
+  },
+  {
+   "id": "DFR 004",
+   "reproduces": true,
+   "detail": "Beginner mode still does not filter the seven v2.0 tabs (only 6 advanced groups collapse) — per-step tab filtering is a later phase"
+  },
+  {
+   "id": "DFR 005",
+   "reproduces": true,
+   "detail": "esc() still throws on non-strings (B12) — the asset layer only ever passes it strings, and never wraps it"
+  },
+  {
+   "id": "DFR 006",
+   "reproduces": true,
+   "detail": "history rows are still assembled as an HTML string in lH() (S1 stored-XSS) — Phase 3 adds no innerHTML of its own and repairs nothing here"
+  },
+  {
+   "id": "DFR 007",
+   "reproduces": true,
+   "detail": "the copy button still lives inside the copied block (B11) — Phase 5"
+  },
+  {
+   "id": "DFR 008",
+   "reproduces": true,
+   "detail": "required fields are still marked by a coloured asterisk only — validation/aria is a later phase"
+  },
+  {
+   "id": "DFR 009",
+   "reproduces": true,
+   "detail": "the v2.0 raw storage write is still unguarded in the baseline while every Phase-3 write is guarded (SH() itself is v2.0 behaviour)"
+  }
+ ],
+ "byArea": {
+  "1. A the layer is additive, folded, and removes nothing": {
+   "total": 28,
+   "pass": 28
+  },
+  "2. B boot, mount and the empty state": {
+   "total": 29,
+   "pass": 29
+  },
+  "3. C catalogues, vocabulary and the public surface": {
+   "total": 24,
+   "pass": 24
+  },
+  "4. D one image, start to finish": {
+   "total": 17,
+   "pass": 17
+  },
+  "5. E many images, ordering, numbers": {
+   "total": 18,
+   "pass": 18
+  },
+  "6. F picker vs drag-and-drop vs keyboard, and what the butto": {
+   "total": 14,
+   "pass": 14
+  },
+  "7. G roles, custom role, lock": {
+   "total": 23,
+   "pass": 23
+  },
+  "8. H treatment, position, description, no forcing": {
+   "total": 13,
+   "pass": 13
+  },
+  "9. I validation: nothing crashes, everything explains itself": {
+   "total": 43,
+   "pass": 43
+  },
+  "10. J privacy: the prompt carries instructions, never pixels": {
+   "total": 11,
+   "pass": 11
+  },
+  "11. K the attachment map and the (prepared) rules seam": {
+   "total": 19,
+   "pass": 19
+  },
+  "12. L prompts: identical with no images, only-a-block with i": {
+   "total": 29,
+   "pass": 29
+  },
+  "13. M every v2.0 feature still works with the layer installe": {
+   "total": 22,
+   "pass": 22
+  },
+  "14. N persistence, refresh and private mode": {
+   "total": 20,
+   "pass": 20
+  },
+  "15. O state shape, idempotency and the Phase-1 contract": {
+   "total": 14,
+   "pass": 14
+  },
+  "16. P accessible names, focus and non-overflow (structural)": {
+   "total": 18,
+   "pass": 18
+  },
+  "17. Q the words a beginner reads": {
+   "total": 8,
+   "pass": 8
+  },
+  "18. R what Phase 3 deliberately did NOT repair": {
+   "total": 2,
+   "pass": 2
+  },
+  "19. S whole-suite hygiene: console silence, per-area isolati": {
+   "total": 2,
+   "pass": 2
+  }
+ },
+ "summary": {
+  "pass": 354,
+  "total": 354,
+  "deferred": 9,
+  "deferredTotal": 9
+ },
+ "harness": {
+  "jsdom": "node_modules/jsdom",
+  "target": "/home/user/AI-Banner-Prompt-Generator-Pro/AI Banner Prompt Generator Pro.html"
+ }
+}

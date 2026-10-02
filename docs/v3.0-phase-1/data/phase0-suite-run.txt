@@ -1,0 +1,162 @@
+# Phase-0 regression suite re-run against the Phase-1 layered file (2026-10-02, final)
+# command: cd tools/phase0-regression && node test.mjs   (test.mjs unchanged since Phase 0)
+
+PASS REG    01     Page load: no uncaught errors, no console output
+PASS REG    02     Palette engine renders 12 tiles
+PASS REG    03     Layout engine renders 10 tiles w/ 10 distinct preview diagrams
+PASS REG    04     Decorative engine renders 19 checkbox items
+PASS REG    05     Platform engine renders 8 tiles
+PASS REG    06     ChatGPT preselected by default (state + UI agree)
+PASS REG    07     7 tabs: buttons and panels count-aligned
+PASS REG    08     Tab 0 active on load, others hidden
+PASS REG    09     History empty-state rendered on clean storage
+PASS REG    10     Smart defaults: 6×3 feet, quality=high, plen=medium, icount=1, lang=marathi
+PASS REG    11     Toggle defaults: tR on, tV off, tP on, tN off, tA on
+PASS REG    11b    Every <select> initial value is a legal option (no mismatched defaults)
+PASS REG    12.0   sT(0) activates exactly one button and the matching panel
+PASS REG    12.1   sT(1) activates exactly one button and the matching panel
+PASS REG    12.2   sT(2) activates exactly one button and the matching panel
+PASS REG    12.3   sT(3) activates exactly one button and the matching panel
+PASS REG    12.4   sT(4) activates exactly one button and the matching panel
+PASS REG    12.5   sT(5) activates exactly one button and the matching panel
+PASS REG    12.6   sT(6) activates exactly one button and the matching panel
+PASS REG    12.7   Inactive tab panels are display:none (their controls leave the tab order)
+PASS REG    13     Category dropdown: 21 options
+PASS REG    14     Smart defaults: all 20 mapped categories cascade style+mood+palette+elements
+PASS DEFECT 14b    DEFECT: "other" category leaves previously auto-applied mood/style/palette/els in place
+PASS REG    15     Banner type: 13 options, base prompt uses human label
+PASS REG    16     Size presets: all 10 apply W/H/unit incl. decimal A4 21×29.7cm
+PASS DEFECT 16b    DEFECT: size W/H have no listeners at all, so #sp keeps a stale selection after manual edits
+PASS REG    17     Custom size reaches prompt SIZE line
+PASS REG    18     Aspect toggle ON reduces 12×4 → 3:1; OFF omits it
+PASS REG    19     Aspect ratio for 1080×1920 px = 9:16 (base line)
+PASS REG    20     Empty / zero size: no throw, SIZE line degrades silently
+PASS REG    20b    Size unit switch (feet→px→cm→in) reaches prompt
+PASS REG    21     All 8 content fields land in the prompt
+PASS REG    21b    Multi-line body text preserved (newline handling) in prompt
+PASS REG    22     Language: 5 options, value emitted
+PASS DEFECT 22b    DEFECT: language emitted as raw id ("mar_eng"), not human label ("Marathi+English")
+PASS REG    23     Audience: 8 options; general omitted, others emitted
+PASS REG    24     Style: 15 options all mapped to descriptive text
+PASS REG    25     Quoted key "3d" resolves to "3D rendered, depth, realistic"
+PASS DEFECT 25b    DEFECT: Style is marked required (*) but empty value emits blank "STYLE:" with no validation block
+PASS REG    26     Typography (6) / Mood (12) / Background (8) all mapped
+PASS REG    27     Palette click: single selection, feeds COLORS line (no category cascade in the way)
+PASS REG    27a    Category cascade maps to its intended palette for all 20 categories
+PASS DEFECT 27b    DEFECT: category cascade silently overwrites a manual palette pick
+PASS REG    28     Custom colors override palette in COLORS line
+PASS REG    28b    No custom colors + no palette → "auto based on category" fallback text
+PASS REG    29     Palette names carry into data-n attribute for cascade matching
+PASS REG    30     Layout tile click syncs dropdown + sLay + single .sel
+PASS REG    31     Layout dropdown selection reaches prompt LAYOUT line (label, not id)
+PASS REG    32     Layout dropdown reset to "-- निवडा --" clears state (no sticky tile)
+PASS REG    33     Image count 1..3 → IMAGES line with count/type/position/style
+PASS REG    34     Image count 0 omits IMAGES line
+PASS DEFECT 35     DEFECT: image count "4+" (value=multiple) silently drops IMAGES line (parseInt→NaN)
+PASS REG    36     Decoration checkboxes → emoji+label names in DECORATIVE ELEMENTS
+PASS DEFECT 36b    DEFECT: decoration RAW IDS (not labels) leak into midjourney/firefly/stable prompts
+PASS DEFECT 36c    DEFECT: raw snake_case style/mood ids leak into short-form prompts (bold_loud, urgent...)
+PASS REG    37     onCat auto-checks element boxes AND their visual .on class stay in sync
+PASS DEFECT 37b    DEFECT: no way to clear cascade-applied decorations without manual uncheck (onCat("") is a no-op)
+PASS REG    38     Platform multi-select toggles independently; state array in sync
+PASS REG    39     Zero platforms → GEN blocked with toast
+PASS REG    40     Output: one tab + one body per selected platform, first visible only
+PASS REG    41     Output tab switch shows exactly one body and marks tab .act
+PASS REG    42     All 8 platform prompts distinct
+PASS REG    43     Midjourney params: --ar / --v 6.1 / --q 2
+PASS DEFECT 44     DEFECT: Midjourney --ar unreduced (6×3 ft → "--ar 60:30") while base line says 2:1
+PASS DEFECT 44b    DEFECT: blank size silently falls back to hardcoded "--ar 16:9" even for vertical formats
+PASS DEFECT 44c    DEFECT: non-integer feet size produces fractional --ar pair (e.g. 21×29.7cm → 210:297)
+PASS REG    45     Stable Diffusion emphasis-weight syntax (x:1.3)/(x:1.2)/(x:1.1) emitted in order
+PASS DEFECT 45b    DEFECT: category cascade overrides a user-chosen style/mood even after the user changes it
+PASS REG    46     Quality: standard=omitted, high=High quality, ultra=Ultra HD + --style raw
+PASS DEFECT 47     DEAD CONTROL: Prompt Length (short/medium/long) has zero effect on any output
+PASS REG    48     Print-specs toggle adds/removes CMYK/300DPI/bleed block
+PASS REG    49     Design-rules toggle adds/removes the 9-rule block verbatim
+PASS REG    49b    UI rule list (tab 4) shows 9 human rules mirroring the emitted block
+PASS REG    50     Variants ON → 4 variant cards (A/B/C/D) with modification suffix
+PASS REG    51     Variants OFF → section hidden (stale content not shown)
+PASS REG    52     Negative prompt ON → 27-term list rendered via textContent (escaped)
+PASS REG    53     Negative prompt OFF → section hidden
+PASS DEFECT 54     DEFECT: negative prompt is platform-agnostic (no SD "--no", no MJ syntax) and not appended to prompts
+PASS REG    55     GEN gates: missing category / type / heading each blocked with a specific toast
+PASS REG    56     Copy All concatenates all 8 prompts with ===== headers
+PASS REG    57     Copy All content equals generated gPr strings byte-for-byte
+PASS DEFECT 58     DEFECT: per-platform Copy includes the "📋 Copy" button label in the clipboard text
+PASS DEFECT 58b    DEFECT: fallback path (no navigator.clipboard) has the same pollution via execCommand
+PASS REG    59     Negative-prompt Copy is clean (targets the span, not the wrapper)
+PASS DEFECT 60     DEFECT: variant Copy also prefixed with "Copy"
+PASS DEFECT 60b    Copy uses no async error handling → clipboard rejection is silent (no .catch)
+PASS REG    61     Save writes {id,cat,head,bt,date,pr} to localStorage key "bph"
+PASS REG    62     History row shows "cat — btype", heading, date, delete button
+PASS DEFECT 63     DEFECT: history stores raw ids (not labels) + locale-dependent date string
+PASS REG    64     Load-from-history restores stored prompts but NOT the form fields
+PASS REG    65     Delete removes exactly the targeted entry
+PASS DEFECT 66     DEFECT: id = Date.now() with no uniqueness guard → same-ms saves collide deterministically
+PASS REG    67     History capped at 20 entries (oldest dropped, newest first)
+PASS REG    68     Corrupt JSON in storage does not throw (try/catch on read)
+PASS REG    68b    Non-array JSON in storage tolerated (no crash)
+PASS REG    69     No draft autosave: reload loses every form value
+PASS REG    70     Deterministic init: two clean boots produce identical rendered markup
+PASS DEFECT 70b    DEFECT: history entry schema is prompts-only (6 keys) — no form state → "edit & regenerate" impossible
+PASS REG    71     Prompt bodies escape user text (heading HTML is inert)
+PASS REG    72     Variant bodies escaped too
+PASS DEFECT 73     CONFIRMED: history rows inject unescaped cat/bt/head into innerHTML (stored XSS path)
+PASS DEFECT 73b    CONFIRMED: crafted localStorage platform key injects markup into output tab strip
+PASS REG    74     Storage key with quotes breaks the inline onclick handler (syntax corruption, no execution)
+PASS REG    75     No eval / new Function / document.write / with / outerHTML
+PASS REG    75b    innerHTML writes: 11 sites, only 2 handle user-controlled data (rOut, lFH) + lH history + varG
+PASS DEFECT 75c    esc() covers & < > and 
+ but NOT quotes → attribute-context injection stays open
+PASS DEFECT 75d    esc() assumes a string: non-string input (history payload with numeric head) throws TypeError
+PASS REG    76     Global namespace: 29 functions + 5 data vars + 4 state vars attached to window
+PASS REG    77     window.onload chains 5 init fns with no try/catch
+PASS DEFECT 80     CONFIRMED: a throwing init fn aborts all later init (platforms + history never render)
+FAIL REG    78     Zero addEventListener/removeEventListener → duplicate-listener risk N/A (all inline onclick)  || assertion failed
+PASS DEFECT 79     CONFIRMED: localStorage.setItem not guarded → quota/private-mode throws uncaught in SH() and dH()
+PASS REG    79b    Write-only guard test: lH/lFH/dH reads ARE guarded (asymmetric robustness)
+PASS DEFECT 83b    Toast: single shared element; overlapping timers clear early (no timer handle stored)
+FAIL REG    83c    Toast has no aria-live/role=status → screen readers never announce validation errors  || assertion failed
+FAIL REG    81     Responsive: viewport meta + exactly one breakpoint (@768px)  || @media(max-width:768px),@media (max-width:900px),@media (prefers-reduced-motion: reduce),@media (max-width:640px)
+PASS REG    81b    Responsive strategy: 6 fluid auto-fit/auto-fill minmax grids + 1 fixed breakpoint
+PASS DEFECT 81c    DEFECT: mobile block re-fixes layout grid to 2 cols but leaves .pg/.pf/.cg fluid; no intermediate tablet breakpoint
+PASS REG    82     No @media print stylesheet (Production Engine gap)
+FAIL REG    83     No prefers-reduced-motion guard (fadeIn + hover transforms always animate)  || assertion failed
+FAIL REG    84     A11y: zero aria-*, tabindex, role, label[for], fieldset, legend anywhere  || [29,3,3,0,0,0]
+PASS REG    85     A11y: 26 field labels unassociated with their control
+PASS REG    86     A11y: 40 tile/history/toggle controls are <div onclick> and unfocusable
+PASS REG    87     A11y: number inputs lack min/max/step; text inputs lack maxlength
+PASS REG    88     A11y: heading order skips h1 → h3 (no h2 anywhere)
+PASS REG    89     No <noscript> fallback; app is 100% JS-dependent
+PASS REG    90     Toggle switches are divs (no role=switch/checkbox, no space/enter handling)
+FAIL REG    90b    Tabs: real <button>s but no role=tablist/tab/tabpanel, no arrow-key nav, no aria-selected  || assertion failed
+FAIL REG    90c    Required fields marked only by a colored asterisk span (no `required` attr, no aria-required)  || req spans=5
+PASS DEFECT 90d    Color tiles rely on border-color + glow for selection state (low contrast cue), no icon/text check
+PASS REG    91     Stress: 60 full-form permutations across all selects → GEN never throws
+PASS REG    92     Platform parity: 3/8 prompts carry the full brief; 5/8 are short-form (no SIZE/CONTENT)
+PASS DEFECT 92b    DEFECT: contact/venue/date/sub/body never reach the 5 short-form prompts (only heading + CTA partially)
+PASS REG    92c    CTA reaches only canva among short-form prompts (midjourney/midjourney-family omit it)
+PASS REG    95     Unicode/Devanagari round-trip: Marathi heading survives generate → save → history → reload
+PASS REG    96     Very long heading (2000 chars) does not break generation or escaping
+PASS REG    97     HTML-special chars in every text field → all escaped in every output
+PASS REG    98     Rapid regenerate ×10 keeps state consistent (no leak between runs)
+PASS REG    99     Zero uncaught errors across the entire run
+PASS REG    100    No stale-section leak: history load does not re-show previously hidden Variants/Negative blocks
+PASS REG    101    CSS parse fidelity: depth-0 rule count in source == CSSOM rule count (nothing dropped/invalid)
+PASS REG    102    HTML parse fidelity: DOM node count matches source tag count (no auto-repair re-parenting)
+PASS REG    103    No orphan/unclosed <div>: container subtree balanced in parsed DOM
+
+== REGRESSION 104/111   |   DEFECTS REPRODUCED 32/32 ==
+REGRESSION FAILURES:
+ - 78 Zero addEventListener/removeEventListener → duplicate-listener risk N/A (all inline onclick) :: assertion failed
+ - 83c Toast has no aria-live/role=status → screen readers never announce validation errors :: assertion failed
+ - 81 Responsive: viewport meta + exactly one breakpoint (@768px) :: @media(max-width:768px),@media (max-width:900px),@media (prefers-reduced-motion: reduce),@media (max-width:640px)
+ - 83 No prefers-reduced-motion guard (fadeIn + hover transforms always animate) :: assertion failed
+ - 84 A11y: zero aria-*, tabindex, role, label[for], fieldset, legend anywhere :: [29,3,3,0,0,0]
+ - 90b Tabs: real <button>s but no role=tablist/tab/tabpanel, no arrow-key nav, no aria-selected :: assertion failed
+ - 90c Required fields marked only by a colored asterisk span (no `required` attr, no aria-required) :: req spans=5
+NOTES:
+ - SIZE edge case: empty/zero size is emitted verbatim into the prompt ("SIZE: ×0 pixels") with no validation block and no crash.
+ - window globals added by app (52): BB, CA, CSG, CT, ELS, FP, GD, GEN, LAY, MGS, MGSApp, MGSAssets, MGSContent, MGSDesign, MGSOutput, MGSProduction, MGSProject, MGSPrompt, MGSRules, MGSState, MGSUI, PAL, PFS, SH, aSP, cancelAnimationFrame, dH, esc, gNeg, gPr, gVar, gcd, lFH, lH, onCat, rEl, rLay, rOut, rPal, rPf, requestAnimationFrame, sLD, sLay, sOT, sPal, sPlat, sT, toast, tw, xLay, xPal, xPf
+ - Full-brief platforms: chatgpt, dalle, copilot | short-form platforms: midjourney, firefly, canva, stable, ideogram
+ - source open-tags≈428 vs parsed element nodes=920 (delta = JS-rendered nodes at load: 49 + history)

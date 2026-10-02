@@ -1,0 +1,967 @@
+{
+ "regression": [
+  {
+   "id": "REG 001",
+   "pass": true,
+   "detail": "all three layer regions present between their markers"
+  },
+  {
+   "id": "REG 002",
+   "pass": true,
+   "detail": "2 script blocks (1 v2.0 + 1 shell)"
+  },
+  {
+   "id": "REG 003",
+   "pass": true,
+   "detail": "still exactly one <style> block"
+  },
+  {
+   "id": "REG 004",
+   "pass": true,
+   "detail": "CRLF preserved, no mixed endings"
+  },
+  {
+   "id": "REG 005",
+   "pass": true,
+   "detail": "zero external dependencies — single-file constraint held"
+  },
+  {
+   "id": "REG 006",
+   "pass": true,
+   "detail": "viewport meta intact"
+  },
+  {
+   "id": "REG 007",
+   "pass": true,
+   "detail": "static markup untouched: identical control counts vs the golden baseline (+2 static button = the mode pair; the 12 flow buttons are created at runtime, 26 v2.0 onclick handlers intact)"
+  },
+  {
+   "id": "REG 008",
+   "pass": true,
+   "detail": "deleting the 3 regions returns the v2.0 file byte-for-byte, whitespace included → EXACT match to the golden baseline"
+  },
+  {
+   "id": "REG 009",
+   "pass": true,
+   "detail": "core app functions live outside the layer — nothing was moved out of v2.0"
+  },
+  {
+   "id": "REG 010",
+   "pass": true,
+   "detail": "install → install byte-identical, and --check reports IN SYNC"
+  },
+  {
+   "id": "REG 011",
+   "pass": true,
+   "detail": "zero top-level declarations (the module is one IIFE)"
+  },
+  {
+   "id": "REG 012",
+   "pass": true,
+   "detail": "no eval / new Function / document.write"
+  },
+  {
+   "id": "REG 013",
+   "pass": true,
+   "detail": "shell never assigns innerHTML (no new XSS surface)"
+  },
+  {
+   "id": "REG 014",
+   "pass": true,
+   "detail": "storage reached only through the guarded read/write helpers"
+  },
+  {
+   "id": "REG 015",
+   "pass": true,
+   "detail": "clean boot, no uncaught exceptions → []"
+  },
+  {
+   "id": "REG 016",
+   "pass": true,
+   "detail": "no console errors/warnings → []"
+  },
+  {
+   "id": "REG 017",
+   "pass": true,
+   "detail": "MGS registry = version 3.0 / phase1-shell / schema 1"
+  },
+  {
+   "id": "REG 018",
+   "pass": true,
+   "detail": "all 11 namespaces published on window"
+  },
+  {
+   "id": "REG 019",
+   "pass": true,
+   "detail": "MGSApp.boot() completed with zero recorded failures"
+  },
+  {
+   "id": "REG 020",
+   "pass": true,
+   "detail": "window surface vs the untouched v2.0 baseline: 0 globals removed, 0 types changed (all 40 v2.0 globals intact) → removed=[] changed=[]"
+  },
+  {
+   "id": "REG 021",
+   "pass": true,
+   "detail": "exactly 12 new globals, all namespaced → [\"MGS\",\"MGSApp\",\"MGSState\",\"MGSUI\",\"MGSProject\",\"MGSContent\",\"MGSAssets\",\"MGSDesign\",\"MGSRules\",\"MGSProduction\",\"MGSPrompt\",\"MGSOutput\"]"
+  },
+  {
+   "id": "REG 022",
+   "pass": true,
+   "detail": "MGS.state === MGSState.data (one object, one source of truth)"
+  },
+  {
+   "id": "REG 023",
+   "pass": true,
+   "detail": "no second copy of the form state anywhere on window → []"
+  },
+  {
+   "id": "REG 023b",
+   "pass": true,
+   "detail": "the MGS registry is frozen (namespaces cannot be swapped under Phase 2)"
+  },
+  {
+   "id": "REG 023c",
+   "pass": true,
+   "detail": "v2.0 sidecar globals (sPal/sLay/sPlat/gPr) still exist with the same initial values — the shell mirrors them, it did not take them over"
+  },
+  {
+   "id": "REG 024",
+   "pass": true,
+   "detail": "every Phase-1 container exists → missing []"
+  },
+  {
+   "id": "REG 025",
+   "pass": true,
+   "detail": "state.app metadata present, registry frozen"
+  },
+  {
+   "id": "REG 026",
+   "pass": true,
+   "detail": "project container: id / dirty / restored"
+  },
+  {
+   "id": "REG 027",
+   "pass": true,
+   "detail": "assets container is a placeholder — no asset manager built yet"
+  },
+  {
+   "id": "REG 028",
+   "pass": true,
+   "detail": "platform selection initialised from the v2.0 default"
+  },
+  {
+   "id": "REG 029",
+   "pass": true,
+   "detail": "design-rule catalogue read from v2.0 markup → 9"
+  },
+  {
+   "id": "REG 030",
+   "pass": true,
+   "detail": "language + production defaults mirror the v2.0 form"
+  },
+  {
+   "id": "REG 031",
+   "pass": true,
+   "detail": "7 existing tabs registered, 12 flow steps START…PROJECT"
+  },
+  {
+   "id": "REG 032",
+   "pass": true,
+   "detail": "tab registry points at v2.0 sT() — no parallel renderer"
+  },
+  {
+   "id": "REG 033",
+   "pass": true,
+   "detail": "selfTest green at boot → []"
+  },
+  {
+   "id": "REG 034",
+   "pass": true,
+   "detail": "get() reads by path, safe on unknown paths"
+  },
+  {
+   "id": "REG 035",
+   "pass": true,
+   "detail": "fresh project reports empty content"
+  },
+  {
+   "id": "REG 036",
+   "pass": true,
+   "detail": "typing syncs state.content.heading via the delegated input listener"
+  },
+  {
+   "id": "REG 037",
+   "pass": true,
+   "detail": "typing marks the project dirty + updatedAt"
+  },
+  {
+   "id": "REG 038",
+   "pass": true,
+   "detail": "select change syncs intent.category (onCat still owns the write)"
+  },
+  {
+   "id": "REG 039",
+   "pass": true,
+   "detail": "diff() empty → state mirrors every control → []"
+  },
+  {
+   "id": "REG 040",
+   "pass": true,
+   "detail": "every DOM-owned v2.0 field has a state mapping → 28 fields"
+  },
+  {
+   "id": "REG 041",
+   "pass": true,
+   "detail": "palette: state.color.paletteName agrees with v2.0 sPal → Festive Indian"
+  },
+  {
+   "id": "REG 042",
+   "pass": true,
+   "detail": "layout: state.layout.id agrees with v2.0 sLay"
+  },
+  {
+   "id": "REG 043",
+   "pass": true,
+   "detail": "platform tile click lands in state.platform.selected (data-id stabilised by the shell)"
+  },
+  {
+   "id": "REG 044",
+   "pass": true,
+   "detail": "toggle click mirrored into state.ui/rules"
+  },
+  {
+   "id": "REG 045",
+   "pass": true,
+   "detail": "decoration checkbox mirrored into state.decorations.ids → [\"floral_border\",\"rangoli\",\"glitter\",\"frame_border\"]"
+  },
+  {
+   "id": "REG 045b",
+   "pass": true,
+   "detail": "un-ticking a decoration removes it (no sticky selection)"
+  },
+  {
+   "id": "REG 046",
+   "pass": true,
+   "detail": "state.set() writes and reports the change"
+  },
+  {
+   "id": "REG 047",
+   "pass": true,
+   "detail": "identical set() reports no change (no spurious dirty flag)"
+  },
+  {
+   "id": "REG 048",
+   "pass": true,
+   "detail": "production container reads live values through the same pull()"
+  },
+  {
+   "id": "REG 049",
+   "pass": true,
+   "detail": "platform catalogue derived from v2.0 PFS (no second list) → 8"
+  },
+  {
+   "id": "REG 050",
+   "pass": true,
+   "detail": "MGSDesign.resolve() reads the same palette (no duplicate state)"
+  },
+  {
+   "id": "REG 051",
+   "pass": true,
+   "detail": "MGSPrompt.generate() delegates to GEN() → {\"ok\":true,\"p\":[\"chatgpt\",\"firefly\"]}"
+  },
+  {
+   "id": "REG 052",
+   "pass": true,
+   "detail": "GEN wrapped exactly once (one generate:done per call) → 1"
+  },
+  {
+   "id": "REG 053",
+   "pass": true,
+   "detail": "wrapper keeps the original GEN (observes, never replaces)"
+  },
+  {
+   "id": "REG 054",
+   "pass": true,
+   "detail": "prompt body still produced by v2.0 BB()/FP()"
+  },
+  {
+   "id": "REG 055",
+   "pass": true,
+   "detail": "state.output.prompts mirrors gPr byte-for-byte"
+  },
+  {
+   "id": "REG 056",
+   "pass": true,
+   "detail": "active pane + generatedAt recorded"
+  },
+  {
+   "id": "REG 057",
+   "pass": true,
+   "detail": "MGSState.toLegacy() IS GD() — adapter preserved for later phases"
+  },
+  {
+   "id": "REG 058",
+   "pass": true,
+   "detail": "Variants → 4 v2.0 variant cards still rendered"
+  },
+  {
+   "id": "REG 059",
+   "pass": true,
+   "detail": "negative prompt still rendered by v2.0 → 27 terms"
+  },
+  {
+   "id": "REG 060",
+   "pass": true,
+   "detail": "MGSOutput reads the same DOM (no second implementation)"
+  },
+  {
+   "id": "REG 061",
+   "pass": true,
+   "detail": "output summary → {\"platforms\":2,\"variants\":4,\"negative\":27,\"active\":\"chatgpt\"}"
+  },
+  {
+   "id": "REG 062",
+   "pass": true,
+   "detail": "MGSOutput.setActive() drives v2.0 sOT() and reads the prompt back"
+  },
+  {
+   "id": "REG 063",
+   "pass": true,
+   "detail": "unknown output pane rejected without throwing"
+  },
+  {
+   "id": "REG 064",
+   "pass": true,
+   "detail": "SH() still owns history (v2.0 writes bph), shell only observes → 0→1"
+  },
+  {
+   "id": "REG 065",
+   "pass": true,
+   "detail": "project counters refreshed after save → savedCount=1 rows=1"
+  },
+  {
+   "id": "REG 066",
+   "pass": true,
+   "detail": "MGSProject.history() is a read-only view of the v2.0 store (same entries)"
+  },
+  {
+   "id": "REG 067",
+   "pass": true,
+   "detail": "v2.0 keeps \"bph\", new stores namespaced"
+  },
+  {
+   "id": "REG 068",
+   "pass": true,
+   "detail": "history persistence path untouched (20-item cap, schema unchanged)"
+  },
+  {
+   "id": "REG 069",
+   "pass": true,
+   "detail": "MGSContent.summary() available read-only for later phases"
+  },
+  {
+   "id": "REG 070",
+   "pass": true,
+   "detail": "mode lives in state and is mirrored to <html data-mgs-mode>"
+  },
+  {
+   "id": "REG 071",
+   "pass": true,
+   "detail": "mode control exposes aria-pressed from state"
+  },
+  {
+   "id": "REG 072",
+   "pass": true,
+   "detail": "MGSUI.modes() describes both modes → beginner/pro"
+  },
+  {
+   "id": "REG 073",
+   "pass": true,
+   "detail": "switch beginner→pro reported with from/to"
+  },
+  {
+   "id": "REG 074",
+   "pass": true,
+   "detail": "mode stored + mirrored after switch"
+  },
+  {
+   "id": "REG 075",
+   "pass": true,
+   "detail": "mode switch asserts input preservation through diff()"
+  },
+  {
+   "id": "REG 076",
+   "pass": true,
+   "detail": "no data loss on switch — all 26 form values identical"
+  },
+  {
+   "id": "REG 077",
+   "pass": true,
+   "detail": "palette/layout/platform/decoration selections survive the switch"
+  },
+  {
+   "id": "REG 078",
+   "pass": true,
+   "detail": "re-selecting the current mode is a safe no-op → {\"ok\":true,\"from\":\"pro\",\"to\":\"pro\",\"inputsPreserved\":true}"
+  },
+  {
+   "id": "REG 079",
+   "pass": true,
+   "detail": "unknown mode rejected, state untouched"
+  },
+  {
+   "id": "REG 080",
+   "pass": true,
+   "detail": "mode switching does not hide or re-order any v2.0 panel (no filtering in Phase 1)"
+  },
+  {
+   "id": "REG 081",
+   "pass": true,
+   "detail": "no control disabled or hidden by either mode"
+  },
+  {
+   "id": "REG 082",
+   "pass": true,
+   "detail": "mode switch never writes to the v2.0 history store"
+  },
+  {
+   "id": "REG 083",
+   "pass": true,
+   "detail": "mode change is announced politely to screen readers"
+  },
+  {
+   "id": "REG 084",
+   "pass": true,
+   "detail": "mode:change carries {from,to} for later phases → {\"from\":\"beginner\",\"to\":\"pro\",\"restored\":false}"
+  },
+  {
+   "id": "REG 085",
+   "pass": true,
+   "detail": "no mode-based display:none rules added yet (Phase 2 will introduce them)"
+  },
+  {
+   "id": "REG 086",
+   "pass": true,
+   "detail": "session snapshot written with schema version + mode"
+  },
+  {
+   "id": "REG 087",
+   "pass": true,
+   "detail": "snapshot carries the live form fields (nothing lost on refresh)"
+  },
+  {
+   "id": "REG 088",
+   "pass": true,
+   "detail": "snapshot covers every control class → 28 fields + toggles/decorations/platforms/palette/layout"
+  },
+  {
+   "id": "REG 089",
+   "pass": true,
+   "detail": "mode persisted separately from project data"
+  },
+  {
+   "id": "REG 090",
+   "pass": true,
+   "detail": "persistence health reported in state → {\"count\":1,\"at\":true}"
+  },
+  {
+   "id": "REG 091",
+   "pass": true,
+   "detail": "restore boot has no uncaught errors → []"
+  },
+  {
+   "id": "REG 092",
+   "pass": true,
+   "detail": "mode restored after refresh (state + DOM mirror)"
+  },
+  {
+   "id": "REG 093",
+   "pass": true,
+   "detail": "project snapshot readable after refresh"
+  },
+  {
+   "id": "REG 094",
+   "pass": true,
+   "detail": "explicit restore() replays fields into the v2.0 form (state → DOM push)"
+  },
+  {
+   "id": "REG 095",
+   "pass": true,
+   "detail": "after restore the DOM, the v2.0 globals and state all agree"
+  },
+  {
+   "id": "REG 096",
+   "pass": true,
+   "detail": "platform selection restored into sPlat"
+  },
+  {
+   "id": "REG 096b",
+   "pass": true,
+   "detail": "corrupt snapshot caught inside the storage helper and logged, no throw, selfTest stays green → errs=[\"read:mgs.session.v1\"]"
+  },
+  {
+   "id": "REG 097",
+   "pass": true,
+   "detail": "corrupt session snapshot discarded while the readable prefs file still applies (independent stores, boot unaffected)"
+  },
+  {
+   "id": "REG 098",
+   "pass": true,
+   "detail": "unknown schema version refused by restore() (forward-compat gate, no crash)"
+  },
+  {
+   "id": "REG 099",
+   "pass": true,
+   "detail": "rejected snapshot wrote nothing into the form"
+  },
+  {
+   "id": "REG 100",
+   "pass": true,
+   "detail": "a throwing localStorage.setItem never escapes to the app → []"
+  },
+  {
+   "id": "REG 101",
+   "pass": true,
+   "detail": "state keeps updating while persistence is unavailable"
+  },
+  {
+   "id": "REG 102",
+   "pass": true,
+   "detail": "storage failure reported as state, not thrown → unavailable:Error"
+  },
+  {
+   "id": "REG 103",
+   "pass": true,
+   "detail": "Phase-0 risk R23 repaired: a throwing v2.0 renderer no longer aborts the later ones (12 palettes + 10 layouts + 8 platforms rendered, #elG stays empty as in v2.0)"
+  },
+  {
+   "id": "REG 104",
+   "pass": true,
+   "detail": "the v2.0 failure is recorded twice on purpose (uncaught window error + repair attempt) and nothing else broke → [\"window.onerror\",\"repair:rEl\"]"
+  },
+  {
+   "id": "REG 105",
+   "pass": true,
+   "detail": "the unrepaired renderer is reported honestly by selfTest (initErrors=[\"rEl\"]) while the rest of the app keeps working"
+  },
+  {
+   "id": "REG 105b",
+   "pass": true,
+   "detail": "prompt generation still works in the degraded state → 1105 chars"
+  },
+  {
+   "id": "REG 105c",
+   "pass": true,
+   "detail": "the broken renderer is neither hidden nor faked: the grid stays empty and is named in state"
+  },
+  {
+   "id": "REG 106",
+   "pass": true,
+   "detail": "a throwing GEN does not take the shell down (wrapped in safe())"
+  },
+  {
+   "id": "REG 107",
+   "pass": true,
+   "detail": "boot is idempotent: repeated load events add no listeners → 10/3"
+  },
+  {
+   "id": "REG 108",
+   "pass": true,
+   "detail": "second and third boot return early (already:true), no errors"
+  },
+  {
+   "id": "REG 109",
+   "pass": true,
+   "detail": "no duplicate ids after shell + v2.0 dynamic render → 71 ids"
+  },
+  {
+   "id": "REG 110",
+   "pass": true,
+   "detail": "still no duplicate ids after repeated save/history renders"
+  },
+  {
+   "id": "REG 111",
+   "pass": true,
+   "detail": "tab registry not duplicated by re-boot → 7"
+  },
+  {
+   "id": "REG 112",
+   "pass": true,
+   "detail": "shell controls are real <button type=\"button\"> elements"
+  },
+  {
+   "id": "REG 113",
+   "pass": true,
+   "detail": "every shell control has an accessible name"
+  },
+  {
+   "id": "REG 114",
+   "pass": true,
+   "detail": "status strip is read-only — no fake/no-op controls added"
+  },
+  {
+   "id": "REG 115",
+   "pass": true,
+   "detail": "no placeholder/demo-only text in the shell markup"
+  },
+  {
+   "id": "REG 116",
+   "pass": true,
+   "detail": "no speculative panels or duplicate tab bar created (7 v2.0 tabs only)"
+  },
+  {
+   "id": "REG 117",
+   "pass": true,
+   "detail": "the only non-live step is honestly marked and explains itself"
+  },
+  {
+   "id": "REG 118",
+   "pass": true,
+   "detail": "clicking the planned step changes nothing but the announcement"
+  },
+  {
+   "id": "REG 119",
+   "pass": true,
+   "detail": "a live step actually navigates (activates the real v2.0 tab)"
+  },
+  {
+   "id": "REG 120",
+   "pass": true,
+   "detail": "exactly one step carries aria-current and it tracks the active tab"
+  },
+  {
+   "id": "REG 121",
+   "pass": true,
+   "detail": "existing tab bar promoted to role=tablist (attribute added, markup not rewritten)"
+  },
+  {
+   "id": "REG 122",
+   "pass": true,
+   "detail": "role=tab + aria-selected on every tab, roving tabindex with exactly one tab stop → 0-1-1-1-1-1-1"
+  },
+  {
+   "id": "REG 123",
+   "pass": true,
+   "detail": "tabs wired to their panels by id + aria-controls"
+  },
+  {
+   "id": "REG 124",
+   "pass": true,
+   "detail": "panels exposed as tabpanels"
+  },
+  {
+   "id": "REG 125",
+   "pass": true,
+   "detail": "ArrowRight moves focus and activates the next tab (roving model)"
+  },
+  {
+   "id": "REG 126",
+   "pass": true,
+   "detail": "arrow navigation wraps around"
+  },
+  {
+   "id": "REG 127",
+   "pass": true,
+   "detail": "End jumps to the last tab"
+  },
+  {
+   "id": "REG 128",
+   "pass": true,
+   "detail": "Home jumps to the first tab"
+  },
+  {
+   "id": "REG 129",
+   "pass": true,
+   "detail": "mode API callable programmatically"
+  },
+  {
+   "id": "REG 130",
+   "pass": true,
+   "detail": "shell buttons are keyboard reachable by default"
+  },
+  {
+   "id": "REG 131",
+   "pass": true,
+   "detail": "one visible focus style covers every interactive surface (new and existing)"
+  },
+  {
+   "id": "REG 132",
+   "pass": true,
+   "detail": "v2.0 toast now announced (validation errors reachable without sight)"
+  },
+  {
+   "id": "REG 133",
+   "pass": true,
+   "detail": "reduced-motion respected (shell transitions are opacity/none-only)"
+  },
+  {
+   "id": "REG 134",
+   "pass": true,
+   "detail": "no focusable control inside an aria-hidden subtree (the decorative dot is aria-hidden and not focusable)"
+  },
+  {
+   "id": "REG 135",
+   "pass": true,
+   "detail": "mode segmented control labelled by a real visible text node"
+  },
+  {
+   "id": "REG 136",
+   "pass": true,
+   "detail": "shell bar is a wrapping flex row (no fixed-width row)"
+  },
+  {
+   "id": "REG 137",
+   "pass": true,
+   "detail": "no fixed px content widths, no absolute/fixed positioning (1px visually-hidden live region excepted; max-width breakpoints are viewport queries) → []"
+  },
+  {
+   "id": "REG 137b",
+   "pass": true,
+   "detail": "the only absolute position in the shell CSS is the 1px clipped live region → 1/1"
+  },
+  {
+   "id": "REG 138",
+   "pass": true,
+   "detail": "flow steps wrap instead of scrolling; each step capped at 100% width"
+  },
+  {
+   "id": "REG 139",
+   "pass": true,
+   "detail": "two width breakpoints (900 tablet / 640 phone) + a reduced-motion query → 3 media blocks"
+  },
+  {
+   "id": "REG 140",
+   "pass": true,
+   "detail": "at phone width the two mode buttons become a 2-up row, never clipped"
+  },
+  {
+   "id": "REG 141",
+   "pass": true,
+   "detail": "shell type stays in rem (scales with the user font setting, no px lock-in)"
+  },
+  {
+   "id": "REG 142",
+   "pass": true,
+   "detail": "all 6 v2.0 fluid grid classes intact, same usage count as the baseline → 13 usages"
+  },
+  {
+   "id": "REG 143",
+   "pass": true,
+   "detail": "no fixed-px grid columns anywhere in the file"
+  },
+  {
+   "id": "REG 144",
+   "pass": true,
+   "detail": "the shell adds no inline styles, no fixed px widths and no horizontal scroll container (v2.0 keeps its own inline thumbnail styles)"
+  },
+  {
+   "id": "REG 145",
+   "pass": true,
+   "detail": "shell sits above the existing tab bar inside .container (inherits its max-width and padding)"
+  },
+  {
+   "id": "REG 146",
+   "pass": true,
+   "detail": "bus emits state:input / tab:change / mode:change → {\"input\":1,\"tab\":\"t4\",\"mode\":\"pro\"}"
+  },
+  {
+   "id": "REG 147",
+   "pass": true,
+   "detail": "debounced autosave ran after typing (project:autosaved)"
+  },
+  {
+   "id": "REG 148",
+   "pass": true,
+   "detail": "re-boot does not duplicate bus subscribers → mode:change=1 (mine only) vs base 0"
+  },
+  {
+   "id": "REG 149",
+   "pass": true,
+   "detail": "a throwing subscriber is isolated; the mode change still completes → errors=1"
+  },
+  {
+   "id": "REG 150",
+   "pass": true,
+   "detail": "on()/off() unsubscribe exactly — no handler leak after removal → mode:change=0 base=0"
+  },
+  {
+   "id": "REG 151",
+   "pass": true,
+   "detail": "registerTab rejects duplicates and invalid definitions (extensible but guarded)"
+  },
+  {
+   "id": "REG 152",
+   "pass": true,
+   "detail": "registerTarget validates label + panel/planned+phase (a later phase cannot register a dead control)"
+  },
+  {
+   "id": "REG 153",
+   "pass": true,
+   "detail": "project API surface exactly as documented (9 methods, nothing hidden) → id,snapshot,save,restore,autosave,clear,load,history,newId"
+  },
+  {
+   "id": "REG 154",
+   "pass": true,
+   "detail": "state API complete: 28 field + 5 toggle mappings = every v2.0 control → 28/5"
+  },
+  {
+   "id": "REG 155",
+   "pass": true,
+   "detail": "asset placeholder answers without throwing (Phase 7 can grow it in place)"
+  },
+  {
+   "id": "REG 156",
+   "pass": true,
+   "detail": "asset registry slot accepts items later without touching Phase-1 state shape"
+  },
+  {
+   "id": "REG 157",
+   "pass": true,
+   "detail": "rules engine reads the same catalogue the prompt uses → 9"
+  },
+  {
+   "id": "REG 158",
+   "pass": true,
+   "detail": "MGSRules.check() returns structured warnings → category-required,type-required,style-empty"
+  },
+  {
+   "id": "REG 159",
+   "pass": true,
+   "detail": "MGSDesign exposes the v2.0 catalogues read-only (single source)"
+  },
+  {
+   "id": "REG 160",
+   "pass": true,
+   "detail": "MGS root aliases the same namespaces (no second implementation)"
+  },
+  {
+   "id": "REG 160b",
+   "pass": true,
+   "detail": "MGSState.reset() mutates in place — every namespace keeps the same object (no dangling references)"
+  },
+  {
+   "id": "REG 160c",
+   "pass": true,
+   "detail": "reset returns the Phase-1 defaults (registry emptied on purpose so it can be rebuilt)"
+  },
+  {
+   "id": "REG 160d",
+   "pass": true,
+   "detail": "initTabs()+syncModeUI()+syncTabAria()+pull() rebuild the whole shell registry after a reset → selfTest []"
+  },
+  {
+   "id": "REG 175",
+   "pass": true,
+   "detail": "opening the file directly (file://) produces no shell error"
+  },
+  {
+   "id": "REG 176",
+   "pass": true,
+   "detail": "with storage denied the app still boots green and reports persistence unavailable → []"
+  },
+  {
+   "id": "REG 177",
+   "pass": true,
+   "detail": "shell renders fully without storage (no dependency on persistence)"
+  },
+  {
+   "id": "REG 178",
+   "pass": true,
+   "detail": "prompt generation unaffected by missing storage → 1182 chars"
+  },
+  {
+   "id": "REG 178b",
+   "pass": true,
+   "detail": "state still tracks input while saving degrades to {ok:false,reason} instead of throwing"
+  },
+  {
+   "id": "REG 179",
+   "pass": true,
+   "detail": "SH() under opaque-origin storage behaves IDENTICALLY to the untouched v2.0 baseline (pre-existing unguarded setItem — Phase 2), not a Phase-1 regression"
+  },
+  {
+   "id": "REG 161",
+   "pass": true,
+   "detail": "all 4 golden scenarios re-driven from scratch: 32 platform prompts + variant sets + negative prompt byte-identical to docs/v3.0-phase-0/data/golden-output-fixtures.json → no diff"
+  },
+  {
+   "id": "REG 162",
+   "pass": true,
+   "detail": "GD() payload keys are identical to the untouched v2.0 baseline (35 keys) → exact match"
+  },
+  {
+   "id": "REG 163",
+   "pass": true,
+   "detail": "Marathi language path + output tab count follow selection → 1 pane(s)"
+  },
+  {
+   "id": "REG 166",
+   "pass": true,
+   "detail": "defect section below asserts nothing was half-fixed"
+  }
+ ],
+ "deferred": [
+  {
+   "id": "DFR 001",
+   "reproduces": true,
+   "detail": "history rows are still built with innerHTML (S1 stored-XSS) — fixed in Phase 2 with the state layer"
+  },
+  {
+   "id": "DFR 002",
+   "reproduces": true,
+   "detail": "esc() still throws on non-strings (B12) — Phase 2"
+  },
+  {
+   "id": "DFR 003",
+   "reproduces": true,
+   "detail": "icount=\"multiple\" still drops the IMAGES section (B1) — Phase 3"
+  },
+  {
+   "id": "DFR 004",
+   "reproduces": true,
+   "detail": "raw banner-type id still leaks into the short prompts instead of a human label (B8) — Phase 3 option registry"
+  },
+  {
+   "id": "DFR 005",
+   "reproduces": true,
+   "detail": "#plen is still inert (D1) — Phase 3 option registry"
+  },
+  {
+   "id": "DFR 006",
+   "reproduces": true,
+   "detail": "dead .btn4/.cnt CSS still shipped (D2/D3) — Phase 8 cleanup"
+  },
+  {
+   "id": "DFR 007",
+   "reproduces": true,
+   "detail": "copy button still lives inside the copied block (B11) — Phase 5"
+  },
+  {
+   "id": "DFR 008",
+   "reproduces": true,
+   "detail": "required fields still marked by a coloured asterisk only — Phase 3 validation"
+  },
+  {
+   "id": "DFR 009",
+   "reproduces": true,
+   "detail": "history ids are still Date.now()-based (B13) — Phase 2"
+  },
+  {
+   "id": "DFR 010",
+   "reproduces": true,
+   "detail": "no Beginner/Pro field filtering exists yet — by design, Phase 2 (requirement: do not filter in Phase 1)"
+  },
+  {
+   "id": "DFR 011",
+   "reproduces": true,
+   "detail": "mode is state + hook only: no visibility rules attached to it yet"
+  }
+ ],
+ "summary": {
+  "pass": 180,
+  "total": 180,
+  "deferred": 11,
+  "deferredTotal": 11
+ }
+}

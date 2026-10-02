@@ -1,0 +1,52 @@
+MGS AI BANNER PROMPT GENERATOR PRO — v2.0 GOLDEN BASELINE MANIFEST
+====================================================================
+Captured (UTC)        : 2026-10-02 07:35:32
+Captured by           : Phase 0 (BACKUP + BASELINE)
+
+ORIGINAL FILE
+  path                : AI Banner Prompt Generator Pro.html (repo root)
+  filename            : AI Banner Prompt Generator Pro.html
+  size (bytes)        : 47303
+  line count          : 918
+  sha256              : 564eb9c33dcf3fc60a8add40c83b5e70c38bedeb15196cf9320e3d50d9364210
+  md5                 : 01ed4ac927b1082313e0c3ea0b47aef3
+
+BASELINE COPY (this file, never to be overwritten)
+  filename            : AI Banner Prompt Generator Pro [v2.0 GOLDEN BASELINE - DO NOT EDIT].html
+  size (bytes)        : 47303
+  line count          : 918
+  sha256              : 564eb9c33dcf3fc60a8add40c83b5e70c38bedeb15196cf9320e3d50d9364210
+  md5                 : 01ed4ac927b1082313e0c3ea0b47aef3
+
+MIRROR COPY (exact original filename, versioned folder)
+  path                : original-filename-exact-copy/AI-Banner-Prompt-Generator-Pro-v2.0/AI Banner Prompt Generator Pro.html
+
+GIT BASELINE
+  source commit       : 7181936027f75481a7d045d77bac8e047cb9126e
+  baseline tag        : MGS-AI-BANNER-v2.0-GOLDEN-BASELINE
+  baseline branch     : baseline/MGS-AI-BANNER-v2.0-GOLDEN-BASELINE (local)
+
+INTEGRITY CHECK: cmp original vs baseline = IDENTICAL (PASS)
+RESTORE COMMAND  : cp '_MGS_BASELINE_v2.0/AI Banner Prompt Generator Pro [v2.0 GOLDEN BASELINE - DO NOT EDIT].html' 'AI Banner Prompt Generator Pro.html'
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 0 CLOSE-OUT VERIFICATION (same session, after all auditing)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+source sha256 re-verified after audit : 564eb9c33dcf3fc60a8add40c83b5e70c38bedeb15196cf9320e3d50d9364210
+baseline copy sha256                  : 564eb9c33dcf3fc60a8add40c83b5e70c38bedeb15196cf9320e3d50d9364210
+RESULT                                : IDENTICAL — v2.0 source was NOT modified during Phase 0
+git working tree for source file      : clean (git diff --exit-code = 0)
+regression baseline                   : 111/111 PASS, 0 console errors, 0 uncaught exceptions
+defect confirmations                  : 32/32 reproduced (documented, deliberately NOT fixed)
+baseline-vs-working behaviour         : identical (diff of the two harness run logs = empty)
+
+AUDIT/DOC ARTIFACTS (documentation only, no code change):
+  docs/v3.0-phase-0/PHASE-0-REPORT.md          master report
+  docs/v3.0-phase-0/01-CODE-INVENTORY.md       A–Z inventory
+  docs/v3.0-phase-0/02-FEATURE-INVENTORY.md    40 features classified
+  docs/v3.0-phase-0/03-V3-INTEGRATION-MAP.md   M01–M18
+  docs/v3.0-phase-0/04-RISK-AUDIT.md           risks + state architecture + a11y measurements
+  docs/v3.0-phase-0/05-REGRESSION-BASELINE.md  test record
+  docs/v3.0-phase-0/data/                      inventory.json, golden-output-fixtures.json,
+                                               baseline-results.json, baseline-run.txt, cascade.json, globals.json
+  tools/phase0-regression/                     re-runnable harness (dev-only, not part of the app)

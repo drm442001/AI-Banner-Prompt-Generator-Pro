@@ -1,0 +1,212 @@
+[
+ {
+  "cat": "political",
+  "style": "bold_loud",
+  "mood": "patriotic",
+  "pal": "Festive Indian",
+  "els": [
+   "starburst",
+   "flag",
+   "laurel"
+  ]
+ },
+ {
+  "cat": "wedding",
+  "style": "luxury",
+  "mood": "romantic",
+  "pal": "Wedding Pastel",
+  "els": [
+   "floral_border",
+   "glitter",
+   "frame_border"
+  ]
+ },
+ {
+  "cat": "sale",
+  "style": "bold_loud",
+  "mood": "urgent",
+  "pal": "Sale/Offer",
+  "els": [
+   "ribbon_badge",
+   "starburst",
+   "confetti"
+  ]
+ },
+ {
+  "cat": "education",
+  "style": "modern_gradient",
+  "mood": "inspiring",
+  "pal": "Tech Blue",
+  "els": [
+   "geometric",
+   "qr_code"
+  ]
+ },
+ {
+  "cat": "restaurant",
+  "style": "photographic",
+  "mood": "warm",
+  "pal": "Earth Tones",
+  "els": [
+   "frame_border"
+  ]
+ },
+ {
+  "cat": "medical",
+  "style": "minimalist",
+  "mood": "professional",
+  "pal": "Medical",
+  "els": [
+   "geometric"
+  ]
+ },
+ {
+  "cat": "realestate",
+  "style": "luxury",
+  "mood": "elegant",
+  "pal": "Luxury Gold",
+  "els": [
+   "frame_border",
+   "laurel"
+  ]
+ },
+ {
+  "cat": "religious",
+  "style": "traditional_indian",
+  "mood": "divine",
+  "pal": "Festive Indian",
+  "els": [
+   "floral_border",
+   "rangoli",
+   "diya",
+   "mandala"
+  ]
+ },
+ {
+  "cat": "birthday",
+  "style": "handdrawn",
+  "mood": "fun",
+  "pal": "Neon Dark",
+  "els": [
+   "glitter",
+   "balloons",
+   "confetti"
+  ]
+ },
+ {
+  "cat": "inauguration",
+  "style": "corporate",
+  "mood": "celebratory",
+  "pal": "Corporate",
+  "els": [
+   "floral_border",
+   "ribbon_badge"
+  ]
+ },
+ {
+  "cat": "condolence",
+  "style": "minimalist",
+  "mood": "sober",
+  "pal": "Monochrome",
+  "els": [
+   "frame_border"
+  ]
+ },
+ {
+  "cat": "corporate",
+  "style": "corporate",
+  "mood": "professional",
+  "pal": "Corporate",
+  "els": [
+   "geometric",
+   "qr_code"
+  ]
+ },
+ {
+  "cat": "gym",
+  "style": "bold_loud",
+  "mood": "energetic",
+  "pal": "Neon Dark",
+  "els": [
+   "geometric"
+  ]
+ },
+ {
+  "cat": "salon",
+  "style": "luxury",
+  "mood": "elegant",
+  "pal": "Wedding Pastel",
+  "els": [
+   "floral_border",
+   "glitter"
+  ]
+ },
+ {
+  "cat": "festival",
+  "style": "festive",
+  "mood": "celebratory",
+  "pal": "Festive Indian",
+  "els": [
+   "floral_border",
+   "rangoli",
+   "diya",
+   "mandala"
+  ]
+ },
+ {
+  "cat": "election",
+  "style": "bold_loud",
+  "mood": "patriotic",
+  "pal": "National",
+  "els": [
+   "starburst",
+   "flag"
+  ]
+ },
+ {
+  "cat": "tourism",
+  "style": "photographic",
+  "mood": "warm",
+  "pal": "Earth Tones",
+  "els": [
+   "frame_border"
+  ]
+ },
+ {
+  "cat": "music",
+  "style": "neon",
+  "mood": "energetic",
+  "pal": "Neon Dark",
+  "els": [
+   "glitter",
+   "light_bokeh"
+  ]
+ },
+ {
+  "cat": "sports",
+  "style": "bold_loud",
+  "mood": "energetic",
+  "pal": "National",
+  "els": [
+   "starburst",
+   "geometric"
+  ]
+ },
+ {
+  "cat": "automobile",
+  "style": "modern_gradient",
+  "mood": "energetic",
+  "pal": "Tech Blue",
+  "els": [
+   "geometric",
+   "shadow_effects"
+  ]
+ },
+ {
+  "cat": "other",
+  "style": "modern_gradient",
+  "mood": "energetic",
+  "pal": null,
+  "els": []
+ }
+]

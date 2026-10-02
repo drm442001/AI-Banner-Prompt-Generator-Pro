@@ -1,0 +1,1026 @@
+{
+ "generated": "2026-10-02T07:49:54.781Z",
+ "target": "AI Banner Prompt Generator Pro.html",
+ "regression": {
+  "total": 111,
+  "pass": 111,
+  "fail": []
+ },
+ "defectChecks": {
+  "total": 32,
+  "reproduced": 32,
+  "notReproduced": []
+ },
+ "total": 143,
+ "pass": 143,
+ "fail": [],
+ "results": [
+  {
+   "id": "01",
+   "name": "Page load: no uncaught errors, no console output",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "02",
+   "name": "Palette engine renders 12 tiles",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "03",
+   "name": "Layout engine renders 10 tiles w/ 10 distinct preview diagrams",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "04",
+   "name": "Decorative engine renders 19 checkbox items",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "05",
+   "name": "Platform engine renders 8 tiles",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "06",
+   "name": "ChatGPT preselected by default (state + UI agree)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "07",
+   "name": "7 tabs: buttons and panels count-aligned",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "08",
+   "name": "Tab 0 active on load, others hidden",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "09",
+   "name": "History empty-state rendered on clean storage",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "10",
+   "name": "Smart defaults: 6×3 feet, quality=high, plen=medium, icount=1, lang=marathi",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "11",
+   "name": "Toggle defaults: tR on, tV off, tP on, tN off, tA on",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "11b",
+   "name": "Every <select> initial value is a legal option (no mismatched defaults)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.0",
+   "name": "sT(0) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.1",
+   "name": "sT(1) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.2",
+   "name": "sT(2) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.3",
+   "name": "sT(3) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.4",
+   "name": "sT(4) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.5",
+   "name": "sT(5) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.6",
+   "name": "sT(6) activates exactly one button and the matching panel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "12.7",
+   "name": "Inactive tab panels are display:none (their controls leave the tab order)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "13",
+   "name": "Category dropdown: 21 options",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "14",
+   "name": "Smart defaults: all 20 mapped categories cascade style+mood+palette+elements",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "14b",
+   "name": "DEFECT: \"other\" category leaves previously auto-applied mood/style/palette/els in place",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "15",
+   "name": "Banner type: 13 options, base prompt uses human label",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "16",
+   "name": "Size presets: all 10 apply W/H/unit incl. decimal A4 21×29.7cm",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "16b",
+   "name": "DEFECT: size W/H have no listeners at all, so #sp keeps a stale selection after manual edits",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "17",
+   "name": "Custom size reaches prompt SIZE line",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "18",
+   "name": "Aspect toggle ON reduces 12×4 → 3:1; OFF omits it",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "19",
+   "name": "Aspect ratio for 1080×1920 px = 9:16 (base line)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "20",
+   "name": "Empty / zero size: no throw, SIZE line degrades silently",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "20b",
+   "name": "Size unit switch (feet→px→cm→in) reaches prompt",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "21",
+   "name": "All 8 content fields land in the prompt",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "21b",
+   "name": "Multi-line body text preserved (newline handling) in prompt",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "22",
+   "name": "Language: 5 options, value emitted",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "22b",
+   "name": "DEFECT: language emitted as raw id (\"mar_eng\"), not human label (\"Marathi+English\")",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "23",
+   "name": "Audience: 8 options; general omitted, others emitted",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "24",
+   "name": "Style: 15 options all mapped to descriptive text",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "25",
+   "name": "Quoted key \"3d\" resolves to \"3D rendered, depth, realistic\"",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "25b",
+   "name": "DEFECT: Style is marked required (*) but empty value emits blank \"STYLE:\" with no validation block",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "26",
+   "name": "Typography (6) / Mood (12) / Background (8) all mapped",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "27",
+   "name": "Palette click: single selection, feeds COLORS line (no category cascade in the way)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "27a",
+   "name": "Category cascade maps to its intended palette for all 20 categories",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "27b",
+   "name": "DEFECT: category cascade silently overwrites a manual palette pick",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "28",
+   "name": "Custom colors override palette in COLORS line",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "28b",
+   "name": "No custom colors + no palette → \"auto based on category\" fallback text",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "29",
+   "name": "Palette names carry into data-n attribute for cascade matching",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "30",
+   "name": "Layout tile click syncs dropdown + sLay + single .sel",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "31",
+   "name": "Layout dropdown selection reaches prompt LAYOUT line (label, not id)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "32",
+   "name": "Layout dropdown reset to \"-- निवडा --\" clears state (no sticky tile)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "33",
+   "name": "Image count 1..3 → IMAGES line with count/type/position/style",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "34",
+   "name": "Image count 0 omits IMAGES line",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "35",
+   "name": "DEFECT: image count \"4+\" (value=multiple) silently drops IMAGES line (parseInt→NaN)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "36",
+   "name": "Decoration checkboxes → emoji+label names in DECORATIVE ELEMENTS",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "36b",
+   "name": "DEFECT: decoration RAW IDS (not labels) leak into midjourney/firefly/stable prompts",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "36c",
+   "name": "DEFECT: raw snake_case style/mood ids leak into short-form prompts (bold_loud, urgent...)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "37",
+   "name": "onCat auto-checks element boxes AND their visual .on class stay in sync",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "37b",
+   "name": "DEFECT: no way to clear cascade-applied decorations without manual uncheck (onCat(\"\") is a no-op)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "38",
+   "name": "Platform multi-select toggles independently; state array in sync",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "39",
+   "name": "Zero platforms → GEN blocked with toast",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "40",
+   "name": "Output: one tab + one body per selected platform, first visible only",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "41",
+   "name": "Output tab switch shows exactly one body and marks tab .act",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "42",
+   "name": "All 8 platform prompts distinct",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "43",
+   "name": "Midjourney params: --ar / --v 6.1 / --q 2",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "44",
+   "name": "DEFECT: Midjourney --ar unreduced (6×3 ft → \"--ar 60:30\") while base line says 2:1",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "44b",
+   "name": "DEFECT: blank size silently falls back to hardcoded \"--ar 16:9\" even for vertical formats",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "44c",
+   "name": "DEFECT: non-integer feet size produces fractional --ar pair (e.g. 21×29.7cm → 210:297)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "45",
+   "name": "Stable Diffusion emphasis-weight syntax (x:1.3)/(x:1.2)/(x:1.1) emitted in order",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "45b",
+   "name": "DEFECT: category cascade overrides a user-chosen style/mood even after the user changes it",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "46",
+   "name": "Quality: standard=omitted, high=High quality, ultra=Ultra HD + --style raw",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "47",
+   "name": "DEAD CONTROL: Prompt Length (short/medium/long) has zero effect on any output",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "48",
+   "name": "Print-specs toggle adds/removes CMYK/300DPI/bleed block",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "49",
+   "name": "Design-rules toggle adds/removes the 9-rule block verbatim",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "49b",
+   "name": "UI rule list (tab 4) shows 9 human rules mirroring the emitted block",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "50",
+   "name": "Variants ON → 4 variant cards (A/B/C/D) with modification suffix",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "51",
+   "name": "Variants OFF → section hidden (stale content not shown)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "52",
+   "name": "Negative prompt ON → 27-term list rendered via textContent (escaped)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "53",
+   "name": "Negative prompt OFF → section hidden",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "54",
+   "name": "DEFECT: negative prompt is platform-agnostic (no SD \"--no\", no MJ syntax) and not appended to prompts",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "55",
+   "name": "GEN gates: missing category / type / heading each blocked with a specific toast",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "56",
+   "name": "Copy All concatenates all 8 prompts with ===== headers",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "57",
+   "name": "Copy All content equals generated gPr strings byte-for-byte",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "58",
+   "name": "DEFECT: per-platform Copy includes the \"📋 Copy\" button label in the clipboard text",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "58b",
+   "name": "DEFECT: fallback path (no navigator.clipboard) has the same pollution via execCommand",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "59",
+   "name": "Negative-prompt Copy is clean (targets the span, not the wrapper)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "60",
+   "name": "DEFECT: variant Copy also prefixed with \"Copy\"",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "60b",
+   "name": "Copy uses no async error handling → clipboard rejection is silent (no .catch)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "61",
+   "name": "Save writes {id,cat,head,bt,date,pr} to localStorage key \"bph\"",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "62",
+   "name": "History row shows \"cat — btype\", heading, date, delete button",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "63",
+   "name": "DEFECT: history stores raw ids (not labels) + locale-dependent date string",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "64",
+   "name": "Load-from-history restores stored prompts but NOT the form fields",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "65",
+   "name": "Delete removes exactly the targeted entry",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "66",
+   "name": "DEFECT: id = Date.now() with no uniqueness guard → same-ms saves collide deterministically",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "67",
+   "name": "History capped at 20 entries (oldest dropped, newest first)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "68",
+   "name": "Corrupt JSON in storage does not throw (try/catch on read)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "68b",
+   "name": "Non-array JSON in storage tolerated (no crash)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "69",
+   "name": "No draft autosave: reload loses every form value",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "70",
+   "name": "Deterministic init: two clean boots produce identical rendered markup",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "70b",
+   "name": "DEFECT: history entry schema is prompts-only (6 keys) — no form state → \"edit & regenerate\" impossible",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "71",
+   "name": "Prompt bodies escape user text (heading HTML is inert)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "72",
+   "name": "Variant bodies escaped too",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "73",
+   "name": "CONFIRMED: history rows inject unescaped cat/bt/head into innerHTML (stored XSS path)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "73b",
+   "name": "CONFIRMED: crafted localStorage platform key injects markup into output tab strip",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "74",
+   "name": "Storage key with quotes breaks the inline onclick handler (syntax corruption, no execution)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "75",
+   "name": "No eval / new Function / document.write / with / outerHTML",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "75b",
+   "name": "innerHTML writes: 11 sites, only 2 handle user-controlled data (rOut, lFH) + lH history + varG",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "75c",
+   "name": "esc() covers & < > and \n but NOT quotes → attribute-context injection stays open",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "75d",
+   "name": "esc() assumes a string: non-string input (history payload with numeric head) throws TypeError",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "76",
+   "name": "Global namespace: 29 functions + 5 data vars + 4 state vars attached to window",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "77",
+   "name": "window.onload chains 5 init fns with no try/catch",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "80",
+   "name": "CONFIRMED: a throwing init fn aborts all later init (platforms + history never render)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "78",
+   "name": "Zero addEventListener/removeEventListener → duplicate-listener risk N/A (all inline onclick)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "79",
+   "name": "CONFIRMED: localStorage.setItem not guarded → quota/private-mode throws uncaught in SH() and dH()",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "79b",
+   "name": "Write-only guard test: lH/lFH/dH reads ARE guarded (asymmetric robustness)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "83b",
+   "name": "Toast: single shared element; overlapping timers clear early (no timer handle stored)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "83c",
+   "name": "Toast has no aria-live/role=status → screen readers never announce validation errors",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "81",
+   "name": "Responsive: viewport meta + exactly one breakpoint (@768px)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "81b",
+   "name": "Responsive strategy: 6 fluid auto-fit/auto-fill minmax grids + 1 fixed breakpoint",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "81c",
+   "name": "DEFECT: mobile block re-fixes layout grid to 2 cols but leaves .pg/.pf/.cg fluid; no intermediate tablet breakpoint",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "82",
+   "name": "No @media print stylesheet (Production Engine gap)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "83",
+   "name": "No prefers-reduced-motion guard (fadeIn + hover transforms always animate)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "84",
+   "name": "A11y: zero aria-*, tabindex, role, label[for], fieldset, legend anywhere",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "85",
+   "name": "A11y: 26 field labels unassociated with their control",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "86",
+   "name": "A11y: 40 tile/history/toggle controls are <div onclick> and unfocusable",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "87",
+   "name": "A11y: number inputs lack min/max/step; text inputs lack maxlength",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "88",
+   "name": "A11y: heading order skips h1 → h3 (no h2 anywhere)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "89",
+   "name": "No <noscript> fallback; app is 100% JS-dependent",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "90",
+   "name": "Toggle switches are divs (no role=switch/checkbox, no space/enter handling)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "90b",
+   "name": "Tabs: real <button>s but no role=tablist/tab/tabpanel, no arrow-key nav, no aria-selected",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "90c",
+   "name": "Required fields marked only by a colored asterisk span (no `required` attr, no aria-required)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "90d",
+   "name": "Color tiles rely on border-color + glow for selection state (low contrast cue), no icon/text check",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "91",
+   "name": "Stress: 60 full-form permutations across all selects → GEN never throws",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "92",
+   "name": "Platform parity: 3/8 prompts carry the full brief; 5/8 are short-form (no SIZE/CONTENT)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "92b",
+   "name": "DEFECT: contact/venue/date/sub/body never reach the 5 short-form prompts (only heading + CTA partially)",
+   "kind": "defect",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "92c",
+   "name": "CTA reaches only canva among short-form prompts (midjourney/midjourney-family omit it)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "95",
+   "name": "Unicode/Devanagari round-trip: Marathi heading survives generate → save → history → reload",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "96",
+   "name": "Very long heading (2000 chars) does not break generation or escaping",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "97",
+   "name": "HTML-special chars in every text field → all escaped in every output",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "98",
+   "name": "Rapid regenerate ×10 keeps state consistent (no leak between runs)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "99",
+   "name": "Zero uncaught errors across the entire run",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "100",
+   "name": "No stale-section leak: history load does not re-show previously hidden Variants/Negative blocks",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "101",
+   "name": "CSS parse fidelity: depth-0 rule count in source == CSSOM rule count (nothing dropped/invalid)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "102",
+   "name": "HTML parse fidelity: DOM node count matches source tag count (no auto-repair re-parenting)",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "id": "103",
+   "name": "No orphan/unclosed <div>: container subtree balanced in parsed DOM",
+   "kind": "regression",
+   "status": "PASS",
+   "detail": ""
+  }
+ ],
+ "notes": [
+  "SIZE edge case: empty/zero size is emitted verbatim into the prompt (\"SIZE: ×0 pixels\") with no validation block and no crash.",
+  "window globals added by app (40): BB, CA, CSG, CT, ELS, FP, GD, GEN, LAY, PAL, PFS, SH, aSP, cancelAnimationFrame, dH, esc, gNeg, gPr, gVar, gcd, lFH, lH, onCat, rEl, rLay, rOut, rPal, rPf, requestAnimationFrame, sLD, sLay, sOT, sPal, sPlat, sT, toast, tw, xLay, xPal, xPf",
+  "Full-brief platforms: chatgpt, dalle, copilot | short-form platforms: midjourney, firefly, canva, stable, ideogram",
+  "source open-tags≈417 vs parsed element nodes=908 (delta = JS-rendered nodes at load: 49 + history)"
+ ]
+}

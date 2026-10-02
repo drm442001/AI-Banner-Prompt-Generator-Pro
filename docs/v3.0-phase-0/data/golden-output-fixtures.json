@@ -1,0 +1,253 @@
+[
+  {
+    "scenario": "S1-festival-marathi-6x3",
+    "errors": [],
+    "prompts": {
+      "chatgpt": "Design a horizontal flex banner for festival purpose for \"श्री गणेश मंडळ\".\n\nSIZE: 6×3 feet (Aspect 2:1)\n\nSTYLE: festive, colorful, decorative, traditional\nMOOD: celebratory, joyful, festive\nTYPOGRAPHY: bold sans-serif headline\nBACKGROUND: solid color background\nCOLORS: Festive Indian\n\nCONTENT:\n- Heading: \"गणेशोत्सव 2025\"\n- Sub-heading: \"श्री गणेश मंडळ\"\n- Body: \"मंगलप्रभात\"\n- Date/Time: \"27 ऑगस्ट 2025\"\n- Venue: \"शिवाजी पार्क, दादर\"\n- Contact: \"98XXXXXXXX\"\n- CTA: \"आजच भेट द्या!\"\n- Language: marathi\n\nLAYOUT: Text on Image\nIMAGES: 1 deity image(s), position: center, style: bordered\nDECORATIVE ELEMENTS: 🌸 Floral Border, 🎨 Rangoli, 🪔 Diya, ☸️ Mandala\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: High quality, professional grade, detailed\n\n\nPlease generate a detailed visual description of this banner design that can be used as a reference for a graphic designer or as an image generation prompt. Be very specific about positioning, colors, and visual hierarchy."
+    },
+    "variantCount": 4,
+    "variants": [
+      "A: Minimalist Clean",
+      "B: Bold & Colorful",
+      "C: Dark Premium",
+      "D: Traditional Festive"
+    ],
+    "negative": "blurry, low quality, distorted text, misspelled words, pixelated, watermark, signature, cropped, out of frame, ugly, deformed, noisy, overexposed, underexposed, cluttered layout, unreadable text, wrong proportions, stretched images, color banding, artifacts, duplicate elements, inconsistent lighting, amateur design, too many fonts, chaotic layout, low resolution, jpeg artifacts",
+    "gdState": {
+      "cat": "festival",
+      "bt": "horizontal_flex",
+      "sw": "6",
+      "sh": "3",
+      "su": "feet",
+      "lang": "marathi",
+      "aud": "general",
+      "head": "गणेशोत्सव 2025",
+      "sub": "श्री गणेश मंडळ",
+      "body": "मंगलप्रभात",
+      "contact": "98XXXXXXXX",
+      "cta": "आजच भेट द्या!",
+      "brand": "श्री गणेश मंडळ",
+      "edate": "27 ऑगस्ट 2025",
+      "venue": "शिवाजी पार्क, दादर",
+      "style": "festive",
+      "typo": "bold_sans",
+      "mood": "celebratory",
+      "bg": "solid",
+      "pal": "Festive Indian",
+      "ccol": "",
+      "lay": "centered_overlay",
+      "ic": "1",
+      "it": "deity",
+      "ip": "center",
+      "is": "bordered",
+      "els": [
+        "floral_border",
+        "rangoli",
+        "diya",
+        "mandala"
+      ],
+      "rR": true,
+      "rV": true,
+      "rP": true,
+      "rN": true,
+      "rA": true,
+      "qual": "high",
+      "plen": "medium",
+      "plats": [
+        "chatgpt"
+      ]
+    }
+  },
+  {
+    "scenario": "S2-sale-all8-ultra",
+    "errors": [],
+    "prompts": {
+      "chatgpt": "Design a vertical flex banner for sale purpose for \"TrendMart\".\n\nSIZE: 8×4 feet (Aspect 2:1)\n\nSTYLE: neon glow, dark background, cyberpunk\nMOOD: urgent, exciting, attention-grabbing\nTYPOGRAPHY: large display/impact font\nBACKGROUND: gradient background\nCOLORS: Sale/Offer\n\nCONTENT:\n- Heading: \"MEGA SALE 50% OFF\"\n- Sub-heading: \"Limited Period\"\n- Body: \"All items flat 50% off\"\n- Date/Time: \"1 to 10 Oct\"\n- Venue: \"FC Road\"\n- Contact: \"020-1234567\"\n- CTA: \"Shop Now\"\n- Language: mar_eng\n\nLAYOUT: Left Img+Right Text\nIMAGES: 3 product image(s), position: left, style: cutout\nDECORATIVE ELEMENTS: 🎀 Ribbon/Badge, 💥 Starburst, 🎊 Confetti\nTARGET AUDIENCE: youth\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: Ultra HD, photorealistic, 8K resolution, extremely detailed\n\n\nPlease generate a detailed visual description of this banner design that can be used as a reference for a graphic designer or as an image generation prompt. Be very specific about positioning, colors, and visual hierarchy.",
+      "midjourney": "banner design for sale, neon style, text \"MEGA SALE 50% OFF\", urgent mood, Sale/Offer, ribbon_badge, starburst, confetti, professional graphic design, high quality --ar 80:40 --v 6.1 --q 2 --style raw",
+      "dalle": "Create a professional vertical_flex design for sale.\n\nDesign a vertical flex banner for sale purpose for \"TrendMart\".\n\nSIZE: 8×4 feet (Aspect 2:1)\n\nSTYLE: neon glow, dark background, cyberpunk\nMOOD: urgent, exciting, attention-grabbing\nTYPOGRAPHY: large display/impact font\nBACKGROUND: gradient background\nCOLORS: Sale/Offer\n\nCONTENT:\n- Heading: \"MEGA SALE 50% OFF\"\n- Sub-heading: \"Limited Period\"\n- Body: \"All items flat 50% off\"\n- Date/Time: \"1 to 10 Oct\"\n- Venue: \"FC Road\"\n- Contact: \"020-1234567\"\n- CTA: \"Shop Now\"\n- Language: mar_eng\n\nLAYOUT: Left Img+Right Text\nIMAGES: 3 product image(s), position: left, style: cutout\nDECORATIVE ELEMENTS: 🎀 Ribbon/Badge, 💥 Starburst, 🎊 Confetti\nTARGET AUDIENCE: youth\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: Ultra HD, photorealistic, 8K resolution, extremely detailed\n\n\nThe design should be visually striking, print-ready, and suitable for large format printing. All text clearly legible, layout balanced.",
+      "firefly": "vertical_flex design, neon style, urgent mood. sale theme. Colors: Sale/Offer. Text: \"MEGA SALE 50% OFF\". Professional, high resolution, print quality. Include: ribbon_badge, starburst, confetti",
+      "canva": "Design a vertical_flex (8×4 feet) for sale.\nStyle: neon\nColors: Sale/Offer\nHeading: \"MEGA SALE 50% OFF\"\nMood: urgent\nCTA: \"Shop Now\"\nMake it professional and eye-catching.",
+      "stable": "(vertical_flex design:1.3), (neon:1.2), sale, (urgent:1.1), (text \"MEGA SALE 50% OFF\":1.2), Sale/Offer, professional, high quality, ribbon_badge, starburst, confetti, (print ready:1.1), (high resolution:1.3)",
+      "ideogram": "A professional vertical_flex design with the text \"MEGA SALE 50% OFF\" prominently displayed. Style: neon. Colors: Sale/Offer. Theme: sale. Text should be clear, bold, perfectly rendered. urgent mood. High quality graphic design.",
+      "copilot": "I need you to create a detailed image of a vertical_flex for sale.\n\nHere are the specifications:\nDesign a vertical flex banner for sale purpose for \"TrendMart\".\n\nSIZE: 8×4 feet (Aspect 2:1)\n\nSTYLE: neon glow, dark background, cyberpunk\nMOOD: urgent, exciting, attention-grabbing\nTYPOGRAPHY: large display/impact font\nBACKGROUND: gradient background\nCOLORS: Sale/Offer\n\nCONTENT:\n- Heading: \"MEGA SALE 50% OFF\"\n- Sub-heading: \"Limited Period\"\n- Body: \"All items flat 50% off\"\n- Date/Time: \"1 to 10 Oct\"\n- Venue: \"FC Road\"\n- Contact: \"020-1234567\"\n- CTA: \"Shop Now\"\n- Language: mar_eng\n\nLAYOUT: Left Img+Right Text\nIMAGES: 3 product image(s), position: left, style: cutout\nDECORATIVE ELEMENTS: 🎀 Ribbon/Badge, 💥 Starburst, 🎊 Confetti\nTARGET AUDIENCE: youth\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: Ultra HD, photorealistic, 8K resolution, extremely detailed\n\n\nPlease make the design professional, visually appealing, and suitable for print. Text should be clearly visible and well-arranged."
+    },
+    "variantCount": 4,
+    "variants": [
+      "A: Minimalist Clean",
+      "B: Bold & Colorful",
+      "C: Dark Premium",
+      "D: Traditional Festive"
+    ],
+    "negative": "blurry, low quality, distorted text, misspelled words, pixelated, watermark, signature, cropped, out of frame, ugly, deformed, noisy, overexposed, underexposed, cluttered layout, unreadable text, wrong proportions, stretched images, color banding, artifacts, duplicate elements, inconsistent lighting, amateur design, too many fonts, chaotic layout, low resolution, jpeg artifacts",
+    "gdState": {
+      "cat": "sale",
+      "bt": "vertical_flex",
+      "sw": "8",
+      "sh": "4",
+      "su": "feet",
+      "lang": "mar_eng",
+      "aud": "youth",
+      "head": "MEGA SALE 50% OFF",
+      "sub": "Limited Period",
+      "body": "All items flat 50% off",
+      "contact": "020-1234567",
+      "cta": "Shop Now",
+      "brand": "TrendMart",
+      "edate": "1 to 10 Oct",
+      "venue": "FC Road",
+      "style": "neon",
+      "typo": "display",
+      "mood": "urgent",
+      "bg": "gradient",
+      "pal": "Sale/Offer",
+      "ccol": "",
+      "lay": "left_img_right_text",
+      "ic": "3",
+      "it": "product",
+      "ip": "left",
+      "is": "cutout",
+      "els": [
+        "ribbon_badge",
+        "starburst",
+        "confetti"
+      ],
+      "rR": true,
+      "rV": true,
+      "rP": true,
+      "rN": true,
+      "rA": true,
+      "qual": "ultra",
+      "plen": "medium",
+      "plats": [
+        "chatgpt",
+        "midjourney",
+        "dalle",
+        "firefly",
+        "canva",
+        "stable",
+        "ideogram",
+        "copilot"
+      ]
+    }
+  },
+  {
+    "scenario": "S3-wedding-lux-story",
+    "errors": [],
+    "prompts": {
+      "chatgpt": "Design a social media story for wedding purpose for \"Sharma & Iyer Families\".\n\nSIZE: 1080×1920 pixels (Aspect 9:16)\n\nSTYLE: luxury, premium, gold accents, elegant\nMOOD: romantic, dreamy, soft\nTYPOGRAPHY: bold sans-serif headline\nBACKGROUND: solid color background\nCOLORS: Ivory, Blush, Gold\n\nCONTENT:\n- Heading: \"Arjun weds Priya\"\n- Sub-heading: \"Save the date\"\n- Date/Time: \"14 Feb 2026\"\n- Venue: \"Taj Ballroom, Pune\"\n- CTA: \"RSVP 98765 43210\"\n- Language: english\n\nLAYOUT: Full Bleed\nIMAGES: 2 person image(s), position: top, style: circular\nDECORATIVE ELEMENTS: 🌸 Floral Border, ✨ Glitter, 🖼️ Frame\nTARGET AUDIENCE: urban\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: High quality, professional grade, detailed\n\n\nPlease generate a detailed visual description of this banner design that can be used as a reference for a graphic designer or as an image generation prompt. Be very specific about positioning, colors, and visual hierarchy.",
+      "midjourney": "banner design for wedding, luxury style, text \"Arjun weds Priya\", romantic mood, Ivory, Blush, Gold, floral_border, glitter, frame_border, professional graphic design, high quality --ar 10800:19200 --v 6.1 --q 2",
+      "ideogram": "A professional story design with the text \"Arjun weds Priya\" prominently displayed. Style: luxury. Colors: Ivory, Blush, Gold. Theme: wedding. Text should be clear, bold, perfectly rendered. romantic mood. High quality graphic design."
+    },
+    "variantCount": 4,
+    "variants": [
+      "A: Minimalist Clean",
+      "B: Bold & Colorful",
+      "C: Dark Premium",
+      "D: Traditional Festive"
+    ],
+    "negative": "",
+    "gdState": {
+      "cat": "wedding",
+      "bt": "story",
+      "sw": "1080",
+      "sh": "1920",
+      "su": "pixels",
+      "lang": "english",
+      "aud": "urban",
+      "head": "Arjun weds Priya",
+      "sub": "Save the date",
+      "body": "",
+      "contact": "",
+      "cta": "RSVP 98765 43210",
+      "brand": "Sharma & Iyer Families",
+      "edate": "14 Feb 2026",
+      "venue": "Taj Ballroom, Pune",
+      "style": "luxury",
+      "typo": "bold_sans",
+      "mood": "romantic",
+      "bg": "solid",
+      "pal": "Wedding Pastel",
+      "ccol": "Ivory, Blush, Gold",
+      "lay": "full_bleed",
+      "ic": "2",
+      "it": "person",
+      "ip": "top",
+      "is": "circular",
+      "els": [
+        "floral_border",
+        "glitter",
+        "frame_border"
+      ],
+      "rR": true,
+      "rV": true,
+      "rP": true,
+      "rN": false,
+      "rA": true,
+      "qual": "high",
+      "plen": "medium",
+      "plats": [
+        "chatgpt",
+        "midjourney",
+        "ideogram"
+      ]
+    }
+  },
+  {
+    "scenario": "S4-condolence-minimal-noCascade",
+    "errors": [],
+    "prompts": {
+      "chatgpt": "Design a poster for condolence purpose.\n\nSIZE: 21×29.7 cm (Aspect 70:99)\n\nSTYLE: minimalist, clean, lots of white space\nMOOD: sober, respectful, minimal\nTYPOGRAPHY: bold sans-serif headline\nBACKGROUND: solid color background\nCOLORS: Monochrome\n\nCONTENT:\n- Heading: \"श्रद्धांजली\"\n- Sub-heading: \"प.पू. मो. भाऊसाहेब पाटील\"\n- Body: \"६ डिसेंबर २०२५ रोजी संध्याकाळी\"\n- Contact: \"कुटुंबीय\"\n- Language: marathi\n\nLAYOUT: Top Img+Bot Text\nIMAGES: 1 person image(s), position: center, style: faded\nDECORATIVE ELEMENTS: 🖼️ Frame\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: High quality, professional grade, detailed\n\n\nPlease generate a detailed visual description of this banner design that can be used as a reference for a graphic designer or as an image generation prompt. Be very specific about positioning, colors, and visual hierarchy.",
+      "copilot": "I need you to create a detailed image of a poster for condolence.\n\nHere are the specifications:\nDesign a poster for condolence purpose.\n\nSIZE: 21×29.7 cm (Aspect 70:99)\n\nSTYLE: minimalist, clean, lots of white space\nMOOD: sober, respectful, minimal\nTYPOGRAPHY: bold sans-serif headline\nBACKGROUND: solid color background\nCOLORS: Monochrome\n\nCONTENT:\n- Heading: \"श्रद्धांजली\"\n- Sub-heading: \"प.पू. मो. भाऊसाहेब पाटील\"\n- Body: \"६ डिसेंबर २०२५ रोजी संध्याकाळी\"\n- Contact: \"कुटुंबीय\"\n- Language: marathi\n\nLAYOUT: Top Img+Bot Text\nIMAGES: 1 person image(s), position: center, style: faded\nDECORATIVE ELEMENTS: 🖼️ Frame\n\nPRINT SPECS: CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format\n\nDESIGN RULES:\n- Heading should be 25-35% of banner area\n- Contact info at bottom 15%\n- Logo minimum 8-10% size\n- Safe margin 0.5 inch from edges\n- Maximum 2-3 fonts\n- High contrast between text and background\n- Main message readable from 10 feet\n- Visual hierarchy: Heading > Sub > Body > Contact\n- Avoid overcrowding, maintain white space\n\nQUALITY: High quality, professional grade, detailed\n\n\nPlease make the design professional, visually appealing, and suitable for print. Text should be clearly visible and well-arranged."
+    },
+    "variantCount": 4,
+    "variants": [
+      "A: Minimalist Clean",
+      "B: Bold & Colorful",
+      "C: Dark Premium",
+      "D: Traditional Festive"
+    ],
+    "negative": "blurry, low quality, distorted text, misspelled words, pixelated, watermark, signature, cropped, out of frame, ugly, deformed, noisy, overexposed, underexposed, cluttered layout, unreadable text, wrong proportions, stretched images, color banding, artifacts, duplicate elements, inconsistent lighting, amateur design, too many fonts, chaotic layout, low resolution, jpeg artifacts",
+    "gdState": {
+      "cat": "condolence",
+      "bt": "poster",
+      "sw": "21",
+      "sh": "29.7",
+      "su": "cm",
+      "lang": "marathi",
+      "aud": "general",
+      "head": "श्रद्धांजली",
+      "sub": "प.पू. मो. भाऊसाहेब पाटील",
+      "body": "६ डिसेंबर २०२५ रोजी संध्याकाळी",
+      "contact": "कुटुंबीय",
+      "cta": "",
+      "brand": "",
+      "edate": "",
+      "venue": "",
+      "style": "minimalist",
+      "typo": "bold_sans",
+      "mood": "sober",
+      "bg": "solid",
+      "pal": "Monochrome",
+      "ccol": "",
+      "lay": "top_bottom",
+      "ic": "1",
+      "it": "person",
+      "ip": "center",
+      "is": "faded",
+      "els": [
+        "frame_border"
+      ],
+      "rR": true,
+      "rV": true,
+      "rP": true,
+      "rN": true,
+      "rA": true,
+      "qual": "high",
+      "plen": "medium",
+      "plats": [
+        "chatgpt",
+        "copilot"
+      ]
+    }
+  }
+]

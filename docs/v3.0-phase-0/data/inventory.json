@@ -1,0 +1,1929 @@
+{
+ "source": "AI Banner Prompt Generator Pro.html",
+ "size_bytes": 46385,
+ "lines": 919,
+ "tabs": [
+  {
+   "index": 0,
+   "icon": "📋",
+   "label_mr": "मूलभूत",
+   "panel": "t0"
+  },
+  {
+   "index": 1,
+   "icon": "📝",
+   "label_mr": "मजकूर",
+   "panel": "t1"
+  },
+  {
+   "index": 2,
+   "icon": "🎨",
+   "label_mr": "डिझाइन",
+   "panel": "t2"
+  },
+  {
+   "index": 3,
+   "icon": "📐",
+   "label_mr": "लेआउट",
+   "panel": "t3"
+  },
+  {
+   "index": 4,
+   "icon": "✨",
+   "label_mr": "सजावट",
+   "panel": "t4"
+  },
+  {
+   "index": 5,
+   "icon": "⚙️",
+   "label_mr": "सेटिंग्ज",
+   "panel": "t5"
+  },
+  {
+   "index": 6,
+   "icon": "🚀",
+   "label_mr": "Output",
+   "panel": "t6"
+  }
+ ],
+ "selects": [
+  {
+   "id": "cat",
+   "ui_label": "🏷️ Category *",
+   "handler": "onCat()",
+   "option_count": 22,
+   "options": [
+    {
+     "value": "",
+     "label": "-- निवडा --",
+     "selected": false
+    },
+    {
+     "value": "political",
+     "label": "🚩 राजकीय",
+     "selected": false
+    },
+    {
+     "value": "wedding",
+     "label": "💒 लग्न",
+     "selected": false
+    },
+    {
+     "value": "sale",
+     "label": "🏷️ सेल / ऑफर",
+     "selected": false
+    },
+    {
+     "value": "education",
+     "label": "📚 शिक्षण",
+     "selected": false
+    },
+    {
+     "value": "restaurant",
+     "label": "🍽️ रेस्टॉरंट",
+     "selected": false
+    },
+    {
+     "value": "medical",
+     "label": "🏥 वैद्यकीय",
+     "selected": false
+    },
+    {
+     "value": "realestate",
+     "label": "🏗️ रिअल इस्टेट",
+     "selected": false
+    },
+    {
+     "value": "religious",
+     "label": "🙏 धार्मिक",
+     "selected": false
+    },
+    {
+     "value": "birthday",
+     "label": "🎂 वाढदिवस",
+     "selected": false
+    },
+    {
+     "value": "inauguration",
+     "label": "🎀 उद्घाटन",
+     "selected": false
+    },
+    {
+     "value": "condolence",
+     "label": "🕊️ शोकसंदेश",
+     "selected": false
+    },
+    {
+     "value": "corporate",
+     "label": "🏢 कॉर्पोरेट",
+     "selected": false
+    },
+    {
+     "value": "gym",
+     "label": "💪 जिम / Fitness",
+     "selected": false
+    },
+    {
+     "value": "salon",
+     "label": "💇 सलून / Beauty",
+     "selected": false
+    },
+    {
+     "value": "festival",
+     "label": "🎊 सण / Festival",
+     "selected": false
+    },
+    {
+     "value": "election",
+     "label": "🗳️ निवडणूक",
+     "selected": false
+    },
+    {
+     "value": "tourism",
+     "label": "✈️ पर्यटन",
+     "selected": false
+    },
+    {
+     "value": "music",
+     "label": "🎵 संगीत Event",
+     "selected": false
+    },
+    {
+     "value": "sports",
+     "label": "⚽ खेळ / Sports",
+     "selected": false
+    },
+    {
+     "value": "automobile",
+     "label": "🚗 ऑटोमोबाईल",
+     "selected": false
+    },
+    {
+     "value": "other",
+     "label": "📌 इतर",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "btype",
+   "ui_label": "📄 Banner Type *",
+   "handler": null,
+   "option_count": 14,
+   "options": [
+    {
+     "value": "",
+     "label": "-- निवडा --",
+     "selected": false
+    },
+    {
+     "value": "horizontal_flex",
+     "label": "Horizontal Flex Banner",
+     "selected": false
+    },
+    {
+     "value": "vertical_flex",
+     "label": "Vertical Flex Banner",
+     "selected": false
+    },
+    {
+     "value": "standee",
+     "label": "Roll-up Standee",
+     "selected": false
+    },
+    {
+     "value": "backdrop",
+     "label": "Stage Backdrop",
+     "selected": false
+    },
+    {
+     "value": "hanging",
+     "label": "Hanging Banner",
+     "selected": false
+    },
+    {
+     "value": "pole",
+     "label": "Pole Banner",
+     "selected": false
+    },
+    {
+     "value": "gate",
+     "label": "Gate Banner",
+     "selected": false
+    },
+    {
+     "value": "wall",
+     "label": "Wall Banner",
+     "selected": false
+    },
+    {
+     "value": "poster",
+     "label": "Poster",
+     "selected": false
+    },
+    {
+     "value": "social_media",
+     "label": "Social Media Post",
+     "selected": false
+    },
+    {
+     "value": "story",
+     "label": "Social Media Story",
+     "selected": false
+    },
+    {
+     "value": "vehicle",
+     "label": "Vehicle Wrap",
+     "selected": false
+    },
+    {
+     "value": "hoarding",
+     "label": "Hoarding / Billboard",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "su",
+   "ui_label": "📏 Size",
+   "handler": null,
+   "option_count": 4,
+   "options": [
+    {
+     "value": "feet",
+     "label": "Feet",
+     "selected": false
+    },
+    {
+     "value": "inches",
+     "label": "Inches",
+     "selected": false
+    },
+    {
+     "value": "cm",
+     "label": "CM",
+     "selected": false
+    },
+    {
+     "value": "pixels",
+     "label": "Pixels",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "sp",
+   "ui_label": "📐 Size Preset",
+   "handler": "aSP()",
+   "option_count": 11,
+   "options": [
+    {
+     "value": "",
+     "label": "-- Custom --",
+     "selected": false
+    },
+    {
+     "value": "8,4,feet",
+     "label": "Flex 8×4 ft",
+     "selected": false
+    },
+    {
+     "value": "6,3,feet",
+     "label": "Flex 6×3 ft",
+     "selected": false
+    },
+    {
+     "value": "10,5,feet",
+     "label": "Flex 10×5 ft",
+     "selected": false
+    },
+    {
+     "value": "3,6,feet",
+     "label": "Standee 3×6 ft",
+     "selected": false
+    },
+    {
+     "value": "20,8,feet",
+     "label": "Backdrop 20×8 ft",
+     "selected": false
+    },
+    {
+     "value": "1080,1080,pixels",
+     "label": "Instagram Post",
+     "selected": false
+    },
+    {
+     "value": "1200,628,pixels",
+     "label": "Facebook Post",
+     "selected": false
+    },
+    {
+     "value": "1080,1920,pixels",
+     "label": "Story / Reel",
+     "selected": false
+    },
+    {
+     "value": "21,29.7,cm",
+     "label": "Poster A4",
+     "selected": false
+    },
+    {
+     "value": "29.7,42,cm",
+     "label": "Poster A3",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "lang",
+   "ui_label": "🌐 भाषा",
+   "handler": null,
+   "option_count": 5,
+   "options": [
+    {
+     "value": "marathi",
+     "label": "मराठी",
+     "selected": false
+    },
+    {
+     "value": "hindi",
+     "label": "हिंदी",
+     "selected": false
+    },
+    {
+     "value": "english",
+     "label": "English",
+     "selected": false
+    },
+    {
+     "value": "mar_eng",
+     "label": "Marathi+English",
+     "selected": false
+    },
+    {
+     "value": "hin_eng",
+     "label": "Hindi+English",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "aud",
+   "ui_label": "👥 Audience",
+   "handler": null,
+   "option_count": 8,
+   "options": [
+    {
+     "value": "general",
+     "label": "General",
+     "selected": false
+    },
+    {
+     "value": "youth",
+     "label": "Youth",
+     "selected": false
+    },
+    {
+     "value": "rural",
+     "label": "Rural",
+     "selected": false
+    },
+    {
+     "value": "urban",
+     "label": "Urban",
+     "selected": false
+    },
+    {
+     "value": "women",
+     "label": "Women",
+     "selected": false
+    },
+    {
+     "value": "kids",
+     "label": "Kids",
+     "selected": false
+    },
+    {
+     "value": "business",
+     "label": "Business",
+     "selected": false
+    },
+    {
+     "value": "students",
+     "label": "Students",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "style",
+   "ui_label": "🖌️ Style *",
+   "handler": null,
+   "option_count": 16,
+   "options": [
+    {
+     "value": "",
+     "label": "-- निवडा --",
+     "selected": false
+    },
+    {
+     "value": "minimalist",
+     "label": "Minimalist",
+     "selected": false
+    },
+    {
+     "value": "bold_loud",
+     "label": "Bold & Loud",
+     "selected": false
+    },
+    {
+     "value": "corporate",
+     "label": "Corporate",
+     "selected": false
+    },
+    {
+     "value": "festive",
+     "label": "Festive",
+     "selected": false
+    },
+    {
+     "value": "luxury",
+     "label": "Luxury / Premium",
+     "selected": false
+    },
+    {
+     "value": "retro",
+     "label": "Retro / Vintage",
+     "selected": false
+    },
+    {
+     "value": "modern_gradient",
+     "label": "Modern Gradient",
+     "selected": false
+    },
+    {
+     "value": "handdrawn",
+     "label": "Hand-drawn",
+     "selected": false
+    },
+    {
+     "value": "photographic",
+     "label": "Photographic",
+     "selected": false
+    },
+    {
+     "value": "flat",
+     "label": "Flat Design",
+     "selected": false
+    },
+    {
+     "value": "3d",
+     "label": "3D Style",
+     "selected": false
+    },
+    {
+     "value": "neon",
+     "label": "Neon / Glow",
+     "selected": false
+    },
+    {
+     "value": "watercolor",
+     "label": "Watercolor",
+     "selected": false
+    },
+    {
+     "value": "glassmorphism",
+     "label": "Glassmorphism",
+     "selected": false
+    },
+    {
+     "value": "traditional_indian",
+     "label": "Traditional Indian",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "typo",
+   "ui_label": "🔤 Typography",
+   "handler": null,
+   "option_count": 6,
+   "options": [
+    {
+     "value": "bold_sans",
+     "label": "Bold Sans-serif",
+     "selected": false
+    },
+    {
+     "value": "elegant_serif",
+     "label": "Elegant Serif",
+     "selected": false
+    },
+    {
+     "value": "script",
+     "label": "Script",
+     "selected": false
+    },
+    {
+     "value": "devanagari_calligraphy",
+     "label": "Devanagari Calligraphy",
+     "selected": false
+    },
+    {
+     "value": "display",
+     "label": "Display / Impact",
+     "selected": false
+    },
+    {
+     "value": "rounded",
+     "label": "Rounded",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "mood",
+   "ui_label": "😊 Mood",
+   "handler": null,
+   "option_count": 12,
+   "options": [
+    {
+     "value": "urgent",
+     "label": "Urgent",
+     "selected": false
+    },
+    {
+     "value": "celebratory",
+     "label": "Celebratory",
+     "selected": false
+    },
+    {
+     "value": "professional",
+     "label": "Professional",
+     "selected": false
+    },
+    {
+     "value": "divine",
+     "label": "Divine",
+     "selected": false
+    },
+    {
+     "value": "elegant",
+     "label": "Elegant",
+     "selected": false
+    },
+    {
+     "value": "energetic",
+     "label": "Energetic",
+     "selected": false
+    },
+    {
+     "value": "warm",
+     "label": "Warm",
+     "selected": false
+    },
+    {
+     "value": "fun",
+     "label": "Fun",
+     "selected": false
+    },
+    {
+     "value": "sober",
+     "label": "Sober",
+     "selected": false
+    },
+    {
+     "value": "inspiring",
+     "label": "Inspiring",
+     "selected": false
+    },
+    {
+     "value": "romantic",
+     "label": "Romantic",
+     "selected": false
+    },
+    {
+     "value": "patriotic",
+     "label": "Patriotic",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "bg",
+   "ui_label": "🎭 Background",
+   "handler": null,
+   "option_count": 8,
+   "options": [
+    {
+     "value": "solid",
+     "label": "Solid Color",
+     "selected": false
+    },
+    {
+     "value": "gradient",
+     "label": "Gradient",
+     "selected": false
+    },
+    {
+     "value": "image",
+     "label": "Photo BG",
+     "selected": false
+    },
+    {
+     "value": "pattern",
+     "label": "Pattern",
+     "selected": false
+    },
+    {
+     "value": "blur",
+     "label": "Blurred",
+     "selected": false
+    },
+    {
+     "value": "dark_overlay",
+     "label": "Dark Overlay",
+     "selected": false
+    },
+    {
+     "value": "abstract",
+     "label": "Abstract",
+     "selected": false
+    },
+    {
+     "value": "bokeh",
+     "label": "Bokeh",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "layD",
+   "ui_label": "📐 Layout Dropdown",
+   "handler": "sLD(this.value)",
+   "option_count": 11,
+   "options": [
+    {
+     "value": "",
+     "label": "-- निवडा --",
+     "selected": false
+    },
+    {
+     "value": "left_img_right_text",
+     "label": "Left Image + Right Text",
+     "selected": false
+    },
+    {
+     "value": "right_img_left_text",
+     "label": "Right Image + Left Text",
+     "selected": false
+    },
+    {
+     "value": "centered_overlay",
+     "label": "Text on Image",
+     "selected": false
+    },
+    {
+     "value": "header_content_footer",
+     "label": "Header+Body+Footer",
+     "selected": false
+    },
+    {
+     "value": "grid_images",
+     "label": "Image Grid",
+     "selected": false
+    },
+    {
+     "value": "diagonal_split",
+     "label": "Diagonal Split",
+     "selected": false
+    },
+    {
+     "value": "circular_center",
+     "label": "Circle Center",
+     "selected": false
+    },
+    {
+     "value": "full_bleed",
+     "label": "Full Bleed",
+     "selected": false
+    },
+    {
+     "value": "top_bottom",
+     "label": "Top Img + Bottom Text",
+     "selected": false
+    },
+    {
+     "value": "three_column",
+     "label": "Three Column",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "icount",
+   "ui_label": "🖼️ Image Count",
+   "handler": null,
+   "option_count": 5,
+   "options": [
+    {
+     "value": "0",
+     "label": "0 (Text Only)",
+     "selected": false
+    },
+    {
+     "value": "1",
+     "label": "1",
+     "selected": false
+    },
+    {
+     "value": "2",
+     "label": "2",
+     "selected": false
+    },
+    {
+     "value": "3",
+     "label": "3",
+     "selected": false
+    },
+    {
+     "value": "multiple",
+     "label": "4+",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "itype",
+   "ui_label": "📸 Image Type",
+   "handler": null,
+   "option_count": 8,
+   "options": [
+    {
+     "value": "person",
+     "label": "Person",
+     "selected": false
+    },
+    {
+     "value": "product",
+     "label": "Product",
+     "selected": false
+    },
+    {
+     "value": "logo",
+     "label": "Logo",
+     "selected": false
+    },
+    {
+     "value": "deity",
+     "label": "Deity",
+     "selected": false
+    },
+    {
+     "value": "building",
+     "label": "Building",
+     "selected": false
+    },
+    {
+     "value": "food",
+     "label": "Food",
+     "selected": false
+    },
+    {
+     "value": "nature",
+     "label": "Nature",
+     "selected": false
+    },
+    {
+     "value": "abstract",
+     "label": "Abstract",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "ipos",
+   "ui_label": "📍 Position",
+   "handler": null,
+   "option_count": 5,
+   "options": [
+    {
+     "value": "left",
+     "label": "Left",
+     "selected": false
+    },
+    {
+     "value": "right",
+     "label": "Right",
+     "selected": false
+    },
+    {
+     "value": "center",
+     "label": "Center",
+     "selected": false
+    },
+    {
+     "value": "background",
+     "label": "Background",
+     "selected": false
+    },
+    {
+     "value": "top",
+     "label": "Top",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "istyle",
+   "ui_label": "🎭 Image Style",
+   "handler": null,
+   "option_count": 6,
+   "options": [
+    {
+     "value": "cutout",
+     "label": "Cutout",
+     "selected": false
+    },
+    {
+     "value": "full_frame",
+     "label": "Full Frame",
+     "selected": false
+    },
+    {
+     "value": "circular",
+     "label": "Circular",
+     "selected": false
+    },
+    {
+     "value": "bordered",
+     "label": "Bordered",
+     "selected": false
+    },
+    {
+     "value": "faded",
+     "label": "Faded",
+     "selected": false
+    },
+    {
+     "value": "shadow",
+     "label": "Shadow",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "qual",
+   "ui_label": "📊 Quality",
+   "handler": null,
+   "option_count": 3,
+   "options": [
+    {
+     "value": "standard",
+     "label": "Standard",
+     "selected": false
+    },
+    {
+     "value": "high",
+     "label": "High",
+     "selected": false
+    },
+    {
+     "value": "ultra",
+     "label": "Ultra HD",
+     "selected": false
+    }
+   ]
+  },
+  {
+   "id": "plen",
+   "ui_label": "🎯 Prompt Length",
+   "handler": null,
+   "option_count": 3,
+   "options": [
+    {
+     "value": "short",
+     "label": "Short",
+     "selected": false
+    },
+    {
+     "value": "medium",
+     "label": "Medium",
+     "selected": false
+    },
+    {
+     "value": "long",
+     "label": "Long",
+     "selected": false
+    }
+   ]
+  }
+ ],
+ "select_count": 17,
+ "option_total": 147,
+ "inputs": [
+  {
+   "id": "sw",
+   "type": "number",
+   "placeholder": "",
+   "value": "6",
+   "ui_label": "📏 Size"
+  },
+  {
+   "id": "sh",
+   "type": "number",
+   "placeholder": "",
+   "value": "3",
+   "ui_label": "📏 Size"
+  },
+  {
+   "id": "head",
+   "type": "text",
+   "placeholder": "उदा. गणेशोत्सव 2025",
+   "value": "",
+   "ui_label": "🔤 Heading *"
+  },
+  {
+   "id": "sub",
+   "type": "text",
+   "placeholder": "उदा. श्री गणेश मंडळ",
+   "value": "",
+   "ui_label": "🔤 Sub-heading"
+  },
+  {
+   "id": "cta",
+   "type": "text",
+   "placeholder": "आजच भेट द्या!",
+   "value": "",
+   "ui_label": "🎯 CTA"
+  },
+  {
+   "id": "brand",
+   "type": "text",
+   "placeholder": "संस्था / ब्रँड नाव",
+   "value": "",
+   "ui_label": "🏢 Brand Name"
+  },
+  {
+   "id": "edate",
+   "type": "text",
+   "placeholder": "27 ऑगस्ट 2025",
+   "value": "",
+   "ui_label": "📅 Date/Time"
+  },
+  {
+   "id": "venue",
+   "type": "text",
+   "placeholder": "शिवाजी पार्क, दादर",
+   "value": "",
+   "ui_label": "📍 Venue"
+  },
+  {
+   "id": "ccol",
+   "type": "text",
+   "placeholder": "Red, Gold, White",
+   "value": "",
+   "ui_label": "🎨 Custom Colors"
+  }
+ ],
+ "textareas": [
+  {
+   "id": "body",
+   "rows": "3",
+   "placeholder": "अतिरिक्त माहिती...",
+   "ui_label": "📄 Body Text"
+  },
+  {
+   "id": "contact",
+   "rows": "3",
+   "placeholder": "Phone, Address...",
+   "ui_label": "📞 Contact"
+  }
+ ],
+ "toggles": [
+  {
+   "id": "tR",
+   "default_on": true,
+   "label": "Rules समाविष्ट करा"
+  },
+  {
+   "id": "tV",
+   "default_on": false,
+   "label": "🔄 Variants (4 शैली)"
+  },
+  {
+   "id": "tP",
+   "default_on": true,
+   "label": "🖨️ Print-Ready Specs"
+  },
+  {
+   "id": "tN",
+   "default_on": false,
+   "label": "🚫 Negative Prompt"
+  },
+  {
+   "id": "tA",
+   "default_on": true,
+   "label": "📐 Aspect Ratio"
+  }
+ ],
+ "ids_by_panel": {
+  "t0": [
+   "cat",
+   "btype",
+   "sw",
+   "sh",
+   "su",
+   "sp",
+   "lang",
+   "aud"
+  ],
+  "t1": [
+   "head",
+   "sub",
+   "body",
+   "contact",
+   "cta",
+   "brand",
+   "edate",
+   "venue"
+  ],
+  "t2": [
+   "style",
+   "typo",
+   "mood",
+   "bg",
+   "palG",
+   "ccol"
+  ],
+  "t3": [
+   "layG",
+   "layD",
+   "icount",
+   "itype",
+   "ipos",
+   "istyle"
+  ],
+  "t4": [
+   "elG",
+   "tR"
+  ],
+  "t5": [
+   "pfG",
+   "tV",
+   "tP",
+   "tN",
+   "tA",
+   "qual",
+   "plen"
+  ],
+  "t6": [
+   "outA",
+   "oTabs",
+   "oBody",
+   "varA",
+   "varG",
+   "negA",
+   "negB",
+   "negT",
+   "hisP",
+   "toast"
+  ]
+ },
+ "static_id_count": 54,
+ "runtime_dynamic_ids": [
+  "o_<platformId> (rOut + lFH)",
+  "v_0..v_3 (gVar)"
+ ],
+ "data_structures": {
+  "PAL": {
+   "count": 12,
+   "shape": "{n: label, c:[hex x4]}",
+   "names": [
+    "Sale/Offer",
+    "Corporate",
+    "Festive Indian",
+    "Luxury Gold",
+    "Wedding Pastel",
+    "National",
+    "Medical",
+    "Neon Dark",
+    "Earth Tones",
+    "Tech Blue",
+    "Royal Purple",
+    "Monochrome"
+   ],
+   "colors": [
+    "\"#FF0000\",\"#FFD700\",\"#FFF\",\"#000\"",
+    "\"#1E3A5F\",\"#4A90D9\",\"#FFF\",\"#F0F4F8\"",
+    "\"#FF6600\",\"#FFD700\",\"#FF0000\",\"#006400\"",
+    "\"#1A1A2E\",\"#D4AF37\",\"#FFF\",\"#C0C0C0\"",
+    "\"#FFB6C1\",\"#FFF0F5\",\"#DDA0DD\",\"#F5E6CC\"",
+    "\"#FF9933\",\"#FFF\",\"#138808\",\"#000080\"",
+    "\"#00A86B\",\"#FFF\",\"#E8F5E9\",\"#2196F3\"",
+    "\"#0D0D0D\",\"#00FF88\",\"#FF00FF\",\"#00D4FF\"",
+    "\"#8B4513\",\"#D2691E\",\"#F5DEB3\",\"#2F4F2F\"",
+    "\"#0A1628\",\"#00D4FF\",\"#7C3AED\",\"#FFF\"",
+    "\"#2D1B69\",\"#9B59B6\",\"#F1C40F\",\"#FFF\"",
+    "\"#000\",\"#333\",\"#999\",\"#FFF\""
+   ]
+  },
+  "LAY": {
+   "count": 10,
+   "shape": "{id, n: label, h: inline HTML preview}",
+   "ids": [
+    [
+     "left_img_right_text",
+     "Left Img+Right Text"
+    ],
+    [
+     "right_img_left_text",
+     "Right Img+Left Text"
+    ],
+    [
+     "centered_overlay",
+     "Text on Image"
+    ],
+    [
+     "header_content_footer",
+     "Header+Body+Footer"
+    ],
+    [
+     "grid_images",
+     "Image Grid"
+    ],
+    [
+     "diagonal_split",
+     "Diagonal"
+    ],
+    [
+     "circular_center",
+     "Circle Center"
+    ],
+    [
+     "full_bleed",
+     "Full Bleed"
+    ],
+    [
+     "top_bottom",
+     "Top Img+Bot Text"
+    ],
+    [
+     "three_column",
+     "3 Columns"
+    ]
+   ]
+  },
+  "ELS": {
+   "count": 19,
+   "shape": "{id, l: emoji+label}",
+   "ids": [
+    {
+     "id": "floral_border",
+     "l": "🌸 Floral Border"
+    },
+    {
+     "id": "rangoli",
+     "l": "🎨 Rangoli"
+    },
+    {
+     "id": "ribbon_badge",
+     "l": "🎀 Ribbon/Badge"
+    },
+    {
+     "id": "starburst",
+     "l": "💥 Starburst"
+    },
+    {
+     "id": "geometric",
+     "l": "🔷 Geometric"
+    },
+    {
+     "id": "gradient_overlay",
+     "l": "🌈 Gradient"
+    },
+    {
+     "id": "shadow_effects",
+     "l": "🌑 Shadows"
+    },
+    {
+     "id": "glitter",
+     "l": "✨ Glitter"
+    },
+    {
+     "id": "frame_border",
+     "l": "🖼️ Frame"
+    },
+    {
+     "id": "qr_code",
+     "l": "📱 QR Code"
+    },
+    {
+     "id": "social_icons",
+     "l": "📲 Social Icons"
+    },
+    {
+     "id": "diya",
+     "l": "🪔 Diya"
+    },
+    {
+     "id": "balloons",
+     "l": "🎈 Balloons"
+    },
+    {
+     "id": "confetti",
+     "l": "🎊 Confetti"
+    },
+    {
+     "id": "mandala",
+     "l": "☸️ Mandala"
+    },
+    {
+     "id": "wave_shapes",
+     "l": "🌊 Waves"
+    },
+    {
+     "id": "light_bokeh",
+     "l": "💡 Bokeh"
+    },
+    {
+     "id": "flag",
+     "l": "🚩 Flag"
+    },
+    {
+     "id": "laurel",
+     "l": "🏆 Laurel"
+    }
+   ]
+  },
+  "PFS": {
+   "count": 8,
+   "shape": "{id, n: label, i: emoji}",
+   "ids": [
+    {
+     "id": "chatgpt",
+     "n": "ChatGPT"
+    },
+    {
+     "id": "midjourney",
+     "n": "Midjourney"
+    },
+    {
+     "id": "dalle",
+     "n": "DALL·E 3"
+    },
+    {
+     "id": "firefly",
+     "n": "Firefly"
+    },
+    {
+     "id": "canva",
+     "n": "Canva AI"
+    },
+    {
+     "id": "stable",
+     "n": "Stable Diff"
+    },
+    {
+     "id": "ideogram",
+     "n": "Ideogram"
+    },
+    {
+     "id": "copilot",
+     "n": "Copilot"
+    }
+   ]
+  },
+  "CSG": {
+   "count": 20,
+   "shape": "{s: styleId, m: moodId, p: paletteName, e: [elementIds]}",
+   "mapping": {
+    "political": {
+     "style": "bold_loud",
+     "mood": "patriotic",
+     "palette": "Festive Indian",
+     "elements": [
+      "\"flag\"",
+      "\"starburst\"",
+      "\"laurel\""
+     ]
+    },
+    "wedding": {
+     "style": "luxury",
+     "mood": "romantic",
+     "palette": "Wedding Pastel",
+     "elements": [
+      "\"floral_border\"",
+      "\"glitter\"",
+      "\"frame_border\""
+     ]
+    },
+    "sale": {
+     "style": "bold_loud",
+     "mood": "urgent",
+     "palette": "Sale/Offer",
+     "elements": [
+      "\"starburst\"",
+      "\"ribbon_badge\"",
+      "\"confetti\""
+     ]
+    },
+    "education": {
+     "style": "modern_gradient",
+     "mood": "inspiring",
+     "palette": "Tech Blue",
+     "elements": [
+      "\"geometric\"",
+      "\"qr_code\""
+     ]
+    },
+    "restaurant": {
+     "style": "photographic",
+     "mood": "warm",
+     "palette": "Earth Tones",
+     "elements": [
+      "\"frame_border\""
+     ]
+    },
+    "medical": {
+     "style": "minimalist",
+     "mood": "professional",
+     "palette": "Medical",
+     "elements": [
+      "\"geometric\""
+     ]
+    },
+    "realestate": {
+     "style": "luxury",
+     "mood": "elegant",
+     "palette": "Luxury Gold",
+     "elements": [
+      "\"frame_border\"",
+      "\"laurel\""
+     ]
+    },
+    "religious": {
+     "style": "traditional_indian",
+     "mood": "divine",
+     "palette": "Festive Indian",
+     "elements": [
+      "\"diya\"",
+      "\"mandala\"",
+      "\"floral_border\"",
+      "\"rangoli\""
+     ]
+    },
+    "birthday": {
+     "style": "handdrawn",
+     "mood": "fun",
+     "palette": "Neon Dark",
+     "elements": [
+      "\"balloons\"",
+      "\"confetti\"",
+      "\"glitter\""
+     ]
+    },
+    "inauguration": {
+     "style": "corporate",
+     "mood": "celebratory",
+     "palette": "Corporate",
+     "elements": [
+      "\"ribbon_badge\"",
+      "\"floral_border\""
+     ]
+    },
+    "condolence": {
+     "style": "minimalist",
+     "mood": "sober",
+     "palette": "Monochrome",
+     "elements": [
+      "\"frame_border\""
+     ]
+    },
+    "corporate": {
+     "style": "corporate",
+     "mood": "professional",
+     "palette": "Corporate",
+     "elements": [
+      "\"geometric\"",
+      "\"qr_code\""
+     ]
+    },
+    "festival": {
+     "style": "festive",
+     "mood": "celebratory",
+     "palette": "Festive Indian",
+     "elements": [
+      "\"diya\"",
+      "\"rangoli\"",
+      "\"floral_border\"",
+      "\"mandala\""
+     ]
+    },
+    "election": {
+     "style": "bold_loud",
+     "mood": "patriotic",
+     "palette": "National",
+     "elements": [
+      "\"flag\"",
+      "\"starburst\""
+     ]
+    },
+    "gym": {
+     "style": "bold_loud",
+     "mood": "energetic",
+     "palette": "Neon Dark",
+     "elements": [
+      "\"geometric\""
+     ]
+    },
+    "salon": {
+     "style": "luxury",
+     "mood": "elegant",
+     "palette": "Wedding Pastel",
+     "elements": [
+      "\"floral_border\"",
+      "\"glitter\""
+     ]
+    },
+    "music": {
+     "style": "neon",
+     "mood": "energetic",
+     "palette": "Neon Dark",
+     "elements": [
+      "\"light_bokeh\"",
+      "\"glitter\""
+     ]
+    },
+    "sports": {
+     "style": "bold_loud",
+     "mood": "energetic",
+     "palette": "National",
+     "elements": [
+      "\"starburst\"",
+      "\"geometric\""
+     ]
+    },
+    "tourism": {
+     "style": "photographic",
+     "mood": "warm",
+     "palette": "Earth Tones",
+     "elements": [
+      "\"frame_border\""
+     ]
+    },
+    "automobile": {
+     "style": "modern_gradient",
+     "mood": "energetic",
+     "palette": "Tech Blue",
+     "elements": [
+      "\"geometric\"",
+      "\"shadow_effects\""
+     ]
+    }
+   },
+   "unmapped_categories": [
+    "other"
+   ]
+  }
+ },
+ "prompt_maps": {
+  "TM": {
+   "count": 13,
+   "keys": [
+    "horizontal_flex",
+    "vertical_flex",
+    "standee",
+    "backdrop",
+    "hanging",
+    "pole",
+    "gate",
+    "wall",
+    "poster",
+    "social_media",
+    "story",
+    "vehicle",
+    "hoarding"
+   ]
+  },
+  "SM": {
+   "count": 15,
+   "keys": [
+    "minimalist",
+    "bold_loud",
+    "corporate",
+    "festive",
+    "luxury",
+    "retro",
+    "modern_gradient",
+    "handdrawn",
+    "photographic",
+    "flat",
+    "\"3d\"",
+    "neon",
+    "watercolor",
+    "glassmorphism",
+    "traditional_indian"
+   ]
+  },
+  "MM": {
+   "count": 12,
+   "keys": [
+    "urgent",
+    "celebratory",
+    "professional",
+    "divine",
+    "elegant",
+    "energetic",
+    "warm",
+    "fun",
+    "sober",
+    "inspiring",
+    "romantic",
+    "patriotic"
+   ]
+  },
+  "YM": {
+   "count": 6,
+   "keys": [
+    "bold_sans",
+    "elegant_serif",
+    "script",
+    "devanagari_calligraphy",
+    "display",
+    "rounded"
+   ]
+  },
+  "BM": {
+   "count": 8,
+   "keys": [
+    "solid",
+    "gradient",
+    "image",
+    "pattern",
+    "blur",
+    "dark_overlay",
+    "abstract",
+    "bokeh"
+   ]
+  },
+  "V_variants": [
+   [
+    "A: Minimalist Clean",
+    "Convert to minimalist: white background, single accent color, lots of white space, clean simple layout"
+   ],
+   [
+    "B: Bold & Colorful",
+    "Convert to bold vibrant: bright contrasting colors, large text, energetic, starburst elements, high impact"
+   ],
+   [
+    "C: Dark Premium",
+    "Convert to dark luxury: black/dark background, gold accents, elegant serif typography, premium feel"
+   ],
+   [
+    "D: Traditional Festive",
+    "Convert to traditional Indian festive: warm saffron/red colors, decorative borders, cultural motifs, ornate elements"
+   ]
+  ]
+ },
+ "hardcoded_strings": {
+  "negative_prompt_terms": 27,
+  "midjourney_flags": [
+   "6.1 --q 2"
+  ],
+  "print_specs_clause": "CMYK color mode, 300 DPI, print-ready, 0.5 inch bleed margins, high quality flex printing format",
+  "design_rules_lines": 10
+ },
+ "functions": [
+  {
+   "name": "sT",
+   "args": "i",
+   "line": 575
+  },
+  {
+   "name": "rPal",
+   "args": "",
+   "line": 581
+  },
+  {
+   "name": "rLay",
+   "args": "",
+   "line": 591
+  },
+  {
+   "name": "rEl",
+   "args": "",
+   "line": 599
+  },
+  {
+   "name": "rPf",
+   "args": "",
+   "line": 607
+  },
+  {
+   "name": "xPal",
+   "args": "i,el",
+   "line": 618
+  },
+  {
+   "name": "xLay",
+   "args": "id,el",
+   "line": 619
+  },
+  {
+   "name": "sLD",
+   "args": "v",
+   "line": 620
+  },
+  {
+   "name": "xPf",
+   "args": "id,el",
+   "line": 621
+  },
+  {
+   "name": "tw",
+   "args": "el",
+   "line": 622
+  },
+  {
+   "name": "onCat",
+   "args": "",
+   "line": 625
+  },
+  {
+   "name": "aSP",
+   "args": "",
+   "line": 647
+  },
+  {
+   "name": "gcd",
+   "args": "a,b",
+   "line": 655
+  },
+  {
+   "name": "esc",
+   "args": "s",
+   "line": 656
+  },
+  {
+   "name": "GD",
+   "args": "",
+   "line": 659
+  },
+  {
+   "name": "BB",
+   "args": "d",
+   "line": 677
+  },
+  {
+   "name": "FP",
+   "args": "base,pl,d",
+   "line": 748
+  },
+  {
+   "name": "GEN",
+   "args": "",
+   "line": 794
+  },
+  {
+   "name": "rOut",
+   "args": "d",
+   "line": 815
+  },
+  {
+   "name": "sOT",
+   "args": "p,btn",
+   "line": 828
+  },
+  {
+   "name": "gVar",
+   "args": "base",
+   "line": 837
+  },
+  {
+   "name": "gNeg",
+   "args": "",
+   "line": 853
+  },
+  {
+   "name": "CT",
+   "args": "id",
+   "line": 860
+  },
+  {
+   "name": "CA",
+   "args": "",
+   "line": 875
+  },
+  {
+   "name": "SH",
+   "args": "",
+   "line": 892
+  },
+  {
+   "name": "lH",
+   "args": "",
+   "line": 910
+  },
+  {
+   "name": "lFH",
+   "args": "id",
+   "line": 921
+  },
+  {
+   "name": "dH",
+   "args": "id",
+   "line": 943
+  },
+  {
+   "name": "toast",
+   "args": "msg,err",
+   "line": 954
+  }
+ ],
+ "global_state_vars": {
+  "sPal": "string palette name",
+  "sLay": "string layout id",
+  "sPlat": "array of platform ids",
+  "gPr": "object {platformId: promptString}"
+ },
+ "storage": {
+  "driver": "localStorage",
+  "key": "bph",
+  "entry_schema": [
+   "id",
+   "cat",
+   "head",
+   "bt",
+   "date",
+   "pr"
+  ],
+  "cap": 20,
+  "sessionStorage_used": 0,
+  "indexedDB": 0,
+  "writes_unguarded": 2,
+  "reads_guarded": 4
+ },
+ "css": {
+  "lines": 125,
+  "selectors": 115,
+  "custom_properties": [
+   "bg",
+   "card",
+   "card2",
+   "border",
+   "accent",
+   "accent2",
+   "accent3",
+   "text",
+   "text2",
+   "text3",
+   "success",
+   "danger",
+   "grad",
+   "grad2",
+   "radius",
+   "shadow"
+  ],
+  "media_queries": [
+   "@media(max-width:768px)"
+  ],
+  "keyframes": [
+   "fadeIn"
+  ],
+  "classes_defined": [
+   "act",
+   "active",
+   "badge",
+   "bs",
+   "btn",
+   "btn1",
+   "btn2",
+   "btn3",
+   "btn4",
+   "card",
+   "cb",
+   "cg",
+   "ci",
+   "cnt",
+   "container",
+   "ei",
+   "err",
+   "es",
+   "fg",
+   "fi",
+   "gs",
+   "hc",
+   "hd",
+   "header",
+   "hf",
+   "hh",
+   "hi",
+   "hp",
+   "hx",
+   "lg",
+   "li",
+   "ln",
+   "lo",
+   "lp",
+   "lt",
+   "ob",
+   "oh",
+   "ok",
+   "on",
+   "op",
+   "org",
+   "ot",
+   "otb",
+   "pb",
+   "pc",
+   "pf",
+   "pg",
+   "pi",
+   "pk",
+   "pm",
+   "pn",
+   "po",
+   "req",
+   "rl",
+   "sel",
+   "show",
+   "sr",
+   "tab",
+   "tabs",
+   "tg",
+   "ti",
+   "tl",
+   "toast",
+   "tr",
+   "vc",
+   "vg",
+   "w3"
+  ],
+  "grid_minmax_count": 6,
+  "inline_style_attrs_in_markup": 13,
+  "data_uri_assets": 1
+ },
+ "external_dependencies": {
+  "scripts": [],
+  "links": [],
+  "fonts": [],
+  "cdn": [
+   "http://www.w3.org/2000/svg"
+  ],
+  "font_stack": "'Segoe UI',system-ui,sans-serif"
+ },
+ "event_handlers": {
+  "inline_static": {
+   "sT(0)": 1,
+   "sT(1)": 1,
+   "sT(2)": 1,
+   "sT(3)": 1,
+   "sT(4)": 1,
+   "sT(5)": 1,
+   "sT(6)": 1,
+   "onCat()": 1,
+   "aSP()": 1,
+   "sLD(this.value)": 1,
+   "tw(this)": 5,
+   "GEN()": 1,
+   "CA()": 1,
+   "SH()": 1,
+   "CT('negT')": 1
+  },
+  "inline_generated": {
+   "xPal": 1,
+   "xLay": 1,
+   "xPf": 1,
+   "sOT": 2,
+   "CT": 3,
+   "lFH": 1,
+   "dH": 1
+  },
+  "addEventListener": 0
+ },
+ "security": {
+  "innerHTML_sites": 11,
+  "textContent_sites": 3,
+  "esc_defined": true,
+  "esc_replacements": [
+   [
+    "/&/g",
+    "&amp;"
+   ],
+   [
+    "/</g",
+    "&lt;"
+   ],
+   [
+    "/>/g",
+    "&gt;"
+   ],
+   [
+    "/\\n/g",
+    "<br>"
+   ]
+  ],
+  "eval": 0
+ }
+}

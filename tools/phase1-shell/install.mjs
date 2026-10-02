@@ -16,15 +16,17 @@ const REPO = path.resolve(HERE, '../..');
 const APP = path.join(REPO, 'AI Banner Prompt Generator Pro.html');
 const GOLDEN = path.join(REPO, '_MGS_BASELINE_v2.0', 'AI Banner Prompt Generator Pro [v2.0 GOLDEN BASELINE - DO NOT EDIT].html');
 
-const SRC = f => fs.readFileSync(path.join(HERE, 'src', f), 'utf8')
+const SRC = f => { const p = path.join(HERE, 'src', f); if (!fs.existsSync(p)) { return ''; } return fs.readFileSync(p, 'utf8')
   .replace(/\r\n/g, '\n')
-  .replace(/^(\/\*|<!--) ?MGS:PHASE1:[A-Z]+:(START|END)( \*\/| -->)$/gm, '')
+  .replace(/^(\/\*|<!--) ?MGS:(PHASE1|PHASE2):[A-Z]+:(START|END)( \*\/| -->)$/gm, '')
   .replace(/\n{3,}/g, '\n')
-  .trim();
+  .trim(); };
 
-const css = SRC('mgs-shell.css');
-const html = SRC('mgs-shell.html');
-const js = SRC('mgs-shell.js');
+/* each layer file is optional; empty files add nothing (byte-stable while a phase is in progress) */
+const cat = (...parts) => parts.map(x => x.trim()).filter(Boolean).join('\n');
+const css = cat(SRC('mgs-shell.css'), SRC('mgs-phase2.css'));
+const html = cat(SRC('mgs-shell.html'));
+const js = cat(SRC('mgs-shell.js'), SRC('mgs-phase2.js'));
 
 /* One uniform rule, so insert/strip are exact inverses:
    a region is  START ... END + one newline,  inserted immediately before its anchor. */

@@ -1,0 +1,1071 @@
+{
+ "guarantees": [
+  {
+   "id": "P2 001",
+   "pass": true,
+   "detail": "still 2 script blocks (1 v2.0 + 1 shell+beginner) → 2"
+  },
+  {
+   "id": "P2 002",
+   "pass": true,
+   "detail": "still exactly one style block"
+  },
+  {
+   "id": "P2 003",
+   "pass": true,
+   "detail": "no 4th marker region: Phase 2 lives inside the same three Phase-1 regions (a new region would break the strip-restore proof)"
+  },
+  {
+   "id": "P2 004",
+   "pass": true,
+   "detail": "shell markers intact so the v2.0 bytes stay recoverable"
+  },
+  {
+   "id": "P2 005",
+   "pass": true,
+   "detail": "removing the three shell regions from the installed file reproduces the untouched v2.0 baseline byte-for-byte → 45264 vs 45264 chars"
+  },
+  {
+   "id": "P2 006",
+   "pass": true,
+   "detail": "no external resource or frame tag in the layer"
+  },
+  {
+   "id": "P2 007",
+   "pass": true,
+   "detail": "the beginner layer contains no URL (no network, no CDN)"
+  },
+  {
+   "id": "P2 008",
+   "pass": true,
+   "detail": "no fetch/XHR/eval — suggestions are computed offline"
+  },
+  {
+   "id": "P2 009",
+   "pass": true,
+   "detail": "zero HTML-string writes in the beginner layer (every node is createElement + textContent) → 66402 chars of code scanned"
+  },
+  {
+   "id": "P2 010",
+   "pass": true,
+   "detail": "no document.write, no Function, no eval"
+  },
+  {
+   "id": "P2 011",
+   "pass": true,
+   "detail": "layer is a second IIFE with its own idempotency guard"
+  },
+  {
+   "id": "P2 011b",
+   "pass": true,
+   "detail": "evaluating the layer a second time in the same page is a no-op (sentinel on <html>): ids 124, listeners 10, subscribers 9 all unchanged, no error recorded"
+  },
+  {
+   "id": "P2 012",
+   "pass": true,
+   "detail": "Phase-2 CSS block installed → 10278 chars of shell+beginner styles"
+  },
+  {
+   "id": "P2 013",
+   "pass": true,
+   "detail": "zero top-level declarations (everything stays inside the IIFE)"
+  },
+  {
+   "id": "P2 014",
+   "pass": true,
+   "detail": "the beginner layer is ES5 like v2.0 (no const/let/arrows/template literals)"
+  },
+  {
+   "id": "P2 014b",
+   "pass": true,
+   "detail": "no window property is ever assigned by the layer — it only extends the existing MGS* namespaces"
+  },
+  {
+   "id": "P2 016",
+   "pass": true,
+   "detail": "boot with Phase 2 installed: zero uncaught exceptions → []"
+  },
+  {
+   "id": "P2 017",
+   "pass": true,
+   "detail": "zero console errors/warnings → []"
+  },
+  {
+   "id": "P2 018",
+   "pass": true,
+   "detail": "no recorded failure inside the shell or the beginner layer → []"
+  },
+  {
+   "id": "P2 019",
+   "pass": true,
+   "detail": "selfTest() green with the beginner UI mounted → []"
+  },
+  {
+   "id": "P2 020",
+   "pass": true,
+   "detail": "id count grew from 71 to 124 (new controls), still no duplicates"
+  },
+  {
+   "id": "P2 021",
+   "pass": true,
+   "detail": "window still exposes exactly the 12 v3.0 namespaces → MGS,MGSApp,MGSState,MGSUI,MGSProject,MGSContent,MGSAssets,MGSDesign,MGSRules,MGSProduction,MGSPrompt,MGSOutput"
+  },
+  {
+   "id": "P2 022",
+   "pass": true,
+   "detail": "no new namespace global: the layer extends MGSDesign/MGSUI/MGSContent in place"
+  },
+  {
+   "id": "P2 023",
+   "pass": true,
+   "detail": "the v2.0 field table was not extended (28 + 5) — the brief lives in designIntent instead of a duplicated form model"
+  },
+  {
+   "id": "P2 024",
+   "pass": true,
+   "detail": "state ↔ DOM still in sync after mount → []"
+  },
+  {
+   "id": "P2 025",
+   "pass": true,
+   "detail": "state.designIntent + state.provenance exist in the ONE central state"
+  },
+  {
+   "id": "P2 026",
+   "pass": true,
+   "detail": "project API unchanged (same 9 methods) — no new save path → autosave,clear,history,id,load,newId,restore,save,snapshot"
+  },
+  {
+   "id": "P2 026b",
+   "pass": true,
+   "detail": "Phase 2 extended the existing namespaces in place → MGSDesign 24 members, MGSUI 26"
+  },
+  {
+   "id": "P2 027",
+   "pass": true,
+   "detail": "18 Smart Start cards → 18"
+  },
+  {
+   "id": "P2 028",
+   "pass": true,
+   "detail": "the 18 card labels are exactly the requested set → Product Advertisement | Business Promotion | Sale / Offer | Event | Wedding | Birthday | Restaurant / Food | Education | Real Estate | Corporate | Social Media Design | Print Banner | Poster | Standee | Announcement | Public Information | Personal Branding | Custom"
+  },
+  {
+   "id": "P2 029",
+   "pass": true,
+   "detail": "cards are real <button type=\"button\"> with aria-pressed state"
+  },
+  {
+   "id": "P2 030",
+   "pass": true,
+   "detail": "every card shows an icon, a name and a plain-words hint"
+  },
+  {
+   "id": "P2 031",
+   "pass": true,
+   "detail": "every card carries an accessible name including its hint"
+  },
+  {
+   "id": "P2 032",
+   "pass": true,
+   "detail": "the Start card lives inside the existing Basic tab (#t0) — no new tab, no removed tab"
+  },
+  {
+   "id": "P2 033",
+   "pass": true,
+   "detail": "the beginner panel is the FIRST thing in the app, before the v2.0 form"
+  },
+  {
+   "id": "P2 034",
+   "pass": true,
+   "detail": "still 7 tabs (beginner panel did not add a tab)"
+  },
+  {
+   "id": "P2 035",
+   "pass": true,
+   "detail": "Start screen is buttons + one brief box only — no fake controls"
+  },
+  {
+   "id": "P2 036",
+   "pass": true,
+   "detail": "no [hidden] attribute anywhere in the Basic tab (collapse is CSS-only, values stay live)"
+  },
+  {
+   "id": "P2 037",
+   "pass": true,
+   "detail": "all 21 v2.0 categories are still in #cat → 21 values"
+  },
+  {
+   "id": "P2 038",
+   "pass": true,
+   "detail": "#cat still has 22 options (empty + 21) — nothing added, nothing removed"
+  },
+  {
+   "id": "P2 039",
+   "pass": true,
+   "detail": "no card without a name"
+  },
+  {
+   "id": "P2 040",
+   "pass": true,
+   "detail": "#btype keeps its 13 formats + empty → 14"
+  },
+  {
+   "id": "P2 041",
+   "pass": true,
+   "detail": "card → v2.0 category parity (style/mood/palette/decorations identical to choosing the category by hand) → wedding:= sale_offer:= education:= restaurant:= real_estate:="
+  },
+  {
+   "id": "P2 042",
+   "pass": true,
+   "detail": "no card invents a look v2.0 would not have chosen → wedding:= sale_offer:= education:= restaurant:= real_estate:="
+  },
+  {
+   "id": "P2 043",
+   "pass": true,
+   "detail": "clicking cards never writes the user text boxes → {\"head\":\"\",\"sub\":\"\",\"body\":\"\",\"contact\":\"\",\"cta\":\"\",\"brand\":\"\",\"edate\":\"\",\"venue\":\"\"}"
+  },
+  {
+   "id": "P2 044",
+   "pass": true,
+   "detail": "the Custom card leaves #cat alone and state still mirrors the DOM"
+  },
+  {
+   "id": "P2 045",
+   "pass": true,
+   "detail": "Custom is recorded in state as the chosen start card"
+  },
+  {
+   "id": "P2 046",
+   "pass": true,
+   "detail": "exactly one card is pressed at a time → mgsCard-custom"
+  },
+  {
+   "id": "P2 047",
+   "pass": true,
+   "detail": "13 design-purpose chips → 13"
+  },
+  {
+   "id": "P2 048",
+   "pass": true,
+   "detail": "purpose ids are exactly Promote…Custom → promote,sell,inform,announce,invite,celebrate,educate,introduce,attract,brand,event_promotion,public_info,custom"
+  },
+  {
+   "id": "P2 049",
+   "pass": true,
+   "detail": "every purpose chip is named and explained in plain words"
+  },
+  {
+   "id": "P2 050",
+   "pass": true,
+   "detail": "purpose is stored in the centralized state (state.designIntent.purpose) → sell"
+  },
+  {
+   "id": "P2 051",
+   "pass": true,
+   "detail": "a purpose the user picked is marked USER_VALUE via purpose-choice → {\"source\":\"USER_VALUE\",\"at\":1790932902107,\"via\":\"purpose-choice\"}"
+  },
+  {
+   "id": "P2 052",
+   "pass": true,
+   "detail": "one purpose pressed at a time, reflected from state"
+  },
+  {
+   "id": "P2 053",
+   "pass": true,
+   "detail": "the panel reads the purpose back out of state → 🛒 Sell — Get people to buy something"
+  },
+  {
+   "id": "P2 054",
+   "pass": true,
+   "detail": "purpose alone never changes a prompt (it is context, not copy) → 2 chars identical"
+  },
+  {
+   "id": "P2 055",
+   "pass": true,
+   "detail": "MGSDesign.purposes() exposes the list (one source for the UI and the API)"
+  },
+  {
+   "id": "P2 056",
+   "pass": true,
+   "detail": "the Smart Brief is a real textarea"
+  },
+  {
+   "id": "P2 057",
+   "pass": true,
+   "detail": "placeholder is the requested example sentence → \"My clothing shop needs a Diwali sale banner. I want to use my photo and logo.\""
+  },
+  {
+   "id": "P2 058",
+   "pass": true,
+   "detail": "the brief has a real <label for> — “Describe your design in your own words”"
+  },
+  {
+   "id": "P2 059",
+   "pass": true,
+   "detail": "the brief explains itself to screen readers → Say it however you like — Marathi, Hindi or Engl"
+  },
+  {
+   "id": "P2 060",
+   "pass": true,
+   "detail": "what the user typed is kept verbatim in state → \"Shop ke liye poster chahiye\""
+  },
+  {
+   "id": "P2 061",
+   "pass": true,
+   "detail": "setBrief() never overwrites user text unasked → {\"ok\":false,\"reason\":\"user-text-present\",\"kept\":\"Shop ke liye poster chahiye\"}"
+  },
+  {
+   "id": "P2 062",
+   "pass": true,
+   "detail": "an explicit overwrite is honoured once, then the guard is back on"
+  },
+  {
+   "id": "P2 063",
+   "pass": true,
+   "detail": "the brief is interpreted into purpose + category → {\"p\":\"sell\",\"c\":\"sale\"}"
+  },
+  {
+   "id": "P2 064",
+   "pass": true,
+   "detail": "the bare word “banner” is deliberately NOT read as a format claim (the app makes banners of every shape) → format=\"\""
+  },
+  {
+   "id": "P2 064b",
+   "pass": true,
+   "detail": "an explicit format and size in words are understood → {\"f\":\"standee\",\"s\":\"6,3,feet\"}"
+  },
+  {
+   "id": "P2 065",
+   "pass": true,
+   "detail": "“my photo and logo” is understood as an asset mention, not as copy → {\"photo\":true,\"logo\":true,\"price\":false,\"date\":false,\"venue\":false,\"whatsapp\":false,\"brand\":true}"
+  },
+  {
+   "id": "P2 066",
+   "pass": true,
+   "detail": "the interpretation is internally tagged AI_SUGGESTION (never USER_VALUE) → AI_SUGGESTION"
+  },
+  {
+   "id": "P2 067",
+   "pass": true,
+   "detail": "confidence is reported, capped, and never 100% → 0.62"
+  },
+  {
+   "id": "P2 068",
+   "pass": true,
+   "detail": "nothing from the brief is invented into headline/sub/body text → {\"head\":\"\",\"sub\":\"\",\"body\":\"\",\"contact\":\"\",\"cta\":\"\",\"brand\":\"\",\"edate\":\"\",\"venue"
+  },
+  {
+   "id": "P2 069",
+   "pass": true,
+   "detail": "word count of the brief is honest → 16"
+  },
+  {
+   "id": "P2 070",
+   "pass": true,
+   "detail": "a Marathi brief is understood the same way → {\"c\":\"sale\",\"f\":\"poster\",\"ph\":true}"
+  },
+  {
+   "id": "P2 071",
+   "pass": true,
+   "detail": "an empty brief produces no claim → {\"w\":0,\"c\":0}"
+  },
+  {
+   "id": "P2 072",
+   "pass": true,
+   "detail": "suggestions were produced from the brief → purpose,cat,style,cta"
+  },
+  {
+   "id": "P2 073",
+   "pass": true,
+   "detail": "every item is marked AI_SUGGESTION and not applied"
+  },
+  {
+   "id": "P2 074",
+   "pass": true,
+   "detail": "every suggestion explains itself → you wrote “sale”"
+  },
+  {
+   "id": "P2 075",
+   "pass": true,
+   "detail": "a suggestion alone changes no control and no text → {\"cat\":\"\",\"style\":\"\",\"cta\":\"\",\"head\":\"Diwali Sale\"}"
+  },
+  {
+   "id": "P2 076",
+   "pass": true,
+   "detail": "one list item per suggestion, rendered as DOM (no innerHTML)"
+  },
+  {
+   "id": "P2 077",
+   "pass": true,
+   "detail": "Accept + Edit + Reject on every item (+1 “another one”)"
+  },
+  {
+   "id": "P2 078",
+   "pass": true,
+   "detail": "all items start as pending (data-status), never silently accepted"
+  },
+  {
+   "id": "P2 079",
+   "pass": true,
+   "detail": "Accept writes the value through the v2.0 control → #cat=sale"
+  },
+  {
+   "id": "P2 080",
+   "pass": true,
+   "detail": "an accepted suggestion becomes USER_VALUE with an honest “via” trail → {\"source\":\"USER_VALUE\",\"at\":1790932903487,\"via\":\"accepted-suggestion\"}"
+  },
+  {
+   "id": "P2 081",
+   "pass": true,
+   "detail": "the item is marked accepted in state and in the DOM"
+  },
+  {
+   "id": "P2 082",
+   "pass": true,
+   "detail": "the list reflects the decision"
+  },
+  {
+   "id": "P2 083",
+   "pass": true,
+   "detail": "the prompt only changes after an explicit Accept"
+  },
+  {
+   "id": "P2 084",
+   "pass": true,
+   "detail": "Rejecting an accepted value puts the form back exactly as it was → #cat=\"\""
+  },
+  {
+   "id": "P2 085",
+   "pass": true,
+   "detail": "the rejection is remembered (so Regenerate cannot nag with the same pick)"
+  },
+  {
+   "id": "P2 086",
+   "pass": true,
+   "detail": "Edit applies a value the user chose from v2.0’s own list → #style=watercolor"
+  },
+  {
+   "id": "P2 087",
+   "pass": true,
+   "detail": "an edited suggestion is still USER_VALUE, tagged via edited-suggestion"
+  },
+  {
+   "id": "P2 088",
+   "pass": true,
+   "detail": "an edit can only pick a value v2.0 really supports → {\"ok\":false,\"reason\":\"value-not-in-v2.0-options\",\"value\":\"cyberpunk-3000\"}"
+  },
+  {
+   "id": "P2 089",
+   "pass": true,
+   "detail": "Edit reveals an inline control listing the existing options (no invented list)"
+  },
+  {
+   "id": "P2 090",
+   "pass": true,
+   "detail": "the inline editor for a style suggestion offers exactly #style’s own 15 values"
+  },
+  {
+   "id": "P2 090b",
+   "pass": true,
+   "detail": "the inline editor has Use-this and Cancel — Edit is never a dead end"
+  },
+  {
+   "id": "P2 091",
+   "pass": true,
+   "detail": "Regenerate is counted (state.designIntent.regenerateCount)"
+  },
+  {
+   "id": "P2 092",
+   "pass": true,
+   "detail": "Regenerate re-proposes without applying anything → purpose:sell,cat:sale,style:bold_loud,cta:Book Today"
+  },
+  {
+   "id": "P2 093",
+   "pass": true,
+   "detail": "a rotation happens when there is more than one candidate (otherwise it honestly repeats)"
+  },
+  {
+   "id": "P2 094",
+   "pass": true,
+   "detail": "“Another one” swaps the suggestion only — the form and the prompt are untouched"
+  },
+  {
+   "id": "P2 095",
+   "pass": true,
+   "detail": "an empty brief gets an honest empty state instead of a fake recommendation → No suggestion yet. Write one line about your design, or press ✨ Suggest — nothing changes "
+  },
+  {
+   "id": "P2 096",
+   "pass": true,
+   "detail": "the empty path throws nothing"
+  },
+  {
+   "id": "P2 097",
+   "pass": true,
+   "detail": "canUse() validates against v2.0’s own option list"
+  },
+  {
+   "id": "P2 098",
+   "pass": true,
+   "detail": "optionsFor() is a view of the existing selects → 21 categories, 12 moods"
+  },
+  {
+   "id": "P2 099",
+   "pass": true,
+   "detail": "exactly 6 field groups are marked advanced (sw/sh/su, custom colour, layout list, image position/style, prompt length) → sw,ccol,layD,ipos,istyle,plen"
+  },
+  {
+   "id": "P2 100",
+   "pass": true,
+   "detail": "only v2.0’s own .fi groups are tagged — no wrapper, grid or tab was touched"
+  },
+  {
+   "id": "P2 101",
+   "pass": true,
+   "detail": "in Beginner mode an advanced group is visually collapsed (display:none from the CSS hook) → none"
+  },
+  {
+   "id": "P2 102",
+   "pass": true,
+   "detail": "collapsed, never disabled or cleared — the value still feeds the prompt"
+  },
+  {
+   "id": "P2 103",
+   "pass": true,
+   "detail": "no [hidden] attribute is used anywhere (screen readers and v2.0 keep seeing the controls)"
+  },
+  {
+   "id": "P2 104",
+   "pass": true,
+   "detail": "“More options” reveals every collapsed group again → flex"
+  },
+  {
+   "id": "P2 105",
+   "pass": true,
+   "detail": "the toggle is a real pressed button that renames itself → Fewer options"
+  },
+  {
+   "id": "P2 106",
+   "pass": true,
+   "detail": "the toggle sits in the always-visible shell bar, so it is reachable from every tab"
+  },
+  {
+   "id": "P2 107",
+   "pass": true,
+   "detail": "“Fewer options” collapses them again — the control is reversible, one click each way"
+  },
+  {
+   "id": "P2 108",
+   "pass": true,
+   "detail": "Pro mode exposes every detailed control again (nothing hidden in Pro) → flex"
+  },
+  {
+   "id": "P2 109",
+   "pass": true,
+   "detail": "both modes keep all 7 v2.0 panels reachable"
+  },
+  {
+   "id": "P2 110",
+   "pass": true,
+   "detail": "tab classes are identical in Beginner and Pro (no panel is filtered)"
+  },
+  {
+   "id": "P2 111",
+   "pass": true,
+   "detail": "switching Pro → Beginner changes no control value (48 controls compared)"
+  },
+  {
+   "id": "P2 112",
+   "pass": true,
+   "detail": "palette/layout/platform selections survive the switch →  /  / chatgpt"
+  },
+  {
+   "id": "P2 113",
+   "pass": true,
+   "detail": "the user’s text boxes are byte-identical across a mode switch"
+  },
+  {
+   "id": "P2 114",
+   "pass": true,
+   "detail": "prompt output is identical before and after switching mode → 1118 chars"
+  },
+  {
+   "id": "P2 115",
+   "pass": true,
+   "detail": "three help boxes: Design Purpose, Smart Brief, AI Suggest"
+  },
+  {
+   "id": "P2 116",
+   "pass": true,
+   "detail": "help is concise → 169/165/189 chars"
+  },
+  {
+   "id": "P2 117",
+   "pass": true,
+   "detail": "no jargon in the beginner help text"
+  },
+  {
+   "id": "P2 118",
+   "pass": true,
+   "detail": "the three questions are the ones requested → What is Design Purpose? | What is Smart Brief? | What does AI Suggest do?"
+  },
+  {
+   "id": "P2 119",
+   "pass": true,
+   "detail": "the beginner flow has 8 steps → what,say,images,style,size,platform,review,generate"
+  },
+  {
+   "id": "P2 120",
+   "pass": true,
+   "detail": "the 8 steps follow the requested order → what you are creating | what it should say | images you have | style and colours | size and output | which ai tool | review | generate"
+  },
+  {
+   "id": "P2 121",
+   "pass": true,
+   "detail": "every step points at an existing v2.0 panel (no invented tab, no dead link)"
+  },
+  {
+   "id": "P2 122",
+   "pass": true,
+   "detail": "the flow is rendered as 8 real chips inside the Start card"
+  },
+  {
+   "id": "P2 123",
+   "pass": true,
+   "detail": "step 2 (“What it should say”) drives v2.0’s own tab switch → t6 → t1 (panel classes moved with it)"
+  },
+  {
+   "id": "P2 124",
+   "pass": true,
+   "detail": "steps report readiness from real state → what· say✓ images✓ style✓ size· platform✓ review· generate✓"
+  },
+  {
+   "id": "P2 125",
+   "pass": true,
+   "detail": "the “what it should say” step completes as soon as the headline exists"
+  },
+  {
+   "id": "P2 126",
+   "pass": true,
+   "detail": "the beginner layer persists its own keys → {\"s\":1,\"c\":\"sale_offer\",\"p\":\"sell\"}"
+  },
+  {
+   "id": "P2 127",
+   "pass": true,
+   "detail": "the user’s brief survives a reload (mgs.intent.v1)"
+  },
+  {
+   "id": "P2 128",
+   "pass": true,
+   "detail": "which suggestions were accepted is remembered (designIntent.purpose=sell)"
+  },
+  {
+   "id": "P2 129",
+   "pass": true,
+   "detail": "provenance travels with the data (USER_VALUE via start-card)"
+  },
+  {
+   "id": "P2 130",
+   "pass": true,
+   "detail": "Phase 1’s session store still holds the v2.0 form — the beginner layer did not hijack it"
+  },
+  {
+   "id": "P2 131",
+   "pass": true,
+   "detail": "a manual style pick survives in the session even though a category card was applied (the cascade did not eat it)"
+  },
+  {
+   "id": "P2 132",
+   "pass": true,
+   "detail": "reload restores the brief into the same box"
+  },
+  {
+   "id": "P2 133",
+   "pass": true,
+   "detail": "reload restores the purpose and reflects it in the chip"
+  },
+  {
+   "id": "P2 134",
+   "pass": true,
+   "detail": "reload restores the Smart Start card selection"
+  },
+  {
+   "id": "P2 135",
+   "pass": true,
+   "detail": "reload restores the v2.0 form values too (no user data lost between phases)"
+  },
+  {
+   "id": "P2 136",
+   "pass": true,
+   "detail": "provenance survives the reload → {\"source\":\"USER_VALUE\",\"at\":1790932904377,\"via\":\"start-card\"}"
+  },
+  {
+   "id": "P2 137",
+   "pass": true,
+   "detail": "the restore boot is clean"
+  },
+  {
+   "id": "P2 138",
+   "pass": true,
+   "detail": "after restore: state, DOM and v2.0 globals agree again"
+  },
+  {
+   "id": "P2 139",
+   "pass": true,
+   "detail": "MGSState.reset() cannot strand the layer: designIntent is rebuilt on state:reset"
+  },
+  {
+   "id": "P2 140",
+   "pass": true,
+   "detail": "the Start panel survives a reset (it is re-synced, not destroyed)"
+  },
+  {
+   "id": "P2 141",
+   "pass": true,
+   "detail": "reset after restore throws nothing (before: “कृपा कपडे सेल”)"
+  },
+  {
+   "id": "P2 142",
+   "pass": true,
+   "detail": "the beginner layer never writes v2.0’s history store (bph) — save/history behaviour is untouched"
+  },
+  {
+   "id": "P2 143",
+   "pass": true,
+   "detail": "mode switches and suggestions never touch history"
+  },
+  {
+   "id": "P2 144",
+   "pass": true,
+   "detail": "no unbounded growth after 40 interpretations → announcements=10 provenance=9 suggestions=3"
+  },
+  {
+   "id": "P2 145",
+   "pass": true,
+   "detail": "no listener leak: bus=9 shell bindings=10"
+  },
+  {
+   "id": "P2 146",
+   "pass": true,
+   "detail": "all 4 v2.0 scenarios × 8 platforms re-generated today in Beginner mode are byte-identical to the untouched baseline → sale-marathi=same wedding-mixed=same corporate-english=same minimal-empty-extras=same"
+  },
+  {
+   "id": "P2 147",
+   "pass": true,
+   "detail": "the Output panel text itself is unchanged → 1402ch/1287ch/1405ch/91ch"
+  },
+  {
+   "id": "P2 148",
+   "pass": true,
+   "detail": "variant cards (0) and the negative prompt (1 terms) are untouched"
+  },
+  {
+   "id": "P2 149",
+   "pass": true,
+   "detail": "GD() still returns the same 35 keys the prompt builder reads → 35"
+  },
+  {
+   "id": "P2 150",
+   "pass": true,
+   "detail": "designIntent is never part of the v2.0 payload (the prompt cannot see beginner state)"
+  },
+  {
+   "id": "P2 151",
+   "pass": true,
+   "detail": "“Wedding” card ⇒ the same prompts as choosing wedding + vertical flex by hand → 1152 chars"
+  },
+  {
+   "id": "P2 152",
+   "pass": true,
+   "detail": "the frozen Phase-2 parity file matches this run → 4 scenarios, 32 platform prompts"
+  },
+  {
+   "id": "P2 153",
+   "pass": true,
+   "detail": "a corrupt beginner store cannot break the page → []"
+  },
+  {
+   "id": "P2 154",
+   "pass": true,
+   "detail": "the panel still renders, the unreadable brief is simply empty"
+  },
+  {
+   "id": "P2 155",
+   "pass": true,
+   "detail": "the damage is recorded, not hidden → phase2:readStore:mgs.intent.v1"
+  },
+  {
+   "id": "P2 156",
+   "pass": true,
+   "detail": "a throwing localStorage.setItem never escapes into the app (beginner writes are guarded) → {\"quotaBroke\":null,\"errs\":[]}"
+  },
+  {
+   "id": "P2 157",
+   "pass": true,
+   "detail": "the session still works without storage (persistence is a bonus, not a dependency)"
+  },
+  {
+   "id": "P2 158",
+   "pass": true,
+   "detail": "double-clicking the file (file://, opaque origin) produces no beginner-layer error → []"
+  },
+  {
+   "id": "P2 159",
+   "pass": true,
+   "detail": "everything the beginner layer needs is in memory when storage is denied → {\"session\":\"unavailable\",\"prefs\":\"unavailable\",\"lastAutosavedAt\":null,\"autosaveCount\":0,\"lastSavedAt\":null,\"sessionKey\":\"mgs.session.v1\",\"prefsKey\":\"mgs.prefs.v1\"}"
+  },
+  {
+   "id": "P2 160",
+   "pass": true,
+   "detail": "the Start screen renders in full without storage"
+  },
+  {
+   "id": "P2 161",
+   "pass": true,
+   "detail": "the Generate button in the Start panel works offline → 1165 chars"
+  },
+  {
+   "id": "P2 162",
+   "pass": true,
+   "detail": "saving says so honestly instead of pretending (no storage) → {\"ok\":false,\"reason\":\"unavailable\"}"
+  },
+  {
+   "id": "P2 163",
+   "pass": true,
+   "detail": "the layer records that it could not persist → undefined"
+  },
+  {
+   "id": "P2 164",
+   "pass": true,
+   "detail": "a full beginner session (card → brief → suggest → accept → regenerate → mode switch → generate) records no failure → []"
+  },
+  {
+   "id": "P2 165",
+   "pass": true,
+   "detail": "console audit: zero error/warn/log output from the whole beginner session → []"
+  },
+  {
+   "id": "P2 166",
+   "pass": true,
+   "detail": "Phase-2 style block found in the installed file → 6576 chars"
+  },
+  {
+   "id": "P2 167",
+   "pass": true,
+   "detail": "no new media queries: the two v2.0-era breakpoints + reduced motion still describe the whole page (Phase 1 added 1, Phase 2 adds 0)"
+  },
+  {
+   "id": "P2 168",
+   "pass": true,
+   "detail": "no fixed pixel width anywhere in the beginner CSS → the panel follows the .container max-width like every v2.0 card"
+  },
+  {
+   "id": "P2 169",
+   "pass": true,
+   "detail": "no fixed-px tracks; the card rail is flex with a rem basis"
+  },
+  {
+   "id": "P2 170",
+   "pass": true,
+   "detail": "nothing is positioned out of flow (no overlay that could escape the viewport)"
+  },
+  {
+   "id": "P2 171",
+   "pass": true,
+   "detail": "no horizontal scroll container and no viewport-width hack (the 18 cards wrap instead)"
+  },
+  {
+   "id": "P2 172",
+   "pass": true,
+   "detail": "no !important — the layer never fights v2.0’s cascade"
+  },
+  {
+   "id": "P2 173",
+   "pass": true,
+   "detail": "every new flex container wraps (or is a column) → 11 rules audited"
+  },
+  {
+   "id": "P2 174",
+   "pass": true,
+   "detail": "flex children are allowed to shrink (min-width:0 + max-width:100%) — the classic horizontal-overflow fix"
+  },
+  {
+   "id": "P2 175",
+   "pass": true,
+   "detail": "box-sizing:border-box on the padded buttons so padding never overflows the row"
+  },
+  {
+   "id": "P2 176",
+   "pass": true,
+   "detail": "type is rem-only (scales with the browser font setting) → 19 sizes"
+  },
+  {
+   "id": "P2 177",
+   "pass": true,
+   "detail": "the brief box is full-width and resizes only vertically (no sideways drag)"
+  },
+  {
+   "id": "P2 178",
+   "pass": true,
+   "detail": "long words (Marathi compounds, URLs) wrap instead of pushing width → 8 declarations"
+  },
+  {
+   "id": "P2 179",
+   "pass": true,
+   "detail": "every rule is scoped to .mgs-* / [data-mgs-*] → 57 selectors, 0 that could reach v2.0 markup"
+  },
+  {
+   "id": "P2 180",
+   "pass": true,
+   "detail": "no v2.0 class is re-styled (the layer borrows tokens, not selectors)"
+  },
+  {
+   "id": "P2 181",
+   "pass": true,
+   "detail": "no inline styles generated (everything is class-driven, so print-shop themes still work)"
+  },
+  {
+   "id": "P2 182",
+   "pass": true,
+   "detail": "all 32 new buttons are type=\"button\" — none can submit or hijack a keyboard Enter"
+  },
+  {
+   "id": "P2 183",
+   "pass": true,
+   "detail": "every new control has an accessible name"
+  },
+  {
+   "id": "P2 184",
+   "pass": true,
+   "detail": "no focusable control sits inside an aria-hidden subtree"
+  },
+  {
+   "id": "P2 185",
+   "pass": true,
+   "detail": "the Start screen duplicates no v2.0 select or input (single source of truth for every value)"
+  },
+  {
+   "id": "P2 186",
+   "pass": true,
+   "detail": "one heading per card, matching v2.0’s card anatomy"
+  },
+  {
+   "id": "P2 187",
+   "pass": true,
+   "detail": "the Basic tab now holds Start + Review + the original v2.0 card — the original card is intact and still first-class"
+  },
+  {
+   "id": "P2 188",
+   "pass": true,
+   "detail": "the longest card label is 21 chars (fits the 9rem basis without ellipsis tricks)"
+  },
+  {
+   "id": "P2 189",
+   "pass": true,
+   "detail": "purpose chips use the wrapping .mgs-chips row (13 items never overflow at 320px)"
+  },
+  {
+   "id": "P2 190",
+   "pass": true,
+   "detail": "no new auto-fit/auto-fill grid: v2.0’s six responsive grids stay exactly six (a Phase-0 count guard)"
+  },
+  {
+   "id": "P2 191",
+   "pass": true,
+   "detail": "state.designIntent carries exactly the documented beginner keys → acceptCount,advancedOpen,brief,briefAt,confidence,editCount,interpretation,interpretedAt,pending,purpose,regenerateCount,rejectCount,rejected,resolved,saveState,seq,startCard,suggestions"
+  },
+  {
+   "id": "P2 192",
+   "pass": true,
+   "detail": "provenance values are one of the three sources → USER_VALUE"
+  },
+  {
+   "id": "P2 193",
+   "pass": true,
+   "detail": "an untouched field is still DEFAULT_VALUE (so “not filled in” is distinguishable from “the AI filled it”)"
+  },
+  {
+   "id": "P2 194",
+   "pass": true,
+   "detail": "MGSContent.brief() reads the same box the user typed in → 77 chars"
+  },
+  {
+   "id": "P2 195",
+   "pass": true,
+   "detail": "mountStart() twice is a no-op — one panel, one toggle, no duplicated listeners"
+  },
+  {
+   "id": "P2 196",
+   "pass": true,
+   "detail": "a second boot adds no listeners and no DOM (idempotency holds with Phase 2) → 10/9"
+  },
+  {
+   "id": "P2 197",
+   "pass": true,
+   "detail": "still exactly one Start panel after a re-boot"
+  },
+  {
+   "id": "P2 198",
+   "pass": true,
+   "detail": "and nothing was recorded while re-booting → []"
+  }
+ ],
+ "deferred": [
+  {
+   "id": "DFR 001",
+   "reproduces": true,
+   "detail": "choosing a category BY HAND still overwrites style/mood (v2.0 onCat, B5) — the beginner card path protects user picks, the dropdown path is Phase 3"
+  },
+  {
+   "id": "DFR 002",
+   "reproduces": true,
+   "detail": "esc() still throws on non-strings (B12) — behaves identically to the untouched baseline"
+  },
+  {
+   "id": "DFR 003",
+   "reproduces": true,
+   "detail": "history rows are still assembled as an HTML string and pushed through innerHTML by lH() (S1 stored-XSS) — Phase 2 left v2.0’s renderer alone and adds none of its own"
+  },
+  {
+   "id": "DFR 004",
+   "reproduces": true,
+   "detail": "#plen is still inert (D1) — a real length switch belongs to Phase 3"
+  },
+  {
+   "id": "DFR 005",
+   "reproduces": true,
+   "detail": "icount=\"multiple\" still drops the IMAGES section (B1) — Phase 3"
+  },
+  {
+   "id": "DFR 006",
+   "reproduces": true,
+   "detail": "required fields are still marked by a coloured asterisk only — Phase 2 added no aria-required to v2.0 controls (validation is Phase 3)"
+  },
+  {
+   "id": "DFR 007",
+   "reproduces": true,
+   "detail": "the copy button still lives inside the copied block (B11) — Phase 5"
+  },
+  {
+   "id": "DFR 008",
+   "reproduces": true,
+   "detail": "Beginner mode does not filter the seven v2.0 tabs (only 6 advanced field groups collapse) — per-step tab filtering is Phase 3/M15"
+  },
+  {
+   "id": "DFR 009",
+   "reproduces": true,
+   "detail": "the v2.0 raw storage write is still unguarded in the baseline while the shell path is guarded — SH() itself remains v2.0 behaviour (documented in Phase 1)"
+  }
+ ],
+ "summary": {
+  "pass": 202,
+  "total": 202,
+  "deferred": 9,
+  "deferredTotal": 9
+ },
+ "harness": {
+  "jsdom": "node_modules/jsdom",
+  "target": "/home/user/AI-Banner-Prompt-Generator-Pro/AI Banner Prompt Generator Pro.html"
+ }
+}

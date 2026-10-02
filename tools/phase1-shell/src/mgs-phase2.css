@@ -1,0 +1,77 @@
+/* ===== MGS v3.0 PHASE 2 — Smart Start, design purpose, smart brief, suggestions =====
+   Additive only. Every selector is scoped to .mgs-* / [data-mgs-*].
+   Reuses the v2.0 design tokens (var(--card2), --border, --accent, --grad, --text*) so the
+   new panels look native. No new media queries either: the new blocks are fluid by
+   construction (flex-wrap + rem sizes), and no fixed pixel width is introduced. */
+.mgs-start{margin:0 0 10px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(123,97,255,.07))}
+.mgs-q{margin:0;font-size:1rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.mgs-sub{margin:3px 0 10px;font-size:0.74rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-cards{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.mgs-cards>li{flex:1 1 9rem;min-width:0;display:flex;flex-direction:column}
+.mgs-card{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;min-height:3.6rem;box-sizing:border-box;
+  padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card2);color:var(--text2);
+  font-family:inherit;text-align:left;cursor:pointer;transition:.25s}
+.mgs-card:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
+.mgs-card[aria-pressed="true"]{border-color:var(--accent);background:rgba(0,212,255,.13);color:var(--text)}
+.mgs-card .ci{font-size:1.05rem;line-height:1.2}
+.mgs-card .cl{font-size:0.76rem;font-weight:700;overflow-wrap:anywhere}
+.mgs-card .ch{font-size:0.6rem;font-weight:600;color:var(--text3);overflow-wrap:anywhere}
+.mgs-sec{margin:12px 0 0}
+.mgs-flow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.mgs-flow>li{flex:1 1 auto;min-width:0;max-width:100%;display:flex;flex-direction:column}
+.mgs-flow .mgs-chip{width:100%;text-align:left;box-sizing:border-box}
+.mgs-flow .mgs-chip[aria-pressed],.mgs-flow .mgs-chip:hover{border-color:var(--accent)}
+.mgs-lab{display:block;font-size:0.74rem;font-weight:700;color:var(--text2);margin:0 0 5px}
+.mgs-chips{display:flex;flex-wrap:wrap;gap:6px}
+.mgs-chip{padding:5px 11px;border:1px solid var(--border);border-radius:999px;background:var(--card2);
+  color:var(--text2);font-size:0.72rem;font-weight:700;font-family:inherit;cursor:pointer;transition:.25s}
+.mgs-chip:hover{color:var(--text);border-color:var(--accent)}
+.mgs-chip[aria-pressed="true"]{background:var(--grad);color:#fff;border-color:transparent}
+.mgs-brief{display:block;width:100%;min-height:4.4rem;padding:9px 11px;border:1px solid var(--border);
+  border-radius:9px;background:var(--card);color:var(--text);font-family:inherit;font-size:0.8rem;line-height:1.5;
+  resize:vertical}
+.mgs-brief::placeholder{color:var(--text3);opacity:.85}
+.mgs-row{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:8px 0 0}
+.mgs-row .grow{flex:1 1 auto;min-width:0}
+.mgs-btn{padding:7px 14px;border:1px solid var(--border);border-radius:8px;background:var(--card2);color:var(--text2);
+  font-size:0.74rem;font-weight:700;font-family:inherit;cursor:pointer;transition:.25s}
+.mgs-btn:hover{border-color:var(--accent);color:var(--text)}
+.mgs-btn[data-primary="1"]{background:var(--grad);color:#fff;border-color:transparent}
+.mgs-sug{display:flex;flex-direction:column;gap:7px;margin:9px 0 0;padding:0;list-style:none}
+.mgs-sug li{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 11px;border:1px dashed var(--border);
+  border-radius:10px;background:var(--card2)}
+.mgs-sug li[data-status="accepted"]{border-style:solid;border-color:var(--success);background:rgba(0,230,118,.08)}
+.mgs-sug li[data-status="rejected"]{opacity:.5}
+.mgs-sug li[data-status="edited"]{border-style:solid;border-color:var(--accent2)}
+.mgs-sug .kk{font-size:0.58rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--accent2)}
+.mgs-sug .vv{font-size:0.82rem;font-weight:700;color:var(--text);overflow-wrap:anywhere}
+.mgs-sug .why{font-size:0.68rem;color:var(--text3);flex:1 1 100%;overflow-wrap:anywhere}
+.mgs-sug .acts{display:flex;flex-wrap:wrap;gap:5px;margin-left:auto}
+.mgs-mini{padding:5px 10px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--text2);
+  font-size:0.68rem;font-weight:700;font-family:inherit;cursor:pointer;transition:.25s}
+.mgs-mini:hover{border-color:var(--accent);color:var(--text)}
+.mgs-edit{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px}
+.mgs-edit input,.mgs-edit select{flex:1 1 12rem;padding:6px 9px;border:1px solid var(--border);border-radius:7px;
+  background:var(--card);color:var(--text);font-family:inherit;font-size:0.78rem}
+.mgs-tag{font-size:0.56rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;
+  border-radius:999px;border:1px solid var(--border);color:var(--text3);white-space:nowrap}
+.mgs-tag[data-src="AI_SUGGESTION"]{color:var(--accent2);border-color:var(--accent2)}
+.mgs-tag[data-src="USER_VALUE"]{color:var(--success);border-color:var(--success)}
+.mgs-help{margin:8px 0 0;padding:7px 11px;border:1px solid var(--border);border-radius:9px;background:var(--card2)}
+.mgs-help summary{font-size:0.74rem;font-weight:700;color:var(--text2);cursor:pointer}
+.mgs-help p{margin:6px 0 8px;font-size:0.72rem;line-height:1.55;color:var(--text3);overflow-wrap:anywhere}
+.mgs-review{margin:10px 0 0;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card2)}
+.mgs-review dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:6px 0 0;font-size:0.74rem}
+.mgs-review dt{color:var(--text3);font-weight:700;white-space:nowrap}
+.mgs-review dd{margin:0;color:var(--text);overflow-wrap:anywhere}
+.mgs-note{margin:7px 0 0;font-size:0.68rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-empty{margin:7px 0 0;font-size:0.72rem;color:var(--text3)}
+/* Beginner simplification: advanced field groups collapse behind one honest control.
+   Nothing is disabled, hidden from Pro, moved or cleared — only display is suppressed,
+   and the values keep flowing into v2.0's generation exactly as before. */
+.mgs-adv-toggle{display:none;align-items:center;gap:6px;padding:6px 12px;border:1px dashed var(--border);
+  border-radius:999px;background:0;color:var(--text2);font-size:0.7rem;font-weight:700;font-family:inherit;cursor:pointer}
+.mgs-adv-toggle:hover{border-color:var(--accent);color:var(--text)}
+html[data-mgs-mode="beginner"] .mgs-adv-toggle{display:inline-flex}
+html[data-mgs-mode="beginner"]:not([data-mgs-adv-open="1"]) [data-mgs-adv="1"]{display:none}

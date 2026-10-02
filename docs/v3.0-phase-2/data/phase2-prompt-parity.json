@@ -1,0 +1,182 @@
+{
+ "note": "frozen v2.0 prompt fingerprints (length:djb2) per scenario, recorded from the untouched baseline during Phase 2",
+ "scenarios": [
+  {
+   "name": "sale-marathi",
+   "fields": {
+    "cat": "sale",
+    "btype": "horizontal_flex",
+    "sw": "8",
+    "sh": "4",
+    "su": "feet",
+    "lang": "marathi",
+    "aud": "youth",
+    "head": "मेगा सेल",
+    "sub": "५०% सूट",
+    "body": "संपूर्ण शहरातील सर्वोत्तम दर",
+    "contact": "9876543210",
+    "cta": "आजच भेट द्या",
+    "brand": "कृपा कपडे",
+    "style": "bold_loud",
+    "mood": "urgent",
+    "typo": "devanagari_calligraphy",
+    "bg": "gradient",
+    "qual": "ultra",
+    "ccol": "#FF0000",
+    "icount": "2",
+    "itype": "product"
+   },
+   "prompts": {
+    "chatgpt": "1331:ofmnf3",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "basePrompts": {
+    "chatgpt": "1331:ofmnf3",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": "1402:1l1hamr",
+   "variants": 0,
+   "negative": 1
+  },
+  {
+   "name": "wedding-mixed",
+   "fields": {
+    "cat": "wedding",
+    "btype": "vertical_flex",
+    "sp": "3,6,feet",
+    "lang": "mar_eng",
+    "head": "आमचे स्वागत आहे",
+    "sub": "Swayamvar Ceremony",
+    "contact": "+91 90000 00000",
+    "edate": "24 Feb 2026",
+    "venue": "Kalyani Mantarlust",
+    "style": "luxury",
+    "mood": "romantic",
+    "typo": "elegant_serif",
+    "bg": "image",
+    "plen": "short",
+    "icount": "multiple",
+    "itype": "person"
+   },
+   "prompts": {
+    "chatgpt": "1214:irx18m",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "basePrompts": {
+    "chatgpt": "1214:irx18m",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": "1287:11d27su",
+   "variants": 0,
+   "negative": 1
+  },
+  {
+   "name": "corporate-english",
+   "fields": {
+    "cat": "corporate",
+    "btype": "hoarding",
+    "sw": "20",
+    "sh": "8",
+    "su": "feet",
+    "lang": "english",
+    "aud": "business",
+    "head": "ANNUAL TECH SUMMIT",
+    "sub": "Innovation Forward",
+    "body": "Three days of keynotes and workshops.",
+    "contact": "hello@summit.example",
+    "cta": "Register Now",
+    "brand": "Nimbus Labs",
+    "style": "corporate",
+    "mood": "professional",
+    "typo": "bold_sans",
+    "bg": "solid",
+    "qual": "high",
+    "icount": "1",
+    "itype": "building",
+    "ipos": "right",
+    "istyle": "full_frame"
+   },
+   "prompts": {
+    "chatgpt": "1334:1jkhsyh",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "basePrompts": {
+    "chatgpt": "1334:1jkhsyh",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": "1405:bsz81p",
+   "variants": 0,
+   "negative": 1
+  },
+  {
+   "name": "minimal-empty-extras",
+   "fields": {
+    "cat": "",
+    "btype": "standee",
+    "head": "Only a headline",
+    "style": "minimalist",
+    "mood": "sober",
+    "lang": "hindi"
+   },
+   "prompts": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "basePrompts": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": "91:1pit3t",
+   "variants": 0,
+   "negative": 1
+  }
+ ]
+}

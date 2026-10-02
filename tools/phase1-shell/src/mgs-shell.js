@@ -453,8 +453,8 @@
   /* --------------------------------------------------------- mode system */
   /* hints state the truth for THIS phase: the mode is stored, persisted and announced,
      but per-mode filtering only arrives with Phase 2 — nothing is hidden or auto-filled yet. */
-  var MODES = { beginner: { label: "Beginner", icon: "🌱", hint: "Guided labels · all controls visible · filtering in Phase 2" },
-                pro:      { label: "Pro",      icon: "⚙️", hint: "Technical labels · all controls visible · filtering in Phase 2" } };
+  var MODES = { beginner: { label: "Beginner", icon: "🌱", hint: "Start card + plain words · 6 advanced settings collapse behind “More options”" },
+                pro:      { label: "Pro",      icon: "⚙️", hint: "Every v2.0 control is shown · nothing is collapsed" } };
 
   function uiStatusEls() { return { dot: el("mgsStatusDot"), txt: el("mgsStatusText") }; }
 

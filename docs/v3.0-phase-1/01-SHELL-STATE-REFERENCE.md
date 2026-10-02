@@ -84,3 +84,33 @@ core task of Phase 2 (`push()` already writes them back correctly, which is why 
    of that file, like Phase 2's report requires.
 6. `node install.mjs --remove` must always return the pristine baseline — if it stops doing that, the
    layering contract is broken.
+
+
+---
+
+## Addendum — what Phase 2 (beginner mode) added on top of this contract
+
+Phase 2 did **not** change anything in this document. It appended to it:
+
+* **Two new state containers**, owned by the beginner layer and re-created on `bus 'state:reset'`:
+  `state.designIntent` (startCard, purpose, brief, interpretation, suggestions, resolved, rejected,
+  counters, advancedOpen, saveState) and `state.provenance`
+  (`{source: USER_VALUE|AI_SUGGESTION|DEFAULT_VALUE, at, via}`). `MGSState.fields` stays **28** and
+  `toggles` stays **5** — the Smart Brief deliberately does not join the v2.0 field table, because it
+  is not a prompt input, and that keeps `pull/push/snapshot/diff/selfTest` byte-compatible with this
+  document.
+* **One new persistence key**: `localStorage['mgs.intent.v1']` (schema 1, debounced 400 ms, guarded).
+  `mgs.session.v1` (sessionStorage), `mgs.prefs.v1` and `bph` keep exactly the shapes documented above.
+* **DOM mutation of existing v2.0 nodes, runtime-only**: `data-mgs-adv="1"` + `data-mgs-adv-for` +
+  `title` on six `.fi` groups, `data-mgs-adv-open` on `<html>`, `data-mgs-phase2` on `<html>`
+  (eval idempotency) and `data-mgs-p2-tracked` on `.container`. No v2.0 `id`, class, `onclick` or
+  markup byte changes — `install.mjs --remove` still reproduces the golden baseline, and Phase-1
+  REG 007/008/020/021/142/162/179 still pass against the Phase-2 build (180/180).
+* **New bus topics** (emitted only; nothing in Phase 1 consumes them yet): `intent:card`,
+  `intent:purpose`, `intent:change`, `intent:interpreted`, `suggestion:accept|reject|edit|regenerate`,
+  `ui:advanced`. The layer subscribes to `mode:change`, `tab:change`, `generate:done`,
+  `output:loaded`, `state:reset` and `app:boot`; it never subscribes to `state:input` (REG 150 keeps
+  that topic empty by contract).
+* **`MODES[*].hint` strings updated** (the only two removed lines in the app file this phase): they
+  promised “filtering in Phase 2”, and Phase 2 is what now delivers it.
+* Full contract for the new layer: `docs/v3.0-phase-2/02-BEGINNER-LAYER-REFERENCE.md`.

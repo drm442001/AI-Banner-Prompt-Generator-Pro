@@ -1,0 +1,289 @@
+
+harness invariants OK — 276 run ids, each used exactly once, dense 1…268
+PASS P4 001  — the installed file actually carries the Phase-4 layer
+PASS P4 002  — the layer opens with a header that says what it is
+PASS P4 003  — the layer was folded into the three regions that already exist (one CSS block, the one #mgs-shell script, its closing comment) — no fourth region was invented
+PASS P4 003a  — and the Phase-4 source really sits inside that single script, after Phases 1–3
+PASS P4 004  — the source file is the one that shipped (length 52771)
+PASS P4 005  — install.mjs --check: the HTML and tools/phase1-shell/src are identical
+PASS P4 006  — the layer is written in the same ES5 style as v2.0 (arrow/template/let-free body)
+PASS P4 007  — no innerHTML anywhere in the layer — every node is built with createElement/textContent
+PASS P4 008  — no media query, no absolute/fixed positioning, no horizontal scroller in the new CSS
+PASS P4 009  — the layer never writes inline styles (v2.0 owns the look)
+PASS P4 010  — nothing is uploaded and no network call exists in the layer
+PASS P4 011  — every new selector is mgs-prefixed → 15 selectors
+PASS P4 008a  — every new flex container wraps or is a column, so nothing becomes a sideways rail on a narrow screen → 3 flex rules
+PASS P4 011a  — no top-level selector of this layer redefines a Phase-2/3 class (scoped rules like .mgs-a4 .mgs-mini2 stay scoped) → 15 selector starts, 0 collisions
+PASS P4 012  — no !important: the layer never fights v2.0’s own rules
+PASS P4 013  — new type is rem-only, so v2.0’s font-size control still governs it
+PASS P4 014  — the document still carries exactly the 3 shell-era breakpoints + v2.0’s own → 4
+PASS P4 015  — no JSON object is ever concatenated into prompt text — the only JSON.stringify here writes the layer’s own preference file
+PASS P4 016  — Phase 3 delegates its block text to Phase 4 in one place, guarded, so the two layers never build two blocks
+PASS P4 017  — the window still carries exactly the twelve MGS* names the shell introduced — Phase 4 added no global (its surface is MGS.assets.attach) → 12 names
+PASS P4 018  — the frozen top-level MGS namespace is still frozen — the layer respects it instead of unfreezing it
+PASS P4 019  — no listener leak: bus subscribers with Phase 4 mounted = 16
+PASS P4 020  — and Phase 4 used exactly the three handlers it was allotted (13 before it, ceiling 16)
+PASS P4 021  — the shell’s own binding registry is untouched → 10
+PASS P4 022  — MGS.assets.attach exposes the whole mapping surface → 20 names
+PASS P4 023  — MGS.prompt gained exactly the three names Phase 4 promised (plus Phase 3’s four)
+PASS P4 024  — every Phase-3 prompt seam is still there, same names
+PASS P4 025  — MGSRules exposes the exact-text rule as a prepared record while its 9 design rules stay intact
+PASS P4 026  — the asset namespace grew by exactly two names (attach + exactText) → 47 total
+PASS P4 027  — exact-text protection is off by default, so nothing changes for a user who never touches it
+PASS P4 028  — a second evaluation adds no id, no listener and no card (idempotent sentinel) → 1 card
+PASS P4 029  — the shell’s self-test still passes with Phase 4 mounted → {"ok":true,"listeners":10,"ids":153}
+PASS P4 030  — with three images attached the prompt carries an attachment block (2958 chars)
+PASS P4 031  — the block announces itself and its count
+PASS P4 032  — and closes itself, so any adapter can strip it
+PASS P4 033  — the map heading is the one the brief names
+PASS P4 034  — one map entry per image, numbered in attachment order → 1,2,3
+PASS P4 035  — each entry is exactly Image N / Role: / Use: (plus file, treatment, position, status, note)
+PASS P4 036  — the three entries appear in that order in the prompt
+PASS P4 037  — the role line is the role the user chose → Role: Main Person | Role: Logo | Role: Product
+PASS P4 038  — the use line says where the image goes → Use: Primary person/reference subject | Use: Brand logo | Use: Main product reference
+PASS P4 039  — each entry names the file, so the user can match it to a real file on disk
+PASS P4 040  — the chosen treatment and position are recorded in the map
+PASS P4 041  — a note travels as a quoted line; an absent note adds nothing
+PASS P4 042  — the status line separates locked from free images
+PASS P4 043  — every entry starts with its own number, so nothing is orphaned
+PASS P4 044  — the map appears exactly once in the prompt
+PASS P4 045  — the map is stated before the usage instructions
+PASS P4 046  — no phantom Image 4 for a three-image request
+PASS P4 047  — mapText() is the same content the block carries (preview and prompt never drift)
+PASS P4 048  — the map reads the one asset array the whole app shares — no parallel list
+PASS P4 049  — the mandated lead sentence opens it, word for word
+PASS P4 050  — and the mandated closing sentence ends it
+PASS P4 051  — a numbered “1. Attach Image 1 — …” line per image → 1. Attach Image 1 — 👤 My Photo (owner.jpg)
+PASS P4 052  — each line names the file the user has to pick
+PASS P4 053  — and the chip label for what it is for
+PASS P4 054  — the locked logo line says it must stay exactly as it is, and only that line does
+PASS P4 055  — the same list is inside the block, marked as being for the user
+PASS P4 056  — inside the prompt the sentence points “above” and then to pasting, because the prompt is already there
+PASS P4 057  — the numbered list inside the block has one line per image
+PASS P4 058  — the layout tab shows the same list, so the user sees it without copying anything
+PASS P4 059  — the card list names the real files
+PASS P4 060  — and states how many images it is talking about
+PASS P4 061  — every usage line opens with its own “- Image N (file):”
+PASS P4 062  — no usage sentence is left unnumbered
+PASS P4 063  — not one phrase of the “use my image” kind survives → none
+PASS P4 064  — inside the map and the usage instructions there is not one first-person reference — “My Photo” survives only in the user-facing attach list, where it names a chip, not an image the AI has to find
+PASS P4 065  — the person sentence sits on the person image only
+PASS P4 066  — within one entry every reference is to that same image (quoted user notes excluded) → clean
+PASS P4 067  — no template placeholder ever reaches the prompt
+PASS P4 068  — the block is plain prose, not a JSON payload
+PASS P4 069  — no image bytes or data URLs in the block
+PASS P4 070  — every one of the 15 roles has a sentence of its own → 15
+PASS P4 071  — each role sentence is an instruction, not a label
+PASS P4 072  — the main-person wording is the brief’s, verbatim
+PASS P4 073  — the logo wording is the brief’s, verbatim
+PASS P4 074  — the product wording is the brief’s, verbatim
+PASS P4 075  — the background wording is the brief’s, verbatim, and defers to the layout
+PASS P4 076  — no role in the catalogue is missing from the sentence table → 15 roles covered
+PASS P4 077  — a single logo gets the logo sentence and nothing else
+PASS P4 078  — adding a photo after a logo renumbers it to Image 2 and its sentence follows it
+PASS P4 079  — the logo keeps its own sentence at its own number
+PASS P4 080  — a lone background image gets the brief’s sentence plus Phase 3’s readability clause, and never the person wording
+PASS P4 081  — every treatment in the catalogue has a sentence (11 for 12 — “Original/Preserve Original” share one)
+PASS P4 082  — the Cutout wording is the brief’s example, verbatim
+PASS P4 083  — “Preserve Original” is worded exactly as the brief asks
+PASS P4 084  — each of the 12 treatments produces a numbered instruction in the usage line
+PASS P4 085  — and no two treatments produce the same sentence → 12 distinct
+PASS P4 086  — only the preserve-original treatment asks for no transformation
+PASS P4 087  — only the cutout treatment asks for a cutout
+PASS P4 088  — every position has a sentence (11)
+PASS P4 089  — the Left wording is the brief’s example, verbatim
+PASS P4 090  — right and centre follow the same shape
+PASS P4 091  — every position sentence names the image it moves
+PASS P4 092  — both chosen positions reach the prompt as sentences → - Image 1 (owner.jpg): Use Image 1 as the primary person reference. Preserve identity and important facial characteristics. Keep the face, skin tone, hair and clothing of the person in the photo. Use Image 1 as ||| - Image 2 (brand.png): Use Image 2 as the official brand logo. Preserve the logo exactly. Do not redesign, replace, redraw or modify it. Place the subject from Image 2 along the bottom band of the layout, clear
+PASS P4 093  — a position sentence never rewrites v2.0’s chosen layout — the LAYOUT line still says the user’s own layout, untouched → "Text on Image"
+PASS P4 093a  — and the block contains no wording that could be read as overriding the layout
+PASS P4 094  — every position sentence protects the text area rather than inventing a new layout
+PASS P4 095  — the two locked images (logo is locked by catalogue rule, product by the user) each carry the preservation sentence
+PASS P4 096  — the free image gets normal treatment wording instead
+PASS P4 097  — the map states the lock state per image, in both directions
+PASS P4 098  — the lock sentence lists what is forbidden
+PASS P4 099  — a logo added through the chip still arrives pre-locked and its tile says so (Phase-3 behaviour, kept by Phase 4) → 🔒 Locked — keep it exactly
+PASS P4 099a  — unlocking the same image flips the block wording in both directions — the mapping follows the lock state, it does not hard-code it per role
+PASS P4 100  — the logo’s integrity rules still ride along with the block (Phase-3 rule engine, unchanged)
+PASS P4 101  — the specification builds (3524 chars)
+PASS P4 102  — all sixteen sections are present → 16/16
+PASS P4 103  — and they appear in exactly the mandated order
+PASS P4 104  — the prompt already exists, so v2.0’s own lines are quoted from it
+PASS P4 105  — USER CONTENT carries the user’s heading verbatim from v2.0 → "\"BIG SALE\""
+PASS P4 106  — CANVAS / FORMAT quotes v2.0’s SIZE line instead of recomputing it
+PASS P4 107  — STYLE shows v2.0’s mood line, relabelled but not re-worded
+PASS P4 108  — the two image sections sit inside the specification too, not only in the prompt
+PASS P4 109  — and the user’s own attach list closes it
+PASS P4 110  — building the specification never touches the prompt fields (view-only)
+PASS P4 111  — the layout tab renders the specification inside the card
+PASS P4 112  — and it is followed by the numbering check, so the user can see it is consistent
+PASS P4 113  — with no images the specification still has all 16 sections and says so honestly
+PASS P4 114  — and the block stays empty, so the prompt is untouched
+PASS P4 115  — one image, same structure — the spec does not depend on the count
+PASS P4 116  — with the switch off, the exact-text line is absent from the prompt
+PASS P4 117  — the card offers the switch, off by default
+PASS P4 118  — switching it on adds a TEXT RULES section to the block
+PASS P4 119  — with the mandated sentence, word for word
+PASS P4 120  — and the “no translation, no invented lines” companion
+PASS P4 121  — the switch is state, not a DOM-only illusion
+PASS P4 122  — and it is persisted under its own key
+PASS P4 123  — a reload restores it (the button and the state agree)
+PASS P4 124  — a restored switch is honoured by the next generation without clicking anything
+PASS P4 125  — the rule is recorded for the future Rules Engine as a structured, prepared record
+PASS P4 126  — and it does not (yet) change v2.0’s own rule verdicts — prepared, not enforced → 0 warnings, none about exact text
+PASS P4 127  — switching it back off removes the section completely (nothing half-applied)
+PASS P4 128  — and the off position is remembered too
+PASS P4 129  — four buttons in one row under the output area
+PASS P4 130  — labelled exactly as the brief lists them
+PASS P4 131a  — the four outputs are addressable by stable ids, in the mandated order → mgsCopyPrompt mgsCopyInstructions mgsCopySpecification mgsCopyNegative
+PASS P4 131  — the row is a sibling of #oTabs/#oBody inside the output card, so v2.0’s own re-render cannot erase it
+PASS P4 132  — v2.0’s own Copy buttons are exactly as many and as labelled as in the baseline file (8 vs 8), and Phase 4’s row sits beside them
+PASS P4 133  — Copy Prompt copies the ACTIVE pane exactly as shown, block included
+PASS P4 134  — Copy Attachment Instructions yields the user-facing list, and nothing else
+PASS P4 135  — Copy Full Specification yields the 16-section document
+PASS P4 136  — Copy Negative Prompt yields v2.0’s own negative text (or the honest reason there is none)
+PASS P4 137  — the button labels are never inside what gets copied (no self-copying like DFR 007)
+PASS P4 138  — copying never rewrites a prompt
+PASS P4 139  — copy goes through the clipboard when one exists, and admits “unavailable” when it does not → clipboard stubbed
+PASS P4 140  — an unknown kind is refused instead of silently copying the wrong thing
+PASS P4 141  — before any generation, Copy Prompt says so (no empty clipboard)
+PASS P4 142  — and the attachment copy says there is nothing to attach
+PASS P4 143  — v2.0’s Copy button keeps its own handler and label
+PASS P4 144  — clicking v2.0’s own copy still runs v2.0’s own toast path (unchanged behaviour)
+PASS P4 145  — the layer counts its own copy calls → 4
+PASS P4 146  — all 8 platforms receive the same attachment block (2958/2984/2958/2958/2958/2958/2958/2958)
+PASS P4 147  — the mapping itself is byte-identical for all 8 platforms (each platform keeps its own tail around it) → 2958:1t5d48m
+PASS P4 148  — no platform-specific image syntax appears anywhere in the block
+PASS P4 149  — no template or parameter markers of any kind
+PASS P4 150  — Midjourney’s parameter tail is still the last thing in its prompt → "USER ATTACHMENTS ---\n --ar 60:30 --v 6.1 --q 2"
+PASS P4 151  — and the block sits before the tail, never after it
+PASS P4 152  — prose platforms get the block after one blank line
+PASS P4 153  — and stripping the block returns the byte-exact text the same app produces with the switch off — on all 8 platforms
+PASS P4 154  — variants stay v2.0’s own (not augmented by design, documented limitation)
+PASS P4 155  — case-1 no image → 0 map entries
+PASS P4 156  — case-1 no image → block 0 chars, numbering check clean, instruction lines 0
+PASS P4 157  — case-2 one image → 1 map entries
+PASS P4 158  — case-2 one image → block 1702 chars, numbering check clean, instruction lines 1
+PASS P4 159  — case-3 photo + logo → 2 map entries
+PASS P4 160  — case-3 photo + logo → block 2271 chars, numbering check clean, instruction lines 2
+PASS P4 161  — case-4 + product → 3 map entries
+PASS P4 162  — case-4 + product → block 2958 chars, numbering check clean, instruction lines 3
+PASS P4 163  — case-5 + background → 4 map entries
+PASS P4 164  — case-5 + background → block 3499 chars, numbering check clean, instruction lines 4
+PASS P4 165  — case-6 multiple products → 3 map entries
+PASS P4 166  — case-6 multiple products → block 2667 chars, numbering check clean, instruction lines 3
+PASS P4 167  — case-7 locked logo → 2 map entries
+PASS P4 168  — case-7 locked logo → block 2271 chars, numbering check clean, instruction lines 2
+PASS P4 169  — case-8 locked product → 2 map entries
+PASS P4 170  — case-8 locked product → block 2464 chars, numbering check clean, instruction lines 2
+PASS P4 171  — case-9 custom role → 2 map entries
+PASS P4 172  — case-9 custom role → block 2366 chars, numbering check clean, instruction lines 2
+PASS P4 173  — case-10 different positions → 3 map entries
+PASS P4 174  — case-10 different positions → block 3045 chars, numbering check clean, instruction lines 3
+PASS P4 175  — case-11 different treatments → 4 map entries
+PASS P4 176  — case-11 different treatments → block 3618 chars, numbering check clean, instruction lines 4
+PASS P4 177  — case 1 proves the no-image run has no map, no instructions and no block at all
+PASS P4 178  — every multi-image case numbers all of its entries
+PASS P4 179  — case 6 (three product-ish images) gives each product its own role sentence and number — no shared “product” sentence
+PASS P4 180  — case 7: the locked logo is numbered, marked and worded
+PASS P4 181  — case 8: the locked product keeps its own product sentence plus the lock clause
+PASS P4 182  — case 9: a custom role reaches the prompt in the user’s own words, quoted as theirs
+PASS P4 183  — and the custom role string is attributed, not invented
+PASS P4 184  — case 10: four positions were offered, three images carry their chosen position
+PASS P4 185  — case 11: four different treatments, four numbered sentences
+PASS P4 186  — in no case does an unfilled placeholder survive
+PASS P4 187  — and no case ever stacks two blocks
+PASS P4 188  — the block stays proportionate to the number of images: under 2.2 KB per image (1702 max)
+PASS P4 189  — four images: contiguous 1…4, clean check
+PASS P4 190  — removing the middle image renumbers the rest — no gap, no duplicate → 1,2,3
+PASS P4 191  — the regenerated block no longer mentions Image 4 anywhere and has exactly 3 entries
+PASS P4 192  — the user’s list is renumbered too, in the same order
+PASS P4 193  — appending a fifth-then-removed set keeps numbering dense (3 → 4)
+PASS P4 194  — replacing the first file keeps its number and updates its filename
+PASS P4 195  — reordering the list renumbers cleanly (a move never leaves two images claiming one number) → 1,2,3,4
+PASS P4 196  — and the map after the move is still one entry per position, in order
+PASS P4 197  — the prompt’s usage lines agree with the moved numbers
+PASS P4 198  — ten mutations, still exactly one map
+PASS P4 199  — a quoted user note that says “image 3” is quoted as theirs and never counted as a reference → clean
+PASS P4 200  — and the note still reaches the AI, inside the quotes
+PASS P4 201  — at the 12-image ceiling the numbering is still 1…12 and clean → 12 images
+PASS P4 202  — twelve entries, twelve blocks of lines, nothing merged
+PASS P4 203  — the twelve-image block stays inside the size budget → 5766 bytes
+PASS P4 204  — no images attached: all 4 v2.0 scenarios × 8 platforms are byte-identical to the untouched baseline → sale-marathi=ok wedding-mixed=ok corporate-english=ok minimal-empty-extras=ok
+PASS P4 205  — the Output pane text v2.0 renders (tabs + body) is identical too → 4831:4bs7j9 4837:1jy4hua 4768:740flv 1:3t0v
+PASS P4 206  — variant cards and the negative prompt are identical (0 variants)
+PASS P4 207  — not one attachment block in any no-image run → 0 occurrences across 32 prompts
+PASS P4 208  — the same 8 platforms were produced by the same 8 checkboxes in both files
+PASS P4 209  — and nothing was padded into the empty-handed case (largest pane 4837 chars)
+PASS P4 210  — with two images attached, the v2.0 part of the prompt is still identical — the block is appended, never woven in
+PASS P4 211  — the difference is exactly the block plus its blank line → 2273 chars
+PASS P4 212  — with Phase 3’s single master switch off, the prompt is byte-identical again — no asset feature is mandatory
+PASS P4 213  — the layer reports itself quiet when switched off (stats.live=false)
+PASS P4 214  — and no half-written block survives the switch
+PASS P4 215  — the exact-text switch is independent of Phase 3’s master switch (off stays off)
+PASS P4 216  — Phase 4 added no checkbox, no select, no textarea, no tab and no platform tile — every one of those counts is identical to the shipped Phase-3 build → 19/17/3/7/8 vs 19/17/3/7/8
+PASS P4 216a  — and the whole of the button delta is this phase’s six controls, all inside its own card or row → 74 → 80 buttons
+PASS P4 217  — seven tabs and the seven panes they switch between, under v2.0’s own ids
+PASS P4 218  — the five v2.0 toggle controls still exist under the same ids — the ones this layer reads for PRODUCTION REQUIREMENTS and DESIGN RULES
+PASS P4 219  — every v2.0 select is still a select with its own id (16 checked, including the layout picker #layD)
+PASS P4 220  — and every option list is exactly as long as the baseline’s: cat 22 / btype 14 / style 16 / mood 12 / icount 5
+PASS P4 221  — the layer never assigns a window.* name of its own
+PASS P4 222  — no new tab and no new target: the layer lives inside the tabs v2.0 already has
+PASS P4 223  — no duplicate id in the whole document with Phase 4 mounted → 153 ids
+PASS P4 224  — Phase 4’s controls are inside the Layout tab (#t3), where the images are talked about
+PASS P4 225  — and they live inside Phase 3’s card — the asset UI stays one place
+PASS P4 226  — v2.0’s own history snapshot still captures the prompt exactly as shown (block included)
+PASS P4 227  — Phase 4 writes its own single-flag key, and only once the switch is actually used → absent until first use
+PASS P4 228  — no image data and no new image-shaped key in localStorage → bph,mgs.assets.v1
+PASS P4 229  — Phase 3’s preview cache is still the only session storage in play → mgs.assets.previews.v1,mgs.session.v1
+PASS P4 230  — and Phase 4 wrote nothing there
+PASS P4 231  — the project snapshot still holds exactly the nine keys it had before this phase, and no attachment namespace of its own → decorations,fields,layoutId,mode,paletteName,platforms,schema,toggles,ts
+PASS P4 232  — a raw shell reset leaves the mapping derived from exactly what the asset layer restored → 2 image(s), numbering check clean (no stale numbers survive a reset)
+PASS P4 233  — after a reset the prompts stop mentioning images at once (no ghost mappings)
+PASS P4 234  — the card still works after a reset (the switch is reachable and writes state)
+PASS P4 235  — and the preference survives a form reset on purpose (it is a preference, not form data) → documented behaviour
+PASS P4 236  — refresh before anything is generated is a refusal, not a corruption
+PASS P4 236a  — and it touched no prompt object, because there was none
+PASS P4 237  — generation carries the map on its own (refresh is optional)
+PASS P4 238  — refresh re-maps the open prompts on all 8 platforms without a new generation → ["chatgpt","midjourney","dalle","firefly","canva","stable","ideogram","copilot"]
+PASS P4 239  — and the prompt grew by the new map only (3490 → 3833)
+PASS P4 240  — never twice: refresh strips the old block first
+PASS P4 241  — v2.0’s own text before the block is unchanged by refresh
+PASS P4 242  — the MJ tail is still after the block, so a manual refresh cannot break it
+PASS P4 243  — and the shell’s state mirror was pulled, so no consumer sees a stale prompt
+PASS P4 244  — a second refresh is a no-op (idempotent) → 0 changed
+PASS P4 245  — with the master switch off, refresh refuses instead of writing an unasked-for block
+PASS P4 246  — the layer counts the refreshes it actually performed → 2
+PASS P4 247  — Beginner mode: the four copy outputs are visible (they are for beginners, not for experts)
+PASS P4 248  — while the map preview and the specification stay in the pro half of the card (Phase 2’s mechanism, reused)
+PASS P4 249  — Pro mode shows the same four buttons and now the specification box too
+PASS P4 250  — and back — nothing is destroyed by the switch
+PASS P4 251  — the card keeps its own controls in both modes (2 buttons)
+PASS P4 252  — the copy row is not hidden by any rule (computed display = flex)
+PASS P4 253  — every one of the 57 boots ran with zero jsdom errors → clean
+PASS P4 254  — and zero console errors/warnings of the app’s own (browser notices excluded) → clean
+PASS P4 255  — the card leaves a plain-language trail of what it just did → Attachment instructions copied — 263 characters.
+PASS P4 256  — role sentences: 15/15 reference the image by number
+PASS P4 257  — every treatment with a real id has its own sentence, and “no preference” deliberately has none → 11 sentences for 12 entries
+PASS P4 258  — same for positions: 11 sentences for 12 entries, and the empty “leave it to the AI” choice stays silent → (none),left,right,center,background,top,bottom,upper_left,upper_right,lower_left,lower_right,custom
+PASS P4 259  — no two sentences in the tables are the same string (each choice says something different)
+PASS P4 260  — nothing left to write: no placeholder text in any sentence
+PASS P4 261  — every string this layer produces is a real string, so v2.0’s esc() never trips on it
+PASS P4 262  — and the layer never wraps or replaces esc() — it uses textContent instead
+PASS P4 263  — the frozen Phase-4 parity file still matches this run (no-image prompts and the mapped block alike)
+PASS P4 264  — and every storage touch this layer makes is wrapped, with a private-mode note instead of a crash
+PASS P4 265  — five images, eight platforms: clean check and a map in every single prompt
+PASS P4 266  — the shell recorded no init error with the whole stack mounted → []
+PASS P4 267  — the stylesheet never contains the media-query token, not even in its own comment (which is what P4 014 counts)
+PASS P4 268  — state stays the single store the earlier phases agreed on (23 namespaces, no new one); Phase 4 writes only state.assets.exactText → 23
+FAIL DFR 001[defect still present, as intended] — 5 images ⇒ v2.0’s Image Count still reads “multiple” and its IMAGES line is still dropped (B1) — Phase 4 maps all five by number instead of repairing it
+FAIL DFR 002[defect still present, as intended] — a zero size is still emitted verbatim into the prompt (D1 family) → "SIZE: 0×0 feet" — and the specification quotes that line rather than correcting it
+FAIL DFR 003[defect still present, as intended] — choosing a category by hand still overwrites style/mood (v2.0 onCat, B5) — Phase 4 inherits whatever v2.0 decided, unchanged
+FAIL DFR 004[defect still present, as intended] — Beginner mode still does not filter the seven v2.0 tabs — per-step filtering is a later phase
+FAIL DFR 005[defect still present, as intended] — esc() still throws on non-strings (B12) — Phase 4 only ever passes it strings and never wraps it
+FAIL DFR 006[defect still present, as intended] — history rows are still assembled as an HTML string in lH() (S1 stored-XSS) — untouched here
+FAIL DFR 007[defect still present, as intended] — v2.0’s negative-prompt Copy button still sits inside the block it copies (B11) — Phase 4 built its four buttons OUTSIDE every copied text and left that one alone for Phase 5
+FAIL DFR 008[defect still present, as intended] — required fields are still marked by a coloured asterisk only — validation/aria is a later phase
+FAIL DFR 009[defect still present, as intended] — the v2.0 raw storage write is still unguarded on an opaque origin while Phase 4’s two writes (preference, clipboard) are guarded (SH() itself is v2.0 behaviour)
+
+== PHASE 4: 276/276 attachment-layer guarantees PASS  |  9/9 deferred defects still visibly deferred ==

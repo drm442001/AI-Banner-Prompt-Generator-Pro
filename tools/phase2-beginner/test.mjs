@@ -84,7 +84,9 @@ async function drive(b, sc, extra) {
   b.w.GEN();
   const prompts = {};
   for (const p of PLATS) { if (b.w.gPr && b.w.gPr[p] != null) prompts[p] = b.w.gPr[p]; }
-  return { prompts, variants: qa(b.d, '#varG .vc').length, neg: txt(b.d.getElementById('negT')), out: txt(b.d.getElementById('outA')) };
+  /* outA also hosts Phase 4’s four copy buttons as a sibling of the panes, so parity is measured on
+     what v2.0 itself renders into the output area: the platform tabs and the prompt body. */
+  return { prompts, variants: qa(b.d, '#varG .vc').length, neg: txt(b.d.getElementById('negT')), out: txt(b.d.getElementById('oTabs')) + '\n' + txt(b.d.getElementById('oBody')) };
 }
 function genAll(d, w) { w.GEN(); const p = {}; for (const x of PLATS) { if (w.gPr && w.gPr[x] != null) p[x] = w.gPr[x]; } return p; }
 
@@ -436,14 +438,14 @@ async function main() {
     fill(cur, sc.fields); cur.w.GEN();
     const base = {}, mine = {};
     for (const p of PLATS) { base[p] = bb.w.gPr[p] || null; mine[p] = cur.w.gPr[p] || null; }
-    parity.push({ name: sc.name, base, mine, baseOut: txt(bb.d.getElementById('outA')), mineOut: txt(cur.d.getElementById('outA')),
+    parity.push({ name: sc.name, base, mine, baseOut: txt(bb.d.getElementById('oTabs')) + '\n' + txt(bb.d.getElementById('oBody')), mineOut: txt(cur.d.getElementById('oTabs')) + '\n' + txt(cur.d.getElementById('oBody')),
       baseVar: qa(bb.d, '#varG .vc').length, mineVar: qa(cur.d, '#varG .vc').length,
       baseNeg: txt(bb.d.getElementById('negT')), mineNeg: txt(cur.d.getElementById('negT')),
       baseGen: hash(base.chatgpt), mineGen: hash(mine.chatgpt) });
   }
   ok(parity.every(p => JSON.stringify(p.base) === JSON.stringify(p.mine)), 'P2 146',
     'all 4 v2.0 scenarios × 8 platforms re-generated today in Beginner mode are byte-identical to the untouched baseline → ' + parity.map(p => p.name + '=' + (JSON.stringify(p.base) === JSON.stringify(p.mine) ? 'same' : 'DIFFERENT')).join(' '));
-  ok(parity.every(p => p.baseOut === p.mineOut), 'P2 147', 'the Output panel text itself is unchanged → ' + parity.map(p => p.mineOut.length + 'ch').join('/'));
+  ok(parity.every(p => p.baseOut === p.mineOut), 'P2 147', 'the Output pane text (platform tabs + prompt body) itself is unchanged — Phase 4’s copy row is a sibling of both and is measured in its own suite → ' + parity.map(p => p.mineOut.length + 'ch').join('/'));
   ok(parity.every(p => p.baseVar === p.mineVar && p.baseNeg === p.mineNeg), 'P2 148', 'variant cards (' + parity[0].mineVar + ') and the negative prompt (' + parity[0].mineNeg.split(',').length + ' terms) are untouched');
   const bb0 = await bootBase(); await bb0.done();
   const cur0 = await boot(); await cur0.done();

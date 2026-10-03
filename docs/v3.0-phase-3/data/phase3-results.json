@@ -23,7 +23,7 @@
   {
    "id": "P3 005",
    "pass": true,
-   "detail": "the Phase-3 source exists and is real, not a stub → js 73305 chars, css 4948"
+   "detail": "the Phase-3 source exists and is real, not a stub → js 73722 chars, css 4948"
   },
   {
    "id": "P3 006",
@@ -258,7 +258,7 @@
   {
    "id": "P3 053",
    "pass": true,
-   "detail": "no duplicate id after mounting the asset card → 141 ids"
+   "detail": "no duplicate id after mounting the asset card → 153 ids"
   },
   {
    "id": "P3 054",
@@ -268,7 +268,7 @@
   {
    "id": "P3 055",
    "pass": true,
-   "detail": "no listener leak: bus subscribers after phase 3 = 13"
+   "detail": "no listener leak: bus subscribers after phase 3 = 16"
   },
   {
    "id": "P3 056",
@@ -368,7 +368,7 @@
   {
    "id": "P3 075",
    "pass": true,
-   "detail": "MGS.assets exposes all 44 documented members → none missing | plus move/patch: 45 keys total"
+   "detail": "MGS.assets exposes all 44 documented members → none missing | plus move/patch: 47 keys total"
   },
   {
    "id": "P3 076",
@@ -418,7 +418,7 @@
   {
    "id": "P3 085",
    "pass": true,
-   "detail": "a freshly added image has a number and a name but no invented meaning → {\"assetId\":\"a1-826269-shop-logo_\",\"assetNumber\":1,\"filename\":\"shop-logo.png\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\":\"\",\"treatment\":\"\",\"treatmentKey\":\"\",\"locked\":false,\"descriptio"
+   "detail": "a freshly added image has a number and a name but no invented meaning → {\"assetId\":\"a1-778100-shop-logo_\",\"assetNumber\":1,\"filename\":\"shop-logo.png\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\":\"\",\"treatment\":\"\",\"treatmentKey\":\"\",\"locked\":false,\"descriptio"
   },
   {
    "id": "P3 086",
@@ -598,7 +598,7 @@
   {
    "id": "P3 121",
    "pass": true,
-   "detail": "dropping a file adds it, recorded as drag-drop → {\"assetId\":\"a1-829328-dragged-fo\",\"assetNumber\":1,\"filename\":\"dragged-food.jpg\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\""
+   "detail": "dropping a file adds it, recorded as drag-drop → {\"assetId\":\"a1-782814-dragged-fo\",\"assetNumber\":1,\"filename\":\"dragged-food.jpg\",\"role\":\"\",\"roleKey\":\"\",\"roleNote\":\"\",\"customRole\":\"\",\"position\":\"\",\"positionKey\""
   },
   {
    "id": "P3 122",
@@ -613,7 +613,7 @@
   {
    "id": "P3 124",
    "pass": true,
-   "detail": "a mixed multi-file batch keeps the valid ones and refuses the rest by name → {\"ok\":true,\"added\":[{\"id\":\"a2-829520-good-1_png\",\"n\":2,\"filename\":\"good-1.png\"},{\"id\":\"a3-829523-good-2_jpg\",\"n\":3,\"filename\":\"good-2.jpg\"}],\"refused\":[{\"filename\":\"invoice.pdf\",\"r"
+   "detail": "a mixed multi-file batch keeps the valid ones and refuses the rest by name → {\"ok\":true,\"added\":[{\"id\":\"a2-783038-good-1_png\",\"n\":2,\"filename\":\"good-1.png\"},{\"id\":\"a3-783063-good-2_jpg\",\"n\":3,\"filename\":\"good-2.jpg\"}],\"refused\":[{\"filename\":\"invoice.pdf\",\"r"
   },
   {
    "id": "P3 125",
@@ -693,7 +693,7 @@
   {
    "id": "P3 140",
    "pass": true,
-   "detail": "two locked assets are reported to the prompt layer → [\"a2-830310-logo_png\",\"a3-830311-shoes_jpg\"]"
+   "detail": "two locked assets are reported to the prompt layer → [\"a2-784036-logo_png\",\"a3-784059-shoes_jpg\"]"
   },
   {
    "id": "P3 141",
@@ -703,7 +703,7 @@
   {
    "id": "P3 142",
    "pass": true,
-   "detail": "“Something Else” chooses Custom Role (a real escape hatch, not a dead end) → {\"assetId\":\"a1-830309-me_jpg\",\"assetNumber\":1,\"filename\":\"me.jpg\",\"role\":\"Main Person\",\"roleKey\":\"main_person\",\"roleNote"
+   "detail": "“Something Else” chooses Custom Role (a real escape hatch, not a dead end) → {\"assetId\":\"a1-784011-me_jpg\",\"assetNumber\":1,\"filename\":\"me.jpg\",\"role\":\"Main Person\",\"roleKey\":\"main_person\",\"roleNote"
   },
   {
    "id": "P3 143",
@@ -1063,7 +1063,7 @@
   {
    "id": "P3 214",
    "pass": true,
-   "detail": "the prompts stay prompt-sized with 3 images attached → 2843/1706/2812/1701/1682/1714/1735/2850"
+   "detail": "the prompts stay prompt-sized with 3 images attached → 3938/2801/3907/2796/2777/2809/2830/3945"
   },
   {
    "id": "P3 215",
@@ -1083,7 +1083,7 @@
   {
    "id": "P3 218",
    "pass": true,
-   "detail": "previews are in sessionStorage (die with the tab) → mgs.assets.previews.v1"
+   "detail": "previews are in sessionStorage (die with the tab) → mgs.assets.previews.v1,mgs.session.v1"
   },
   {
    "id": "P3 219",
@@ -1123,7 +1123,7 @@
   {
    "id": "P3 226",
    "pass": true,
-   "detail": "the three sections a platform needs are present"
+   "detail": "the sections a platform needs are present — Phase 4 superseded this generation of the block: “ATTACHMENT MAP” became “IMAGE ATTACHMENT MAP” with one field per line, “HOW TO USE EACH IMAGE” became “IMAGE USAGE INSTRUCTIONS”, and a “HOW TO ATTACH” list was added"
   },
   {
    "id": "P3 227",
@@ -1133,7 +1133,7 @@
   {
    "id": "P3 228",
    "pass": true,
-   "detail": "the logo wording is the sentence from the brief, verbatim"
+   "detail": "the logo wording is the sentence Phase 4’s brief mandates for the logo role, verbatim, and it is attached to the logo image by number (it supersedes “Use the attached logo exactly as provided…”)"
   },
   {
    "id": "P3 229",
@@ -1203,7 +1203,7 @@
   {
    "id": "P3 242",
    "pass": true,
-   "detail": "the Output panel text, the 0 variant cards and the negative prompt are identical too → 5061:yn23wd 4768:l9lpq1 5098:5buq14 91:1pit3t"
+   "detail": "the Output pane text (tabs + prompt body), the 0 variant cards and the negative prompt are identical too → 4971:1ryk3f7 4678:1miodgv 5008:9zu59a 1:3t0v"
   },
   {
    "id": "P3 243",
@@ -1218,7 +1218,7 @@
   {
    "id": "P3 245",
    "pass": true,
-   "detail": "with 3 images attached the block IS in the prompt (and only then) → 1512 extra chars"
+   "detail": "with 3 images attached the block IS in the prompt (and only then) → 2607 extra chars"
   },
   {
    "id": "P3 246",
@@ -1228,7 +1228,7 @@
   {
    "id": "P3 247",
    "pass": true,
-   "detail": "the visible pane grew by exactly the block → 5061 → 16965 chars"
+   "detail": "the visible pane grew by exactly the block → 4971 → 25443 chars"
   },
   {
    "id": "P3 248",
@@ -1303,7 +1303,7 @@
   {
    "id": "P3 262",
    "pass": true,
-   "detail": "the difference is exactly the block plus its blank line, nothing else → 2843 vs 1331"
+   "detail": "the difference is exactly the block plus its blank line, nothing else → 3938 vs 1331"
   },
   {
    "id": "P3 263",
@@ -1553,12 +1553,12 @@
   {
    "id": "P3 314",
    "pass": true,
-   "detail": "state.assets still has no “library” key (Phase-1 REG 027 stays true) → count,countSync,includeMap,items,mirrorSync,position,style,type"
+   "detail": "state.assets still has no “library” key (Phase-1 REG 027 stays true) → count,countSync,exactText,includeMap,items,mirrorSync,position,style,type"
   },
   {
    "id": "P3 315",
    "pass": true,
-   "detail": "the asset container grew by exactly three booleans on top of the Phase-1 five, nothing else → count,countSync,includeMap,items,mirrorSync,position,style,type"
+   "detail": "the asset container grew by exactly four booleans on top of the Phase-1 five, nothing else (Phase 4 added exactText) → count,countSync,exactText,includeMap,items,mirrorSync,position,style,type"
   },
   {
    "id": "P3 316",
@@ -1578,7 +1578,7 @@
   {
    "id": "P3 319",
    "pass": true,
-   "detail": "a second boot adds no subscribers, no ids and no bindings → 13/141/10"
+   "detail": "a second boot adds no subscribers, no ids and no bindings → 16/153/10"
   },
   {
    "id": "P3 320",

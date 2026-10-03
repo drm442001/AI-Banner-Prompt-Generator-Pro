@@ -1,6 +1,6 @@
 {
  "note": "Phase 3 asset-layer parity. No-image runs are byte-identical to the untouched v2.0 baseline; with images attached the only difference is the delimited attachment block. Fingerprints are length:djb2(base36).",
- "generated": "2026-10-02",
+ "generated": "2026-10-03",
  "scenarios": [
   {
    "name": "sale-marathi",
@@ -47,7 +47,7 @@
     "ideogram": "223:y6lkqb",
     "copilot": "1338:1u9hkql"
    },
-   "out": "5061:yn23wd",
+   "out": "4971:1ryk3f7",
    "variants": 0
   },
   {
@@ -90,7 +90,7 @@
     "ideogram": "237:c7ege4",
     "copilot": "1222:aupugx"
    },
-   "out": "4768:l9lpq1",
+   "out": "4678:1miodgv",
    "variants": 0
   },
   {
@@ -139,7 +139,7 @@
     "ideogram": "239:423sc3",
     "copilot": "1339:1c6xy91"
    },
-   "out": "5098:5buq14",
+   "out": "5008:9zu59a",
    "variants": 0
   },
   {
@@ -172,20 +172,20 @@
     "ideogram": "0:45h",
     "copilot": "0:45h"
    },
-   "out": "91:1pit3t",
+   "out": "1:3t0v",
    "variants": 0
   }
  ],
  "assetCases": {
   "withAssets": {
-   "chatgpt": "2843:5sf17t",
-   "midjourney": "1706:9qjyo1",
-   "dalle": "2812:sghfwg",
-   "firefly": "1701:yvrpuy",
-   "canva": "1682:1vnqlhk",
-   "stable": "1714:hd23ki",
-   "ideogram": "1735:1ynhkwd",
-   "copilot": "2850:3y395j"
+   "chatgpt": "3938:6nucra",
+   "midjourney": "2801:hgz4by",
+   "dalle": "3907:aw2v4d",
+   "firefly": "2796:tsb8af",
+   "canva": "2777:1gsuxed",
+   "stable": "2809:18i9okf",
+   "ideogram": "2830:13chbu",
+   "copilot": "3945:z4ae84"
   },
   "baselineSameFields": {
    "chatgpt": "1331:ofmnf3",
@@ -207,6 +207,6 @@
    "ideogram": "223:y6lkqb",
    "copilot": "1338:1u9hkql"
   },
-  "blockText": "--- USER ATTACHMENTS (3 images attached to this request) ---\nThe user is attaching these image files with this request. They are real files, not placeholders: use them as the visual material and do not redraw or replace anything inside them.\n\nATTACHMENT MAP\nImage 1 — Logo · LOCKED\nImage 2 — Main Person\nImage 3 — Food · “the plate from our counter”\n\nHOW TO USE EACH IMAGE\n- Image 1 (shop-logo.png): Use the attached logo exactly as provided. Do not redesign, replace or alter it. Treatment: No Crop — show the whole image. This image is locked by the user: keep it exactly as attached — no recolour, no re-draw, no substitute.\n- Image 2 (owner-photo.jpg): Use Image 2 as the main person. Keep the face, skin tone, hair and clothing of the person in the photo. Position: Right.\n- Image 3 (samosa.jpg): Use Image 3 as the dish being offered. Do not replace the food with a different dish.\n\nASSET INTEGRITY RULES\n- Preserve the logo shape, colours and lettering exactly.\n- Do not redesign, re-letter or “modernise” the logo.\n- Do not replace the user’s logo with a generic icon.\n- Do not invent or substitute a missing image; if an attachment is not there, say so instead.\n- Preserve the person’s face and identity exactly as provided.\n- Do not distort, slim, beautify or re-draw a face.\n- Preserve the important visual details: visible text, edges, colours, materials.\nThe image files themselves are not part of this text — attach them in the app you paste into, in the order above.\n--- END USER ATTACHMENTS ---"
+  "blockText": "--- USER ATTACHMENTS (3 images attached to this request) ---\nThe user is attaching these image files with this request. They are real files, not placeholders: use them as the visual material and do not redraw or replace anything inside them.\n\nIMAGE ATTACHMENT MAP\nImage 1\nRole: Logo\nUse: Brand logo\nFile: shop-logo.png\nTreatment: No Crop — show the whole image\nStatus: LOCKED — must not be altered by the AI\n\nImage 2\nRole: Main Person\nUse: Primary person/reference subject\nFile: owner-photo.jpg\nPosition: Right\nStatus: not locked — placement and lighting may be adjusted, the content must stay as attached\n\nImage 3\nRole: Food\nUse: Real dish reference\nFile: samosa.jpg\nStatus: not locked — placement and lighting may be adjusted, the content must stay as attached\nUser note: “the plate from our counter”\n\nIMAGE USAGE INSTRUCTIONS\n- Image 1 (shop-logo.png): Use Image 1 as the official brand logo. Preserve the logo exactly. Do not redesign, replace, redraw or modify it. Do not crop Image 1 — show the whole frame, scaled to fit. This image is locked by the user: keep it exactly as attached — no recolour, no re-draw, no substitute, no cut-off edges.\n- Image 2 (owner-photo.jpg): Use Image 2 as the primary person reference. Preserve identity and important facial characteristics. Keep the face, skin tone, hair and clothing of the person in the photo. Place the subject from Image 2 in the right visual zone, leaving the designated text area unobstructed.\n- Image 3 (samosa.jpg): Use Image 3 as the dish being offered. Do not replace the food with a different dish. What the user says about it: “the plate from our counter”.\nDo not renumber the images: the numbers above are the order the files arrive in.\n\nASSET INTEGRITY RULES\n- Preserve the logo shape, colours and lettering exactly.\n- Do not redesign, re-letter or “modernise” the logo.\n- Do not replace the user’s logo with a generic icon.\n- Do not invent or substitute a missing image; if an attachment is not there, say so instead.\n- Preserve the person’s face and identity exactly as provided.\n- Do not distort, slim, beautify or re-draw a face.\n- Preserve the important visual details: visible text, edges, colours, materials.\n\nHOW TO ATTACH (for the user, not for the design)\nAttach your images to the AI in the same order shown above, then paste this prompt.\n1. Attach Image 1 — shop-logo.png — 🏷️ My Logo\n2. Attach Image 2 — owner-photo.jpg — 👤 My Photo\n3. Attach Image 3 — samosa.jpg — 🍔 My Food\nThe image files themselves are not part of this text — attach them in the app you paste into, in the order above.\n--- END USER ATTACHMENTS ---"
  }
 }

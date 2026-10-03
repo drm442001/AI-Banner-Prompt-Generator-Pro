@@ -126,6 +126,11 @@ internal id: `role`/`position`/`treatment` hold human labels, and the keys live 
 
 ## 3 · Public surface — `MGS.assets` (45 members)
 
+> **Phase-4 update:** the surface is now **47 members** — `exactText(on?)` and `attach` (the mapping
+> namespace, 25 members of its own) were added; every name above still exists, none was renamed, removed
+> or reordered. `state.assets` gained the matching `exactText` boolean and the key
+> `localStorage['mgs.attach.v1']`. Counted in `P4 224`, `P4 231`, `P4 258`.
+
 | group | names |
 |---|---|
 | read (all derived from the one store) | `list, get, meta, settings, count, stats, totals, summary, errors, storage, preview, shell` |
@@ -193,6 +198,16 @@ the 1 px off-screen pattern on the visually-hidden `<input>` (which restores its
 `:focus`); no `@media`, no absolute/fixed, no inline `style=` attributes).
 
 ## 5 · Prompt block contract
+
+> **Superseded by Phase 4** (`docs/v3.0-phase-4/04-ATTACHMENT-MAPPING-REFERENCE.md` §2/§4): the fences,
+> the lead line, `ASSET INTEGRITY RULES`, the empty-state rule, the count of attached images, the
+> conditional behaviour and the `stripAssetBlock()` round-trip all still stand exactly as written below.
+> What changed is the *wording inside* the block — `ATTACHMENT MAP` became `IMAGE ATTACHMENT MAP` with
+> per-image `Role:` / `Use:` / `File:` / `Treatment:` / `Position:` / `Status:` / `User note:` fields,
+> `HOW TO USE EACH IMAGE` became `IMAGE USAGE INSTRUCTIONS` with treatment, position and lock sentences
+> chained onto the role sentence, and a `HOW TO ATTACH (for the user, not for the design)` section plus a
+> do-not-renumber line were added. The four example lines further down are therefore Phase-3's shape, kept
+> for history; `P3 226` / `P3 228` now assert the Phase-4 wording, and `P4 051`–`P4 053` pin it.
 
 Written **only** when ≥1 asset exists and `#mgsAssetMapSwitch` is on. Placed after v2.0's body and
 before any Midjourney-style parameter tail (`withAssetBlock` splits the tail off via

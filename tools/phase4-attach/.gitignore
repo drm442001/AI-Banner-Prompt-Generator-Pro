@@ -1,0 +1,4 @@
+# dev-only: jsdom resolution + generated suite output
+node_modules
+phase4-results.json
+.smoke.mjs

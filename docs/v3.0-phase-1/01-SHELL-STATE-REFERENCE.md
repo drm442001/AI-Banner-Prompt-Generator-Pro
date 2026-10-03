@@ -145,3 +145,25 @@ Phase 2 did **not** change anything in this document. It appended to it:
   keys, both guarded), still 2 `<script>` blocks, still one `</style>`, still `install.mjs --check`
   → `IN SYNC` and `--remove` → the golden baseline byte-for-byte.
 * Full contract for the new layer: `docs/v3.0-phase-3/03-ASSET-LAYER-REFERENCE.md`.
+
+---
+
+## Phase-4 addendum — one more field on `state.assets`, and the attachment seam
+
+Phase 4 (`tools/phase1-shell/src/mgs-phase4.js`) added no namespace and changed no accessor:
+
+* `state.assets.exactText` — a single boolean (default `false`), written only through
+  `MGS.assets.exactText(on?)` or the switch in the asset card, and persisted on its own key,
+  `localStorage['mgs.attach.v1']` = `{schema:1, exactText, at}`. It is the preparation hook for the
+  future Rules Engine's exact-text protection: while on, the appended block carries a `TEXT RULES`
+  section reading *"Use only the exact user-provided text. Do not add, remove, rewrite, translate or
+  invent any text."* Nothing else about v2.0's text handling changes, and `MGSRules.list()` still returns
+  v2.0's own 9 rules.
+* `MGS.assets.attach` — the attachment-mapping surface (25 members: `map()`, `instructionsText()`,
+  `usage()`, `block()`, `spec()`, `copy()`, `refresh()`, `check()`…), mounted on the same bus
+  subscriptions (subscribers total 16, ceiling respected; `generate:done` still never re-emitted) and the
+  same storage discipline (both writes inside `try/catch`, no image bytes in either area).
+* The shell's own contract is unchanged by it: still 26 public `MGS.state` methods, still 6 bindings,
+  still `MGSUI.bindings()` → 10, still 13 modes, and `install.mjs` still folds the layers into the same
+  three regions — Phase 4's pair is simply the last two `cat()` calls in each fold.
+* Full contract: `docs/v3.0-phase-4/04-ATTACHMENT-MAPPING-REFERENCE.md`.

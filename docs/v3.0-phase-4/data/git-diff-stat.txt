@@ -1,0 +1,31 @@
+ AI Banner Prompt Generator Pro.html                |  950 ++++++++++++
+ docs/v3.0-phase-1/01-SHELL-STATE-REFERENCE.md      |   22 +
+ docs/v3.0-phase-2/data/phase2-prompt-parity.json   |    8 +-
+ docs/v3.0-phase-3/03-ASSET-LAYER-REFERENCE.md      |   15 +
+ .../data/phase3-asset-prompt-parity.json           |   28 +-
+ docs/v3.0-phase-3/data/phase3-results.json         |   40 +-
+ .../04-ATTACHMENT-MAPPING-REFERENCE.md             |  277 ++++
+ docs/v3.0-phase-4/PHASE-4-REPORT.md                |  272 ++++
+ docs/v3.0-phase-4/data/file-metrics.md             |   34 +
+ docs/v3.0-phase-4/data/git-diff-stat.txt           |   28 +
+ docs/v3.0-phase-4/data/phase0-suite-run.txt        |  159 ++
+ docs/v3.0-phase-4/data/phase1-suite-run.txt        |  197 +++
+ docs/v3.0-phase-4/data/phase2-suite-run.txt        |  213 +++
+ docs/v3.0-phase-4/data/phase3-suite-run.txt        |  367 +++++
+ .../v3.0-phase-4/data/phase4-generated-examples.md |  201 +++
+ docs/v3.0-phase-4/data/phase4-prompt-parity.json   |  195 +++
+ docs/v3.0-phase-4/data/phase4-results.json         | 1518 ++++++++++++++++++++
+ docs/v3.0-phase-4/data/phase4-run.txt              |  289 ++++
+ docs/v3.0-phase-4/data/phase4-summary.md           |   38 +
+ tools/phase0-regression/make-expected-palette.mjs  |   55 +
+ tools/phase1-shell/.gitignore                      |    1 +
+ tools/phase1-shell/install.mjs                     |    4 +-
+ tools/phase1-shell/src/mgs-phase3.js               |    5 +
+ tools/phase1-shell/src/mgs-phase4.css              |   25 +
+ tools/phase1-shell/src/mgs-phase4.js               |  920 ++++++++++++
+ tools/phase2-beginner/test.mjs                     |    8 +-
+ tools/phase3-assets/test.mjs                       |   16 +-
+ tools/phase4-attach/.gitignore                     |    4 +
+ tools/phase4-attach/README.md                      |   70 +
+ tools/phase4-attach/test.mjs                       |  866 +++++++++++
+ 30 files changed, 6776 insertions(+), 49 deletions(-)

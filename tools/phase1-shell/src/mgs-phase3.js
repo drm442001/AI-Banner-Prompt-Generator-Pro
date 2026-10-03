@@ -669,6 +669,11 @@
   function blockText() {
     var a = items(), m = attachmentMap(), out = [], i;
     if (!a.length) { return ''; }
+    /* Phase 4 owns the wording of this block once it is installed. Same fences, same seam, same
+       {ok,text,count,bytes} contract — only the structure inside grows. Without that layer the
+       Phase-3 text below still builds, so the two phases never fight over the prompt. */
+    var A4 = win.MGS && win.MGS.assets && win.MGS.assets.attach;
+    if (A4 && typeof A4.block === 'function') { return A4.block(); }
     out.push(MARK_TOP + ' (' + a.length + ' image' + (a.length === 1 ? '' : 's') + ' attached to this request) ---');
     out.push('The user is attaching these image files with this request. They are real files, not placeholders: use them as the visual material and do not redraw or replace anything inside them.');
     out.push('');

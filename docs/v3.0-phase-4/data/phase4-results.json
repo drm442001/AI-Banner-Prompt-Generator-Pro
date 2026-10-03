@@ -1,0 +1,1518 @@
+{
+ "guarantees": [
+  {
+   "id": "P4 001",
+   "pass": true,
+   "detail": "the installed file actually carries the Phase-4 layer"
+  },
+  {
+   "id": "P4 002",
+   "pass": true,
+   "detail": "the layer opens with a header that says what it is"
+  },
+  {
+   "id": "P4 003",
+   "pass": true,
+   "detail": "the layer was folded into the three regions that already exist (one CSS block, the one #mgs-shell script, its closing comment) — no fourth region was invented"
+  },
+  {
+   "id": "P4 003a",
+   "pass": true,
+   "detail": "and the Phase-4 source really sits inside that single script, after Phases 1–3"
+  },
+  {
+   "id": "P4 004",
+   "pass": true,
+   "detail": "the source file is the one that shipped (length 52771)"
+  },
+  {
+   "id": "P4 005",
+   "pass": true,
+   "detail": "install.mjs --check: the HTML and tools/phase1-shell/src are identical"
+  },
+  {
+   "id": "P4 006",
+   "pass": true,
+   "detail": "the layer is written in the same ES5 style as v2.0 (arrow/template/let-free body)"
+  },
+  {
+   "id": "P4 007",
+   "pass": true,
+   "detail": "no innerHTML anywhere in the layer — every node is built with createElement/textContent"
+  },
+  {
+   "id": "P4 008",
+   "pass": true,
+   "detail": "no media query, no absolute/fixed positioning, no horizontal scroller in the new CSS"
+  },
+  {
+   "id": "P4 009",
+   "pass": true,
+   "detail": "the layer never writes inline styles (v2.0 owns the look)"
+  },
+  {
+   "id": "P4 010",
+   "pass": true,
+   "detail": "nothing is uploaded and no network call exists in the layer"
+  },
+  {
+   "id": "P4 011",
+   "pass": true,
+   "detail": "every new selector is mgs-prefixed → 15 selectors"
+  },
+  {
+   "id": "P4 008a",
+   "pass": true,
+   "detail": "every new flex container wraps or is a column, so nothing becomes a sideways rail on a narrow screen → 3 flex rules"
+  },
+  {
+   "id": "P4 011a",
+   "pass": true,
+   "detail": "no top-level selector of this layer redefines a Phase-2/3 class (scoped rules like .mgs-a4 .mgs-mini2 stay scoped) → 15 selector starts, 0 collisions"
+  },
+  {
+   "id": "P4 012",
+   "pass": true,
+   "detail": "no !important: the layer never fights v2.0’s own rules"
+  },
+  {
+   "id": "P4 013",
+   "pass": true,
+   "detail": "new type is rem-only, so v2.0’s font-size control still governs it"
+  },
+  {
+   "id": "P4 014",
+   "pass": true,
+   "detail": "the document still carries exactly the 3 shell-era breakpoints + v2.0’s own → 4"
+  },
+  {
+   "id": "P4 015",
+   "pass": true,
+   "detail": "no JSON object is ever concatenated into prompt text — the only JSON.stringify here writes the layer’s own preference file"
+  },
+  {
+   "id": "P4 016",
+   "pass": true,
+   "detail": "Phase 3 delegates its block text to Phase 4 in one place, guarded, so the two layers never build two blocks"
+  },
+  {
+   "id": "P4 017",
+   "pass": true,
+   "detail": "the window still carries exactly the twelve MGS* names the shell introduced — Phase 4 added no global (its surface is MGS.assets.attach) → 12 names"
+  },
+  {
+   "id": "P4 018",
+   "pass": true,
+   "detail": "the frozen top-level MGS namespace is still frozen — the layer respects it instead of unfreezing it"
+  },
+  {
+   "id": "P4 019",
+   "pass": true,
+   "detail": "no listener leak: bus subscribers with Phase 4 mounted = 16"
+  },
+  {
+   "id": "P4 020",
+   "pass": true,
+   "detail": "and Phase 4 used exactly the three handlers it was allotted (13 before it, ceiling 16)"
+  },
+  {
+   "id": "P4 021",
+   "pass": true,
+   "detail": "the shell’s own binding registry is untouched → 10"
+  },
+  {
+   "id": "P4 022",
+   "pass": true,
+   "detail": "MGS.assets.attach exposes the whole mapping surface → 20 names"
+  },
+  {
+   "id": "P4 023",
+   "pass": true,
+   "detail": "MGS.prompt gained exactly the three names Phase 4 promised (plus Phase 3’s four)"
+  },
+  {
+   "id": "P4 024",
+   "pass": true,
+   "detail": "every Phase-3 prompt seam is still there, same names"
+  },
+  {
+   "id": "P4 025",
+   "pass": true,
+   "detail": "MGSRules exposes the exact-text rule as a prepared record while its 9 design rules stay intact"
+  },
+  {
+   "id": "P4 026",
+   "pass": true,
+   "detail": "the asset namespace grew by exactly two names (attach + exactText) → 47 total"
+  },
+  {
+   "id": "P4 027",
+   "pass": true,
+   "detail": "exact-text protection is off by default, so nothing changes for a user who never touches it"
+  },
+  {
+   "id": "P4 028",
+   "pass": true,
+   "detail": "a second evaluation adds no id, no listener and no card (idempotent sentinel) → 1 card"
+  },
+  {
+   "id": "P4 029",
+   "pass": true,
+   "detail": "the shell’s self-test still passes with Phase 4 mounted → {\"ok\":true,\"listeners\":10,\"ids\":153}"
+  },
+  {
+   "id": "P4 030",
+   "pass": true,
+   "detail": "with three images attached the prompt carries an attachment block (2958 chars)"
+  },
+  {
+   "id": "P4 031",
+   "pass": true,
+   "detail": "the block announces itself and its count"
+  },
+  {
+   "id": "P4 032",
+   "pass": true,
+   "detail": "and closes itself, so any adapter can strip it"
+  },
+  {
+   "id": "P4 033",
+   "pass": true,
+   "detail": "the map heading is the one the brief names"
+  },
+  {
+   "id": "P4 034",
+   "pass": true,
+   "detail": "one map entry per image, numbered in attachment order → 1,2,3"
+  },
+  {
+   "id": "P4 035",
+   "pass": true,
+   "detail": "each entry is exactly Image N / Role: / Use: (plus file, treatment, position, status, note)"
+  },
+  {
+   "id": "P4 036",
+   "pass": true,
+   "detail": "the three entries appear in that order in the prompt"
+  },
+  {
+   "id": "P4 037",
+   "pass": true,
+   "detail": "the role line is the role the user chose → Role: Main Person | Role: Logo | Role: Product"
+  },
+  {
+   "id": "P4 038",
+   "pass": true,
+   "detail": "the use line says where the image goes → Use: Primary person/reference subject | Use: Brand logo | Use: Main product reference"
+  },
+  {
+   "id": "P4 039",
+   "pass": true,
+   "detail": "each entry names the file, so the user can match it to a real file on disk"
+  },
+  {
+   "id": "P4 040",
+   "pass": true,
+   "detail": "the chosen treatment and position are recorded in the map"
+  },
+  {
+   "id": "P4 041",
+   "pass": true,
+   "detail": "a note travels as a quoted line; an absent note adds nothing"
+  },
+  {
+   "id": "P4 042",
+   "pass": true,
+   "detail": "the status line separates locked from free images"
+  },
+  {
+   "id": "P4 043",
+   "pass": true,
+   "detail": "every entry starts with its own number, so nothing is orphaned"
+  },
+  {
+   "id": "P4 044",
+   "pass": true,
+   "detail": "the map appears exactly once in the prompt"
+  },
+  {
+   "id": "P4 045",
+   "pass": true,
+   "detail": "the map is stated before the usage instructions"
+  },
+  {
+   "id": "P4 046",
+   "pass": true,
+   "detail": "no phantom Image 4 for a three-image request"
+  },
+  {
+   "id": "P4 047",
+   "pass": true,
+   "detail": "mapText() is the same content the block carries (preview and prompt never drift)"
+  },
+  {
+   "id": "P4 048",
+   "pass": true,
+   "detail": "the map reads the one asset array the whole app shares — no parallel list"
+  },
+  {
+   "id": "P4 049",
+   "pass": true,
+   "detail": "the mandated lead sentence opens it, word for word"
+  },
+  {
+   "id": "P4 050",
+   "pass": true,
+   "detail": "and the mandated closing sentence ends it"
+  },
+  {
+   "id": "P4 051",
+   "pass": true,
+   "detail": "a numbered “1. Attach Image 1 — …” line per image → 1. Attach Image 1 — 👤 My Photo (owner.jpg)"
+  },
+  {
+   "id": "P4 052",
+   "pass": true,
+   "detail": "each line names the file the user has to pick"
+  },
+  {
+   "id": "P4 053",
+   "pass": true,
+   "detail": "and the chip label for what it is for"
+  },
+  {
+   "id": "P4 054",
+   "pass": true,
+   "detail": "the locked logo line says it must stay exactly as it is, and only that line does"
+  },
+  {
+   "id": "P4 055",
+   "pass": true,
+   "detail": "the same list is inside the block, marked as being for the user"
+  },
+  {
+   "id": "P4 056",
+   "pass": true,
+   "detail": "inside the prompt the sentence points “above” and then to pasting, because the prompt is already there"
+  },
+  {
+   "id": "P4 057",
+   "pass": true,
+   "detail": "the numbered list inside the block has one line per image"
+  },
+  {
+   "id": "P4 058",
+   "pass": true,
+   "detail": "the layout tab shows the same list, so the user sees it without copying anything"
+  },
+  {
+   "id": "P4 059",
+   "pass": true,
+   "detail": "the card list names the real files"
+  },
+  {
+   "id": "P4 060",
+   "pass": true,
+   "detail": "and states how many images it is talking about"
+  },
+  {
+   "id": "P4 061",
+   "pass": true,
+   "detail": "every usage line opens with its own “- Image N (file):”"
+  },
+  {
+   "id": "P4 062",
+   "pass": true,
+   "detail": "no usage sentence is left unnumbered"
+  },
+  {
+   "id": "P4 063",
+   "pass": true,
+   "detail": "not one phrase of the “use my image” kind survives → none"
+  },
+  {
+   "id": "P4 064",
+   "pass": true,
+   "detail": "inside the map and the usage instructions there is not one first-person reference — “My Photo” survives only in the user-facing attach list, where it names a chip, not an image the AI has to find"
+  },
+  {
+   "id": "P4 065",
+   "pass": true,
+   "detail": "the person sentence sits on the person image only"
+  },
+  {
+   "id": "P4 066",
+   "pass": true,
+   "detail": "within one entry every reference is to that same image (quoted user notes excluded) → clean"
+  },
+  {
+   "id": "P4 067",
+   "pass": true,
+   "detail": "no template placeholder ever reaches the prompt"
+  },
+  {
+   "id": "P4 068",
+   "pass": true,
+   "detail": "the block is plain prose, not a JSON payload"
+  },
+  {
+   "id": "P4 069",
+   "pass": true,
+   "detail": "no image bytes or data URLs in the block"
+  },
+  {
+   "id": "P4 070",
+   "pass": true,
+   "detail": "every one of the 15 roles has a sentence of its own → 15"
+  },
+  {
+   "id": "P4 071",
+   "pass": true,
+   "detail": "each role sentence is an instruction, not a label"
+  },
+  {
+   "id": "P4 072",
+   "pass": true,
+   "detail": "the main-person wording is the brief’s, verbatim"
+  },
+  {
+   "id": "P4 073",
+   "pass": true,
+   "detail": "the logo wording is the brief’s, verbatim"
+  },
+  {
+   "id": "P4 074",
+   "pass": true,
+   "detail": "the product wording is the brief’s, verbatim"
+  },
+  {
+   "id": "P4 075",
+   "pass": true,
+   "detail": "the background wording is the brief’s, verbatim, and defers to the layout"
+  },
+  {
+   "id": "P4 076",
+   "pass": true,
+   "detail": "no role in the catalogue is missing from the sentence table → 15 roles covered"
+  },
+  {
+   "id": "P4 077",
+   "pass": true,
+   "detail": "a single logo gets the logo sentence and nothing else"
+  },
+  {
+   "id": "P4 078",
+   "pass": true,
+   "detail": "adding a photo after a logo renumbers it to Image 2 and its sentence follows it"
+  },
+  {
+   "id": "P4 079",
+   "pass": true,
+   "detail": "the logo keeps its own sentence at its own number"
+  },
+  {
+   "id": "P4 080",
+   "pass": true,
+   "detail": "a lone background image gets the brief’s sentence plus Phase 3’s readability clause, and never the person wording"
+  },
+  {
+   "id": "P4 081",
+   "pass": true,
+   "detail": "every treatment in the catalogue has a sentence (11 for 12 — “Original/Preserve Original” share one)"
+  },
+  {
+   "id": "P4 082",
+   "pass": true,
+   "detail": "the Cutout wording is the brief’s example, verbatim"
+  },
+  {
+   "id": "P4 083",
+   "pass": true,
+   "detail": "“Preserve Original” is worded exactly as the brief asks"
+  },
+  {
+   "id": "P4 084",
+   "pass": true,
+   "detail": "each of the 12 treatments produces a numbered instruction in the usage line"
+  },
+  {
+   "id": "P4 085",
+   "pass": true,
+   "detail": "and no two treatments produce the same sentence → 12 distinct"
+  },
+  {
+   "id": "P4 086",
+   "pass": true,
+   "detail": "only the preserve-original treatment asks for no transformation"
+  },
+  {
+   "id": "P4 087",
+   "pass": true,
+   "detail": "only the cutout treatment asks for a cutout"
+  },
+  {
+   "id": "P4 088",
+   "pass": true,
+   "detail": "every position has a sentence (11)"
+  },
+  {
+   "id": "P4 089",
+   "pass": true,
+   "detail": "the Left wording is the brief’s example, verbatim"
+  },
+  {
+   "id": "P4 090",
+   "pass": true,
+   "detail": "right and centre follow the same shape"
+  },
+  {
+   "id": "P4 091",
+   "pass": true,
+   "detail": "every position sentence names the image it moves"
+  },
+  {
+   "id": "P4 092",
+   "pass": true,
+   "detail": "both chosen positions reach the prompt as sentences → - Image 1 (owner.jpg): Use Image 1 as the primary person reference. Preserve identity and important facial characteristics. Keep the face, skin tone, hair and clothing of the person in the photo. Use Image 1 as ||| - Image 2 (brand.png): Use Image 2 as the official brand logo. Preserve the logo exactly. Do not redesign, replace, redraw or modify it. Place the subject from Image 2 along the bottom band of the layout, clear"
+  },
+  {
+   "id": "P4 093",
+   "pass": true,
+   "detail": "a position sentence never rewrites v2.0’s chosen layout — the LAYOUT line still says the user’s own layout, untouched → \"Text on Image\""
+  },
+  {
+   "id": "P4 093a",
+   "pass": true,
+   "detail": "and the block contains no wording that could be read as overriding the layout"
+  },
+  {
+   "id": "P4 094",
+   "pass": true,
+   "detail": "every position sentence protects the text area rather than inventing a new layout"
+  },
+  {
+   "id": "P4 095",
+   "pass": true,
+   "detail": "the two locked images (logo is locked by catalogue rule, product by the user) each carry the preservation sentence"
+  },
+  {
+   "id": "P4 096",
+   "pass": true,
+   "detail": "the free image gets normal treatment wording instead"
+  },
+  {
+   "id": "P4 097",
+   "pass": true,
+   "detail": "the map states the lock state per image, in both directions"
+  },
+  {
+   "id": "P4 098",
+   "pass": true,
+   "detail": "the lock sentence lists what is forbidden"
+  },
+  {
+   "id": "P4 099",
+   "pass": true,
+   "detail": "a logo added through the chip still arrives pre-locked and its tile says so (Phase-3 behaviour, kept by Phase 4) → 🔒 Locked — keep it exactly"
+  },
+  {
+   "id": "P4 099a",
+   "pass": true,
+   "detail": "unlocking the same image flips the block wording in both directions — the mapping follows the lock state, it does not hard-code it per role"
+  },
+  {
+   "id": "P4 100",
+   "pass": true,
+   "detail": "the logo’s integrity rules still ride along with the block (Phase-3 rule engine, unchanged)"
+  },
+  {
+   "id": "P4 101",
+   "pass": true,
+   "detail": "the specification builds (3524 chars)"
+  },
+  {
+   "id": "P4 102",
+   "pass": true,
+   "detail": "all sixteen sections are present → 16/16"
+  },
+  {
+   "id": "P4 103",
+   "pass": true,
+   "detail": "and they appear in exactly the mandated order"
+  },
+  {
+   "id": "P4 104",
+   "pass": true,
+   "detail": "the prompt already exists, so v2.0’s own lines are quoted from it"
+  },
+  {
+   "id": "P4 105",
+   "pass": true,
+   "detail": "USER CONTENT carries the user’s heading verbatim from v2.0 → \"\\\"BIG SALE\\\"\""
+  },
+  {
+   "id": "P4 106",
+   "pass": true,
+   "detail": "CANVAS / FORMAT quotes v2.0’s SIZE line instead of recomputing it"
+  },
+  {
+   "id": "P4 107",
+   "pass": true,
+   "detail": "STYLE shows v2.0’s mood line, relabelled but not re-worded"
+  },
+  {
+   "id": "P4 108",
+   "pass": true,
+   "detail": "the two image sections sit inside the specification too, not only in the prompt"
+  },
+  {
+   "id": "P4 109",
+   "pass": true,
+   "detail": "and the user’s own attach list closes it"
+  },
+  {
+   "id": "P4 110",
+   "pass": true,
+   "detail": "building the specification never touches the prompt fields (view-only)"
+  },
+  {
+   "id": "P4 111",
+   "pass": true,
+   "detail": "the layout tab renders the specification inside the card"
+  },
+  {
+   "id": "P4 112",
+   "pass": true,
+   "detail": "and it is followed by the numbering check, so the user can see it is consistent"
+  },
+  {
+   "id": "P4 113",
+   "pass": true,
+   "detail": "with no images the specification still has all 16 sections and says so honestly"
+  },
+  {
+   "id": "P4 114",
+   "pass": true,
+   "detail": "and the block stays empty, so the prompt is untouched"
+  },
+  {
+   "id": "P4 115",
+   "pass": true,
+   "detail": "one image, same structure — the spec does not depend on the count"
+  },
+  {
+   "id": "P4 116",
+   "pass": true,
+   "detail": "with the switch off, the exact-text line is absent from the prompt"
+  },
+  {
+   "id": "P4 117",
+   "pass": true,
+   "detail": "the card offers the switch, off by default"
+  },
+  {
+   "id": "P4 118",
+   "pass": true,
+   "detail": "switching it on adds a TEXT RULES section to the block"
+  },
+  {
+   "id": "P4 119",
+   "pass": true,
+   "detail": "with the mandated sentence, word for word"
+  },
+  {
+   "id": "P4 120",
+   "pass": true,
+   "detail": "and the “no translation, no invented lines” companion"
+  },
+  {
+   "id": "P4 121",
+   "pass": true,
+   "detail": "the switch is state, not a DOM-only illusion"
+  },
+  {
+   "id": "P4 122",
+   "pass": true,
+   "detail": "and it is persisted under its own key"
+  },
+  {
+   "id": "P4 123",
+   "pass": true,
+   "detail": "a reload restores it (the button and the state agree)"
+  },
+  {
+   "id": "P4 124",
+   "pass": true,
+   "detail": "a restored switch is honoured by the next generation without clicking anything"
+  },
+  {
+   "id": "P4 125",
+   "pass": true,
+   "detail": "the rule is recorded for the future Rules Engine as a structured, prepared record"
+  },
+  {
+   "id": "P4 126",
+   "pass": true,
+   "detail": "and it does not (yet) change v2.0’s own rule verdicts — prepared, not enforced → 0 warnings, none about exact text"
+  },
+  {
+   "id": "P4 127",
+   "pass": true,
+   "detail": "switching it back off removes the section completely (nothing half-applied)"
+  },
+  {
+   "id": "P4 128",
+   "pass": true,
+   "detail": "and the off position is remembered too"
+  },
+  {
+   "id": "P4 129",
+   "pass": true,
+   "detail": "four buttons in one row under the output area"
+  },
+  {
+   "id": "P4 130",
+   "pass": true,
+   "detail": "labelled exactly as the brief lists them"
+  },
+  {
+   "id": "P4 131a",
+   "pass": true,
+   "detail": "the four outputs are addressable by stable ids, in the mandated order → mgsCopyPrompt mgsCopyInstructions mgsCopySpecification mgsCopyNegative"
+  },
+  {
+   "id": "P4 131",
+   "pass": true,
+   "detail": "the row is a sibling of #oTabs/#oBody inside the output card, so v2.0’s own re-render cannot erase it"
+  },
+  {
+   "id": "P4 132",
+   "pass": true,
+   "detail": "v2.0’s own Copy buttons are exactly as many and as labelled as in the baseline file (8 vs 8), and Phase 4’s row sits beside them"
+  },
+  {
+   "id": "P4 133",
+   "pass": true,
+   "detail": "Copy Prompt copies the ACTIVE pane exactly as shown, block included"
+  },
+  {
+   "id": "P4 134",
+   "pass": true,
+   "detail": "Copy Attachment Instructions yields the user-facing list, and nothing else"
+  },
+  {
+   "id": "P4 135",
+   "pass": true,
+   "detail": "Copy Full Specification yields the 16-section document"
+  },
+  {
+   "id": "P4 136",
+   "pass": true,
+   "detail": "Copy Negative Prompt yields v2.0’s own negative text (or the honest reason there is none)"
+  },
+  {
+   "id": "P4 137",
+   "pass": true,
+   "detail": "the button labels are never inside what gets copied (no self-copying like DFR 007)"
+  },
+  {
+   "id": "P4 138",
+   "pass": true,
+   "detail": "copying never rewrites a prompt"
+  },
+  {
+   "id": "P4 139",
+   "pass": true,
+   "detail": "copy goes through the clipboard when one exists, and admits “unavailable” when it does not → clipboard stubbed"
+  },
+  {
+   "id": "P4 140",
+   "pass": true,
+   "detail": "an unknown kind is refused instead of silently copying the wrong thing"
+  },
+  {
+   "id": "P4 141",
+   "pass": true,
+   "detail": "before any generation, Copy Prompt says so (no empty clipboard)"
+  },
+  {
+   "id": "P4 142",
+   "pass": true,
+   "detail": "and the attachment copy says there is nothing to attach"
+  },
+  {
+   "id": "P4 143",
+   "pass": true,
+   "detail": "v2.0’s Copy button keeps its own handler and label"
+  },
+  {
+   "id": "P4 144",
+   "pass": true,
+   "detail": "clicking v2.0’s own copy still runs v2.0’s own toast path (unchanged behaviour)"
+  },
+  {
+   "id": "P4 145",
+   "pass": true,
+   "detail": "the layer counts its own copy calls → 4"
+  },
+  {
+   "id": "P4 146",
+   "pass": true,
+   "detail": "all 8 platforms receive the same attachment block (2958/2984/2958/2958/2958/2958/2958/2958)"
+  },
+  {
+   "id": "P4 147",
+   "pass": true,
+   "detail": "the mapping itself is byte-identical for all 8 platforms (each platform keeps its own tail around it) → 2958:1t5d48m"
+  },
+  {
+   "id": "P4 148",
+   "pass": true,
+   "detail": "no platform-specific image syntax appears anywhere in the block"
+  },
+  {
+   "id": "P4 149",
+   "pass": true,
+   "detail": "no template or parameter markers of any kind"
+  },
+  {
+   "id": "P4 150",
+   "pass": true,
+   "detail": "Midjourney’s parameter tail is still the last thing in its prompt → \"USER ATTACHMENTS ---\\n --ar 60:30 --v 6.1 --q 2\""
+  },
+  {
+   "id": "P4 151",
+   "pass": true,
+   "detail": "and the block sits before the tail, never after it"
+  },
+  {
+   "id": "P4 152",
+   "pass": true,
+   "detail": "prose platforms get the block after one blank line"
+  },
+  {
+   "id": "P4 153",
+   "pass": true,
+   "detail": "and stripping the block returns the byte-exact text the same app produces with the switch off — on all 8 platforms"
+  },
+  {
+   "id": "P4 154",
+   "pass": true,
+   "detail": "variants stay v2.0’s own (not augmented by design, documented limitation)"
+  },
+  {
+   "id": "P4 155",
+   "pass": true,
+   "detail": "case-1 no image → 0 map entries"
+  },
+  {
+   "id": "P4 156",
+   "pass": true,
+   "detail": "case-1 no image → block 0 chars, numbering check clean, instruction lines 0"
+  },
+  {
+   "id": "P4 157",
+   "pass": true,
+   "detail": "case-2 one image → 1 map entries"
+  },
+  {
+   "id": "P4 158",
+   "pass": true,
+   "detail": "case-2 one image → block 1702 chars, numbering check clean, instruction lines 1"
+  },
+  {
+   "id": "P4 159",
+   "pass": true,
+   "detail": "case-3 photo + logo → 2 map entries"
+  },
+  {
+   "id": "P4 160",
+   "pass": true,
+   "detail": "case-3 photo + logo → block 2271 chars, numbering check clean, instruction lines 2"
+  },
+  {
+   "id": "P4 161",
+   "pass": true,
+   "detail": "case-4 + product → 3 map entries"
+  },
+  {
+   "id": "P4 162",
+   "pass": true,
+   "detail": "case-4 + product → block 2958 chars, numbering check clean, instruction lines 3"
+  },
+  {
+   "id": "P4 163",
+   "pass": true,
+   "detail": "case-5 + background → 4 map entries"
+  },
+  {
+   "id": "P4 164",
+   "pass": true,
+   "detail": "case-5 + background → block 3499 chars, numbering check clean, instruction lines 4"
+  },
+  {
+   "id": "P4 165",
+   "pass": true,
+   "detail": "case-6 multiple products → 3 map entries"
+  },
+  {
+   "id": "P4 166",
+   "pass": true,
+   "detail": "case-6 multiple products → block 2667 chars, numbering check clean, instruction lines 3"
+  },
+  {
+   "id": "P4 167",
+   "pass": true,
+   "detail": "case-7 locked logo → 2 map entries"
+  },
+  {
+   "id": "P4 168",
+   "pass": true,
+   "detail": "case-7 locked logo → block 2271 chars, numbering check clean, instruction lines 2"
+  },
+  {
+   "id": "P4 169",
+   "pass": true,
+   "detail": "case-8 locked product → 2 map entries"
+  },
+  {
+   "id": "P4 170",
+   "pass": true,
+   "detail": "case-8 locked product → block 2464 chars, numbering check clean, instruction lines 2"
+  },
+  {
+   "id": "P4 171",
+   "pass": true,
+   "detail": "case-9 custom role → 2 map entries"
+  },
+  {
+   "id": "P4 172",
+   "pass": true,
+   "detail": "case-9 custom role → block 2366 chars, numbering check clean, instruction lines 2"
+  },
+  {
+   "id": "P4 173",
+   "pass": true,
+   "detail": "case-10 different positions → 3 map entries"
+  },
+  {
+   "id": "P4 174",
+   "pass": true,
+   "detail": "case-10 different positions → block 3045 chars, numbering check clean, instruction lines 3"
+  },
+  {
+   "id": "P4 175",
+   "pass": true,
+   "detail": "case-11 different treatments → 4 map entries"
+  },
+  {
+   "id": "P4 176",
+   "pass": true,
+   "detail": "case-11 different treatments → block 3618 chars, numbering check clean, instruction lines 4"
+  },
+  {
+   "id": "P4 177",
+   "pass": true,
+   "detail": "case 1 proves the no-image run has no map, no instructions and no block at all"
+  },
+  {
+   "id": "P4 178",
+   "pass": true,
+   "detail": "every multi-image case numbers all of its entries"
+  },
+  {
+   "id": "P4 179",
+   "pass": true,
+   "detail": "case 6 (three product-ish images) gives each product its own role sentence and number — no shared “product” sentence"
+  },
+  {
+   "id": "P4 180",
+   "pass": true,
+   "detail": "case 7: the locked logo is numbered, marked and worded"
+  },
+  {
+   "id": "P4 181",
+   "pass": true,
+   "detail": "case 8: the locked product keeps its own product sentence plus the lock clause"
+  },
+  {
+   "id": "P4 182",
+   "pass": true,
+   "detail": "case 9: a custom role reaches the prompt in the user’s own words, quoted as theirs"
+  },
+  {
+   "id": "P4 183",
+   "pass": true,
+   "detail": "and the custom role string is attributed, not invented"
+  },
+  {
+   "id": "P4 184",
+   "pass": true,
+   "detail": "case 10: four positions were offered, three images carry their chosen position"
+  },
+  {
+   "id": "P4 185",
+   "pass": true,
+   "detail": "case 11: four different treatments, four numbered sentences"
+  },
+  {
+   "id": "P4 186",
+   "pass": true,
+   "detail": "in no case does an unfilled placeholder survive"
+  },
+  {
+   "id": "P4 187",
+   "pass": true,
+   "detail": "and no case ever stacks two blocks"
+  },
+  {
+   "id": "P4 188",
+   "pass": true,
+   "detail": "the block stays proportionate to the number of images: under 2.2 KB per image (1702 max)"
+  },
+  {
+   "id": "P4 189",
+   "pass": true,
+   "detail": "four images: contiguous 1…4, clean check"
+  },
+  {
+   "id": "P4 190",
+   "pass": true,
+   "detail": "removing the middle image renumbers the rest — no gap, no duplicate → 1,2,3"
+  },
+  {
+   "id": "P4 191",
+   "pass": true,
+   "detail": "the regenerated block no longer mentions Image 4 anywhere and has exactly 3 entries"
+  },
+  {
+   "id": "P4 192",
+   "pass": true,
+   "detail": "the user’s list is renumbered too, in the same order"
+  },
+  {
+   "id": "P4 193",
+   "pass": true,
+   "detail": "appending a fifth-then-removed set keeps numbering dense (3 → 4)"
+  },
+  {
+   "id": "P4 194",
+   "pass": true,
+   "detail": "replacing the first file keeps its number and updates its filename"
+  },
+  {
+   "id": "P4 195",
+   "pass": true,
+   "detail": "reordering the list renumbers cleanly (a move never leaves two images claiming one number) → 1,2,3,4"
+  },
+  {
+   "id": "P4 196",
+   "pass": true,
+   "detail": "and the map after the move is still one entry per position, in order"
+  },
+  {
+   "id": "P4 197",
+   "pass": true,
+   "detail": "the prompt’s usage lines agree with the moved numbers"
+  },
+  {
+   "id": "P4 198",
+   "pass": true,
+   "detail": "ten mutations, still exactly one map"
+  },
+  {
+   "id": "P4 199",
+   "pass": true,
+   "detail": "a quoted user note that says “image 3” is quoted as theirs and never counted as a reference → clean"
+  },
+  {
+   "id": "P4 200",
+   "pass": true,
+   "detail": "and the note still reaches the AI, inside the quotes"
+  },
+  {
+   "id": "P4 201",
+   "pass": true,
+   "detail": "at the 12-image ceiling the numbering is still 1…12 and clean → 12 images"
+  },
+  {
+   "id": "P4 202",
+   "pass": true,
+   "detail": "twelve entries, twelve blocks of lines, nothing merged"
+  },
+  {
+   "id": "P4 203",
+   "pass": true,
+   "detail": "the twelve-image block stays inside the size budget → 5766 bytes"
+  },
+  {
+   "id": "P4 204",
+   "pass": true,
+   "detail": "no images attached: all 4 v2.0 scenarios × 8 platforms are byte-identical to the untouched baseline → sale-marathi=ok wedding-mixed=ok corporate-english=ok minimal-empty-extras=ok"
+  },
+  {
+   "id": "P4 205",
+   "pass": true,
+   "detail": "the Output pane text v2.0 renders (tabs + body) is identical too → 4831:4bs7j9 4837:1jy4hua 4768:740flv 1:3t0v"
+  },
+  {
+   "id": "P4 206",
+   "pass": true,
+   "detail": "variant cards and the negative prompt are identical (0 variants)"
+  },
+  {
+   "id": "P4 207",
+   "pass": true,
+   "detail": "not one attachment block in any no-image run → 0 occurrences across 32 prompts"
+  },
+  {
+   "id": "P4 208",
+   "pass": true,
+   "detail": "the same 8 platforms were produced by the same 8 checkboxes in both files"
+  },
+  {
+   "id": "P4 209",
+   "pass": true,
+   "detail": "and nothing was padded into the empty-handed case (largest pane 4837 chars)"
+  },
+  {
+   "id": "P4 210",
+   "pass": true,
+   "detail": "with two images attached, the v2.0 part of the prompt is still identical — the block is appended, never woven in"
+  },
+  {
+   "id": "P4 211",
+   "pass": true,
+   "detail": "the difference is exactly the block plus its blank line → 2273 chars"
+  },
+  {
+   "id": "P4 212",
+   "pass": true,
+   "detail": "with Phase 3’s single master switch off, the prompt is byte-identical again — no asset feature is mandatory"
+  },
+  {
+   "id": "P4 213",
+   "pass": true,
+   "detail": "the layer reports itself quiet when switched off (stats.live=false)"
+  },
+  {
+   "id": "P4 214",
+   "pass": true,
+   "detail": "and no half-written block survives the switch"
+  },
+  {
+   "id": "P4 215",
+   "pass": true,
+   "detail": "the exact-text switch is independent of Phase 3’s master switch (off stays off)"
+  },
+  {
+   "id": "P4 216",
+   "pass": true,
+   "detail": "Phase 4 added no checkbox, no select, no textarea, no tab and no platform tile — every one of those counts is identical to the shipped Phase-3 build → 19/17/3/7/8 vs 19/17/3/7/8"
+  },
+  {
+   "id": "P4 216a",
+   "pass": true,
+   "detail": "and the whole of the button delta is this phase’s six controls, all inside its own card or row → 74 → 80 buttons"
+  },
+  {
+   "id": "P4 217",
+   "pass": true,
+   "detail": "seven tabs and the seven panes they switch between, under v2.0’s own ids"
+  },
+  {
+   "id": "P4 218",
+   "pass": true,
+   "detail": "the five v2.0 toggle controls still exist under the same ids — the ones this layer reads for PRODUCTION REQUIREMENTS and DESIGN RULES"
+  },
+  {
+   "id": "P4 219",
+   "pass": true,
+   "detail": "every v2.0 select is still a select with its own id (16 checked, including the layout picker #layD)"
+  },
+  {
+   "id": "P4 220",
+   "pass": true,
+   "detail": "and every option list is exactly as long as the baseline’s: cat 22 / btype 14 / style 16 / mood 12 / icount 5"
+  },
+  {
+   "id": "P4 221",
+   "pass": true,
+   "detail": "the layer never assigns a window.* name of its own"
+  },
+  {
+   "id": "P4 222",
+   "pass": true,
+   "detail": "no new tab and no new target: the layer lives inside the tabs v2.0 already has"
+  },
+  {
+   "id": "P4 223",
+   "pass": true,
+   "detail": "no duplicate id in the whole document with Phase 4 mounted → 153 ids"
+  },
+  {
+   "id": "P4 224",
+   "pass": true,
+   "detail": "Phase 4’s controls are inside the Layout tab (#t3), where the images are talked about"
+  },
+  {
+   "id": "P4 225",
+   "pass": true,
+   "detail": "and they live inside Phase 3’s card — the asset UI stays one place"
+  },
+  {
+   "id": "P4 226",
+   "pass": true,
+   "detail": "v2.0’s own history snapshot still captures the prompt exactly as shown (block included)"
+  },
+  {
+   "id": "P4 227",
+   "pass": true,
+   "detail": "Phase 4 writes its own single-flag key, and only once the switch is actually used → absent until first use"
+  },
+  {
+   "id": "P4 228",
+   "pass": true,
+   "detail": "no image data and no new image-shaped key in localStorage → bph,mgs.assets.v1"
+  },
+  {
+   "id": "P4 229",
+   "pass": true,
+   "detail": "Phase 3’s preview cache is still the only session storage in play → mgs.assets.previews.v1,mgs.session.v1"
+  },
+  {
+   "id": "P4 230",
+   "pass": true,
+   "detail": "and Phase 4 wrote nothing there"
+  },
+  {
+   "id": "P4 231",
+   "pass": true,
+   "detail": "the project snapshot still holds exactly the nine keys it had before this phase, and no attachment namespace of its own → decorations,fields,layoutId,mode,paletteName,platforms,schema,toggles,ts"
+  },
+  {
+   "id": "P4 232",
+   "pass": true,
+   "detail": "a raw shell reset leaves the mapping derived from exactly what the asset layer restored → 2 image(s), numbering check clean (no stale numbers survive a reset)"
+  },
+  {
+   "id": "P4 233",
+   "pass": true,
+   "detail": "after a reset the prompts stop mentioning images at once (no ghost mappings)"
+  },
+  {
+   "id": "P4 234",
+   "pass": true,
+   "detail": "the card still works after a reset (the switch is reachable and writes state)"
+  },
+  {
+   "id": "P4 235",
+   "pass": true,
+   "detail": "and the preference survives a form reset on purpose (it is a preference, not form data) → documented behaviour"
+  },
+  {
+   "id": "P4 236",
+   "pass": true,
+   "detail": "refresh before anything is generated is a refusal, not a corruption"
+  },
+  {
+   "id": "P4 236a",
+   "pass": true,
+   "detail": "and it touched no prompt object, because there was none"
+  },
+  {
+   "id": "P4 237",
+   "pass": true,
+   "detail": "generation carries the map on its own (refresh is optional)"
+  },
+  {
+   "id": "P4 238",
+   "pass": true,
+   "detail": "refresh re-maps the open prompts on all 8 platforms without a new generation → [\"chatgpt\",\"midjourney\",\"dalle\",\"firefly\",\"canva\",\"stable\",\"ideogram\",\"copilot\"]"
+  },
+  {
+   "id": "P4 239",
+   "pass": true,
+   "detail": "and the prompt grew by the new map only (3490 → 3833)"
+  },
+  {
+   "id": "P4 240",
+   "pass": true,
+   "detail": "never twice: refresh strips the old block first"
+  },
+  {
+   "id": "P4 241",
+   "pass": true,
+   "detail": "v2.0’s own text before the block is unchanged by refresh"
+  },
+  {
+   "id": "P4 242",
+   "pass": true,
+   "detail": "the MJ tail is still after the block, so a manual refresh cannot break it"
+  },
+  {
+   "id": "P4 243",
+   "pass": true,
+   "detail": "and the shell’s state mirror was pulled, so no consumer sees a stale prompt"
+  },
+  {
+   "id": "P4 244",
+   "pass": true,
+   "detail": "a second refresh is a no-op (idempotent) → 0 changed"
+  },
+  {
+   "id": "P4 245",
+   "pass": true,
+   "detail": "with the master switch off, refresh refuses instead of writing an unasked-for block"
+  },
+  {
+   "id": "P4 246",
+   "pass": true,
+   "detail": "the layer counts the refreshes it actually performed → 2"
+  },
+  {
+   "id": "P4 247",
+   "pass": true,
+   "detail": "Beginner mode: the four copy outputs are visible (they are for beginners, not for experts)"
+  },
+  {
+   "id": "P4 248",
+   "pass": true,
+   "detail": "while the map preview and the specification stay in the pro half of the card (Phase 2’s mechanism, reused)"
+  },
+  {
+   "id": "P4 249",
+   "pass": true,
+   "detail": "Pro mode shows the same four buttons and now the specification box too"
+  },
+  {
+   "id": "P4 250",
+   "pass": true,
+   "detail": "and back — nothing is destroyed by the switch"
+  },
+  {
+   "id": "P4 251",
+   "pass": true,
+   "detail": "the card keeps its own controls in both modes (2 buttons)"
+  },
+  {
+   "id": "P4 252",
+   "pass": true,
+   "detail": "the copy row is not hidden by any rule (computed display = flex)"
+  },
+  {
+   "id": "P4 253",
+   "pass": true,
+   "detail": "every one of the 57 boots ran with zero jsdom errors → clean"
+  },
+  {
+   "id": "P4 254",
+   "pass": true,
+   "detail": "and zero console errors/warnings of the app’s own (browser notices excluded) → clean"
+  },
+  {
+   "id": "P4 255",
+   "pass": true,
+   "detail": "the card leaves a plain-language trail of what it just did → Attachment instructions copied — 263 characters."
+  },
+  {
+   "id": "P4 256",
+   "pass": true,
+   "detail": "role sentences: 15/15 reference the image by number"
+  },
+  {
+   "id": "P4 257",
+   "pass": true,
+   "detail": "every treatment with a real id has its own sentence, and “no preference” deliberately has none → 11 sentences for 12 entries"
+  },
+  {
+   "id": "P4 258",
+   "pass": true,
+   "detail": "same for positions: 11 sentences for 12 entries, and the empty “leave it to the AI” choice stays silent → (none),left,right,center,background,top,bottom,upper_left,upper_right,lower_left,lower_right,custom"
+  },
+  {
+   "id": "P4 259",
+   "pass": true,
+   "detail": "no two sentences in the tables are the same string (each choice says something different)"
+  },
+  {
+   "id": "P4 260",
+   "pass": true,
+   "detail": "nothing left to write: no placeholder text in any sentence"
+  },
+  {
+   "id": "P4 261",
+   "pass": true,
+   "detail": "every string this layer produces is a real string, so v2.0’s esc() never trips on it"
+  },
+  {
+   "id": "P4 262",
+   "pass": true,
+   "detail": "and the layer never wraps or replaces esc() — it uses textContent instead"
+  },
+  {
+   "id": "P4 263",
+   "pass": true,
+   "detail": "the frozen Phase-4 parity file still matches this run (no-image prompts and the mapped block alike)"
+  },
+  {
+   "id": "P4 264",
+   "pass": true,
+   "detail": "and every storage touch this layer makes is wrapped, with a private-mode note instead of a crash"
+  },
+  {
+   "id": "P4 265",
+   "pass": true,
+   "detail": "five images, eight platforms: clean check and a map in every single prompt"
+  },
+  {
+   "id": "P4 266",
+   "pass": true,
+   "detail": "the shell recorded no init error with the whole stack mounted → []"
+  },
+  {
+   "id": "P4 267",
+   "pass": true,
+   "detail": "the stylesheet never contains the media-query token, not even in its own comment (which is what P4 014 counts)"
+  },
+  {
+   "id": "P4 268",
+   "pass": true,
+   "detail": "state stays the single store the earlier phases agreed on (23 namespaces, no new one); Phase 4 writes only state.assets.exactText → 23"
+  }
+ ],
+ "deferred": [
+  {
+   "id": "DFR 001",
+   "reproduces": true,
+   "detail": "5 images ⇒ v2.0’s Image Count still reads “multiple” and its IMAGES line is still dropped (B1) — Phase 4 maps all five by number instead of repairing it"
+  },
+  {
+   "id": "DFR 002",
+   "reproduces": true,
+   "detail": "a zero size is still emitted verbatim into the prompt (D1 family) → \"SIZE: 0×0 feet\" — and the specification quotes that line rather than correcting it"
+  },
+  {
+   "id": "DFR 003",
+   "reproduces": true,
+   "detail": "choosing a category by hand still overwrites style/mood (v2.0 onCat, B5) — Phase 4 inherits whatever v2.0 decided, unchanged"
+  },
+  {
+   "id": "DFR 004",
+   "reproduces": true,
+   "detail": "Beginner mode still does not filter the seven v2.0 tabs — per-step filtering is a later phase"
+  },
+  {
+   "id": "DFR 005",
+   "reproduces": true,
+   "detail": "esc() still throws on non-strings (B12) — Phase 4 only ever passes it strings and never wraps it"
+  },
+  {
+   "id": "DFR 006",
+   "reproduces": true,
+   "detail": "history rows are still assembled as an HTML string in lH() (S1 stored-XSS) — untouched here"
+  },
+  {
+   "id": "DFR 007",
+   "reproduces": true,
+   "detail": "v2.0’s negative-prompt Copy button still sits inside the block it copies (B11) — Phase 4 built its four buttons OUTSIDE every copied text and left that one alone for Phase 5"
+  },
+  {
+   "id": "DFR 008",
+   "reproduces": true,
+   "detail": "required fields are still marked by a coloured asterisk only — validation/aria is a later phase"
+  },
+  {
+   "id": "DFR 009",
+   "reproduces": true,
+   "detail": "the v2.0 raw storage write is still unguarded on an opaque origin while Phase 4’s two writes (preference, clipboard) are guarded (SH() itself is v2.0 behaviour)"
+  }
+ ],
+ "byArea": {
+  "1. A the file, the markers and the bans": {
+   "total": 19,
+   "pass": 19
+  },
+  "2. B the seam: no new global, no new listener, idempotent": {
+   "total": 13,
+   "pass": 13
+  },
+  "3. C §1–§2 the structured attachment map": {
+   "total": 19,
+   "pass": 19
+  },
+  "4. D §3 the instruction to the user": {
+   "total": 12,
+   "pass": 12
+  },
+  "5. E §4 explicit references only, never “use my image”": {
+   "total": 9,
+   "pass": 9
+  },
+  "6. F §5 role instructions": {
+   "total": 11,
+   "pass": 11
+  },
+  "7. G §6 treatment instructions": {
+   "total": 7,
+   "pass": 7
+  },
+  "8. H §7 position instructions": {
+   "total": 8,
+   "pass": 8
+  },
+  "9. I §8 locked vs free": {
+   "total": 7,
+   "pass": 7
+  },
+  "10. J §9 the 16-section spec": {
+   "total": 15,
+   "pass": 15
+  },
+  "11. K §10 exact-text protection (prepared)": {
+   "total": 13,
+   "pass": 13
+  },
+  "12. L §11 four separate copy outputs": {
+   "total": 18,
+   "pass": 18
+  },
+  "13. M §12 platform independence of the engine": {
+   "total": 9,
+   "pass": 9
+  },
+  "other": {
+   "total": 22,
+   "pass": 22
+  },
+  "14. N §13 the eleven required cases, one by one": {
+   "total": 12,
+   "pass": 12
+  },
+  "15. O §13 numbering never becomes ambiguous": {
+   "total": 15,
+   "pass": 15
+  },
+  "16. P §14 regression: v2.0 with no assets, byte for byte": {
+   "total": 62,
+   "pass": 62
+  },
+  "17. Q the deferred defects this phase must NOT have half-fixed": {
+   "total": 5,
+   "pass": 5
+  }
+ },
+ "summary": {
+  "pass": 276,
+  "total": 276,
+  "deferred": 9,
+  "deferredTotal": 9,
+  "boots": 61,
+  "consoleErrors": 0,
+  "consoleNoise": 0
+ },
+ "harness": {
+  "jsdom": "node_modules/jsdom",
+  "target": "/home/user/AI-Banner-Prompt-Generator-Pro/AI Banner Prompt Generator Pro.html"
+ }
+}

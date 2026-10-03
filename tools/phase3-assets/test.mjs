@@ -117,7 +117,9 @@ async function genAll(b, fields) {
   b.w.GEN();
   const prompts = {}, platBox = qa(b.d, '#platG input');
   for (const p of PLATS) prompts[p] = b.w.gPr[p] == null ? null : b.w.gPr[p];
-  return { prompts, out: txt(b.d.getElementById('outA')), variants: qa(b.d, '#varG .vc').length, neg: txt(b.d.getElementById('negT')), platBox: platBox.length, gPrKeys: Object.keys(b.w.gPr || {}).sort().join(',') };
+  /* Phase 4 adds a copy row as a SIBLING of the prompt panes inside #outA, so the parity probe
+     measures the tabs + pane text itself: that is the part v2.0 owns and must not ever change. */
+  return { prompts, out: txt(b.d.getElementById('oTabs')) + '\n' + txt(b.d.getElementById('oBody')), variants: qa(b.d, '#varG .vc').length, neg: txt(b.d.getElementById('negT')), platBox: platBox.length, gPrKeys: Object.keys(b.w.gPr || {}).sort().join(',') };
 }
 /* attach three described images — the exact fixture every "with assets" assertion uses */
 async function attachStandard(w, d) {
@@ -636,10 +638,12 @@ async function main() {
   const blk = Pa.promptBlock().text;
   ok(blk.startsWith('--- USER ATTACHMENTS (3 images attached to this request) ---'), 'P3 224', 'the block announces what it is and how many images');
   ok(blk.trim().endsWith('--- END USER ATTACHMENTS ---'), 'P3 225', 'and closes itself (the seam is delimited, so a later adapter can strip it)');
-  ok(['ATTACHMENT MAP', 'HOW TO USE EACH IMAGE', 'ASSET INTEGRITY RULES'].every(h => blk.includes(h)), 'P3 226', 'the three sections a platform needs are present');
+  ok(['IMAGE ATTACHMENT MAP', 'IMAGE USAGE INSTRUCTIONS', 'ASSET INTEGRITY RULES', 'HOW TO ATTACH'].every(h => blk.includes(h)), 'P3 226',
+    'the sections a platform needs are present — Phase 4 superseded this generation of the block: “ATTACHMENT MAP” became “IMAGE ATTACHMENT MAP” with one field per line, “HOW TO USE EACH IMAGE” became “IMAGE USAGE INSTRUCTIONS”, and a “HOW TO ATTACH” list was added');
   const dupRules = (() => { const rl = (Ga.attachmentMap().ruleLines || []); return rl.length - new Set(rl).size; })();
   ok(dupRules === 0, 'P3 227', 'no integrity rule is stated twice in one prompt (role-scoped rules and the always-on rule are merged) → ' + dupRules + ' duplicates');
-  ok(blk.includes('Use the attached logo exactly as provided. Do not redesign, replace or alter it.'), 'P3 228', 'the logo wording is the sentence from the brief, verbatim');
+  ok(blk.includes('Use Image 1 as the official brand logo. Preserve the logo exactly. Do not redesign, replace, redraw or modify it.'), 'P3 228',
+    'the logo wording is the sentence Phase 4’s brief mandates for the logo role, verbatim, and it is attached to the logo image by number (it supersedes “Use the attached logo exactly as provided…”)');
   ok(blk.includes('Keep the face, skin tone, hair and clothing of the person in the photo'), 'P3 229', 'the person line carries the identity instruction even though that image is not locked');
   ok(/- Image 3 \(samosa\.jpg\): Use Image 3 as the dish being offered\./.test(blk), 'P3 230', 'the food image gets its role sentence → ' + (blk.match(/- Image 3 [^\n]*/) || [''])[0].slice(0, 90));
   ok(blk.includes('the plate from our counter'), 'P3 231', 'the user’s note travels to the AI → ' + (blk.match(/What to know:[^\n]*/) || [''])[0]);
@@ -677,7 +681,7 @@ async function main() {
   ok(parityRows.every(r => JSON.stringify(r.base.prompts) === JSON.stringify(r.mine.prompts)), 'P3 241',
     'with no images attached, all 4 v2.0 scenarios × 8 platforms are byte-identical to the untouched baseline → ' + parityRows.map(r => r.name + (JSON.stringify(r.base.prompts) === JSON.stringify(r.mine.prompts) ? '=same' : '=DIFFERENT')).join(' '));
   ok(parityRows.every(r => r.base.out === r.mine.out && r.base.variants === r.mine.variants && r.base.neg === r.mine.neg), 'P3 242',
-    'the Output panel text, the ' + parityRows[0].mine.variants + ' variant cards and the negative prompt are identical too → ' + parityRows.map(r => hash(r.mine.out)).join(' '));
+    'the Output pane text (tabs + prompt body), the ' + parityRows[0].mine.variants + ' variant cards and the negative prompt are identical too → ' + parityRows.map(r => hash(r.mine.out)).join(' '));
   ok(parityRows.every(r => r.mine.platBox === r.base.platBox && r.mine.gPrKeys === r.base.gPrKeys), 'P3 243', 'the same 8 platforms were produced by the same 8 checkboxes in both files → ' + parityRows[0].mine.gPrKeys);
   ok(parityRows.every(r => PLATS.every(p => !/USER ATTACHMENTS/.test(String(r.mine.prompts[p] || '')))), 'P3 244', 'no attachment block ever appears in a no-image run → 0 occurrences across ' + (parityRows.length * PLATS.length) + ' prompts');
 
@@ -889,8 +893,8 @@ async function main() {
   const Ow = O0.w, Od = O0.d;
   const oKeys = Object.keys(Ow.MGS.state.assets).sort();
   ok(oKeys.indexOf('library') === -1, 'P3 314', 'state.assets still has no “library” key (Phase-1 REG 027 stays true) → ' + oKeys.join(','));
-  ok(oKeys.join(',') === 'count,items,position,style,type,countSync,includeMap,mirrorSync'.split(',').sort().join(','), 'P3 315',
-    'the asset container grew by exactly three booleans on top of the Phase-1 five, nothing else → ' + oKeys.join(','));
+  ok(oKeys.join(',') === 'count,items,position,style,type,countSync,includeMap,mirrorSync,exactText'.split(',').sort().join(','), 'P3 315',
+    'the asset container grew by exactly four booleans on top of the Phase-1 five, nothing else (Phase 4 added exactText) → ' + oKeys.join(','));
   ok(Object.prototype.toString.call(Ow.MGS.state.assets.items) === '[object Array]' && Ow.MGS.state.assets.items.length === 0, 'P3 316', 'items stays the single array every consumer reads (no parallel list in a closure)');
   const globalsNow = Object.keys(Ow).filter(k => /^MGS/.test(k)).sort();
   const GBASE = await bootBase(); await GBASE.done();

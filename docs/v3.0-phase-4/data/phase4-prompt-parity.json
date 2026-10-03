@@ -1,0 +1,195 @@
+{
+ "note": "docs/v3.0-phase-4/data/phase4-prompt-parity.json — written by tools/phase4-attach/test.mjs with RECORD=1. base = untouched v2.0 baseline, mine = the installed file. The four scenarios have no images, so they must stay identical forever.",
+ "generated": "2026-10-03",
+ "scenarios": [
+  {
+   "name": "sale-marathi",
+   "base": {
+    "chatgpt": "1283:uz1y09",
+    "midjourney": "184:16l1ihr",
+    "dalle": "1252:1v2jtkw",
+    "firefly": "192:vtc293",
+    "canva": "174:4y9oiz",
+    "stable": "205:usontb",
+    "ideogram": "226:1imwilm",
+    "copilot": "1290:9baown"
+   },
+   "mine": {
+    "chatgpt": "1283:uz1y09",
+    "midjourney": "184:16l1ihr",
+    "dalle": "1252:1v2jtkw",
+    "firefly": "192:vtc293",
+    "canva": "174:4y9oiz",
+    "stable": "205:usontb",
+    "ideogram": "226:1imwilm",
+    "copilot": "1290:9baown"
+   },
+   "out": {
+    "base": "4831:4bs7j9",
+    "mine": "4831:4bs7j9"
+   }
+  },
+  {
+   "name": "wedding-mixed",
+   "base": {
+    "chatgpt": "1268:1y3s101",
+    "midjourney": "200:8j40fe",
+    "dalle": "1238:a3hkgl",
+    "firefly": "206:1b2g2rp",
+    "canva": "164:53vlvp",
+    "stable": "219:1s7bp7x",
+    "ideogram": "237:c7ege4",
+    "copilot": "1276:1qzmfv0"
+   },
+   "mine": {
+    "chatgpt": "1268:1y3s101",
+    "midjourney": "200:8j40fe",
+    "dalle": "1238:a3hkgl",
+    "firefly": "206:1b2g2rp",
+    "canva": "164:53vlvp",
+    "stable": "219:1s7bp7x",
+    "ideogram": "237:c7ege4",
+    "copilot": "1276:1qzmfv0"
+   },
+   "out": {
+    "base": "4837:1jy4hua",
+    "mine": "4837:1jy4hua"
+   }
+  },
+  {
+   "name": "corporate-english",
+   "base": {
+    "chatgpt": "1271:16ginna",
+    "midjourney": "190:1ja32am",
+    "dalle": "1238:tekc5n",
+    "firefly": "178:j73kon",
+    "canva": "175:lczej5",
+    "stable": "191:1e97tjz",
+    "ideogram": "227:fz40wu",
+    "copilot": "1276:184sv42"
+   },
+   "mine": {
+    "chatgpt": "1271:16ginna",
+    "midjourney": "190:1ja32am",
+    "dalle": "1238:tekc5n",
+    "firefly": "178:j73kon",
+    "canva": "175:lczej5",
+    "stable": "191:1e97tjz",
+    "ideogram": "227:fz40wu",
+    "copilot": "1276:184sv42"
+   },
+   "out": {
+    "base": "4768:740flv",
+    "mine": "4768:740flv"
+   }
+  },
+  {
+   "name": "minimal-empty-extras",
+   "base": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "mine": {
+    "chatgpt": "0:45h",
+    "midjourney": "0:45h",
+    "dalle": "0:45h",
+    "firefly": "0:45h",
+    "canva": "0:45h",
+    "stable": "0:45h",
+    "ideogram": "0:45h",
+    "copilot": "0:45h"
+   },
+   "out": {
+    "base": "1:3t0v",
+    "mine": "1:3t0v"
+   }
+  }
+ ],
+ "withAssets": {
+  "chatgpt": "4177:13ugfxn",
+  "midjourney": "3145:7xetjb",
+  "dalle": "4139:1yqkaqe",
+  "firefly": "3145:1wy5wws",
+  "canva": "3106:1lxqui0",
+  "stable": "3158:a2xz44",
+  "ideogram": "3179:ulp3a7",
+  "copilot": "4177:ig3o19"
+ },
+ "blockHash": "2958:1t5d48m",
+ "blockChars": 2958,
+ "specHash": "3524:mxy0ec",
+ "cases": [
+  {
+   "name": "case-1 no image",
+   "images": 0,
+   "blockChars": 0,
+   "check": "clean"
+  },
+  {
+   "name": "case-2 one image",
+   "images": 1,
+   "blockChars": 1702,
+   "check": "clean"
+  },
+  {
+   "name": "case-3 photo + logo",
+   "images": 2,
+   "blockChars": 2271,
+   "check": "clean"
+  },
+  {
+   "name": "case-4 + product",
+   "images": 3,
+   "blockChars": 2958,
+   "check": "clean"
+  },
+  {
+   "name": "case-5 + background",
+   "images": 4,
+   "blockChars": 3499,
+   "check": "clean"
+  },
+  {
+   "name": "case-6 multiple products",
+   "images": 3,
+   "blockChars": 2667,
+   "check": "clean"
+  },
+  {
+   "name": "case-7 locked logo",
+   "images": 2,
+   "blockChars": 2271,
+   "check": "clean"
+  },
+  {
+   "name": "case-8 locked product",
+   "images": 2,
+   "blockChars": 2464,
+   "check": "clean"
+  },
+  {
+   "name": "case-9 custom role",
+   "images": 2,
+   "blockChars": 2366,
+   "check": "clean"
+  },
+  {
+   "name": "case-10 different positions",
+   "images": 3,
+   "blockChars": 3045,
+   "check": "clean"
+  },
+  {
+   "name": "case-11 different treatments",
+   "images": 4,
+   "blockChars": 3618,
+   "check": "clean"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+/* ===== MGS v3.0 PHASE 5 — design director: style, mood and background intelligence (additive styles) =====
+   Same discipline as Phases 2–4: every selector is mgs-prefixed and scoped under .mgs-director, the colours
+   and radii come from v2.0's own custom properties, type sizes are rem, nothing is positioned absolutely,
+   there is no media query (the containers above already respond) and no horizontal scroller. Selection is
+   never carried by colour alone: each state also prints a word, so the meters below are decoration.      */
+.mgs-director{margin:14px 0 0;padding:12px 13px 13px;border:1px solid var(--border);border-radius:11px;
+  background:var(--bg2,rgba(255,255,255,.02))}
+.mgs-director .mgs-h4{margin:14px 0 6px}
+.mgs-p5-head>.mgs-h4{margin-top:0}
+.mgs-p5-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mgs-p5-sug,.mgs-p5-conf,.mgs-p5-custom,.mgs-p5-guide,.mgs-p5-why{display:flex;flex-direction:column;gap:5px;min-width:0}
+.mgs-p5-sugrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px;padding:7px 10px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card);font-size:0.74rem;color:var(--text2)}
+.mgs-p5-field{flex:0 0 auto;font-weight:800;color:var(--text3);font-size:0.66rem;letter-spacing:.03em;text-transform:uppercase}
+.mgs-p5-val{flex:1 1 8rem;min-width:0;color:var(--text);font-weight:700;overflow-wrap:anywhere}
+.mgs-p5-tag{flex:0 0 auto;padding:2px 7px;border:1px solid var(--border);border-radius:999px;font-size:0.62rem;
+  font-weight:800;color:var(--text2);background:var(--card2)}
+.mgs-p5-tag-accepted{border-color:var(--accent);color:var(--text)}
+.mgs-p5-tag-you{border-color:var(--accent2);color:var(--text)}
+.mgs-p5-tag-already{opacity:.8}
+.mgs-p5-whyh{margin:2px 0 0;font-size:0.72rem;font-weight:800;color:var(--text2)}
+.mgs-p5-whyline{margin:0;font-size:0.72rem;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
+.mgs-p5-disc{margin:4px 0 0;font-size:0.68rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-p5-acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:9px}
+.mgs-p5-status{margin:6px 0 0;font-size:0.7rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-p5-status[data-override="1"]{border-left:2px solid var(--accent2);padding-left:8px;color:var(--text2)}
+.mgs-p5-custom{padding:10px 11px;border:1px dashed var(--border);border-radius:10px;background:var(--card2)}
+.mgs-p5-fh{margin:0;font-size:0.76rem;font-weight:800;color:var(--text)}
+.mgs-p5-modes{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.mgs-p5-input{box-sizing:border-box;width:100%;max-width:100%;margin-top:6px;padding:8px 10px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card);color:var(--text);font-family:inherit;font-size:0.74rem;line-height:1.4}
+.mgs-p5-input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.mgs-p5-kv{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:0.72rem;color:var(--text2);
+  padding:6px 9px;border:1px solid var(--border);border-radius:8px;background:var(--card);overflow-wrap:anywhere}
+.mgs-p5-k{flex:0 0 auto;font-size:0.64rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--text3)}
+.mgs-p5-v{flex:1 1 12rem;min-width:0;color:var(--text2)}
+.mgs-p5-meter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:6px 9px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card)}
+.mgs-p5-dots{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.mgs-p5-dot{width:.62rem;height:.62rem;border-radius:999px;border:1px solid var(--border);background:var(--card2)}
+.mgs-p5-dot.on{border-color:var(--accent);background:var(--accent)}
+.mgs-p5-num{font-size:0.66rem;font-weight:800;color:var(--text3);margin-left:2px}
+.mgs-p5-conf{padding:9px 10px;border:1px solid var(--accent2);border-radius:10px;background:var(--card)}
+.mgs-p5-conftitle{margin:0;font-size:0.76rem;font-weight:800;color:var(--text)}
+.mgs-p5-confdetail,.mgs-p5-conffix,.mgs-p5-keptline{margin:4px 0 0;font-size:0.71rem;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
+.mgs-p5-conffix{color:var(--text3)}
+.mgs-p5-dismissed{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:0.7rem;color:var(--text3);
+  padding:7px 9px;border:1px dashed var(--border);border-radius:9px}
+.mgs-p5-prev{display:flex;flex-direction:column;gap:5px;padding:9px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card2)}
+.mgs-p5-prev .mgs-pretty{max-height:14rem}
+.mgs-p5-note,.mgs-p5-trail{margin:0;font-size:0.69rem;line-height:1.5;color:var(--text3);overflow-wrap:anywhere}
+.mgs-p5-custom-line .mgs-p5-v{color:var(--text);font-weight:700}
+.mgs-director .mgs-mini2[aria-pressed="true"]{border-color:var(--accent2);background:var(--card);color:var(--text)}
+.mgs-director .mgs-mini2:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mgs-p5-off{display:none}
+.mgs-p5-now{font-size:0.7rem;color:var(--text2)}
+.mgs-p5-arrow{font-size:0.72rem;color:var(--text3);font-weight:800}

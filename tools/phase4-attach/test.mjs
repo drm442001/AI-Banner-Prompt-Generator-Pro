@@ -209,8 +209,10 @@ async function main() {
   ok(globalsNow.join(',') === MGSNAMES.join(',') && globalsNow.indexOf('MGSAttach') === -1, 'P4 017',
     'the window still carries exactly the twelve MGS* names the shell introduced — Phase 4 added no global (its surface is MGS.assets.attach) → ' + globalsNow.length + ' names');
   ok(Object.isFrozen(w0.MGS), 'P4 018', 'the frozen top-level MGS namespace is still frozen — the layer respects it instead of unfreezing it');
-  ok(w0.MGS.bus.subscribers() <= 16, 'P4 019', 'no listener leak: bus subscribers with Phase 4 mounted = ' + w0.MGS.bus.subscribers());
-  ok(w0.MGS.bus.subscribers() === 16, 'P4 020', 'and Phase 4 used exactly the three handlers it was allotted (13 before it, ceiling 16)');
+  /* ceiling raised 16 → 21 for Phase 5; Phase 4 itself still adds exactly three handlers */
+  /* ceiling 21 \u2192 26 for Phase 6; Phase 4 itself still adds exactly three handlers */
+  ok(w0.MGS.bus.subscribers() <= 26, 'P4 019', 'no listener leak: bus subscribers with Phase 4 mounted = ' + w0.MGS.bus.subscribers());
+  ok(w0.MGS.bus.subscribers() === 26, 'P4 020', 'and Phase 4 used exactly the three handlers it was allotted (13 before it, 16 after it, 21 with Phase 5’s five)');
   ok(w0.MGSUI.bindings() === 10, 'P4 021', 'the shell’s own binding registry is untouched → ' + w0.MGSUI.bindings());
   const names = ['map', 'mapText', 'instructions', 'instructionsText', 'usage', 'usageText', 'block', 'spec', 'check', 'copy', 'texts', 'refresh', 'exactText', 'sections', 'stats', 'mount', 'roleSentences', 'treatmentSentences', 'positionSentences', 'notes'];
   ok(names.every(n => typeof A4(w0)[n] === 'function'), 'P4 022', 'MGS.assets.attach exposes the whole mapping surface → ' + names.length + ' names');
@@ -633,14 +635,26 @@ async function main() {
   /* v2.0's own controls, untouched */
   const T1b = await boot(); await T1b.done();
   const B1b = await bootBase(); await B1b.done();
-  const PREVHTML = (() => { try { return execFileSync('git', ['show', 'HEAD:AI Banner Prompt Generator Pro.html'], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).replace(/\r\n/g, '\n'); } catch (e) { return null; } })();
+  /* The comparison build is the *shipped Phase-3 file*, resolved out of git history by the commit
+     subject rather than by HEAD or a hash, so this check keeps measuring "Phase 4 vs Phase 3" after
+     Phase 4 has been committed (HEAD: would silently become self-comparison). */
+  const PREVHTML = (() => {
+    try {
+      const sha = execFileSync('git', ['log', '-1', '--format=%H', '--grep=v3.0 Phase 3', '--', 'AI Banner Prompt Generator Pro.html'], { cwd: REPO, encoding: 'utf8' }).trim();
+      if (!sha) { return null; }
+      return execFileSync('git', ['show', sha + ':AI Banner Prompt Generator Pro.html'], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).replace(/\r\n/g, '\n');
+    } catch (e) { return null; }
+  })();
   let P1b = null;
   if (PREVHTML) { const bp = makeBoot(PREVHTML); P1b = await bp(); await P1b.done(); }
   const census = b => ['button', 'input[type=checkbox]', 'select', 'textarea', '.tab-btn', '#pfG .pi'].map(sel => qa(b.d, sel).length).join('/');
   const cNow = census(T1b).split('/'), cPrev = P1b ? census(P1b).split('/') : cNow.slice();
+  ok(P1b !== null, 'P4 216b', 'the Phase-3 comparison build was resolved from git history, so the census below is a real two-build diff and not a file compared with itself → ' + (P1b ? 'found' : 'git log --grep=v3.0 Phase 3 returned nothing'));
   ok(cNow[1] === cPrev[1] && cNow[2] === cPrev[2] && cNow[3] === cPrev[3] && cNow[4] === cPrev[4] && cNow[5] === cPrev[5], 'P4 216',
     'Phase 4 added no checkbox, no select, no textarea, no tab and no platform tile — every one of those counts is identical to the shipped Phase-3 build → ' + cNow.slice(1).join('/') + ' vs ' + cPrev.slice(1).join('/'));
-  ok(Number(cNow[0]) - Number(cPrev[0]) === 6 && qa(T1b.d, '#mgsCopyRow button').length === 4 && !!gid(T1b.d, 'mgsExactSwitch') && !!gid(T1b.d, 'mgsAttachRefresh'), 'P4 216a',
+  /* 6 buttons were Phase 4’s own; the 10 in the shipped file are Phase 5’s Design Director buttons,
+     counted live from its card rather than pinned, so this row cannot rot when that card changes.        */
+  ok(Number(cNow[0]) - Number(cPrev[0]) === 6 + qa(T1b.d, '#mgsDirector button').length + qa(T1b.d, '#mgsLayoutAdv button').length && qa(T1b.d, '#mgsCopyRow button').length === 4 && !!gid(T1b.d, 'mgsExactSwitch') && !!gid(T1b.d, 'mgsAttachRefresh'), 'P4 216a',
     'and the whole of the button delta is this phase’s six controls, all inside its own card or row → ' + cPrev[0] + ' → ' + cNow[0] + ' buttons');
   ok(qa(T1b.d, '.tab-btn').length === 7 && ['t0', 't1', 't2', 't3', 't4', 't5', 't6'].every(id => gid(T1b.d, id)), 'P4 217', 'seven tabs and the seven panes they switch between, under v2.0’s own ids');
   ok(['tR', 'tV', 'tP', 'tN', 'tA'].every(id => !!gid(T1b.d, id)), 'P4 218', 'the five v2.0 toggle controls still exist under the same ids — the ones this layer reads for PRODUCTION REQUIREMENTS and DESIGN RULES');
@@ -818,8 +832,10 @@ async function main() {
   ok(PLATS.every(p => A4(D0.w).check().ok && /IMAGE ATTACHMENT MAP/.test(blkOf(bigRun.prompts[p]))), 'P4 265', 'five images, eight platforms: clean check and a map in every single prompt');
   ok(D0.w.MGS.state.ui.initErrors.length === 0, 'P4 266', 'the shell recorded no init error with the whole stack mounted → ' + JSON.stringify(D0.w.MGS.state.ui.initErrors));
   ok(!/@media/.test(SRC_CSS), 'P4 267', 'the stylesheet never contains the media-query token, not even in its own comment (which is what P4 014 counts)');
-  ok(Object.keys(D0.w.MGS.state).length === 23 && Object.keys(D0.w.MGS.state).indexOf('attach') === -1 && !!D0.w.MGS.state.assets, 'P4 268',
-    'state stays the single store the earlier phases agreed on (23 namespaces, no new one); Phase 4 writes only state.assets.exactText → ' + Object.keys(D0.w.MGS.state).length);
+  /* Phase 4 promised not to add a state namespace; it kept that promise, and the 24th name here is
+     Phase 5’s designDir, added under the same one-object-per-layer rule → still no loose keys.         */
+  ok(Object.keys(D0.w.MGS.state).length === 25 && Object.keys(D0.w.MGS.state).indexOf('attach') === -1 && !!D0.w.MGS.state.assets, 'P4 268',
+    'state stays the single store the earlier phases agreed on (23 namespaces at Phase 4, +designDir, +layoutDir = 25 \u2014 one object per layer, never loose fields); Phase 4 writes only state.assets.exactText \u2192 ' + Object.keys(D0.w.MGS.state).length);
 }
 
 function report() {

@@ -81,6 +81,14 @@ const hash = s => { const t = s == null ? '' : String(s); let h = 5381; for (let
 const PNG = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 7, 8, 9, 10, 11, 12, 13, 14]);
 const file = (w, name, type_, bytes) => new w.File([bytes || PNG], name, { type: type_ || 'image/png' });
 /* the sanctioned way to hand files to the layer: the same property the browser sets on <input type=file> */
+/* Phase 3 reads a preview with FileReader, which is asynchronous; Phase 5 legitimately puts more work
+   on the same turn, so anything that ends up waiting on the preview waits for the *condition*, bounded
+   to 4 s, instead of guessing a duration. Nothing here changes an assertion — only how it is waited for. */
+const until = (w, pred, ms) => new Promise(res => {
+  const stop = Date.now() + (ms || 4000);
+  const tick = () => { let v = false; try { v = !!pred(); } catch (e) { v = false; } if (v || Date.now() > stop) return res(v); setTimeout(tick, 10); };
+  tick();
+});
 const pickFiles = (d, w, files, id) => {
   const inp = gid(d, id || 'mgsFileInput');
   if (!inp) throw new Error('no file input');
@@ -224,7 +232,9 @@ async function main() {
   const idl = idsIn(d);
   ok(idl.length === new Set(idl).size, 'P3 053', 'no duplicate id after mounting the asset card → ' + idl.length + ' ids');
   ok(A.count() === 0 && A.list().length === 0 && A.stats().bytes === 0, 'P3 054', 'the list starts genuinely empty');
-  ok(Number(w.MGS.bus.subscribers()) <= 16, 'P3 055', 'no listener leak: bus subscribers after phase 3 = ' + w.MGS.bus.subscribers());
+  /* ceiling raised 16 → 21 by Phase 5’s five subscriptions (one per topic it reads) */
+  /* ceiling 21 \u2192 26, for Phase 6\u2019s five subscriptions (one per topic it reads) */
+  ok(Number(w.MGS.bus.subscribers()) <= 26, 'P3 055', 'no listener leak: bus subscribers after phase 3 = ' + w.MGS.bus.subscribers());
   ok(w.MGSUI.bindings() === 10, 'P3 056', 'the shell still owns exactly its 10 bindings (the asset layer wired its own, outside the shell table)');
   ok(A.stats().previewCache.kept === 0 && A.stats().saveState === 'idle', 'P3 057', 'nothing cached and nothing written at boot → ' + JSON.stringify(A.stats().previewCache));
   ok(gid(d, 'icount').value === '1' && gid(d, 'itype').value === 'person' && gid(d, 'ipos').value === 'left' && gid(d, 'istyle').value === 'cutout', 'P3 058',
@@ -271,6 +281,7 @@ async function main() {
   const fLogo = file(w, 'shop-logo.png', 'image/png');
   pickFiles(d, w, [fLogo]);
   await A0.wait(120);
+  await until(w, () => { const r = A.list()[0]; return r && r.preview !== 'none'; });   /* preview is async — wait for it, not for a clock */
   ok(A.count() === 1, 'P3 083', 'one image attached through the real picker path');
   const rec0 = A.list()[0], m0 = A.get(rec0.id);
   ok(!/dataUrl|dataurl|base64|blob|binary|rawBytes/.test(Object.keys(rec0).join()) && rec0.filename && rec0.size > 0, 'P3 084',
@@ -882,7 +893,9 @@ async function main() {
   const N8 = await boot(); await N8.done();
   const budget = N8.w.MGS.assets.limits().previewBudget;
   pickFiles(N8.d, N8.w, [file(N8.w, 'p1.png', 'image/png', tiny(Math.floor(budget * 0.6))), file(N8.w, 'p2.png', 'image/png', tiny(Math.floor(budget * 0.6))), file(N8.w, 'p3.png', 'image/png', tiny(512))]);
-  await N8.wait(400);
+  /* three previews of 60 % of the budget each are real work in jsdom; the assertion is about which of
+     them survive the budget, so it waits for the count to settle instead of for a fixed 400 ms          */
+  await until(N8.w, () => { const z = N8.w.MGS.assets.stats().previewCache; return z && (z.kept + z.skipped) >= 3; }, 12000);
   const pc = N8.w.MGS.assets.stats().previewCache;
   ok(N8.w.MGS.assets.count() === 3 && pc.kept >= 1 && pc.skipped >= 1, 'P3 311', 'over-budget previews are skipped rather than blowing the storage quota → ' + JSON.stringify(pc));
   ok(/preview/.test(txt(gid(N8.d, 'mgsAssetList'))), 'P3 312', 'and the tile that lost its thumbnail says so');
@@ -914,7 +927,8 @@ async function main() {
   ok(Ow.MGS.assets.list().length === 0 && Ow.MGS.assets.settings().count === '1', 'P3 323', 'REG 155’s Phase-1 guarantee still holds with Phase 3 mounted');
   Ow.MGS.assets.clear();
   ok(Ow.MGS.assets.list().length === 0, 'P3 324', 'clear() keeps its Phase-1 meaning (empties the list, returns ok)');
-  ok(Ow.MGS.state.ui.navigation.length === 12 && Ow.MGS.state.ui.tabs.length === 7, 'P3 325', 'the shell’s navigation/tab registries are untouched by the new card');
+  ok(Ow.MGS.state.ui.navigation.length === 13 && Ow.MGS.state.ui.navigation[0].id === 'start' && Ow.MGS.state.ui.tabs.length === 7, 'P3 325',
+    'the shell’s navigation/tab registries are untouched by the new card (12 entries in their original order, plus the design-direction step Phase 5 appended)');
   ok(Ow.MGSDesign.intent && Object.keys(Ow.MGS.state.designIntent).length > 10, 'P3 326', 'Phase 2’s state containers survive the new layer (nothing re-created them away)');
   const reread = await genAll(O0, { cat: 'sale', btype: 'hoarding', head: 'AFTER RESET' });
   ok(PLATS.every(p => !/USER ATTACHMENTS/.test(reread.prompts[p] || '')), 'P3 327', 'after a reset the prompts stop mentioning images at once (no ghost assets)');

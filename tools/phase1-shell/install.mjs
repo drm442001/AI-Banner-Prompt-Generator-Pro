@@ -4,6 +4,7 @@
      node install.mjs          install / refresh (idempotent)
      node install.mjs --check  exit 1 if the app's shell block differs from src/
      node install.mjs --remove strip the layer, restoring byte-exact v2.0
+     node install.mjs --out f   write the src build to f instead of the app (with MGS_EXCLUDE=… for a variant)
    Guarantee: the three regions are inserted and removed as whole units, so the
    surrounding v2.0 bytes (including whitespace) are never touched.          */
 import fs from 'node:fs';
@@ -16,7 +17,12 @@ const REPO = path.resolve(HERE, '../..');
 const APP = path.join(REPO, 'AI Banner Prompt Generator Pro.html');
 const GOLDEN = path.join(REPO, '_MGS_BASELINE_v2.0', 'AI Banner Prompt Generator Pro [v2.0 GOLDEN BASELINE - DO NOT EDIT].html');
 
-const SRC = f => { const p = path.join(HERE, 'src', f); if (!fs.existsSync(p)) { return ''; } return fs.readFileSync(p, 'utf8')
+/* MGS_EXCLUDE="mgs-phase6.js,mgs-phase6.css" builds the file as it looked before a layer existed, which is
+   how a later phase measures itself against the previous one. --out <path> writes that build somewhere other
+   than the app file. Both exist so the comparison never depends on git history, which does not survive a
+   fresh sandbox.                                                                                              */
+const EXCLUDE = new Set((process.env.MGS_EXCLUDE || '').split(',').map(x => x.trim()).filter(Boolean));
+const SRC = f => { const p = path.join(HERE, 'src', f); if (!fs.existsSync(p) || EXCLUDE.has(f)) { return ''; } return fs.readFileSync(p, 'utf8')
   .replace(/\r\n/g, '\n')
   .replace(/^(\/\*|<!--) ?MGS:(PHASE1|PHASE2):[A-Z]+:(START|END)( \*\/| -->)$/gm, '')
   .replace(/\n{3,}/g, '\n')
@@ -24,9 +30,9 @@ const SRC = f => { const p = path.join(HERE, 'src', f); if (!fs.existsSync(p)) {
 
 /* each layer file is optional; empty files add nothing (byte-stable while a phase is in progress) */
 const cat = (...parts) => parts.map(x => x.trim()).filter(Boolean).join('\n');
-const css = cat(SRC('mgs-shell.css'), SRC('mgs-phase2.css'), SRC('mgs-phase3.css'), SRC('mgs-phase4.css'));
+const css = cat(SRC('mgs-shell.css'), SRC('mgs-phase2.css'), SRC('mgs-phase3.css'), SRC('mgs-phase4.css'), SRC('mgs-phase5.css'), SRC('mgs-phase6.css'));
 const html = cat(SRC('mgs-shell.html'));
-const js = cat(SRC('mgs-shell.js'), SRC('mgs-phase2.js'), SRC('mgs-phase3.js'), SRC('mgs-phase4.js'));
+const js = cat(SRC('mgs-shell.js'), SRC('mgs-phase2.js'), SRC('mgs-phase3.js'), SRC('mgs-phase4.js'), SRC('mgs-phase5.js'), SRC('mgs-phase6.js'));
 
 /* One uniform rule, so insert/strip are exact inverses:
    a region is  START ... END + one newline,  inserted immediately before its anchor. */
@@ -83,6 +89,17 @@ if (mode === '--check') {
     console.log(`  first difference at line ${i + 1}\n  app: ${JSON.stringify((a[i] || '').slice(0, 80))}\n  src: ${JSON.stringify((b[i] || '').slice(0, 80))}`);
   }
   process.exit(inSync ? 0 : 1);
+}
+
+const outAt = process.argv.indexOf('--out');
+if (outAt > -1 && process.argv[outAt + 1]) {
+  const target = path.resolve(process.argv[outAt + 1]);
+  fs.writeFileSync(target, crlf(produced), 'utf8');
+  const rt = stripLayer(lf(produced));
+  console.log('variant build →', path.basename(target), produced.length, 'bytes /', produced.split('\n').length, 'lines',
+    '| excluded:', [...EXCLUDE].join(',') || 'none',
+    '| v2.0 core identical to golden baseline:', rt.replace(/\n+$/, '') === lf(fs.readFileSync(GOLDEN, 'utf8')).replace(/\n+$/, ''));
+  process.exit(0);
 }
 
 const before = digest(APP);

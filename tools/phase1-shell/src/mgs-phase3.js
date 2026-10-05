@@ -1353,6 +1353,9 @@
     extend(MGS.prompt, {
       assetBlock: blockText,
       withAssetBlock: withBlock,
+      /* the tail splitter is shared on purpose: every block a later phase appends must land before a
+         platform's own parameter tail, and there must be exactly one rule for where that is */
+      splitParams: splitParams,
       stripAssetBlock: stripBlock,
       augmentAssets: augmentOutput
     });

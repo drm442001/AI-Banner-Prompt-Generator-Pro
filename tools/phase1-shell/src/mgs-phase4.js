@@ -377,7 +377,17 @@
       if (plat && typeof win.gPr[plat] === 'string') { t = win.gPr[plat]; }
       else { for (k in win.gPr) { if (has(win.gPr, k) && win.gPr[k]) { t = String(win.gPr[k]); break; } } }
     }
-    return { text: stripBlock(String(t || '')), had: !!t };
+    t = stripBlock(String(t || ''));
+    /* Phase 5 appends its own fenced block beside this one. The specification is a view of what v2.0
+       itself emitted, so neither block may be inside the text it lifts its sections from. */
+    var sd = promptApi && typeof promptApi.stripDesignBlock === 'function' ? promptApi.stripDesignBlock : null;
+    if (sd) { t = String(sd(t) || ''); }
+    /* Phase 6’s layout block is the same kind of appendage, so the same rule applies to it: the
+       specification is v2.0’s own text lifted section by section, never a re-publication of a later
+       layer’s block inside a v2.0 heading.                                                               */
+    var sl = promptApi && typeof promptApi.stripLayoutBlock === 'function' ? promptApi.stripLayoutBlock : null;
+    if (sl) { t = String(sl(t) || ''); }
+    return { text: t, had: !!t };
   }
   function stripBlock(t) {
     var s = String(t == null ? '' : t), from = s.indexOf(TOP), pre, endI, tail;

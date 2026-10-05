@@ -164,7 +164,10 @@ const A0 = boot({ html: GOLDEN_LF }); await A0.done();
   ok(s.platform.selected.join() === 'chatgpt', 'REG 028', 'platform selection initialised from the v2.0 default');
   ok(s.rules.includeDesignRules === true && s.rules.catalogue.length === 9, 'REG 029', 'design-rule catalogue read from v2.0 markup → ' + s.rules.catalogue.length);
   ok(s.language === 'marathi' && s.production.width === '6' && s.production.unit === 'feet', 'REG 030', 'language + production defaults mirror the v2.0 form');
-  ok(s.ui.tabs.length === 7 && s.ui.navigation.length === 12, 'REG 031', '7 existing tabs registered, 12 flow steps START…PROJECT');
+  /* retargeted in Phase 5: the flow gained one step (design-direction:live) in the same registry the
+     shell already exposed. Seven tabs and the first twelve steps are untouched — only the count moved. */
+  ok(s.ui.tabs.length === 7 && s.ui.navigation.length === 13 && s.ui.navigation.slice(0, 12).map(n => n.id).join() === 'start,content,assets,design,layout,typography,brand,production,rules,design-check,ai-output,project', 'REG 031',
+    '7 existing tabs registered, the 12 flow steps START…PROJECT in their original order, plus the design-direction step Phase 5 added');
   ok(s.ui.tabs.every(t => t.id === 't' + t.index && /^sT\(\d\)$/.test(t.v2call)), 'REG 032', 'tab registry points at v2.0 sT() — no parallel renderer');
   ok(A.w.MGS.app.selfTest().ok === true, 'REG 033', 'selfTest green at boot → ' + JSON.stringify(A.w.MGS.app.selfTest().problems));
   ok(typeof A.w.MGSState.get('intent.category') === 'string' && A.w.MGSState.get('nope.deep.path') === undefined, 'REG 034', 'get() reads by path, safe on unknown paths');

@@ -425,7 +425,10 @@ async function main() {
   for (let i = 0; i < 40; i++) { D2.w.MGSDesign.interpret('sale sale wedding ' + i); D2.w.MGSDesign.regenerate(); }
   ok(D2.w.MGS.state.ui.announcements.length <= 10 && Object.keys(D2.w.MGS.state.provenance).length <= 40 && D2.w.MGSDesign.suggestions().length <= 8, 'P2 144',
     'no unbounded growth after 40 interpretations → announcements=' + D2.w.MGS.state.ui.announcements.length + ' provenance=' + Object.keys(D2.w.MGS.state.provenance).length + ' suggestions=' + D2.w.MGSDesign.suggestions().length);
-  ok(D2.w.MGS.bus.subscribers() <= 16 && D2.w.MGSUI.bindings() <= 12, 'P2 145', 'no listener leak: bus=' + D2.w.MGS.bus.subscribers() + ' shell bindings=' + D2.w.MGSUI.bindings());
+  /* ceiling raised 16 → 21 for Phase 5, which subscribes once each to app:boot, state:change,
+     assets:change, generate:done and state:reset; this phase’s own handlers are still exactly one each. */
+  /* ceiling 21 \u2192 26: Phase 6 subscribes to the same five topics this layer watches, one each */
+  ok(D2.w.MGS.bus.subscribers() <= 26 && D2.w.MGSUI.bindings() <= 12, 'P2 145', 'no listener leak: bus=' + D2.w.MGS.bus.subscribers() + ' shell bindings=' + D2.w.MGSUI.bindings());
 
   /* ═══════════════ J. v2.0 prompt generation is unchanged ═══════════════ */
   const fill = (b, fields) => { for (const [k, v] of Object.entries(fields)) { try { set(b.d, b.w, k, v); } catch { /* id not in v2.0 */ } } };

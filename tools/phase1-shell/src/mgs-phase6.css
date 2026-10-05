@@ -1,0 +1,113 @@
+/* ===== MGS v3.0 PHASE 6 — layout intelligence, visual hierarchy and the layout advisor (additive styles) =====
+   Same discipline as Phases 2–5: every selector is mgs-prefixed and scoped under .mgs-layout6, the colours,
+   radii and type sizes come from v2.0's own custom properties, nothing is positioned absolutely, there is no
+   media query (the panels above already respond) and no element creates a horizontal page scroller.
+   Two rules carry the whole responsive story: every row is a wrapping flex container, and every text box is
+   allowed to break anywhere. Selection is never carried by colour alone — each state also prints a word.  */
+.mgs-layout6{margin:14px 0 0;padding:12px 13px 13px;border:1px solid var(--border);border-radius:11px;
+  background:var(--bg2,rgba(255,255,255,.02))}
+/* headings inherit v2.0’s own h4/h5 sizing: this layer restyles nothing it did not create */
+.mgs-p6-head>h4{margin-top:0}
+.mgs-p6-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mgs-p6-sug,.mgs-p6-alts,.mgs-p6-custom,.mgs-p6-conf,.mgs-p6-notes,.mgs-p6-bands,.mgs-p6-preview,.mgs-p6-why,
+.mgs-p6-density{display:flex;flex-direction:column;gap:5px;min-width:0}
+
+/* the recommendation itself */
+.mgs-p6-sugrow{display:flex;flex-direction:column;gap:6px;padding:9px 11px;border:1px solid var(--border);
+  border-radius:9px;background:var(--card);font-size:0.74rem;color:var(--text2)}
+.mgs-p6-sugrow.same{border-color:var(--accent)}
+.mgs-p6-reco{margin:0;font-size:0.82rem;font-weight:800;color:var(--text);overflow-wrap:anywhere}
+.mgs-p6-why-list{display:flex;flex-direction:column;gap:3px}
+.mgs-p6-whyhead{margin:2px 0 0;font-size:0.72rem;font-weight:800;color:var(--text2)}
+.mgs-p6-reason,.mgs-p6-hint,.mgs-p6-cap,.mgs-p6-facts,.mgs-p6-ok{margin:0;font-size:0.72rem;line-height:1.5;
+  color:var(--text2);overflow-wrap:anywhere}
+.mgs-p6-limit{margin:0;font-size:0.72rem;line-height:1.5;color:var(--text3);overflow-wrap:anywhere}
+.mgs-p6-disc{margin:4px 0 0;font-size:0.68rem;color:var(--text3);overflow-wrap:anywhere}
+.mgs-p6-thin{margin:0;font-size:0.68rem;font-weight:700;color:var(--text2);border-left:2px solid var(--accent2);
+  padding-left:8px;overflow-wrap:anywhere}
+.mgs-p6-rowacts{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:3px}
+.mgs-p6-blocked{flex:1 1 12rem;min-width:0;font-size:0.7rem;color:var(--text2);overflow-wrap:anywhere}
+
+/* buttons: v2.0's own look, one class of ours so the card can be styled without touching its buttons */
+.mgs-p6-btn{padding:6px 11px;border:1px solid var(--border);border-radius:8px;background:var(--card2);
+  color:var(--text);font-family:inherit;font-size:0.72rem;font-weight:700;line-height:1.3;cursor:pointer}
+.mgs-p6-btn:hover{border-color:var(--accent)}
+.mgs-p6-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mgs-p6-btn[aria-pressed="true"]{border-color:var(--accent2);background:var(--card);color:var(--text)}
+.mgs-p6-main{border-color:var(--accent);background:var(--accent);color:#0b0d12}
+.mgs-p6-quiet{background:transparent;color:var(--text2)}
+.mgs-p6-tiny{padding:3px 7px;font-size:0.66rem;font-weight:800}
+.mgs-p6-acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:4px}
+
+/* alternatives */
+.mgs-p6-alt{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px;padding:7px 10px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card);font-size:0.72rem;color:var(--text2);overflow-wrap:anywhere}
+.mgs-p6-alt.now{border-color:var(--accent)}
+.mgs-p6-alt>b{color:var(--text);font-size:0.76rem}
+.mgs-p6-altscore{flex:0 0 auto;padding:2px 7px;border:1px solid var(--border);border-radius:999px;font-size:0.62rem;
+  font-weight:800;color:var(--text2);background:var(--card2)}
+.mgs-p6-alt .mgs-p6-hint,.mgs-p6-alt .mgs-p6-limit{flex:1 1 100%}
+.mgs-p6-alt .mgs-p6-btn{flex:0 0 auto}
+
+/* status and sources */
+.mgs-p6-status{margin:6px 0 0;display:flex;flex-direction:column;gap:3px}
+.mgs-p6-statusline{margin:0;font-size:0.72rem;font-weight:700;color:var(--text);overflow-wrap:anywhere}
+.mgs-p6-sources{margin:0;font-size:0.68rem;color:var(--text3);overflow-wrap:anywhere}
+
+/* custom wording */
+.mgs-p6-custom{padding:10px 11px;border:1px dashed var(--border);border-radius:10px;background:var(--card2)}
+.mgs-p6-custom h5,.mgs-p6-alts h5{margin:0 0 3px;font-size:0.76rem;color:var(--text)}
+.mgs-p6-customrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.mgs-p6-customtext{box-sizing:border-box;flex:1 1 16rem;min-width:0;padding:8px 10px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card);color:var(--text);font-family:inherit;font-size:0.74rem;line-height:1.4}
+.mgs-p6-customtext:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.mgs-p6-count{margin:0;font-size:0.66rem;color:var(--text3)}
+.mgs-p6-own{margin:0;font-size:0.7rem;color:var(--text2);overflow-wrap:anywhere}
+
+/* the hierarchy: four bands, rows of real buttons, no drag required and no colour alone */
+.mgs-p6-band{display:flex;flex-direction:column;gap:4px;padding:8px 9px;border:1px solid var(--border);
+  border-radius:9px;background:var(--card)}
+.mgs-p6-bandhead{margin:0;font-size:0.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--text3)}
+.mgs-p6-bandwhy{font-size:0.66rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text3)}
+.mgs-p6-item{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:5px 8px;border:1px solid var(--border);
+  border-radius:7px;background:var(--card2);font-size:0.74rem;color:var(--text)}
+.mgs-p6-item:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mgs-p6-item.absent{border-style:dashed}
+.mgs-p6-itemlabel{flex:1 1 8rem;min-width:0;overflow-wrap:anywhere}
+.mgs-p6-absent{flex:0 0 auto;font-size:0.64rem;color:var(--text3)}
+.mgs-p6-itemacts{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+
+/* the structure drawing: text, so it is drawn in the page's own mono box and never claimed as artwork */
+/* The drawing is 42 characters wide at 0.62rem (about 220px), so it fits the narrowest phone column the
+   page itself supports; it is never given a scroll container, because the whole stylesheet is censused for
+   exactly that by the Beginner suite and no v2.0 card has one.                                            */
+.mgs-p6-preview{font-family:var(--mono,ui-monospace,Menlo,Consolas,monospace);font-size:0.62rem;line-height:1.35;
+  margin:0;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text2);
+  white-space:pre;max-width:100%;overflow-wrap:normal}
+.mgs-p6-cap{font-family:inherit}
+
+/* density, format awareness, conflicts */
+.mgs-p6-density{padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card2)}
+.mgs-p6-warn{margin:0;font-size:0.72rem;line-height:1.5;color:var(--text);border-left:2px solid var(--accent2);
+  padding-left:8px;overflow-wrap:anywhere}
+.mgs-p6-confhead{margin:0;font-size:0.74rem;font-weight:800;color:var(--text)}
+.mgs-p6-conf{display:flex;flex-direction:column;gap:3px;padding:8px 10px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card)}
+.mgs-p6-conf>b{font-size:0.74rem;color:var(--text)}
+.mgs-p6-confwhy,.mgs-p6-conffix{margin:0;font-size:0.7rem;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
+.mgs-p6-conf .mgs-p6-rowacts{margin-top:5px}
+
+/* meters and pro notes */
+.mgs-p6-meter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:5px 8px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card2)}
+.mgs-p6-dots{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.mgs-p6-dot{width:.62rem;height:.62rem;border-radius:999px;border:1px solid var(--border);background:var(--card)}
+.mgs-p6-dot.on{background:var(--accent);border-color:var(--accent)}
+.mgs-p6-metertext{font-size:0.66rem;font-weight:800;color:var(--text2)}
+.mgs-p6-note{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:0.7rem;color:var(--text2);
+  padding:5px 8px;border:1px solid var(--border);border-radius:7px;background:var(--card);overflow-wrap:anywhere}
+.mgs-p6-note b{color:var(--text3);font-size:0.64rem;letter-spacing:.03em;text-transform:uppercase}
+.mgs-p6-note-log{margin:0;font-size:0.64rem;color:var(--text3);overflow-wrap:anywhere}
+
+/* visibility is a class, never the hidden attribute, and never colour alone */
+.mgs-p6-off{display:none}
